@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 gem 'pg'
 gem 'jquery-rails'
+gem 'haml'
+
+
 gem 'uglifier', '>= 1.3.0'      # Use Uglifier as compressor for JavaScript assets
 gem 'turbolinks'                # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'bcrypt-ruby', '~> 3.0.0' # Use ActiveModel has_secure_password
@@ -12,7 +15,6 @@ group :production do
 end
 
 group :test do
-
 end
 
 group :development do

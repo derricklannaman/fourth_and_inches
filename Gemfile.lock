@@ -146,6 +146,7 @@ DEPENDENCIES
   awesome_print
   better_errors
   binding_of_caller
+  haml
   haml-rails
   jbuilder (~> 1.2)
   jquery-rails
