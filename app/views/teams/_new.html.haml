@@ -1,14 +1,13 @@
-/ TODO: remove hardcoded youth options once director model and program is created
+/ TODO: remove hardcoded youth options once director model and program is created...also throws a 400() because of form for?
 
-= form_for(:team, remote: true, url: teams_path, html: {id: "create_new_team"}) do
+= form_for(:team, remote: true, html: {id: "create_new_team"}) do |f|
   %p
-    = label_tag :age_group, 'Select age group'
+    = f.label :age_group, 'Select age group'
   %p
-    = select_tag(:age_group, options_for_select([ ['7 Year Olds', 1], ['8 Year Olds', 2], ['9 Year Olds', 3], ['10 Year Olds', 4] ]))
+    = f.select(:age_group, options_for_select([ ['7 Year Olds', 1], ['8 Year Olds', 2], ['9 Year Olds', 3], ['10 Year Olds', 4] ]))
   %p
-    = label_tag :num_of_players, 'Add initial player count'
+    = f.label :num_of_players, 'Add initial player count'
   %p
     = number_field_tag(:num_of_players, 11, in: 11..50)
-
   %br
-  = submit_tag "create team", id: "create_team_button"
+  = f.submit "create team", id: "create_team_button"
