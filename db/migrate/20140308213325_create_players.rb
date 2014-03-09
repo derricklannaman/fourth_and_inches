@@ -7,8 +7,8 @@ class CreatePlayers < ActiveRecord::Migration
       t.string :town
       t.string :zip
       t.integer :dob
-      t.string :team_id
-      t.string :parent_id
+      t.integer :team_id
+      t.integer :parent_id
       t.integer :age
 
       t.timestamps
