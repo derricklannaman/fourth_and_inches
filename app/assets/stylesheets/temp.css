@@ -1,0 +1,10 @@
+.red_border {
+  border: 1px solid red;
+}
+
+#team_template {
+  float: right;
+  width: 600px;
+  height: 400px;
+  background-color: orange;
+}

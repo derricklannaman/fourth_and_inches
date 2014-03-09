@@ -1,0 +1,19 @@
+%h2= "Welcome #{@current_user.email} to the Dashboard"
+
+
+/ TODO: remove hardcoded youth options once director model and program is created
+#new_team_form
+  %h4 Create Your Team:
+  = form_tag(teams_path, remote: true, method: "post", class: "create_new_team") do
+    %p Select youth category for team
+    = select_tag(:age_group, options_for_select([ ['7 Year Olds', 1], ['8 Year Olds', 2], ['9 Year Olds', 3], ['10 Year Olds', 4] ]))
+
+    %br
+    = submit_tag "create team"
+
+
+#created_team
+
+
+
+
