@@ -5,21 +5,24 @@ class TeamsController < ApplicationController
   end
 
   def create
-    @team = Team.new(params[:team])
-    @team.title = get_age_group(params[:age_group])
+    @team = Team.new(team_params)
+    age_group = params[:team][:ag]
+    @team.title = get_age_group(age_group)
     @team.user_id = current_user.id
-    if @team.save
-
-      render :json => {team: @team}
-    else
-      render :text => "team not created"
-    end
-
+      if @team.save
+        render json: @team
+      else
+        render :new
+      end
   end
 
 
 
   private
+
+    def team_params
+      params.require(:team).permit(:title, :team, :user_id)
+    end
 
     def get_age_group(age_group)
       case age_group

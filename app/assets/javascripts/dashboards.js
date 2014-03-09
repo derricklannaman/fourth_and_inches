@@ -1,14 +1,37 @@
 // TODO: Set page guard
 $(document).ready(function() {
 
-  return $(".create_new_team").on("ajax:success", function(result) {
-    var team = $('<div id="team_template"><strong>This is the new team</strong></div>')
-    return $("#created_team").append(team);
+  $('#create_team_button').on('click', buildNewTeam);
 
-  }).bind("ajax:error", function(e, error) {
-    alert("Sorry something went wrong")
+});
+
+function buildNewTeam() {
+
+  var els = $('form#create_new_team')[0].elements;
+  var ageGroup = els[1].value;
+  var playerNum = els[2].value;
+
+  var initTeam = {
+    ag :ageGroup,
+    pn :playerNum,
+  }
+
+  $.ajax({
+    type: "POST",
+    url: "/teams/",
+    dataType: "json",
+    data: {
+      team: initTeam
+    },
+    success: function(result) {
+      var team = result;
+      var team_outline = $('<div id="team_template"><strong>This is the new team</strong></div>')
+      $("#created_team").append(team_outline);
+     },
+    error: function(e) {
+      console.log(e)
+    }
   });
 
 
-
-});
+}
