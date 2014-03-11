@@ -15,7 +15,7 @@ class TeamsController < ApplicationController
 
     # binding.pry
 
-    autocreate_players(num)
+    # autocreate_players(num)
 
       if @team.save
         render json: @team
