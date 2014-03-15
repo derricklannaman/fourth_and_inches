@@ -7,5 +7,5 @@ FourthAndInches::Application.routes.draw do
 
   resources :teams, only: [:create]
   resources :dashboard, only: [:create]
-  resources :players, only: [:new, :create]
+  resources :players, only: [:new, :create, :show]
 end
