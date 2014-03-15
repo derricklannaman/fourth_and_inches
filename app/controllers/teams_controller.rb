@@ -16,7 +16,6 @@ class TeamsController < ApplicationController
       if @team.save
         players = autocreate_players(num, @team.id)
 
-        # binding.pry
         team_template = {
           team_shell: @team,
           players_shell: players

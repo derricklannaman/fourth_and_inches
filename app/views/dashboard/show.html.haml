@@ -1,14 +1,18 @@
-%h2= "Welcome #{@current_user.email} to the Dashboard"
+%h2
+  = "Welcome #{@current_user.email} to the Dashboard"
 
-#new_team_form
-  %h4 Create Your Team:
+%section.sideControls.red_border
+  #newTeamButton New Team
 
-  = render "teams/new"
+  #new_team_form
 
-  = link_to "Add New Player", new_player_path
+    = render "teams/new"
 
+  %br
+  .clear
+
+  = link_to "Add New Player", new_player_path, id: "addNewPlayerButton"
 #created_team
-#team_hook
 
 
 
