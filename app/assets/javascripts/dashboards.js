@@ -17,8 +17,17 @@ function buildNewTeam() {
     },
     success: function(result) {
       var team = result;
-      var team_outline = $('<div id="team_template"><strong>'+ team.title +'</strong></div>')
+      var title = team.team_info.team_shell.title;
+      var players = team.team_info.players_shell;
+
+      var team_outline = $('<div id="team_template"><strong>'+ title +'</strong></div>')
       $("#created_team").append(team_outline);
+      var t = document.getElementById('team_template');
+      for (var i = 0; i < players.length; i++) {
+        var id = players[i].id
+        var p = $('<div '+ id +' class="playerShell" ></div>');
+        $(t).append(p)
+      };
      },
     error: function(e) {
       console.log(e)

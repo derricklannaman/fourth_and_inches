@@ -8,17 +8,20 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
 
     age_group = params[:team][:ag]
-    num = params[:team][:pn]
+    num = params[:team][:pn].to_i
 
     @team.title = get_age_group(age_group)
     @team.user_id = current_user.id
 
-    # binding.pry
-
-    # autocreate_players(num)
-
       if @team.save
-        render json: @team
+        players = autocreate_players(num, @team.id)
+
+        # binding.pry
+        team_template = {
+          team_shell: @team,
+          players_shell: players
+        }
+        render json: { team_info: team_template }
       else
         render :new
       end
@@ -32,10 +35,12 @@ class TeamsController < ApplicationController
       params.require(:team).permit(:title, :team, :user_id)
     end
 
-    def autocreate_players(num)
+    def autocreate_players(num, id)
+      list = []
       num.times do
-
+        list << Player.create(team_id: id)
       end
+      return list
     end
 
     def get_age_group(age_group)

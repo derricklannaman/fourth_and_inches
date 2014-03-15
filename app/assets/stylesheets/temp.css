@@ -8,3 +8,12 @@
   height: 400px;
   background-color: orange;
 }
+
+.playerShell {
+  float: left;
+  width: 100px;
+  height: 170px;
+  background-color: #FFF;
+  border: 1px solid red;
+  margin: 10px;
+}
