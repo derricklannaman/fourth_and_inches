@@ -1,0 +1,15 @@
+= link_to "back to dashboard", dashboard_path
+
+%h1= "team show page: #{@team.title} #{@team.age_group} "
+
+%h3 Name:
+%div
+  = @team.title
+
+%h3 Age group:
+%div
+  = @team.age_group
+
+%h3 Players on team:
+%div
+  = @team.num_of_players

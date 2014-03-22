@@ -13,41 +13,61 @@ function showNewTeamForm() {
 function buildNewTeam() {
   var teamInfo = package_team_info();
 
-  $.ajax({
-    type: "POST",
-    url: "/teams/",
-    dataType: "json",
-    data: {
-      team: teamInfo
-    },
-    success: function(result) {
-      var team = result;
-      var title = team.team_info.team_shell.title;
-      var players = team.team_info.players_shell;
+  // var t = $('#created_team');
+  // var c = t.children()[1];
 
-      var team_outline  = $('<div id="teamTemplate"></div>')
-      var team_title    = $('<div><strong>'+ title +'</strong></div>')
+  // if ( c.id == 'teamTemplate' ) {
+  //   document.getElementById('create_team_button').disabled;
+  //   // $('#create_team_button').attr('disabled', true);
+  // }
+  // else {
+    $.ajax({
+      type: "POST",
+      url: "/teams",
+      dataType: "json",
+      data: {
+        team: teamInfo
+      },
+      success: function(result) {
+        // $('#create_team_button').attr('disabled', true);
+       document.getElementById('create_team_button').disabled;
 
-      $("#created_team").prepend(team_outline);
-      var t = document.getElementById('teamTemplate');
-      team_title.insertBefore(t)
-      for (var i = 0; i < players.length; i++) {
-        var player = "player_";
-        var id = players[i].id;
-        var player_id = player + id;
-        var p = $('<div id="'+ player_id +'" class="playerPlaceHolder"></div>');
-        $(t).append(p);
-      };
-      var phs = $('.playerPlaceHolder');
-      for (var i = 0; i < phs.length; i++) {
-        phs[i].onclick = addPlayerDetails;
-      };
-     },
-    error: function(e) {
-      console.log(e)
-    }
-  });
+
+        var team = result;
+        var title = team.team_info.team_shell.title;
+        var players = team.team_info.players_shell;
+
+        var team_outline  = $('<div id="teamTemplate"></div>')
+        var team_title    = $('<div><strong>'+ title +'</strong></div>')
+
+        $("#created_team").prepend(team_outline);
+        var t = document.getElementById('teamTemplate');
+        team_title.insertBefore(t);
+        for (var i = 0; i < players.length; i++) {
+          var player = "player_";
+          var id = players[i].id;
+          var player_id = player + id;
+          var p = $('<div id="'+ player_id +'" class="playerPlaceHolder"></div>');
+
+
+          $(t).append(p);
+        };
+        var phs = $('.playerPlaceHolder');
+        for (var i = 0; i < phs.length; i++) {
+          phs[i].onclick = addPlayerDetails;
+        };
+       },
+      error: function(e) {
+        console.log(e)
+      }
+    });
+  // }
 }
+
+// function buildPlayerPlaceHolder(players) {
+//   console.log(players.length);
+// }
+
 
 function addPlayerDetails() {
   alert("player was clicked...add details!");

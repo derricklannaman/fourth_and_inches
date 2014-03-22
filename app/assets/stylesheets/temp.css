@@ -19,6 +19,7 @@
   cursor: pointer;
 }
 
+.control_button,
 #newTeamButton,
 #addNewPlayerButton,
 #create_team_button {

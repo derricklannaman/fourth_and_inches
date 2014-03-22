@@ -5,7 +5,7 @@ FourthAndInches::Application.routes.draw do
 
   get 'dashboard' => 'dashboard#show', as: 'dashboard'
 
-  resources :teams, only: [:create]
+  resources :teams    #, only: [:new, :create, :show]
   resources :dashboard, only: [:create]
-  resources :players, only: [:new, :create, :show]
+  resources :players      #, only: [:new, :create, :show]
 end

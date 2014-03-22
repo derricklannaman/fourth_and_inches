@@ -2,16 +2,14 @@
   = "Welcome #{@current_user.email} to the Dashboard"
 
 %section.sideControls.red_border
-  #newTeamButton New Team
 
-  #new_team_form
-
-    = render "teams/new"
+  = link_to "Add New Team", new_team_path, class: "control_button"
 
   %br
   .clear
 
-  = link_to "Add New Player", new_player_path, id: "addNewPlayerButton"
+  = link_to "Add New Player", new_player_path, class: "control_button"
+
 #created_team
 
 

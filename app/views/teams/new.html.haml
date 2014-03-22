@@ -1,0 +1,26 @@
+%h1 Create a new team
+
+= form_for @team do |f|
+
+  = hidden_field_tag :user_id, @user.id
+
+  %div
+  = f.label :title
+
+  %div
+  = f.text_field :title
+
+  %div
+    = f.label :age_group, 'Select age group'
+
+  %div
+    = f.select(:age_group, options_for_select([ ['7 Year Olds', 1], ['8 Year Olds', 2], ['9 Year Olds', 3], ['10 Year Olds', 4] ]))
+
+  %div
+  = f.label :num_of_players
+
+  %div
+  = f.text_field :num_of_players
+
+  %div
+  = f.submit :class => "control_button"

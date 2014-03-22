@@ -9,6 +9,7 @@
   %p
     = f.label :num_of_players, 'Add initial player count'
   %p
-    = number_field_tag(:num_of_players, 11, in: 11..50)
+    / TODO:change to default 11 players
+    = number_field_tag(:num_of_players, 4, in: 4..50)
   %br
-  = f.submit "create team", id: "create_team_button"
+  #create_team_button create team
