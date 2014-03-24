@@ -1,5 +1,7 @@
 class TeamsController < ApplicationController
 
+
+
   def index
     @teams = current_user.teams.most_recent_first
   end
@@ -11,9 +13,9 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.new(team_params)
-    @team.user_id = params[:user_id].to_i
+    @team.user_id = current_user.id
     group = params[:team][:age_group]
-    @team.age_group = get_age_group(group)
+    @team.age_group = get_age_group(group) # TODO: clean up
     if @team.save
       redirect_to @team
     else
@@ -21,8 +23,30 @@ class TeamsController < ApplicationController
     end
   end
 
+  def edit
+    find_team
+  end
+
   def show
-    @team = Team.find(params[:id])
+    find_team
+  end
+
+  def update
+    find_team
+    @team.update(team_params)
+    group = params[:team][:age_group]
+    @team.age_group = get_age_group(group) # TODO: clean up
+    if @team.save
+      flash[:notice] = "Team successfully updated"
+      redirect_to team_path @team
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    find_team.destroy
+    redirect_to dashboard_path
   end
 
 
@@ -33,34 +57,13 @@ private
     params.require(:team).permit(:title, :user_id, :age_group, :num_of_players)
   end
 
-  # def ajax_create
-  #   @team = Team.new()
-  #   age_group = params[:team][:ag]
-  #   num = params[:team][:pn].to_i
+  def find_team
+    @team = Team.find(params[:id])
+  end
 
-  #   @team.title = get_age_group(age_group)
-  #   @team.user_id = current_user.id
 
-  #     if @team.save
-  #       # players = autocreate_players(num, @team.id)
-  #       team_template = {
-  #         team_shell: @team,
-  #         players_shell: players
-  #       }
-  #       render json: { team_info: team_template }
-  #     else
-  #       render :new
-  #     end
-  # end
-
-  # def autocreate_players(num, id)
-  #   list = []
-  #   num.times do
-  #     list << Player.create(team_id: id)
-  #   end
-  #   return list
-  # end
-
+# TODO: remove hardcoded youth options once director model and program is
+# created...and correct in controllers
   def get_age_group(age_group)
     case age_group
     when "1"
