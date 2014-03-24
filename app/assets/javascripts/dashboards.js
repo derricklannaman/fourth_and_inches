@@ -1,6 +1,5 @@
 // TODO: Set page guard
 $(document).ready(function() {
-
   $('section#viewAllTeams, section#addNewTeam').hide();
   $('#allTeamsButton').on('click', showAllTeams);
   $('#addNewTeamButton').on('click', showNewTeamForm);
