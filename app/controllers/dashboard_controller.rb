@@ -6,7 +6,9 @@ class DashboardController < ApplicationController
   end
 
   def show
-    @current_user = current_user
+    @team = Team.new
+    @teams = current_user.teams.three_most_recent
+    @user = current_user
   end
 
 end

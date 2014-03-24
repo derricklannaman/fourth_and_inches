@@ -36,8 +36,6 @@ class User < ActiveRecord::Base
   has_many :players
   has_many :players, :through => :teams
 
-
-
   def create_coach_dashboard
     Dashboard.create(user_id: self.id)
   end

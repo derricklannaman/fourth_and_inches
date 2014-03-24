@@ -1,17 +1,27 @@
-%h2
-  = "Welcome #{@current_user.email} to the Dashboard"
+///////  COACHES DASHBOARD  /////////
+%header
+  %h2
+    = "Welcome #{@current_user.email} to the Dashboard"
 
-%section.sideControls.red_border
+%section#sideControls
 
-  = link_to "Add New Team", new_team_path, class: "control_button"
-
+  #addNewTeamButton Create New Team
   %br
-  .clear
+
+  #allTeamsButton View All Teams
+  %br
 
   = link_to "Add New Player", new_player_path, class: "control_button"
 
-#created_team
+.clear
 
+%section#addNewTeam
+  %br
+  = render "teams/new"
+
+%section#viewAllTeams
+  %br
+  = render "teams/index"
 
 
 

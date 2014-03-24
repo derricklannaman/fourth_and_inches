@@ -1,0 +1,48 @@
+/*////////////////////////////////////////////////////
+/                  DASHBOARD STYLE                  /
+//////////////////////////////////////////////////*/
+
+
+
+/*//////////////////////////////
+/     SIDE PANEL CONTROLS     /
+////////////////////////////*/
+
+section#sideControls{
+  float: left;
+  background-color: #DDD;
+  width: 220px;
+  padding: 20px 0px 20px 10px;
+  a.control_button {
+    border: 2px solid #999;
+    padding: 10px;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: 10px;
+    width: 140px;
+    background-color: #FFF;
+  }
+}
+
+/* TODO: create mixin to standardized buttons*/
+.control_button,
+#allTeamsButton,
+#addNewTeamButton,
+#cancelNewTeamForm,
+#closeAllTeamsView {
+  border: 2px solid #999;
+  padding: 10px;
+  display: inline-block;
+  cursor: pointer;
+  margin-bottom: 10px;
+  width: 140px;
+  background-color: #FFF;
+}
+
+
+
+
+
+
+
+
