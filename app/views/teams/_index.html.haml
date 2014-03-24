@@ -15,6 +15,10 @@
       Number of Players:
       = team.num_of_players
     %div
+      Active:
+      = team.active
+
+    %div
       = link_to "show", team_path(team)
       |
       = link_to "edit", edit_team_path(team)

@@ -1,7 +1,5 @@
 class TeamsController < ApplicationController
 
-
-
   def index
     @teams = current_user.teams.most_recent_first
   end
