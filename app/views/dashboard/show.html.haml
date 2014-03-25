@@ -3,15 +3,15 @@
   %h2
     = "Welcome #{@current_user.email} to the Dashboard"
 
-%section#sideControls
+#sideControls
 
-  #addNewTeamButton Create New Team
+  = link_to "Start New Team", new_team_path, remote: true, id: 'addNewTeamButton', class: "btn btn-default"
   %br
 
-  #allTeamsButton View All Teams
+  = link_to "View All Teams", '#', remote: true, id: 'allTeamsButton', class: "btn btn-default"
   %br
 
-  = link_to "Add New Player", new_player_path, class: "control_button"
+  = link_to "Add New Player", new_player_path, class: "btn btn-default"
 
 .clear
 

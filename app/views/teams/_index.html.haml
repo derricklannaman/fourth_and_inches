@@ -1,4 +1,4 @@
-#closeAllTeamsView Close
+#closeAllTeamsView.btn.btn-default Close
 
 %h1
   Teams list
@@ -19,9 +19,9 @@
       = team.active
 
     %div
-      = link_to "show", team_path(team)
+      = link_to "show", team_path(team), class: "btn btn-default"
       |
-      = link_to "edit", edit_team_path(team)
+      = link_to "edit", edit_team_path(team), class: "btn btn-default"
       |
-      = link_to "delete", team_path(team), method: :delete, data: {confirm: 'Are you sure?'}
+      = link_to "delete", team_path(team), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-default"
 

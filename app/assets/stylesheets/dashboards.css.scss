@@ -8,7 +8,7 @@
 /     SIDE PANEL CONTROLS     /
 ////////////////////////////*/
 
-section#sideControls{
+#sideControls{
   float: left;
   background-color: #DDD;
   width: 220px;
@@ -30,13 +30,13 @@ section#sideControls{
 #addNewTeamButton,
 #cancelNewTeamForm,
 #closeAllTeamsView {
-  border: 2px solid #999;
+/*  border: 2px solid #999;
   padding: 10px;
   display: inline-block;
   cursor: pointer;
   margin-bottom: 10px;
   width: 140px;
-  background-color: #FFF;
+  background-color: #FFF;*/
 }
 
 
