@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'authority'
+gem 'bootstrap-sass'
 gem 'devise'
 gem 'haml'
 gem 'jbuilder', '~> 1.2'
