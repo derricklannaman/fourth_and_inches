@@ -3,6 +3,19 @@
 //////////////////////////////////////////////////*/
 
 /*//////////////////////////////
+/   DASHBOARDS CURRENT TEAM   /
+////////////////////////////*/
+
+#current_team_container > .currentTeam {
+  float: left;
+  width: 600px;
+  min-height: 300px;
+  border: 2px solid #00F;
+  margin: 0px 15px;
+}
+
+
+/*//////////////////////////////
 /     TEAM 'POD' IN INDEX     /
 ////////////////////////////*/
 
@@ -19,7 +32,7 @@ section#addNewTeam {
   width: 220px;
   border: 1px solid #F00;
   margin-left: 10px;
-  padding: 1px 0px 20px 10px;
+  padding: 1px 0px 10px 10px;
 }
 
 /*//////////////////////////////

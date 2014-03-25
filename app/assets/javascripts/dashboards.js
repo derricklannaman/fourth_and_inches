@@ -1,17 +1,26 @@
+// Place all the behaviors and hooks related to the matching controller here.
+// All this logic will automatically be available in application.js.
 // TODO: Set page guard
 $(document).ready(function() {
   $('section#viewAllTeams, section#addNewTeam').hide();
   $('#allTeamsButton').on('click', showAllTeams);
   $('#addNewTeamButton').on('click', showNewTeamForm);
-  $('#cancelNewTeamForm').on('click', hideNewTeamForm);
+  $('#cancelNewTeamForm, #createTeamButton').on('click', hideNewTeamForm);
   $('#closeAllTeamsView').on('click', hideAllTeams);
+  $('.control_button.team_button').on('click', hideForm)
 });
 
-function hideNewTeamForm() {
+function hideForm() {
   $('section#addNewTeam').hide();
 }
 
+function hideNewTeamForm() {
+  $('section#addNewTeam').hide();
+  $('#current_team_container').show();
+}
+
 function showNewTeamForm() {
+  // $('#current_team_container').hide();
   $('section#addNewTeam').show();
 }
 

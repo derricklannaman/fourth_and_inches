@@ -16,8 +16,10 @@
 .clear
 
 %section#addNewTeam
-  %br
   = render "teams/new"
+
+%section#current_team_container
+  = render "teams/active"
 
 %section#viewAllTeams
   %br

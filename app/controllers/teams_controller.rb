@@ -12,12 +12,21 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     @team.user_id = current_user.id
+    @team.active = true
     group = params[:team][:age_group]
     @team.age_group = get_age_group(group) # TODO: clean up
-    if @team.save
-      redirect_to @team
-    else
-      render 'new'
+    respond_to do |format|
+      if @team.save
+        # Displays the active/or last created team
+        jumbotron_active_team(@team)
+
+        format.html { redirect_to @team, notice: 'Team was successfully created.' }
+        format.js {}
+        format.json { render json: @team, status: :created, location: @team }
+      else
+        format.html { render 'new'}
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -59,6 +68,16 @@ private
     @team = Team.find(params[:id])
   end
 
+  def jumbotron_active_team(team)
+    active_team_id = team.id
+    all_actives = current_user.teams.where(active: true)
+    all_actives.each do |t|
+      unless t.id == active_team_id
+        t.active = false
+        t.save
+      end
+    end
+  end
 
 # TODO: remove hardcoded youth options once director model and program is
 # created...and correct in controllers
