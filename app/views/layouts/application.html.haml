@@ -6,11 +6,14 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
-    %p.notice= notice
-    %p.alert= alert
+    = render 'layouts/navigation'
+    - if !flash[:notice].blank?
+      .notice
+        = flash[:notice]
 
-    %ul.app_sign_in
+    .app_sign_in
       = render 'devise/registration'
+      |
       = render 'devise/login'
 
     = yield
