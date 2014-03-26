@@ -6,7 +6,7 @@ class DashboardController < ApplicationController
   end
 
   def show
-    showActiveTeam
+    @active_team = Team.showActiveTeam
     @team = Team.new
     @teams = current_user.teams.three_most_recent
     @user = current_user
@@ -14,16 +14,6 @@ class DashboardController < ApplicationController
 
 
 private
-
-  def showActiveTeam
-    if Team.active.blank?
-      @active_team = ""
-    else
-      @active_team = Team.active
-    end
-  end
-
-
 
 
 end

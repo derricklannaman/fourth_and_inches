@@ -20,4 +20,15 @@ class Team < ActiveRecord::Base
   scope :active, lambda { where(active: true)[0] }
   scope :most_recent_first, lambda { order('created_at DESC') }
   scope :three_most_recent, lambda { order('created_at DESC').limit(3) }
+
+  def self.showActiveTeam
+    if active.blank?
+      @active_team = ""
+    else
+      @active_team = active
+    end
+  end
+
+
+
 end
