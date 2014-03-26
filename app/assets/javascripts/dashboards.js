@@ -8,7 +8,24 @@ $(document).ready(function() {
   $('#cancelNewTeamForm, #createTeamButton').on('click', hideNewTeamForm);
   $('#closeAllTeamsView').on('click', hideAllTeams);
   $('.control_button.team_button').on('click', hideForm)
+  $('a#deleteTeamButton').on('click', deleteTeam)
 });
+
+function deleteTeam() {
+  var id = $(this).attr('href').split('/')[2];
+  var team = $(this).closest('.team')[0];
+  $.ajax({
+    type: 'DELETE',
+    url: '/teams/'+ id,
+    success: function(result) {
+      team.remove();
+    },
+    error: function(e) {
+      console.log(e);
+      alert("Sorry...something went wrong");
+    },
+  });
+}
 
 function hideForm() {
   $('section#addNewTeam').hide();

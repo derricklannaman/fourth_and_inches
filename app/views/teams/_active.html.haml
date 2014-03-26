@@ -1,6 +1,8 @@
 .currentTeam
-  - unless @active_team.blank?
+  - if !@active_team.blank?
     %h1= "#{@active_team.title} Football Team : #{@active_team.age_group}"
     %p
       Current number of players:
       = @active_team.num_of_players
+  - else
+    %h1= "No team currently active"

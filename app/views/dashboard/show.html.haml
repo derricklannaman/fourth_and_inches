@@ -1,7 +1,7 @@
 ///////  COACHES DASHBOARD  /////////
 %header
   %h2
-    = "Welcome #{@current_user.username} to your Dashboard"
+    = "Welcome #{@current_user.username.titleize} to your Dashboard"
 
 #sideControls
 
@@ -25,5 +25,6 @@
   %br
   = render "teams/index"
 
+.clear
 
 

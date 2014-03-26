@@ -1,5 +1,7 @@
 class TeamsController < ApplicationController
 
+  respond_to :html, :js
+
   def index
     @teams = current_user.teams.most_recent_first
   end
@@ -52,8 +54,17 @@ class TeamsController < ApplicationController
   end
 
   def destroy
-    find_team.destroy
-    redirect_to dashboard_path
+    find_team
+    # respond_to do |format|
+
+    # end
+
+
+
+    team = { id: @team.id, title: @team.title }
+    flash[:notice] = "Team successfully deleted"
+    @team.destroy
+    render :json => {team: team}
   end
 
   def staff
