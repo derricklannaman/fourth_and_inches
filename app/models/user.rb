@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
 
   after_create :create_coach_dashboard
 
-  has_one :dashboard
+  has_one :dashboard, dependent: :destroy
   has_many :teams
   has_many :players
   has_many :players, :through => :teams
