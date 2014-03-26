@@ -56,7 +56,8 @@ class TeamsController < ApplicationController
     redirect_to dashboard_path
   end
 
-
+  def staff
+  end
 
 private
 
@@ -78,6 +79,7 @@ private
       end
     end
   end
+
 
 # TODO: remove hardcoded youth options once director model and program is
 # created...and correct in controllers

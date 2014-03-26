@@ -24,15 +24,22 @@ group :development do
   gem 'thin'
 end
 
-group :production do
-  gem 'rails_12factor'
+group :test, :development do
+  gem "rspec-rails"
 end
 
 group :test do
+  gem 'capybara'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
 
 group :doc do
   gem 'sdoc', require: false
 end
+
+
 
 

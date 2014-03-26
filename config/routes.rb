@@ -7,6 +7,7 @@ FourthAndInches::Application.routes.draw do
   get 'about'     => 'home#about',     as: 'about'
   get 'faq'       => 'home#faq',       as: 'faq'
   get 'contact'   => 'home#contact',   as: 'contact'
+  get 'staff'     => 'teams#staff',    as: 'staff'
 
   resources :teams
   resources :dashboard, only: [:create]

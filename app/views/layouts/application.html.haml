@@ -6,7 +6,11 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
-    = render 'layouts/navigation'
+    - if user_signed_in?
+      = render 'layouts/user_navigation'
+    - else
+      = render 'layouts/general_navigation'
+
     - if !flash[:notice].blank?
       .notice
         = flash[:notice]
