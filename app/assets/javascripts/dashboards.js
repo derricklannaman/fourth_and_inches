@@ -2,13 +2,13 @@
 // All this logic will automatically be available in application.js.
 // TODO: Set page guard
 $(document).ready(function() {
-  $('section#viewAllTeams, section#addNewTeam').hide();
-  $('#allTeamsButton').on('click', showAllTeams);
-  $('#addNewTeamButton').on('click', showNewTeamForm);
-  $('#cancelNewTeamForm, #createTeamButton').on('click', hideNewTeamForm);
-  $('#closeAllTeamsView').on('click', hideAllTeams);
-  $('.control_button.team_button').on('click', hideForm)
-  $('a#deleteTeamButton').on('click', deleteTeam)
+  // $('section#viewAllTeams, section#addNewTeam').hide();
+  // $('#allTeamsButton').on('click', showAllTeams);
+  // $('#addNewTeamButton').on('click', showNewTeamForm);
+  // $('#cancelNewTeamForm, #createTeamButton').on('click', hideNewTeamForm);
+  // $('#closeAllTeamsView').on('click', hideAllTeams);
+  // $('.control_button.team_button').on('click', hideForm)
+  // $('a#deleteTeamButton').on('click', deleteTeam)
 });
 
 function deleteTeam() {

@@ -3,23 +3,29 @@
   %head
     %title FourthAndInches
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    / %link{href: "/normalize.css", rel: "stylesheet", type: "text/css"}
     = javascript_include_tag "application", "data-turbolinks-track" => true
+    / %script{src: "/modernizr.custom.js"}
     = csrf_meta_tags
   %body
-    - if user_signed_in?
-      = render 'layouts/user_navigation'
-    - else
-      = render 'layouts/general_navigation'
+    .container
+      - if user_signed_in?
+        = render 'layouts/user_navigation'
+      - else
+        = render 'layouts/general_navigation'
 
-    - if !flash[:notice].blank?
-      .notice
-        = flash[:notice]
+      - if !flash[:notice].blank?
+        .notice
+          = flash[:notice]
 
-    .app_sign_in
-      = render 'devise/registration'
-      |
-      = render 'devise/login'
+      #app_sign_in
+        = render 'devise/registration'
+        |
+        = render 'devise/login'
 
-    = yield
+      = yield
+
+  %script{src: "assets/classie.js"}
+  %script{src: "assets/borderMenu.js"}
 
 

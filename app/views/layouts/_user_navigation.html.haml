@@ -1,2 +1,37 @@
-.nav
-  = link_to_unless_current "dashboard", dashboard_path
+%nav#bt-menu.bt-menu
+  %a.bt-menu-trigger{href: "#"}
+    %span Menu
+  %ul
+    %li
+      = link_to "team manager", '#'
+    %li
+      = link_to "schedule manager", '#'
+    %li
+      = link_to "office manager", '#'
+    %li
+      = link_to "coaches' corner", '#'
+
+
+
+
+/ %li
+/   %a{href: "#"} About us
+/ %li
+/   %a{href: "#"} Work
+/ %li
+/   %a{href: "#"} Clients
+/ %li
+/   %a{href: "#"} Blog
+/ %li
+/   %a{href: "#"} Contact
+
+
+
+
+/ %nav#bt-menu.bt-menu
+/   %span= link_to "Menu", '#', class: 'bt-menu-trigger'
+/   %ul
+
+
+////////////// Version 1.0
+/ = link_to_unless_current "dashboard", dashboard_path

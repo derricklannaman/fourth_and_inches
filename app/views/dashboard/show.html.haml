@@ -1,30 +1,31 @@
+////////////// Version 1.0
 ///////  COACHES DASHBOARD  /////////
-%header
-  %h2
-    = "Welcome #{@current_user.username.titleize} to your Dashboard"
+/ %header
+/   %h2
+/     = "Welcome #{@current_user.username.titleize} to your Dashboard"
 
-#sideControls
+/ #sideControls
 
-  = link_to "Start New Team", '#', remote: true, id: 'addNewTeamButton', class: "btn btn-default"
-  %br
+/   = link_to "Start New Team", '#', remote: true, id: 'addNewTeamButton', class: "btn btn-default"
+/   %br
 
-  = link_to "View All Teams", '#', remote: true, id: 'allTeamsButton', class: "btn btn-default"
-  %br
+/   = link_to "View All Teams", '#', remote: true, id: 'allTeamsButton', class: "btn btn-default"
+/   %br
 
-  = link_to "Add New Player", new_player_path, class: "btn btn-default"
+/   = link_to "Add New Player", new_player_path, class: "btn btn-default"
 
-.clear
+/ .clear
 
-%section#addNewTeam
-  = render "teams/new"
+/ %section#addNewTeam
+/   = render "teams/new"
 
-%section#current_team_container
-  = render "teams/active"
+/ %section#current_team_container
+/   = render "teams/active"
 
-%section#viewAllTeams
-  %br
-  = render "teams/index"
+/ %section#viewAllTeams
+/   %br
+/   = render "teams/index"
 
-.clear
+/ .clear
 
 

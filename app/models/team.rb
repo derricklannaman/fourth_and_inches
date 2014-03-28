@@ -14,7 +14,7 @@
 class Team < ActiveRecord::Base
 
   belongs_to :user
-  # has_and_belongs_to_many :players
+  has_many :players
 
 
   scope :active, lambda { where(active: true)[0] }
