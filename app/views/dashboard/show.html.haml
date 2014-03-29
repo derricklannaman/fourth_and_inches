@@ -1,8 +1,26 @@
-/ %header#team
-/   %h2
-/     = "Welcome #{@current_user.username.titleize} to your Dashboard"
+/ TODO: animate with side panel
+.content-container
+  .row
+    %section#top_third.red_border
+
+      %h2 Dashboard graphic
+
+  .row#middle_third.red_border
+    %h2 Dashboard buttons
+    .col-md-3.col-xs-6
+      = link_to 'team manager', teams_path, class: 'manager-button'
+    .col-md-3.col-xs-6
+      = link_to 'schedule manager', schedule_manager_path, class: 'manager-button'
+    .col-md-3.col-xs-6
+      = link_to 'office manager', '#', class: 'manager-button'
+    .col-md-3.col-xs-6
+      = link_to 'coaches\' corner', '#', class: 'manager-button'
 
 
+  .row
+    %section#bottom_third.red_border
+
+      %h2 new icon-bar
 
 
 

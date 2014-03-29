@@ -1,0 +1,17 @@
+.nav-bar
+  #bt-menu.bt-menu
+    %a.bt-menu-trigger{href: "#"}
+      %p Menu
+      %span Menu
+    %ul#side-panel-list
+      %li
+        = link_to_unless_current "dashboard", dashboard_path
+      %li
+        = link_to "team manager", teams_path
+      %li
+        = link_to "schedule manager", schedule_manager_path
+      %li
+        = link_to "office manager", '#'
+      %li
+        = link_to "coaches' corner", '#'
+

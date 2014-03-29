@@ -2,6 +2,8 @@
 // All this logic will automatically be available in application.js.
 // TODO: Set page guard
 $(document).ready(function() {
+  $("#side-panel-list > li > a[href^='#']").on('click', notYetImplemented)
+
   // $('section#viewAllTeams, section#addNewTeam').hide();
   // $('#allTeamsButton').on('click', showAllTeams);
   // $('#addNewTeamButton').on('click', showNewTeamForm);
@@ -47,6 +49,10 @@ function showAllTeams() {
 
 function hideAllTeams() {
   $('section#viewAllTeams').hide();
+}
+
+function notYetImplemented() {
+  alert("Sorry...This has not been implemented yet!");
 }
 
 // function addPlayerDetails() {

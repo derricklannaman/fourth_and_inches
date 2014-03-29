@@ -2,12 +2,43 @@
 /                  DASHBOARD STYLE                  /
 //////////////////////////////////////////////////*/
 
+.content-container {
+  margin-left: 60px;
+  margin-right: -60px;
+}
 
+.manager-button {
+  width: 175px;
+  height: 175px;
+  border: 1px solid #999;
+  border-radius: 100px;
+  display: block;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*version 1.0*/
 /*//////////////////////////////
 /     SIDE PANEL CONTROLS     /
 ////////////////////////////*/
 
-#sideControls{
+/*#sideControls{
   float: left;
   background-color: #DDD;
   width: 220px;
@@ -21,22 +52,22 @@
     width: 140px;
     background-color: #FFF;
   }
-}
+}*/
 
 /* TODO: create mixin to standardized buttons*/
-.control_button,
+/*.control_button,
 #allTeamsButton,
 #addNewTeamButton,
 #cancelNewTeamForm,
 #closeAllTeamsView {
-/*  border: 2px solid #999;
+  border: 2px solid #999;
   padding: 10px;
   display: inline-block;
   cursor: pointer;
   margin-bottom: 10px;
   width: 140px;
-  background-color: #FFF;*/
-}
+  background-color: #FFF;
+}*/
 
 
 

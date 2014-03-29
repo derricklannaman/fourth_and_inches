@@ -5,24 +5,29 @@
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
-  %body
-    - current_user
-    = render 'layouts/top_nav_bar', :locals => {current_user: @current_user}
-    .container
+
+  %body{:class => "#{controller_name} #{action_name}"}
+
+    .app-container
       = nav_view_by_login_status
 
       - if !flash[:notice].blank?
         .notice
           = flash[:notice]
+      .container
+        - if user_signed_in? && (controller_name == 'dashboard' && action_name == 'show')
+          = render 'layouts/side_nav_panel'
+          = render 'layouts/footer_nav_panel'
 
-      #app_sign_in
-        = render 'devise/registration'
-        |
-        = render 'devise/login'
+        - if user_signed_in? && (controller_name == 'teams' && action_name == 'index')
+          = render 'layouts/team_manager_navigation'
 
-      = yield
+        = yield
 
-  %script{src: "assets/classie.js"}
-  %script{src: "assets/borderMenu.js"}
+
+
+  - if user_signed_in?
+    %script{src: "assets/classie.js"}
+    %script{src: "assets/borderMenu.js"}
 
 

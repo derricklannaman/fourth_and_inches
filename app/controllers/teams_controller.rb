@@ -3,7 +3,7 @@ class TeamsController < ApplicationController
   respond_to :html, :js
 
   def index
-    @teams = current_user.teams.most_recent_first
+    # @teams = current_user.teams.most_recent_first
   end
 
   def new
@@ -68,6 +68,9 @@ class TeamsController < ApplicationController
   end
 
   def staff
+  end
+
+  def schedule_manager
   end
 
 private

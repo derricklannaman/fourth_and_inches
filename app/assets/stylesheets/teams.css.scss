@@ -1,48 +1,72 @@
 /*////////////////////////////////////////////////////
 /                   TEAM STYLE                      /
 //////////////////////////////////////////////////*/
+@import 'color_chart';
 
 
+.team-action-sublist {
+  background-color: lighten($nav-bg-color, 50%);
+  a {
+    text-align: right;
+    text-transform: lowercase !important;
+    font-size: 16px !important;
+    letter-spacing: 3px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*version 1.0*/
 /*//////////////////////////////
 /   DASHBOARDS CURRENT TEAM   /
 ////////////////////////////*/
 
-#current_team_container > .currentTeam {
+/*#current_team_container > .currentTeam {
   float: left;
   width: 600px;
   min-height: 300px;
   border: 2px solid #00F;
   margin: 0px 15px;
-}
+}*/
 
 
 /*//////////////////////////////
 /     TEAM 'POD' IN INDEX     /
 ////////////////////////////*/
 
-.team {
+/*.team {
   border: 2px solid #999;
   float: left;
   width: 250px;
   padding: 10px;
   margin: 10px;
-}
+}*/
 
-#addNewTeam {
+/*#addNewTeam {
   float: left;
-/*  width: 220px;
+  width: 220px;
   border: 1px solid #F00;
   margin-left: 10px;
-  padding: 1px 0px 10px 10px;*/
-}
+  padding: 1px 0px 10px 10px;
+}*/
 
 /*//////////////////////////////
 /     VIEW ALL TEAM IN DASH   /
 ////////////////////////////*/
 
-#viewAllTeams {
+/*#viewAllTeams {
   float: left;
   width: 820px;
   margin-left: 240px;
   border: 1px solid #F00;
-}
+}*/
