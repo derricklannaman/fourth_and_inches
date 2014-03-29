@@ -3,16 +3,13 @@
   %head
     %title FourthAndInches
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    / %link{href: "/normalize.css", rel: "stylesheet", type: "text/css"}
     = javascript_include_tag "application", "data-turbolinks-track" => true
-    / %script{src: "/modernizr.custom.js"}
     = csrf_meta_tags
   %body
+    - current_user
+    = render 'layouts/top_nav_bar', :locals => {current_user: @current_user}
     .container
-      - if user_signed_in?
-        = render 'layouts/user_navigation'
-      - else
-        = render 'layouts/general_navigation'
+      = nav_view_by_login_status
 
       - if !flash[:notice].blank?
         .notice

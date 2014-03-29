@@ -1,6 +1,18 @@
 /*////////////////////////////////////////////////////
 /                 SITE WIDE STYLING                 /
 //////////////////////////////////////////////////*/
+@import 'color_chart';
+
+
+.navbar-title {
+  margin-left: 300px;
+  width: 700px;
+}
+
+.navbar-brand img {
+  margin-top: -25px;
+}
+
 
 
 *,
@@ -12,7 +24,11 @@
 }
 
 body  {
-  background: #1abc9c;
+  /*background: $base-gray;*/
+}
+
+h1, h2, h3, h4, h5 {
+  color: $base-text;
 }
 
 .container {
@@ -36,7 +52,7 @@ body  {
 
 .bt-menu.bt-menu-open {
   height: 100%;
-  border-width: 0px 0px 50px 250px;
+  border-width: 0px 0px 50px 215px;
   background-color: rgba(0,0,0,0.3);
   -webkit-transition: border-width 0.3s, background-color 0.3s;
   transition: border-width 0.3s, background-color 0.3s;
@@ -69,7 +85,7 @@ body  {
   display: block;
   width: 100%;
   height: 8%;
-  background-color: #fff;
+  background-color: $base-text;
   font-size: 0px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -87,7 +103,7 @@ body  {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #fff;
+  background: $base-text;
   content: '';
   -webkit-transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
@@ -121,7 +137,7 @@ body  {
 }
 
 .bt-menu ul:first-of-type {
-  top: 75px;
+  top: 71px;
   left: 0;
 }
 
@@ -157,7 +173,7 @@ body  {
 
 /* First menu */
 .bt-menu ul:first-of-type li {
-  width: 250px;
+  width: 215px;
   height: 50px;
   line-height: 50px;
   -webkit-transform: translate3d(-100%,50%,0);
@@ -244,12 +260,40 @@ body  {
   color: #1abc9c;
 }
 
+/*//////////////////////////////
+/          CUSTOM             /
+////////////////////////////*/
+
+body > div > header {
+  margin-left: 100px;
+  margin-top: -70px;
+}
+
+
+
 #app_sign_in {
   float: right;
-  border: 1px solid #999;
+  border: 1px solid #FFF;
   padding: 10px;
   color: #FFF;
+  margin-top: -75px;
   a {
-    color: #FFF;
+    color: $base-text;
+  }
+}
+
+/*Menu text above menu lines*/
+#bt-menu > a {
+  text-decoration: none;
+}
+
+#bt-menu > a > p {
+  color: $base-text;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 9px;
+  & hover {
+    text-decoration: none;
   }
 }
