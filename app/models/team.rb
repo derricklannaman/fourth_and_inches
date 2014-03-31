@@ -23,7 +23,7 @@ class Team < ActiveRecord::Base
 
   def self.showActiveTeam
     if active.blank?
-      @active_team = ""
+      return
     else
       @active_team = active
     end

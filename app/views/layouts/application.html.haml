@@ -15,14 +15,15 @@
         .notice
           = flash[:notice]
       .container
+
         - if user_signed_in? && (controller_name == 'dashboard' && action_name == 'show')
           = render 'layouts/side_nav_panel'
           = render 'layouts/footer_nav_panel'
 
         - if user_signed_in? && (controller_name == 'teams' && action_name == 'index')
           = render 'layouts/team_manager_navigation'
-
-        = yield
+        .app-contents
+          = yield
 
 
 

@@ -1,23 +1,24 @@
 ////////////// Version 1.0
-/ = form_for(@team, remote: true) do |f|
+= form_for(:team, remote: true, method: true, html: {id: "new-team-form"}) do |f|
 
-/   %div
-/     = f.label :title
+  %div
+    = f.label :title
 
-/   %div
-/     = f.text_field :title
+  %div
+    = f.text_field :title
 
-/   %div
-/     = f.label :age_group, 'Select age group'
+  %div
+    = f.label :age_group, 'Select age group'
 
-/   %div
-/     = f.select(:age_group, options_for_select([ ['7 Year Olds', 1], ['8 Year Olds', 2], ['9 Year Olds', 3], ['10 Year Olds', 4] ]))
+  %div
+    = f.select(:age_group, options_for_select([ ['7 Year Olds', 1], ['8 Year Olds', 2], ['9 Year Olds', 3], ['10 Year Olds', 4] ]))
 
-/   %div
-/     = f.label :num_of_players
+  %div
+    = f.label :num_of_players
 
-/   %div
-/     = f.text_field :num_of_players
+  %div
+    = f.text_field :num_of_players
 
-/   %div
-/     = f.submit class: "btn btn-default", id: "createTeamButton"
+  %div
+    #createTeamButton.btn.btn-default submit
+    =# f.submit class: "btn btn-default", id: "createTeamButton"

@@ -1,9 +1,8 @@
 class TeamsController < ApplicationController
 
-  respond_to :html, :js
-
   def index
-    # @teams = current_user.teams.most_recent_first
+    @team = Team.new
+    @active_team = Team.showActiveTeam
   end
 
   def new
@@ -11,26 +10,55 @@ class TeamsController < ApplicationController
     @user = current_user
   end
 
+  # def create
+  #   @team = Team.new(team_params)
+  #   @team.user_id = current_user.id
+  #   @team.active = true
+  #   group = params[:team][:age_group]
+  #   @team.age_group = get_age_group(group) # TODO: clean up
+  #   # respond_to do |format|
+  #     if @team.save
+  #       # Displays the active/or last created team
+  #       jumbotron_active_team(@team)
+
+  #       binding.pry
+
+  #       format.html { redirect_to @team, notice: 'Team was successfully created.' }
+  #       format.js {}
+  #       format.json { render json: @team, status: :created, location: @team }
+  #     else
+  #       format.html { render 'new'}
+  #       format.json { render json: @user.errors, status: :unprocessable_entity }
+  #     end
+  #   # end
+  # end
+
   def create
+    # binding.pry
     @team = Team.new(team_params)
     @team.user_id = current_user.id
     @team.active = true
-    group = params[:team][:age_group]
+    # binding.pry
+    group = params[:team][:age]
     @team.age_group = get_age_group(group) # TODO: clean up
-    respond_to do |format|
-      if @team.save
-        # Displays the active/or last created team
-        jumbotron_active_team(@team)
+  # binding.pry
 
-        format.html { redirect_to @team, notice: 'Team was successfully created.' }
-        format.js {}
-        format.json { render json: @team, status: :created, location: @team }
+      if @team.save
+        jumbotron_active_team(@team)
+        team = {
+          name: @team.title,
+          group: @team.age_group,
+          num: @team.num_of_players
+        }
+        render json: { team_info: team}
+        # binding.pry
+        # render :json => { story: story}
       else
-        format.html { render 'new'}
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        # flash[:notice] = @team.errors.full_messages
+        render 'new'
       end
-    end
   end
+
 
   def edit
     find_team
