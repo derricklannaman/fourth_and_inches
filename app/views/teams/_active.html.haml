@@ -1,7 +1,11 @@
 - if !@active_team.blank?
-  %h3= "#{@active_team.title.upcase} Football Team : #{@active_team.age_group}"
-  %p
-    Current number of players:
-    = @active_team.num_of_players
+  .teamBrand.center
+    = image_tag('uniondale knight.png', size: '300x300')
+    .teamBanner
+      %h3= "#{@active_team.title.upcase} Football Team"
+      %h5= "#{@active_team.age_group}"
+      %p
+        Current number of players:
+        = @active_team.num_of_players
 - else
   %h1= "No team currently active"

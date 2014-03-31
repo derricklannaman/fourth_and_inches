@@ -30,11 +30,12 @@ function createNewTeam() {
 
       var teamShell = result.team_info;
       var c = teamShell.name.toUpperCase();
-      var h = " Football Team : ";
+      var h = " Football Team";
       var g = teamShell.group;
-      $('section#current_team h3').text(c+h+g);
-
-      changeCurrentPlayerCount(teamShell);
+      var current = $('section#currentTeam');
+      current.find('h3').text(c+h);
+      current.find('h5').text(g);
+      changeCurrentPlayerCount(current, teamShell);
     },
     error: function(e) {
       alert("Sorry, something when wrong...");
@@ -42,8 +43,9 @@ function createNewTeam() {
   });
 }
 
-function changeCurrentPlayerCount(teamShell) {
-  var x = $('section#current_team p')[0];
+function changeCurrentPlayerCount(current, teamShell) {
+  // var x = $('section#currentTeam p')[0];
+  var x = current.find('p')[0]
   var str = $(x).text()
                 .trim()
                 .split(' ');

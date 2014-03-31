@@ -3,6 +3,24 @@
 //////////////////////////////////////////////////*/
 @import 'color_chart';
 
+#currentTeam {
+  img {
+    border: 1px solid #AAA;
+  }
+  .teamBanner {
+    text-align: center
+  }
+}
+
+.center {
+   width: 300px;
+   height: 300px;
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   margin-left: -150px;
+   margin-top: -300px;
+}
 
 .team-action-sublist {
   background-color: lighten($nav-bg-color, 50%);
