@@ -29,15 +29,27 @@ function createNewTeam() {
       $(f).hide()
 
       var teamShell = result.team_info;
-      var t = teamShell.name.toUpperCase();
-      var e = " Football Team : ";
-      var x = teamShell.group;
-      $('section#current_team h3').text(t+e+x);
+      var c = teamShell.name.toUpperCase();
+      var h = " Football Team : ";
+      var g = teamShell.group;
+      $('section#current_team h3').text(c+h+g);
+
+      changeCurrentPlayerCount(teamShell);
     },
     error: function(e) {
       alert("Sorry, something when wrong...");
     }
   });
+}
+
+function changeCurrentPlayerCount(teamShell) {
+  var x = $('section#current_team p')[0];
+  var str = $(x).text()
+                .trim()
+                .split(' ');
+  str[str.length-1] = teamShell.num;
+  var new_num = str.join(' ');
+  $(x).text(new_num);
 }
 
 

@@ -10,39 +10,13 @@ class TeamsController < ApplicationController
     @user = current_user
   end
 
-  # def create
-  #   @team = Team.new(team_params)
-  #   @team.user_id = current_user.id
-  #   @team.active = true
-  #   group = params[:team][:age_group]
-  #   @team.age_group = get_age_group(group) # TODO: clean up
-  #   # respond_to do |format|
-  #     if @team.save
-  #       # Displays the active/or last created team
-  #       jumbotron_active_team(@team)
-
-  #       binding.pry
-
-  #       format.html { redirect_to @team, notice: 'Team was successfully created.' }
-  #       format.js {}
-  #       format.json { render json: @team, status: :created, location: @team }
-  #     else
-  #       format.html { render 'new'}
-  #       format.json { render json: @user.errors, status: :unprocessable_entity }
-  #     end
-  #   # end
-  # end
-
   def create
-    # binding.pry
     @team = Team.new(team_params)
     @team.user_id = current_user.id
     @team.active = true
-    # binding.pry
     group = params[:team][:age]
+    @team.num_of_players = params[:team][:num]
     @team.age_group = get_age_group(group) # TODO: clean up
-  # binding.pry
-
       if @team.save
         jumbotron_active_team(@team)
         team = {
@@ -51,10 +25,8 @@ class TeamsController < ApplicationController
           num: @team.num_of_players
         }
         render json: { team_info: team}
-        # binding.pry
-        # render :json => { story: story}
       else
-        # flash[:notice] = @team.errors.full_messages
+        flash[:notice] = @user.errors.full_messages.join (', ')
         render 'new'
       end
   end
