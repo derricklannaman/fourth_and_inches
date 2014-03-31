@@ -22,7 +22,7 @@ class Team < ActiveRecord::Base
   scope :three_most_recent, lambda { order('created_at DESC').limit(3) }
 
   def self.showActiveTeam
-    if active.blank?
+    if active == false
       return
     else
       @active_team = active

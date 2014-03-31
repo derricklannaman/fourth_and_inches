@@ -1,15 +1,21 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 $(document).ready(function(){
-
+  $('#new-team-form').hide();
   $('#new-team-side-link').on('click', showNewTeamForm)
-  $('#createTeamButton').on('click', createNewTeam)
+  $('#createTeamButton').on('click', createNewTeam);
+
+  $('#new-team-side-link').avgrund({template: $('#new-team-form') });
 
   $('a[disabled=disabled]').click(function(event){
       event.preventDefault(); // Prevent link from following its href
   });
 
 });
+
+// function activateNewTeamPopUp() {
+//   $('#new-team-side-link').avgrund();
+// }
 
 function createNewTeam() {
   var f = $('#new-team-form')[0];
@@ -44,7 +50,6 @@ function createNewTeam() {
 }
 
 function changeCurrentPlayerCount(current, teamShell) {
-  // var x = $('section#currentTeam p')[0];
   var x = current.find('p')[0]
   var str = $(x).text()
                 .trim()
@@ -56,5 +61,6 @@ function changeCurrentPlayerCount(current, teamShell) {
 
 
 function showNewTeamForm() {
+  $('#new-team-form').show();
   console.log('showNewTeamForm');
 }
