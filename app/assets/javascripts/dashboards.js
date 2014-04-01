@@ -2,7 +2,7 @@
 // All this logic will automatically be available in application.js.
 // TODO: Set page guard
 $(document).ready(function() {
-  $("#side-panel-list > li > a[href^='#']").on('click', notYetImplemented)
+  // $("#side-panel-list > li > a[href^='#']").on('click', notYetImplemented)
 
   // $('section#viewAllTeams, section#addNewTeam').hide();
   // $('#allTeamsButton').on('click', showAllTeams);

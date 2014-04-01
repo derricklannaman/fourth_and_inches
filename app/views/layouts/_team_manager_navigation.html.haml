@@ -11,7 +11,7 @@
       %li.team-action-sublist
         = link_to "add new team", '#', id: 'new-team-side-link'
       %li.team-action-sublist
-        = link_to "edit team", '#'
+        = link_to "edit team", edit_team_path(@active_team), id: 'edit-team-side-link'
       %li.team-action-sublist
         = link_to "delete team", '#'
 

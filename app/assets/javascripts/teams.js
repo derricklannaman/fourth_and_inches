@@ -5,7 +5,15 @@ $(document).ready(function(){
   $('#new-team-side-link').on('click', showNewTeamForm)
   $('#createTeamButton').on('click', createNewTeam);
 
-  $('#new-team-side-link').avgrund({template: $('#new-team-form') });
+  $('#new-team-side-link').avgrund({
+      onBlurContainer: '.app-container',
+      template: $('#new-team-form'),
+      width: 456,
+      height: 336,
+      });
+  // $('#edit-team-side-link').avgrund({
+  //     template: $('#new-team-form')
+  //   });
 
   $('a[disabled=disabled]').click(function(event){
       event.preventDefault(); // Prevent link from following its href
@@ -32,7 +40,7 @@ function createNewTeam() {
     url: '/teams',
     data: { team: formData },
     success: function(result) {
-      $(f).hide()
+      // $(f).hide()
 
       var teamShell = result.team_info;
       var c = teamShell.name.toUpperCase();
