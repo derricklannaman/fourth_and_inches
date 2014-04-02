@@ -3,8 +3,8 @@ class TeamsController < ApplicationController
   respond_to :html, :js
 
   def index
-    @team = Team.new
-    @active_team = Team.showActiveTeam
+    # @team = Team.new
+    # @active_team = Team.showActiveTeam
   end
 
   def new
@@ -55,10 +55,12 @@ class TeamsController < ApplicationController
   end
 
   def show
-    find_team
+    # find_team
+    @active_team = Team.showActiveTeam
+
     respond_to do |format|
     format.html # show.html.erb
-    format.json { render json: @team }
+    format.json { render json: @active_team }
     format.text { render 'show', formats: [:html], layout: false }
   end
 
@@ -97,6 +99,11 @@ class TeamsController < ApplicationController
   end
 
   def schedule_manager
+  end
+
+  def team_manager
+    @team = Team.new
+    @active_team = Team.showActiveTeam
   end
 
 private

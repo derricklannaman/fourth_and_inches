@@ -9,6 +9,7 @@ FourthAndInches::Application.routes.draw do
   get 'contact'   => 'home#contact',   as: 'contact'
   get 'staff'     => 'teams#staff',    as: 'staff'
   get 'schedule_manager' => 'teams#schedule_manager', as: 'schedule_manager'
+  get 'team_manager' => 'teams#team_manager', as: 'team_manager'
 
   resources :teams
   resources :dashboard, only: [:create]

@@ -17,5 +17,6 @@
 //= require avgrund.js
 //= require avgrund_to/modal
 //= require avgrund_to/avgrund
+// ajaxify_rails
 //= require turbolinks
 //= require_tree .

@@ -1,7 +1,7 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 $(document).ready(function(){
-  $('#new-team-form, section#editTeam').hide();
+  $('#new-team-form, section#editTeam').add('section#addNewTeam2').hide();
   $('#new-team-side-link').on('click', showNewTeamForm)
   $('#createTeamButton').on('click', createNewTeam);
   $('.teamBrand').on('click', showPlayers)

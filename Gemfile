@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+# gem 'ajaxify_rails'
 gem 'authority'
 gem 'avgrund_to'
 gem 'bootstrap-sass'
