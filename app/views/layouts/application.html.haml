@@ -2,15 +2,15 @@
 %html
   %head
     %title FourthAndInches
-    / :javascript
-    /   Ajaxify.init( {   scroll_to_top: false } );
-
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
 
     = csrf_meta_tags
 
   %body{:class => "#{controller_name} #{action_name}"}
+    :javascript
+      Ajaxify.init( {   scroll_to_top: false } );
+
     .app-container
       = nav_view_by_login_status
 
@@ -25,16 +25,10 @@
           = render 'layouts/footer_nav_panel'
 
         - if user_signed_in? && (controller_name == 'teams' && action_name == 'team_manager')
-          = render 'avgrund_to/modal'
           = render 'layouts/team_manager_navigation'
 
-        / - if user_signed_in? && (controller_name == 'teams' && action_name == 'edit')
-        /   = render 'avgrund_to/modal'
 
-        /   = render 'layouts/side_nav_panel'
-
-
-        .app-contents
+        #main
           = yield
 
 

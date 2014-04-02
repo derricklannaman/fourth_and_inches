@@ -14,19 +14,21 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.new(team_params)
+  # binding.pry
     @team.user_id = current_user.id
     @team.active = true
-    group = params[:team][:age]
-    @team.num_of_players = params[:team][:num]
+    group = params[:team][:age_group]
+    # @team.num_of_players = params[:team][:num]
     @team.age_group = get_age_group(group) # TODO: clean up
       if @team.save
         jumbotron_active_team(@team)
-        team = {
-          name: @team.title,
-          group: @team.age_group,
-          num: @team.num_of_players
-        }
-        render json: { team_info: team}
+        # team = {
+        #   name: @team.title,
+        #   group: @team.age_group,
+        #   num: @team.num_of_players
+        # }
+        redirect_to team_manager_path
+        # render json: { team_info: team}
       else
         flash[:notice] = @user.errors.full_messages.join (', ')
         render 'new'
@@ -35,17 +37,16 @@ class TeamsController < ApplicationController
 
 
   def edit
-    # find_team
-    @active_team = Team.showActiveTeam
-# binding.pry
+    find_team
 
-    updated_info = {
-      title:  @active_team.title,
-      group:  @active_team.age_group,
-      num:    @active_team.num_of_players
-    }
+    # @active_team = Team.showActiveTeam
+    # updated_info = {
+    #   title:  @active_team.title,
+    #   group:  @active_team.age_group,
+    #   num:    @active_team.num_of_players
+    # }
 
-    render json: { update: updated_info }
+    # render json: { update: updated_info }
 
     # respond_to do |format|
     # format.html # show.html.erb
@@ -75,7 +76,7 @@ class TeamsController < ApplicationController
     @team.age_group = get_age_group(group) # TODO: clean up
     if @team.save
       flash[:notice] = "Team successfully updated"
-      redirect_to team_path @team
+      redirect_to team_manager_path
     else
       render 'edit'
     end

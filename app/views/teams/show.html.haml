@@ -1,14 +1,17 @@
-////////////// Version 1.0
-/ %h1= "team show page: #{@team.title} #{@team.age_group} "
+.ajaxify_loader
+%div
+  = link_to 'team manager', team_manager_path
 
-/ %h3 Name:
-/ %div
-/   = @team.title
+%h1= "team show page: #{@active_team.title} #{@active_team.age_group} "
 
-/ %h3 Age group:
-/ %div
-/   = @team.age_group
+%h3 Name:
+%div
+  = @active_team.title
 
-/ %h3 Players on team:
-/ %div
-/   = @team.num_of_players
+%h3 Age group:
+%div
+  = @active_team.age_group
+
+%h3 Players on team:
+%div
+  = @active_team.num_of_players
