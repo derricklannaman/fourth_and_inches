@@ -1,0 +1,23 @@
+%h5 Edit team
+= form_for(@active_team, url: edit_team_path(@active_team), method: :post, html: {id: "edit-team-form"}) do |f|
+  #active_id= hidden_field_tag @active_team.id
+  %div
+    = f.label :title
+
+  %div
+    = f.text_field :title
+
+  %div
+    = f.label :age_group, 'Select age group'
+
+  %div
+    = f.select(:age_group, options_for_select([ ['7 Year Olds', 1], ['8 Year Olds', 2], ['9 Year Olds', 3], ['10 Year Olds', 4] ]))
+
+  %div
+    = f.label :num_of_players
+
+  %div
+    = f.text_field :num_of_players
+
+  %div
+    #createTeamButton.btn.btn-default.avgrund-close submit

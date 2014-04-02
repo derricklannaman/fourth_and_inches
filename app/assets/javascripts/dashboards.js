@@ -13,47 +13,47 @@ $(document).ready(function() {
   // $('a#deleteTeamButton').on('click', deleteTeam)
 });
 
-function deleteTeam() {
-  var id = $(this).attr('href').split('/')[2];
-  var team = $(this).closest('.team')[0];
-  $.ajax({
-    type: 'DELETE',
-    url: '/teams/'+ id,
-    success: function(result) {
-      team.remove();
-    },
-    error: function(e) {
-      console.log(e);
-      alert("Sorry...something went wrong");
-    },
-  });
-}
+// function deleteTeam() {
+//   var id = $(this).attr('href').split('/')[2];
+//   var team = $(this).closest('.team')[0];
+//   $.ajax({
+//     type: 'DELETE',
+//     url: '/teams/'+ id,
+//     success: function(result) {
+//       team.remove();
+//     },
+//     error: function(e) {
+//       console.log(e);
+//       alert("Sorry...something went wrong");
+//     },
+//   });
+// }
 
-function hideForm() {
-  $('section#addNewTeam').hide();
-}
+// function hideForm() {
+//   $('section#addNewTeam').hide();
+// }
 
-function hideNewTeamForm() {
-  $('section#addNewTeam').hide();
-  $('#current_team_container').show();
-  // clearFormContentsOnClose();
-}
+// function hideNewTeamForm() {
+//   $('section#addNewTeam').hide();
+//   $('#current_team_container').show();
+//   // clearFormContentsOnClose();
+// }
 
-function showNewTeamForm() {
-  $('section#addNewTeam').show();
-}
+// function showNewTeamForm() {
+//   $('section#addNewTeam').show();
+// }
 
-function showAllTeams() {
-  $('section#viewAllTeams').show();
-}
+// function showAllTeams() {
+//   $('section#viewAllTeams').show();
+// }
 
-function hideAllTeams() {
-  $('section#viewAllTeams').hide();
-}
+// function hideAllTeams() {
+//   $('section#viewAllTeams').hide();
+// }
 
-function notYetImplemented() {
-  alert("Sorry...This has not been implemented yet!");
-}
+// function notYetImplemented() {
+//   alert("Sorry...This has not been implemented yet!");
+// }
 
 // function addPlayerDetails() {
 //   alert("player was clicked...add details!");

@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'authority'
+gem 'avgrund_to'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'haml'

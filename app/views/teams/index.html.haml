@@ -2,7 +2,9 @@
 
 %section#currentTeam
   = render 'active'
-  = @active_team.id
-%section#addNewTeam
-  = render "teams/form"
 
+%section#addNewTeam
+  = render "teams/new"
+
+%section#editTeam
+  = render "teams/edit"
