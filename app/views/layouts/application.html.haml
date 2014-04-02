@@ -27,9 +27,17 @@
 
           = render 'layouts/team_manager_navigation'
 
+        - if user_signed_in? && (controller_name == 'schedule' && action_name == 'schedule_manager')
+          / customize nav
+          = render 'layouts/dashboard_nav_panel'
 
+        - if user_signed_in? && (controller_name == 'office' && action_name == 'office_manager')
+          / customize nav
+          = render 'layouts/dashboard_nav_panel'
 
-
+        - if user_signed_in? && (controller_name == 'coaches' && action_name == 'coaches_corner')
+          / customize nav
+          = render 'layouts/dashboard_nav_panel'
 
         #main
 
