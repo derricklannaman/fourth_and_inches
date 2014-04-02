@@ -3,15 +3,11 @@
     %a.bt-menu-trigger{href: "#"}
       %p Menu
       %span Menu
-    %ul#team-side-panel-list
+    %ul#side-panel-list
       %li
         = link_to_unless_current "dashboard", dashboard_path, class: 'no_ajaxify'
       %li
-        = link_to "team manager", '#', disabled: true
-      %li.team-action-sublist
-        = link_to 'add new team', new_team_path, id: 'new-team-side-link', class: 'no_ajaxify'
-      %li.team-action-sublist
-        = link_to 'Edit', edit_team_path(@active_team), id: 'edit-team-side-link', class: 'no_ajaxify'
+        = link_to "team manager", team_manager_path, class: 'no_ajaxify'
       %li
         = link_to "schedule manager", schedule_manager_path, class: 'no_ajaxify'
       %li
