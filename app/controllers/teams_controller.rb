@@ -14,21 +14,13 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.new(team_params)
-  # binding.pry
     @team.user_id = current_user.id
     @team.active = true
     group = params[:team][:age_group]
-    # @team.num_of_players = params[:team][:num]
     @team.age_group = get_age_group(group) # TODO: clean up
       if @team.save
         jumbotron_active_team(@team)
-        # team = {
-        #   name: @team.title,
-        #   group: @team.age_group,
-        #   num: @team.num_of_players
-        # }
         redirect_to team_manager_path
-        # render json: { team_info: team}
       else
         flash[:notice] = @user.errors.full_messages.join (', ')
         render 'new'
@@ -38,31 +30,15 @@ class TeamsController < ApplicationController
 
   def edit
     find_team
-
-    # @active_team = Team.showActiveTeam
-    # updated_info = {
-    #   title:  @active_team.title,
-    #   group:  @active_team.age_group,
-    #   num:    @active_team.num_of_players
-    # }
-
-    # render json: { update: updated_info }
-
-    # respond_to do |format|
-    # format.html # show.html.erb
-    # format.json { render json: @team }
-    # format.text { render 'edit', formats: [:html], layout: false }
-# binding.pry
   end
 
   def show
-    # find_team
     @active_team = Team.showActiveTeam
 
     respond_to do |format|
     format.html # show.html.erb
     format.json { render json: @active_team }
-    format.text { render 'show', formats: [:html], layout: false }
+    # format.text { render 'show', formats: [:html], layout: false }
   end
 
 
@@ -84,12 +60,6 @@ class TeamsController < ApplicationController
 
   def destroy
     find_team
-    # respond_to do |format|
-
-    # end
-
-
-
     team = { id: @team.id, title: @team.title }
     flash[:notice] = "Team successfully deleted"
     @team.destroy
