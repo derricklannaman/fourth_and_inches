@@ -38,7 +38,6 @@ class TeamsController < ApplicationController
     respond_to do |format|
     format.html # show.html.erb
     format.json { render json: @active_team }
-    # format.text { render 'show', formats: [:html], layout: false }
   end
 
 

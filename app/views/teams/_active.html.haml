@@ -1,4 +1,4 @@
-- if !@active_team.blank?
+- if @active_team.present?
   .teamBrand.center
     = image_tag('uniondale knight.png', size: '300x300')
     .teamBanner
