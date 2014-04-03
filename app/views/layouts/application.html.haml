@@ -11,38 +11,19 @@
     :javascript
       Ajaxify.init( {   scroll_to_top: false } );
 
+    = nav_view_by_login_status
     .app-container
-      = nav_view_by_login_status
+
 
       - if !flash[:notice].blank?
         .notice
           = flash[:notice]
       .container
 
-        - if user_signed_in? && (controller_name == 'dashboard' && action_name == 'show')
-          = render 'layouts/dashboard_nav_panel'
-          = render 'layouts/footer_nav_panel'
-
-        - if user_signed_in? && (controller_name == 'teams' && action_name == 'team_manager')
-
-          = render 'layouts/team_manager_navigation'
-
-        - if user_signed_in? && (controller_name == 'schedule' && action_name == 'schedule_manager')
-          / customize nav
-          = render 'layouts/dashboard_nav_panel'
-
-        - if user_signed_in? && (controller_name == 'office' && action_name == 'office_manager')
-          / customize nav
-          = render 'layouts/dashboard_nav_panel'
-
-        - if user_signed_in? && (controller_name == 'coaches' && action_name == 'coaches_corner')
-          / customize nav
-          = render 'layouts/dashboard_nav_panel'
-
+        = change_navigation_layout(controller_name, action_name)
+        = render 'layouts/footer_nav_panel'
         #main
-
           = yield
-
 
 
     - if user_signed_in?
