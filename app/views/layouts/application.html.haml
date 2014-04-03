@@ -11,15 +11,10 @@
     :javascript
       Ajaxify.init( {   scroll_to_top: false } );
 
-    =# nav_view_by_login_status
-
-    - if user_signed_in?
-      = render 'layouts/interior_nav_bar'
-    - else
-      = render 'layouts/exterior_nav_bar'
+    .app_nav_bar
+      = nav_view_by_login_status
 
     .app-container
-
       #flash_messages
         - if !flash[:notice].blank?
           .notice
