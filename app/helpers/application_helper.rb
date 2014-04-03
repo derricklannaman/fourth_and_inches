@@ -2,9 +2,9 @@ module ApplicationHelper
 
   def nav_view_by_login_status
     if user_signed_in?
-      render 'layouts/top_nav_bar'
+      render 'layouts/interior_nav_bar'
     else
-      render 'layouts/general_navigation'
+      render 'layouts/exterior_nav_bar'
     end
   end
 

@@ -11,13 +11,19 @@
     :javascript
       Ajaxify.init( {   scroll_to_top: false } );
 
-    = nav_view_by_login_status
+    =# nav_view_by_login_status
+
+    - if user_signed_in?
+      = render 'layouts/interior_nav_bar'
+    - else
+      = render 'layouts/exterior_nav_bar'
+
     .app-container
 
-
-      - if !flash[:notice].blank?
-        .notice
-          = flash[:notice]
+      #flash_messages
+        - if !flash[:notice].blank?
+          .notice
+            = flash[:notice]
       .container
 
         = change_navigation_layout(controller_name, action_name)

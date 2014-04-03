@@ -1,7 +1,7 @@
 %h2 Sign in
-= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { class: 'no_ajaxify' }) do |f|
   %div
-    = f.label :login
+    = f.label :login, 'Sign in'
     %br/
     = f.text_field :login, :autofocus => true
   %div

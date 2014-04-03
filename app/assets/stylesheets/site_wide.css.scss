@@ -3,13 +3,51 @@
 //////////////////////////////////////////////////*/
 @import 'color_chart';
 
+/*////////// Global ///////////*/
+
 html {
   background: url('gun_metal_@2X.png')
 }
 
-.ajaxify_loader {
-  background: url('ajax-loader.gif')
+
+body  {
+  /*background: $base-gray;*/
 }
+
+body > div > header {
+  margin-left: 100px;
+  margin-top: -70px;
+}
+
+h1, h2, h3, h4, h5 {
+  color: $base-text;
+}
+
+.app_sign_in {
+  float: right;
+  border: 1px solid #FFF;
+  padding: 10px;
+  color: #FFF;
+  margin-top: -30px;
+  a {
+    color: $base-text;
+  }
+}
+
+#flash_messages {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 25px;
+  display: inline-block;
+}
+
+/*main content area*/
+#main {
+  margin-left: 100px;
+  margin-top: -100px;
+}
+
+/*////////// Navigation ///////////*/
 
 .navbar-title {
   margin-left: 300px;
@@ -26,11 +64,6 @@ html {
   padding: 5px;
 }
 
-#main {
-  margin-left: 100px;
-  margin-top: -100px;
-}
-
 #on-page-nav {
   padding-top: 10px;
   .row{
@@ -41,6 +74,7 @@ html {
   }
 }
 
+/*////////// Side Navigation Layout ///////////*/
 *,
 *:after,
 *::before {
@@ -49,13 +83,6 @@ html {
     box-sizing: border-box;
 }
 
-body  {
-  /*background: $base-gray;*/
-}
-
-h1, h2, h3, h4, h5 {
-  color: $base-text;
-}
 
 .container {
   padding: 80px;
@@ -294,24 +321,6 @@ h1, h2, h3, h4, h5 {
 /*//////////////////////////////
 /          CUSTOM             /
 ////////////////////////////*/
-
-body > div > header {
-  margin-left: 100px;
-  margin-top: -70px;
-}
-
-
-
-.app_sign_in {
-  float: right;
-  border: 1px solid #FFF;
-  padding: 10px;
-  color: #FFF;
-  margin-top: -30px;
-  a {
-    color: $base-text;
-  }
-}
 
 /*Menu text above menu lines*/
 #bt-menu > a {

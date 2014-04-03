@@ -1,0 +1,11 @@
+.nav
+  = image_tag('mock_logo.png', size: '100')
+  = link_to "home", root_path
+  |
+  = link_to "about", about_path
+  |
+  = link_to "faq", faq_path
+  |
+  = link_to "contact us", contact_path
+
+= render 'layouts/user_access_controls'
