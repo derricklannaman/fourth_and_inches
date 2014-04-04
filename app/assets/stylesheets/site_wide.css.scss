@@ -31,6 +31,10 @@ h1, h2, h3, h4, h5 {
   color: $base-text;
 }
 
+.no-display {
+  display: none !important;
+}
+
 .app_sign_in {
   float: right;
   border: 1px solid #FFF;

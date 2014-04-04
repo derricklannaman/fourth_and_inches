@@ -8,13 +8,13 @@
   .row#middle_third.red_border
     %h2 Dashboard buttons
     .col-md-3.col-xs-6
-      = link_to 'team manager', team_manager_path, class: 'manager-button no_ajaxify'
+      = link_to 'team manager', team_manager_path, class: 'manager-button'
     .col-md-3.col-xs-6
-      = link_to 'schedule manager', schedule_manager_path, class: 'manager-button no_ajaxify'
+      = link_to 'schedule manager', schedule_manager_path, class: 'manager-button'
     .col-md-3.col-xs-6
-      = link_to 'office manager', office_manager_path, class: 'manager-button no_ajaxify'
+      = link_to 'office manager', office_manager_path, class: 'manager-button'
     .col-md-3.col-xs-6
-      = link_to 'coaches\' corner', coaches_corner_path, class: 'manager-button no_ajaxify'
+      = link_to 'coaches\' corner', coaches_corner_path, class: 'manager-button'
 
 
   .row
@@ -24,35 +24,5 @@
 
 
 
-
-////////////// Version 1.0
-///////  COACHES DASHBOARD  /////////
-/ %header
-/   %h2
-/     = "Welcome #{@current_user.username.titleize} to your Dashboard"
-
-/ #sideControls
-
-/   = link_to "Start New Team", '#', remote: true, id: 'addNewTeamButton', class: "btn btn-default"
-/   %br
-
-/   = link_to "View All Teams", '#', remote: true, id: 'allTeamsButton', class: "btn btn-default"
-/   %br
-
-/   = link_to "Add New Player", new_player_path, class: "btn btn-default"
-
-/ .clear
-
-/ %section#addNewTeam
-/   = render "teams/new"
-
-/ %section#current_team_container
-/   = render "teams/active"
-
-/ %section#viewAllTeams
-/   %br
-/   = render "teams/index"
-
-/ .clear
 
 
