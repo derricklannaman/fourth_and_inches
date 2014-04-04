@@ -1,1 +1,21 @@
-%h1 Players on team
+= render 'layouts/nav_controls'
+
+%h1= "#{@active_team.title} Players"
+
+%ul#players-profile
+  - @players.each do |player|
+    .player-profile
+      %li
+        = "#{player.first_name} #{player.last_name}"
+      %li
+        = "#{player.address}"
+      %li
+        = "#{player.town}, #{player.zip}"
+      %li
+        = "age: #{player.age}"
+      %li
+        = link_to "edit", edit_player_path(player), class: 'no_ajaxify'
+        |
+        = link_to "show", player_path(player), class: 'no_ajaxify'
+        |
+        = link_to "delete", player_path(player), method: :delete, data: { confirm: "Are u sure?" }, class: 'no_ajaxify'

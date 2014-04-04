@@ -1,3 +1,18 @@
 /*////////////////////////////////////////////////////
 /                  PLAYER STYLE                     /
 //////////////////////////////////////////////////*/
+
+#players-profile {
+  width: 800px;
+  border: 1px solid red;
+
+}
+
+.player-profile {
+  width: 200px;
+  height: 200px;
+  border: 1px solid red;
+  display: inline-block;
+  list-style-type: none;
+  margin: 10px;
+}

@@ -22,7 +22,8 @@
    /*margin-top: -300px;*/
 }
 
-.team-action-sublist {
+.team-action-sublist,
+.player-action-sublist {
   background-color: lighten($nav-bg-color, 50%);
   a {
     text-align: right;

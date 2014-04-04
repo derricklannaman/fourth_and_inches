@@ -1,39 +1,7 @@
-////////////// Version 1.0
-/ %h1 Add Player
+= render 'layouts/nav_controls'
+#players-new
+  %h3 add player
 
-/ = form_for @player, url: { action: "create" } do |f|
-/   %div
-/     = f.label :first_name
-/     = f.text_field :first_name
-/   %div
-/     = f.label :last_name
-/     = f.text_field :last_name
-/   %div
-/     = f.label :address
-/     = f.text_field :address
-/   %div
-/     = f.label :town
-/     = f.text_field :town
-/   %div
-/     = f.label :zip
-/     = f.text_field :zip
-/   / TODO: change dob datatype to string first
-/   / %div
-/   /   = f.label :dob
-/   /   = f.date_field :dob
-/   / %div
-/   /   = f.label :last_name
-/   /   = f.text_field :last_name
-/   %div
-/     = f.label :age
-/     = f.number_field :age
-
-/     = f.submit
-
-
-
-
-
-
+  = render 'players/form'
 
 

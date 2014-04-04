@@ -1,6 +1,6 @@
-- if @active_team.present?
+- if @active_team == true
   .teamBrand.center
-    = link_to( image_tag('uniondale knight.png', size: '300x300'), players_path, class: 'no_ajaxify')
+    = image_tag('uniondale knight.png', size: '300x300')
     .teamBanner
       %h3= "#{@active_team.title.upcase} Football Team"
       %h5= "#{@active_team.age_group}"
@@ -8,4 +8,5 @@
         Current number of players:
         = @active_team.num_of_players
 - else
+  = @active_team.title
   %h1= "No team currently active"

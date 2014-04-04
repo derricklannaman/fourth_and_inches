@@ -7,11 +7,17 @@
       %li
         = link_to_unless_current "dashboard", dashboard_path, class: 'no_ajaxify'
       %li
-        = link_to "team manager", '#', disabled: true
+        / link_to unnecessary...allows for slideToggle
+        %a{ id: 'team-mgr-button'} team manager
       %li.team-action-sublist
         = link_to 'add new team', new_team_path, id: 'new-team-side-link', class: 'no_ajaxify'
       %li.team-action-sublist
         = link_to 'Edit', edit_team_path(@active_team), id: 'edit-team-side-link', class: 'no_ajaxify'
+      %li
+        / link_to unnecessary...allows for slideToggle
+        %a{ id: 'player-button'} Players
+      %li.player-action-sublist
+        = link_to 'add new player', new_player_path, id: 'new-team-side-link', class: 'no_ajaxify'
       %li
         = link_to "schedule manager", schedule_manager_path, class: 'no_ajaxify'
       %li

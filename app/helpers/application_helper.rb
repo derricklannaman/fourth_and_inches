@@ -10,16 +10,18 @@ module ApplicationHelper
 
   def change_navigation_layout(controller_name, action_name)
     if user_signed_in?
-      if (controller_name == 'dashboard' && action_name == 'show')
+      if    (controller_name == 'dashboard' && action_name == 'show')
         dashboard_nav
-      elsif (controller_name == 'teams' && action_name == 'team_manager')
+      elsif (controller_name == 'teams'     && action_name == 'team_manager')
         team_mgr_nav
-      elsif (controller_name == 'schedule' && action_name == 'schedule_manager')
+      elsif (controller_name == 'schedule'  && action_name == 'schedule_manager')
         schedule_mgr_nav
-      elsif (controller_name == 'office' && action_name == 'office_manager')
+      elsif (controller_name == 'office'    && action_name == 'office_manager')
         office_mgr_nav
-      elsif (controller_name == 'coaches' && action_name == 'coaches_corner')
+      elsif (controller_name == 'coaches'   && action_name == 'coaches_corner')
         coach_corner_nav
+      elsif (controller_name == 'players'   && action_name == 'index')
+        player_index_nav
       end
     end
   end
@@ -43,6 +45,11 @@ module ApplicationHelper
   def coach_corner_nav
     render 'layouts/dashboard_nav_panel'
   end
+
+  def player_index_nav
+    render 'layouts/dashboard_nav_panel'
+  end
+
 
   def footer_nav
     render 'layouts/dashboard_nav_panel'

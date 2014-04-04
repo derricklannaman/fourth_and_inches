@@ -3,8 +3,6 @@ class TeamsController < ApplicationController
   respond_to :html, :js
 
   def index
-    # @team = Team.new
-    # @active_team = Team.showActiveTeam
   end
 
   def new
@@ -33,7 +31,7 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @active_team = Team.showActiveTeam
+    @active_team = Team.active
 
     respond_to do |format|
     format.html # show.html.erb
@@ -73,7 +71,7 @@ class TeamsController < ApplicationController
 
   def team_manager
     @team = Team.new
-    @active_team = Team.showActiveTeam
+    @active_team = Team.active
   end
 
 private

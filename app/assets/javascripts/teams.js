@@ -1,10 +1,9 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 $(document).ready(function(){
-  $('section#editTeam').add('section#addNewTeam2').hide();
-  // $('#new-team-side-link').on('click', showNewTeamForm)
-  // $('#createTeamButton').on('click', createNewTeam);
-  $('.teamBrand').on('click', showPlayers)
+  $('.player-action-sublist').hide();
+  $('#player-button').on('click', showPlayerOptions);
+  $('#team-mgr-button').on('click', showTeamOptions);
   // $('#new-team-side-link').avgrund({
   //     onBlurContainer: '.app-container',
   //     template: $('section#addNewTeam'),
@@ -12,29 +11,6 @@ $(document).ready(function(){
   //     height: 336,
   // });
 
-  // $('#edit-team-side-link').avgrund({
-  //   template: $('section#editTeam'),
-  //   onLoad: function(element) {
-  //     console.log(element);
-  //     var id = " "
-  //     $.ajax({
-  //       type: 'GET',
-  //       url: '/teams/'+ id + '/edit',
-  //       success: function(result) {
-  //         var e = $('section#editTeam');
-  //         var title = $(e).find('#team_title');
-  //         var info = result.update
-  //         $(e).find('#team_title')[0].value = info.title
-  //         $(e).find('#team_age_group > option')[0].innerText = info.group
-  //         $(e).find('#team_num_of_players')[0].value = info.num
-  //       },
-  //       error: function(e) {
-  //         alert('Oops...something went wrong')
-  //       }
-  //     });
-  //     $('section#editTeam').css('display', 'block')
-  //   }
-  // });
 
   $('a[disabled=disabled]').click(function(event){
       event.preventDefault(); // Prevent link from following its href
@@ -42,8 +18,12 @@ $(document).ready(function(){
 
 });
 
-function showPlayers() {
-  alert('show players')
+function showTeamOptions() {
+  $('.team-action-sublist').slideToggle(300)
+}
+
+function showPlayerOptions() {
+  $('.player-action-sublist').slideToggle(150)
 }
 
 // function getTeamInfoToEdit() {

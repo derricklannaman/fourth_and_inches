@@ -2,7 +2,7 @@
 /                 SITE WIDE STYLING                 /
 //////////////////////////////////////////////////*/
 @import 'color_chart';
-
+@import 'mixins';
 /*////////// Global ///////////*/
 
 html {
@@ -11,12 +11,15 @@ html {
 
 
 body  {
-  /*background: $base-gray;*/
+/*  font-family: 'Lato', Calibri, Arial, sans-serif;
+  background: #cecece url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQklEQVQYV2P8//+/JCMj43MGPACsBiSPTzFMDqwQl2JkA+AK0RWj24KiEKYYRKO7mzyFyNbhtBqbzzE8Q1TwEBvgADC3RjcXfBsqAAAAAElFTkSuQmCC);
+  font-weight: 300;
+  font-size: 15px;
+  color: #333;*/
 }
 
 body > div.app-container {
   margin: 0 auto !important;
-  /*border: 1px solid red;*/
 }
 
 body > div > header {
@@ -42,8 +45,13 @@ h1, h2, h3, h4, h5 {
 #flash_messages {
   width: 100%;
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 55px;
   display: inline-block;
+  color: #FFF;
+  font-size: 20px;
+  letter-spacing: 2px;
+  @include hr_fade_notice;
+  @include letter_shadow;
 }
 
 /*main content area position*/
@@ -51,7 +59,6 @@ h1, h2, h3, h4, h5 {
   margin: 0 auto !important;
   margin-top: -100px;
   padding-left: 130px;
-  /*border: 1px solid red;*/
 }
 
 /*////////// Navigation ///////////*/
@@ -106,7 +113,6 @@ h1, h2, h3, h4, h5 {
   border-width: 0px;
   border-style: solid;
   border-color: #333;
-  /*border-color: purple;*/
   background-color: rgba(0,0,0,0);
   -webkit-backface-visibility: hidden;
   -webkit-transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
