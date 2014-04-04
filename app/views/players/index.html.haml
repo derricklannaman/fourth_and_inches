@@ -18,4 +18,4 @@
         |
         = link_to "show", player_path(player), class: 'no_ajaxify'
         |
-        = link_to "delete", player_path(player), method: :delete, data: { confirm: "Are u sure?" }, class: 'no_ajaxify'
+        %a{ class: 'player-delete' } delete

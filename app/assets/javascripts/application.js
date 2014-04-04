@@ -15,8 +15,7 @@
 //= require bootstrap
 //= require modernizr.custom.js
 //= require avgrund.js
-//= require avgrund_to/modal
-//= require avgrund_to/avgrund
+//= require alertify.js
 //= require ajaxify_rails
 //= require turbolinks
 //= require_tree .

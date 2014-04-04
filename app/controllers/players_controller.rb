@@ -41,7 +41,7 @@ class PlayersController < ApplicationController
 
   def destroy
     find_player.destroy
-      redirect_to players_path, :notice => 'player successfully deleted'
+    render nothing: true
   end
 
 
