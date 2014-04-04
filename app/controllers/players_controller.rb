@@ -2,12 +2,12 @@ class PlayersController < ApplicationController
 
   def index
     @players = current_user.teams.active.players
-    @active_team = Team.active
+    find_active_team
   end
 
   def new
     @player = Player.new
-    @active_team = Team.active
+    find_active_team
   end
 
   def create
@@ -21,12 +21,12 @@ class PlayersController < ApplicationController
   end
 
   def edit
-    @player = Player.find(params[:id])
-    @active_team = Team.active
+    find_player
+    find_active_team
   end
 
   def update
-    @player = Player.find(params[:id])
+    find_player
     @player.update(player_params)
     if @player.save
       redirect_to players_path, :notice => 'player successfully updated'
@@ -36,16 +36,24 @@ class PlayersController < ApplicationController
   end
 
   def show
-    @player = Player.find(params[:id])
+    find_player
   end
 
   def destroy
-    Player.find(params[:id]).destroy
+    find_player.destroy
       redirect_to players_path, :notice => 'player successfully deleted'
   end
 
 
   private
+
+    def find_player
+      @player = Player.find(params[:id])
+    end
+
+    def find_active_team
+      @active_team = Team.active
+    end
 
     def player_params
       params.require(:player)

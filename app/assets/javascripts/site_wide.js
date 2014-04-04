@@ -1,4 +1,4 @@
 $(function(){
-  $('.notice').delay(2000).slideUp(50);
+  $('.notice').delay(3000).slideUp(50);
 
 });
