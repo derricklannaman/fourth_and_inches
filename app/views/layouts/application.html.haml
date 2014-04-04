@@ -8,7 +8,7 @@
 
   %body{:class => "#{controller_name} #{action_name}"}
     :javascript
-      Ajaxify.init( {   scroll_to_top: false } );
+      Ajaxify.init( {   scroll_to_top: false, flash_types: ['notice'] } );
 
     .app_nav_bar
       = nav_view_by_login_status
@@ -16,7 +16,7 @@
     .app-container
       #flash_messages
         - if !flash[:notice].blank?
-          .notice
+          #notice
             = flash[:notice]
       .container
 

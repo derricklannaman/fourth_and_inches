@@ -1,5 +1,6 @@
 $(function(){
-  $('.notice').delay(3000).slideUp(50);
+  // $('.notice').delay(3000).slideUp(50);
+  $('#notice').delay(3000).fadeOut(3000);
 
   $('.player-action-sublist, .team-action-sublist').hide();
   $('#side-panel-list > li:nth-child(5)').hide() // player button
