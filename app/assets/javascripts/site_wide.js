@@ -1,13 +1,9 @@
 $(function(){
-  // $('.notice').delay(3000).slideUp(50);
   $('#notice').delay(3000).fadeOut(3000);
 
   $('.player-action-sublist, .team-action-sublist').hide();
   $('#side-panel-list > li:nth-child(5)').hide() // player button
   $('#player-button').on('click', showPlayerOptions);
-
-
-
 
   $(document).on('ajaxify:content_loaded', function() {
     var path = document.location.pathname;
@@ -36,6 +32,8 @@ $(function(){
     }
     else if ( path == '/players' ) {
       hideTeamNavigationOptions();
+      $('.player-delete').on('click', deletePlayer);
+
     }
     else if ( path == '/players/new' ) {
       hideTeamNavigationOptions();

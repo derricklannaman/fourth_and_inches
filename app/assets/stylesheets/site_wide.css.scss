@@ -125,9 +125,9 @@ h1, h2, h3, h4, h5 {
 
 .bt-menu.bt-menu-open {
   height: 100%;
-  border-width: 0px 0px 50px 215px;
+  border-width: 0px 0px 90px 215px;
   /*background-color: rgba(0,0,0,0.3);*/
-  background-color: rgba(236,236,236,0.8);
+  /*background-color: rgba(236,236,236,0.8);*/
   -webkit-transition: border-width 0.3s, background-color 0.3s;
   transition: border-width 0.3s, background-color 0.3s;
 }
@@ -365,11 +365,10 @@ h1, h2, h3, h4, h5 {
 
 
 
+/*//////////////////////////////
+/         BOTTOM NAV          /
+////////////////////////////*/
 
-
-
-
-/*bottom nav*/
 .btn-menu {
   position: fixed;
   top: 0;
@@ -379,7 +378,9 @@ h1, h2, h3, h4, h5 {
   border-width: 0px;
   border-style: solid;
   border-color: #333;
-  background-color: rgba(0,0,0,0);
+  /*border-color: green; this is the color of the navbar */
+
+  /*background-color: rgba(0,0,0,0);*/
   -webkit-backface-visibility: hidden;
   -webkit-transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
   transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
@@ -387,8 +388,8 @@ h1, h2, h3, h4, h5 {
 
 .btn-menu.btn-menu-open {
   height: 100%;
-  border-width: 30px 30px 90px 30px;
-  background-color: rgba(0,0,0,0.3);
+  border-width: 0px 0px 90px 0px;
+  /*background-color: rgba(0,0,0,0.3);*/
   -webkit-transition: border-width 0.3s, background-color 0.3s;
   transition: border-width 0.3s, background-color 0.3s;
 }
@@ -434,7 +435,8 @@ h1, h2, h3, h4, h5 {
 }
 
 .btn-menu-open .btn-menu-trigger span {
-  background-color: #2980b9;
+  /*background-color: #2980b9;*/
+  background-color: #FFF;
 }
 
 .btn-menu-trigger span:before,
@@ -461,7 +463,8 @@ h1, h2, h3, h4, h5 {
 
 .btn-menu-open .btn-menu-trigger span:before,
 .btn-menu-open .btn-menu-trigger span:after {
-  background-color: #2980b9;
+  /*background-color: #2980b9;*/
+  background-color: #FFF;
 }
 
 .btn-menu-open .btn-menu-trigger span:before {
@@ -476,7 +479,7 @@ h1, h2, h3, h4, h5 {
 
 .btn-menu ul {
   position: fixed;
-  bottom: 0px;
+  bottom: 85px;
   left: 0;
   margin: 0;
   padding: 0;
@@ -565,6 +568,7 @@ h1, h2, h3, h4, h5 {
 .btn-menu ul li a:hover,
 .btn-menu ul li a:focus {
   color: #2980b9;
+  /*color: #FFF;*/
 }
 
 @media screen and (max-width: 65.1em) {

@@ -19,15 +19,15 @@
 
 	function init() {
 
-		var menu = document.getElementById( 'bt-menu' ),
-			trigger = menu.querySelector( 'a.bt-menu-trigger' ),
+		var menu = document.getElementById( 'btn-menu' ),
+			trigger = menu.querySelector( 'a.btn-menu-trigger' ),
 			// triggerPlay only for demo 6
-			triggerPlay = document.querySelector( 'a.bt-menu-trigger-out' ),
+			triggerPlay = document.querySelector( 'a.btn-menu-trigger-out' ),
 			// event type (if mobile use touch events)
 			eventtype = mobilecheck() ? 'touchstart' : 'click',
 			resetMenu = function() {
-				classie.remove( menu, 'bt-menu-open' );
-				classie.add( menu, 'bt-menu-close' );
+				classie.remove( menu, 'btn-menu-open' );
+				classie.add( menu, 'btn-menu-close' );
 			},
 			closeClickFn = function( ev ) {
 				resetMenu();
@@ -35,19 +35,19 @@
 			};
 
 		var overlay = document.createElement('div');
-		overlay.className = 'bt-overlay';
+		overlay.className = 'btn-overlay';
 		menu.appendChild( overlay );
 
 		trigger.addEventListener( eventtype, function( ev ) {
 			ev.stopPropagation();
 			ev.preventDefault();
 
-			if( classie.has( menu, 'bt-menu-open' ) ) {
+			if( classie.has( menu, 'btn-menu-open' ) ) {
 				resetMenu();
 			}
 			else {
-				classie.remove( menu, 'bt-menu-close' );
-				classie.add( menu, 'bt-menu-open' );
+				classie.remove( menu, 'btn-menu-close' );
+				classie.add( menu, 'btn-menu-open' );
 				overlay.addEventListener( eventtype, closeClickFn );
 			}
 		});
@@ -57,8 +57,8 @@
 				ev.stopPropagation();
 				ev.preventDefault();
 
-				classie.remove( menu, 'bt-menu-close' );
-				classie.add( menu, 'bt-menu-open' );
+				classie.remove( menu, 'btn-menu-close' );
+				classie.add( menu, 'btn-menu-open' );
 				overlay.addEventListener( eventtype, closeClickFn );
 			});
 		}
