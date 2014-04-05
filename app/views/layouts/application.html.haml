@@ -20,15 +20,13 @@
             = flash[:notice]
       .container
 
-        = change_navigation_layout(controller_name, action_name)
-        = render 'layouts/footer_nav_panel'
+        = render_changable_side_navigation(controller_name, action_name)
         #main
           = yield
-        =# render 'layouts/footer_nav_panel'
+        = render 'layouts/footer_nav_panel'
 
   - if user_signed_in?
     %script{src: "assets/classie.js"}
     %script{src: "assets/borderMenu.js"}
-    %script{src: "assets/bottomBorderMenu.js"}
 
 

@@ -8,7 +8,7 @@ module ApplicationHelper
     end
   end
 
-  def change_navigation_layout(controller_name, action_name)
+  def render_changable_side_navigation(controller_name, action_name)
     if user_signed_in?
       if    (controller_name == 'dashboard' && action_name == 'show')
         dashboard_nav
@@ -22,6 +22,8 @@ module ApplicationHelper
         coach_corner_nav
       elsif (controller_name == 'players'   && action_name == 'index')
         player_index_nav
+      elsif (controller_name == 'home'   && action_name == 'features')
+        dashboard_nav
       end
     end
   end

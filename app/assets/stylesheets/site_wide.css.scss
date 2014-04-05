@@ -27,12 +27,44 @@ body > div > header {
   margin-top: -70px;
 }
 
+#bottom-branding {
+  /*margin-top: -165px;*/
+  margin-left: -5px;
+  /*opacity: 0;*/
+}
+
+#get-help-flag {
+  margin-top: -75px;
+  width: 70px;
+  /*border: 1px solid #F00;*/
+  opacity: 1;
+}
+
+
+.btn-menu-trigger {
+  &:hover {
+    #get-help-flag {
+      opacity: 1;
+      -moz-transition: opacity .33s ease-in-out;
+      -webkit-transition: opacity .33s ease-in-out;
+      transition: opacity .33s ease-in-out;
+
+
+    }
+  }
+}
+
 h1, h2, h3, h4, h5 {
   color: $base-text;
 }
 
 .no-display {
   display: none !important;
+}
+
+.fade {
+  opacity: 1;
+
 }
 
 .app_sign_in {

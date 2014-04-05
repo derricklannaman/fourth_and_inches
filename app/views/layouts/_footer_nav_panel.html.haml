@@ -1,16 +1,18 @@
 %nav#btn-menu.btn-menu
   %a.btn-menu-trigger{}
+    #get-help-flag
+      = image_tag('mock_logo.png', size: "65", id: "bottom-branding")
+      .blurb get help
     %span Menu
   %ul
     %li
-      %a{href: "http://www.google.com", target: "_blank"}
-        %img{alt: "Mock logo", height: "65", src: "/assets/mock_logo.png", width: "65"}
+      = link_to "About", about_path
     %li
-      %a{href: "http://www.google.com", target: "_blank"} About
+      = link_to "Features", features_path
     %li
-      %a{href: "http://www.google.com", target: "_blank"} Features
+      = link_to "other", features_path
     %li
-      %a{href: "http://www.google.com", target: "_blank"} Blog
+      %a{href: "http://www.youtube.com", target: "_blank"} Video help
     %li
       %a{href: "http://www.google.com", target: "_blank"} Help
     %li

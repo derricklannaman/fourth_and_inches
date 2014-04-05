@@ -15,5 +15,11 @@ end
 def contact
 end
 
+def features
+end
+
+def video_help
+end
+
 
 end

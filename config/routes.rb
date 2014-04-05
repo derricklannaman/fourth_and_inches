@@ -7,6 +7,7 @@ FourthAndInches::Application.routes.draw do
   get 'contact'   => 'home#contact',   as: 'contact'
   get 'dashboard' => 'dashboard#show', as: 'dashboard'
   get 'faq'       => 'home#faq',       as: 'faq'
+  get 'features'  => 'home#features',  as: 'features'
 
 
   get 'coaches_corner' => 'coaches#coaches_corner', as: 'coaches_corner'
