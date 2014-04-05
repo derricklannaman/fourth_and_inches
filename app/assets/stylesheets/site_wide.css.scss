@@ -28,31 +28,17 @@ body > div > header {
 }
 
 #bottom-branding {
-  /*margin-top: -165px;*/
   margin-left: -5px;
-  /*opacity: 0;*/
 }
 
 #get-help-flag {
   margin-top: -75px;
   width: 70px;
-  /*border: 1px solid #F00;*/
-  opacity: 1;
+  opacity: 0;
 }
 
 
-.btn-menu-trigger {
-  &:hover {
-    #get-help-flag {
-      opacity: 1;
-      -moz-transition: opacity .33s ease-in-out;
-      -webkit-transition: opacity .33s ease-in-out;
-      transition: opacity .33s ease-in-out;
 
-
-    }
-  }
-}
 
 h1, h2, h3, h4, h5 {
   color: $base-text;
@@ -60,11 +46,6 @@ h1, h2, h3, h4, h5 {
 
 .no-display {
   display: none !important;
-}
-
-.fade {
-  opacity: 1;
-
 }
 
 .app_sign_in {
@@ -236,6 +217,17 @@ h1, h2, h3, h4, h5 {
 .bt-menu-open .bt-menu-trigger span:after {
   -webkit-transform: translateY(300%);
   transform: translateY(300%);
+}
+
+.btn-menu-trigger {
+  &:hover {
+    #get-help-flag {
+      opacity: 1;
+      -moz-transition: opacity .33s ease-in-out;
+      -webkit-transition: opacity .33s ease-in-out;
+      transition: opacity .33s ease-in-out;
+    }
+  }
 }
 
 .bt-menu ul {

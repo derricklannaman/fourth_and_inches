@@ -4,7 +4,7 @@ $(function(){
   $('.player-action-sublist, .team-action-sublist').hide();
   $('#side-panel-list > li:nth-child(5)').hide() // player button
   $('#player-button').on('click', showPlayerOptions);
-  $('a.btn-menu-trigger').on('click', moveHelpLogoUp)
+  $('a.btn-menu-trigger').on('click', moveHelpLogoUp);
 
   $(document).on('ajaxify:content_loaded', function() {
     var path = document.location.pathname;
@@ -44,18 +44,20 @@ $(function(){
 
 
 function moveHelpLogoUp() {
-  if ( $('#get-help-flag').hasClass('bottom-menu-is-open') ){
-    $('#get-help-flag').animate({
+  var getHelpFlag = $('#get-help-flag');
+  var isOpen = 'is-open';
+  if ( $(getHelpFlag).hasClass(isOpen) ){
+    getHelpFlag.animate({
       marginTop: "+=30",
     }, 250, function() {
-      $('#get-help-flag').removeClass('bottom-menu-is-open')
+      getHelpFlag.removeClass(isOpen)
     });
   }
   else {
-    $('#get-help-flag').animate({
+    getHelpFlag.animate({
       marginTop: "-=30",
     }, 250, function() {
-      $('#get-help-flag').addClass('bottom-menu-is-open')
+      getHelpFlag.addClass(isOpen)
     });
   }
 
