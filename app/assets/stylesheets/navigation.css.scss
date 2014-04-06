@@ -21,9 +21,10 @@ nav a {
 nav a:hover,
 nav a:focus {
   outline: none;
+  text-decoration: none;
 }
 
-/*////////// Navigation ///////////*/
+/*////////// Top Level Navigation ///////////*/
 
 .navbar-title {
   margin-left: 300px;
@@ -35,9 +36,9 @@ nav a:focus {
 }
 
 .mini-manager-buttons {
-/*  border: 1px solid #BBB;
-  border-radius: 5px;
-  padding: 5px;*/
+  text-decoration: none !important;
+  color: darken( $go-green, 10% );
+
 }
 
 #on-page-nav {
@@ -47,14 +48,13 @@ nav a:focus {
   .row{
     .col-md-3 {
       width: 20%;
-      /*margin-top: 15px;*/
     }
   }
 }
 
 .inner-nav-links {
-  float: left;
-  margin: 10px 40px;
+  margin-left: -100px;
+  width: 100%;
 }
 
 .inner-nav-links a {
@@ -67,7 +67,7 @@ nav a:focus {
   left: 0;
   width: 100%;
   height: 1px;
-  background: #999;
+  background: $go-green;
   content: '';
   opacity: 0;
   -webkit-transition: height 0.3s, opacity 0.3s, -webkit-transform 0.3s;
@@ -106,7 +106,7 @@ nav a:focus {
   height: 0;
   border-width: 0px;
   border-style: solid;
-  border-color: #333; /* border-color is the color of the navbar */
+  border-color: #333; /* FIND: border-color is the color of the navbar */
   background-color: rgba(0,0,0,0);
   -webkit-backface-visibility: hidden;
   -webkit-transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
@@ -116,8 +116,6 @@ nav a:focus {
 .bt-menu.bt-menu-open {
   height: 100%;
   border-width: 0px 0px 90px 215px;
-  /*background-color: rgba(0,0,0,0.3);*/
-  /*background-color: rgba(236,236,236,0.8);*/
   -webkit-transition: border-width 0.3s, background-color 0.3s;
   transition: border-width 0.3s, background-color 0.3s;
 }
@@ -198,18 +196,6 @@ nav a:focus {
 .bt-menu-open .bt-menu-trigger span:after {
   -webkit-transform: translateY(300%);
   transform: translateY(300%);
-}
-
-/* FIND: the help logo*/
-.btn-menu-trigger {
-  &:hover {
-    #get-help-flag {
-      opacity: 1;
-      -moz-transition: opacity .33s ease-in-out;
-      -webkit-transition: opacity .33s ease-in-out;
-      transition: opacity .33s ease-in-out;
-    }
-  }
 }
 
 .bt-menu ul {
@@ -348,7 +334,7 @@ nav a:focus {
 /          CUSTOM             /
 ////////////////////////////*/
 
-/*Menu text above menu lines*/
+/* FIND: Menu text above menu lines*/
 #bt-menu > a {
   text-decoration: none;
 }
@@ -364,41 +350,37 @@ nav a:focus {
   }
 }
 
+/* FIND: the help logo*/
+.btn-menu-trigger {
+  &:hover {
+    #get-help-flag {
+      text-decoration: none !important;
+
+      opacity: 1;
+      -moz-transition: opacity .33s ease-in-out;
+      -webkit-transition: opacity .33s ease-in-out;
+      transition: opacity .33s ease-in-out;
+      .blurb{
+        text-decoration: none !important;
+        color: darken( $go-green, 10% );
+      }
+
+    }
+  }
+}
+
 /*//////////////////////////////
 /         BOTTOM NAV          /
 ////////////////////////////*/
 
-/*.btn-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  border-width: 0px;
-  border-style: solid;
-  border-color: #333;  border-color is the color of the navbar
-  background-color: rgba(0,0,0,0);
-  -webkit-backface-visibility: hidden;
-  -webkit-transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
-  transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
-}*/
+
 
 .btn-menu.btn-menu-open {
   height: 100%;
   border-width: 0px 0px 90px 0px;
-  /*background-color: rgba(0,0,0,0.3);*/
   -webkit-transition: border-width 0.3s, background-color 0.3s;
   transition: border-width 0.3s, background-color 0.3s;
 }
-
-/*.btn-overlay {
-  position: absolute;
-  width: 100%;
-}*/
-
-/*.btn-menu-open .btn-overlay {
-  height: 100%;
-}*/
 
 .btn-menu-trigger {
   position: fixed;
@@ -412,54 +394,12 @@ nav a:focus {
   cursor: pointer;
 }
 
-/*.btn-menu-trigger span {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  display: block;
-  width: 100%;
-  height: 8%;
-  background-color: $base-text;
-  font-size: 0px;
-  -webkit-transition: background-color 0.3s;
-  transition: background-color 0.3s;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}*/
-
 .btn-menu-open .btn-menu-trigger span {
   background-color: #FFF;
 }
 
-/*.btn-menu-trigger span:before,
-.btn-menu-trigger span:after {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: $base-text;
-  content: '';
-  -webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
-  transition: transform 0.3s, background-color 0.3s;
-}
-*/
-/*.btn-menu-trigger span:before {
-  -webkit-transform: translateY(-250%);
-  transform: translateY(-250%);
-}
-*/
-/*.btn-menu-trigger span:after {
-  -webkit-transform: translateY(250%);
-  transform: translateY(250%);
-}*/
-
 .btn-menu-open .btn-menu-trigger span:before,
 .btn-menu-open .btn-menu-trigger span:after {
-  /*background-color: #2980b9;*/
   background-color: #FFF;
 }
 
@@ -475,7 +415,7 @@ nav a:focus {
 
 .btn-menu ul {
   position: fixed;
-  bottom: 85px;
+  bottom: 105px;
   left: 0;
   margin: 0;
   padding: 0;
@@ -563,8 +503,7 @@ nav a:focus {
 
 .btn-menu ul li a:hover,
 .btn-menu ul li a:focus {
-  color: #2980b9;
-  /*color: #FFF;*/
+  color: $go-green;
 }
 
 @media screen and (max-width: 65.1em) {

@@ -67,14 +67,14 @@ function moveHelpLogoUp() {
   var isOpen = 'is-open';
   if ( $(getHelpFlag).hasClass(isOpen) ){
     getHelpFlag.animate({
-      marginTop: "+=30",
+      marginTop: "+=25",
     }, 250, function() {
       getHelpFlag.removeClass(isOpen)
     });
   }
   else {
     getHelpFlag.animate({
-      marginTop: "-=30",
+      marginTop: "-=25",
     }, 250, function() {
       getHelpFlag.addClass(isOpen)
     });
