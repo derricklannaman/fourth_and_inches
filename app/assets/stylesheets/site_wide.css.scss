@@ -27,6 +27,10 @@ body > div > header {
   margin-top: -70px;
 }
 
+#app-content {
+  /*border: 3px solid;*/
+}
+
 #bottom-branding {
   margin-left: -5px;
 }
@@ -36,9 +40,6 @@ body > div > header {
   width: 70px;
   opacity: 0;
 }
-
-
-
 
 h1, h2, h3, h4, h5 {
   color: $base-text;
@@ -73,9 +74,9 @@ h1, h2, h3, h4, h5 {
 
 /*main content area position*/
 #main {
-  margin: 0 auto !important;
-  margin-top: -100px;
-  padding-left: 130px;
+/*  margin: 0 auto !important;
+  margin-top: -100px;*/
+  /*padding-left: 130px;*/
 }
 
 /*////////// Navigation ///////////*/
