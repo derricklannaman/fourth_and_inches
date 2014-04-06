@@ -4,7 +4,7 @@ $(function(){
   $('.player-action-sublist, .team-action-sublist').hide();
   $('#side-panel-list > li:nth-child(5)').hide() // player button
   $('#player-button').on('click', showPlayerOptions);
-  $('a.bt-menu-trigger').on('click', moveMainContentWithNav);
+  // $('a.bt-menu-trigger').on('click', moveMainContentWithNav);
   $('a.btn-menu-trigger').on('click', moveHelpLogoUp);
 
   $(document).on('ajaxify:content_loaded', function() {
@@ -43,24 +43,24 @@ $(function(){
   });
 });
 
-function moveMainContentWithNav() {
-  var content = $('div#main');
-  var isOpen = 'is-open';
-  if ( $(content).hasClass(isOpen) ){
-    content.animate({
-      marginLeft: "-=160",
-    }, 300, function() {
-      content.removeClass(isOpen);
-    });
-  }
-  else {
-    content.animate({
-      marginLeft: "+=160",
-    }, 300, function() {
-      content.addClass(isOpen);
-    });
-  }
-}
+// function moveMainContentWithNav() {
+//   var content = $('div#main');
+//   var isOpen = 'is-open';
+//   if ( $(content).hasClass(isOpen) ){
+//     content.animate({
+//       marginLeft: "-=160",
+//     }, 300, function() {
+//       content.removeClass(isOpen);
+//     });
+//   }
+//   else {
+//     content.animate({
+//       marginLeft: "+=160",
+//     }, 300, function() {
+//       content.addClass(isOpen);
+//     });
+//   }
+// }
 
 function moveHelpLogoUp() {
   var getHelpFlag = $('#get-help-flag');
