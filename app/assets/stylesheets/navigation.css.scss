@@ -91,21 +91,14 @@ nav a:focus {
 
 
 /*////////// Side Navigation Layout ///////////*/
-/**,
-*:after,
-*::before {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}*/
-
 
 .container {
   padding: 80px;
   padding-top: 0px;
 }
 
-.bt-menu {
+.bt-menu,
+.btn-menu {
   position: fixed;
   top: 0;
   left: 0;
@@ -113,7 +106,7 @@ nav a:focus {
   height: 0;
   border-width: 0px;
   border-style: solid;
-  border-color: #333;
+  border-color: #333; /* border-color is the color of the navbar */
   background-color: rgba(0,0,0,0);
   -webkit-backface-visibility: hidden;
   -webkit-transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
@@ -129,12 +122,14 @@ nav a:focus {
   transition: border-width 0.3s, background-color 0.3s;
 }
 
-.bt-overlay {
+.bt-overlay,
+.btn-overlay {
   position: absolute;
   width: 100%;
 }
 
-.bt-menu-open .bt-overlay {
+.bt-menu-open .bt-overlay,
+.btn-menu-open .btn-overlay {
   height: 100%;
 }
 
@@ -183,12 +178,14 @@ nav a:focus {
   transition: transform 0.3s;
 }
 
-.bt-menu-trigger span:before {
+.bt-menu-trigger span:before,
+.btn-menu-trigger span:before {
   -webkit-transform: translateY(-250%);
   transform: translateY(-250%);
 }
 
-.bt-menu-trigger span:after {
+.bt-menu-trigger span:after,
+.btn-menu-trigger span:after {
   -webkit-transform: translateY(250%);
   transform: translateY(250%);
 }
@@ -203,6 +200,7 @@ nav a:focus {
   transform: translateY(300%);
 }
 
+/* FIND: the help logo*/
 .btn-menu-trigger {
   &:hover {
     #get-help-flag {
@@ -343,6 +341,7 @@ nav a:focus {
 .bt-menu ul li a:hover:before,
 .bt-menu ul li a:focus:before {
   color: #1abc9c;
+  color: yellow; /* FIND: side link color on hover */
 }
 
 /*//////////////////////////////
@@ -369,7 +368,7 @@ nav a:focus {
 /         BOTTOM NAV          /
 ////////////////////////////*/
 
-.btn-menu {
+/*.btn-menu {
   position: fixed;
   top: 0;
   left: 0;
@@ -377,14 +376,12 @@ nav a:focus {
   height: 0;
   border-width: 0px;
   border-style: solid;
-  border-color: #333;
-  /*border-color: green; this is the color of the navbar */
-
-  /*background-color: rgba(0,0,0,0);*/
+  border-color: #333;  border-color is the color of the navbar
+  background-color: rgba(0,0,0,0);
   -webkit-backface-visibility: hidden;
   -webkit-transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
   transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
-}
+}*/
 
 .btn-menu.btn-menu-open {
   height: 100%;
@@ -394,14 +391,14 @@ nav a:focus {
   transition: border-width 0.3s, background-color 0.3s;
 }
 
-.btn-overlay {
+/*.btn-overlay {
   position: absolute;
   width: 100%;
-}
+}*/
 
-.btn-menu-open .btn-overlay {
+/*.btn-menu-open .btn-overlay {
   height: 100%;
-}
+}*/
 
 .btn-menu-trigger {
   position: fixed;
@@ -415,7 +412,7 @@ nav a:focus {
   cursor: pointer;
 }
 
-.btn-menu-trigger span {
+/*.btn-menu-trigger span {
   position: absolute;
   top: 50%;
   left: 0;
@@ -432,14 +429,13 @@ nav a:focus {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+}*/
 
 .btn-menu-open .btn-menu-trigger span {
-  /*background-color: #2980b9;*/
   background-color: #FFF;
 }
 
-.btn-menu-trigger span:before,
+/*.btn-menu-trigger span:before,
 .btn-menu-trigger span:after {
   position: absolute;
   left: 0;
@@ -450,16 +446,16 @@ nav a:focus {
   -webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
   transition: transform 0.3s, background-color 0.3s;
 }
-
-.btn-menu-trigger span:before {
+*/
+/*.btn-menu-trigger span:before {
   -webkit-transform: translateY(-250%);
   transform: translateY(-250%);
 }
-
-.btn-menu-trigger span:after {
+*/
+/*.btn-menu-trigger span:after {
   -webkit-transform: translateY(250%);
   transform: translateY(250%);
-}
+}*/
 
 .btn-menu-open .btn-menu-trigger span:before,
 .btn-menu-open .btn-menu-trigger span:after {
