@@ -1,34 +1,19 @@
 - if @active_team.present?
   .teamBrand.center
   %ul#tp-grid.tp-grid
-    =# link_to( image_tag('uniondale knight.png', size: '300x300'), players_path)
     .teamBanner
-      / %h3= "#{@active_team.title.upcase} Football Team"
-      / %h5= "#{@active_team.age_group}"
-
-    / Griffin Moore
-    %li{"data-pile" => "Uniondale Knights"}
-      %a{href: "http://drbl.in/fzUB"}
-        %span.tp-info
-          %span Briefcase
-        %img{src: "/assets/helmet.png", width: '200'}/
-    %li{"data-pile" => "Uniondale Knights"}
-      %a{href: "http://drbl.in/fQEv"}
-        %span.tp-info
-          %span Clipboard
-        %img{src: "/assets/helmet.png", width: '200'}/
-    %li{"data-pile" => "Uniondale Knights"}
-      %a{href: ""}
-        %span.tp-info
-          %span Knights
-        %img{src: "/assets/uniondale knight.png", width: '300'}/
-
-
-  / experiment end
-
-
-
-
+    - @players.each do |player|
+      - if player.id == @players.last.id
+        %li{"data-pile" => "#{@active_team.title.upcase} Football Team" }
+          %span.tp-info
+            %span= "#{@active_team.title.upcase} Football Team"
+          = image_tag('uniondale knight.png', size: '300')
+      - else
+        %li{"data-pile" => "#{@active_team.title.upcase} Football Team" }
+          %a{href: player_path(player.id)}
+            %span.tp-info
+              %span= "#{player.first_name} #{player.last_name}"
+            = image_tag('helmet.png', size: '170')
 
 - else
   %h1= "No team currently active"

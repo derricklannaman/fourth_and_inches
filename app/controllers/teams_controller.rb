@@ -70,6 +70,8 @@ class TeamsController < ApplicationController
   end
 
   def team_manager
+    @players = current_user.teams.active.players
+
     @team = Team.new
     @active_team = Team.active
   end

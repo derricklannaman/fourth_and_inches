@@ -3,7 +3,6 @@ class PlayersController < ApplicationController
   def index
     @players = current_user.teams.active.players
     find_active_team
-    render json: @players
   end
 
   def new
@@ -15,7 +14,7 @@ class PlayersController < ApplicationController
     @player = Player.new(player_params)
     @player.team_id = params[:team_id]
     if @player.save
-       redirect_to players_path, :notice => "player successfully created"
+       redirect_to @player, :notice => "player successfully created"
     else
       render :new
     end
@@ -37,6 +36,7 @@ class PlayersController < ApplicationController
   end
 
   def show
+    # @players = current_user.teams.active.players
     find_player
   end
 
