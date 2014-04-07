@@ -3,6 +3,7 @@ class PlayersController < ApplicationController
   def index
     @players = current_user.teams.active.players
     find_active_team
+    render json: @players
   end
 
   def new

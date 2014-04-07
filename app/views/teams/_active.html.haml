@@ -1,11 +1,34 @@
 - if @active_team.present?
   .teamBrand.center
-    = link_to( image_tag('uniondale knight.png', size: '300x300'), players_path)
+  %ul#tp-grid.tp-grid
+    =# link_to( image_tag('uniondale knight.png', size: '300x300'), players_path)
     .teamBanner
-      %h3= "#{@active_team.title.upcase} Football Team"
-      %h5= "#{@active_team.age_group}"
-      %p
-        Current number of players:
-        = @active_team.num_of_players
+      / %h3= "#{@active_team.title.upcase} Football Team"
+      / %h5= "#{@active_team.age_group}"
+
+    / Griffin Moore
+    %li{"data-pile" => "Uniondale Knights"}
+      %a{href: "http://drbl.in/fzUB"}
+        %span.tp-info
+          %span Briefcase
+        %img{src: "/assets/helmet.png", width: '200'}/
+    %li{"data-pile" => "Uniondale Knights"}
+      %a{href: "http://drbl.in/fQEv"}
+        %span.tp-info
+          %span Clipboard
+        %img{src: "/assets/helmet.png", width: '200'}/
+    %li{"data-pile" => "Uniondale Knights"}
+      %a{href: ""}
+        %span.tp-info
+          %span Knights
+        %img{src: "/assets/uniondale knight.png", width: '300'}/
+
+
+  / experiment end
+
+
+
+
+
 - else
   %h1= "No team currently active"

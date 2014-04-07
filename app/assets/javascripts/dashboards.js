@@ -1,74 +1,40 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
 // TODO: Set page guard
 $(document).ready(function() {
-  // $("#side-panel-list > li > a[href^='#']").on('click', notYetImplemented)
+  $( '#tp-grid' ).stapel({
+    onBeforeOpen : function( pileName ) {
+      // ajax to players index
+      $.ajax({
+        type: 'GET',
+        url: '/players',
+        success: function(result) {
+          // console.log(result);
+          var players = result;
+          var p = $('div.tp-title').find('span')[1];
+          var count = $(p).text('6');
 
-  // $('section#viewAllTeams, section#addNewTeam').hide();
-  // $('#allTeamsButton').on('click', showAllTeams);
-  // $('#addNewTeamButton').on('click', showNewTeamForm);
-  // $('#cancelNewTeamForm, #createTeamButton').on('click', hideNewTeamForm);
-  // $('#closeAllTeamsView').on('click', hideAllTeams);
-  // $('.control_button.team_button').on('click', hideForm)
-  // $('a#deleteTeamButton').on('click', deleteTeam)
+          for (var i = 0; i < players.length; i++) {
+            console.log(players[i].first_name);
+            var li = $("<li data-pile='Uniondale knights'>")
+            li.attr('style',"display: list-item; z-index: 9999; visibility: visible; transition: none; -webkit-transition: none; left: 320px; top: 0px; box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 3px 0px;")
+
+            var img = $('<img>', {src: "/assets/helmet.png"}).appendTo(li)
+
+            $(li).appendTo('ul#tp-grid.tp-grid');
+
+          }
+
+        },
+        error: function(e) {
+          console.log(e);
+          alert("failed");
+        }
+      });
+    }
+  });
 });
 
-// function deleteTeam() {
-//   var id = $(this).attr('href').split('/')[2];
-//   var team = $(this).closest('.team')[0];
-//   $.ajax({
-//     type: 'DELETE',
-//     url: '/teams/'+ id,
-//     success: function(result) {
-//       team.remove();
-//     },
-//     error: function(e) {
-//       console.log(e);
-//       alert("Sorry...something went wrong");
-//     },
-//   });
-// }
-
-// function hideForm() {
-//   $('section#addNewTeam').hide();
-// }
-
-// function hideNewTeamForm() {
-//   $('section#addNewTeam').hide();
-//   $('#current_team_container').show();
-//   // clearFormContentsOnClose();
-// }
-
-// function showNewTeamForm() {
-//   $('section#addNewTeam').show();
-// }
-
-// function showAllTeams() {
-//   $('section#viewAllTeams').show();
-// }
-
-// function hideAllTeams() {
-//   $('section#viewAllTeams').hide();
-// }
-
-// function notYetImplemented() {
-//   alert("Sorry...This has not been implemented yet!");
-// }
-
-// function addPlayerDetails() {
-//   alert("player was clicked...add details!");
-// }
-
-
-// function package_team_info() {
-//   var els = $('form#create_new_team')[0].elements;
-//   var ageGroup = els[1].value;
-//   var playerNum = els[2].value;
-//   return {
-//     ag :ageGroup,
-//     pn :playerNum,
-//   }
-// }
-
-
-
+    // %li{"data-pile" => "Uniondale Knights"}
+    //   %a{href: "http://drbl.in/eiUm"}
+    //     %span.tp-info
+    //       %span On to Easter
+    //     %img{src: "/assets/helmet.png", width: '100'}/

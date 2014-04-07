@@ -17,5 +17,6 @@
 //= require avgrund.js
 //= require alertify.js
 //= require ajaxify_rails
+//= require jquery.stapel.js
 //= require turbolinks
 //= require_tree .
