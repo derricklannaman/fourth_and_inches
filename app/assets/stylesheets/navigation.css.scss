@@ -42,9 +42,7 @@ nav a:focus {
 }
 
 #on-page-nav {
-  margin-left: 100px;
-  padding-top: 10px;
-  margin-top: -50px;
+  margin-left: -30px;
   .row{
     .col-md-3 {
       width: 20%;
@@ -53,8 +51,8 @@ nav a:focus {
 }
 
 .inner-nav-links {
-  margin-left: -100px;
-  width: 100%;
+  /*margin-left: -100px;*/
+  width: 800px;
 }
 
 .inner-nav-links a {
@@ -355,7 +353,7 @@ nav a:focus {
   &:hover {
     #get-help-flag {
       text-decoration: none !important;
-
+      z-index: 99;
       opacity: 1;
       -moz-transition: opacity .33s ease-in-out;
       -webkit-transition: opacity .33s ease-in-out;

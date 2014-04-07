@@ -5,7 +5,10 @@
 #players-profile {
   width: 800px;
   border: 1px solid red;
+}
 
+.player-controls-spacer {
+  margin: 3px 0px;
 }
 
 .player-profile {
@@ -20,3 +23,5 @@
 .player-delete {
   cursor: pointer;
 }
+
+

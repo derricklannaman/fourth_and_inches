@@ -14,6 +14,11 @@
             %span.tp-info
               %span= "#{player.first_name} #{player.last_name}"
             = image_tag('helmet.png', size: '170')
+            = link_to "edit", edit_player_path(player), class: 'btn btn-warning btn-xs player-controls-spacer'
+
+            = link_to "show", player_path(player), class: 'btn btn-success btn-xs player-controls-spacer'
+
+            = link_to "delete", player, remote: true, method: :delete, class: 'player-delete btn btn-danger btn-xs player-controls-spacer'
 
 - else
   %h1= "No team currently active"

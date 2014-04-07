@@ -29,7 +29,8 @@ class PlayersController < ApplicationController
     find_player
     @player.update(player_params)
     if @player.save
-      redirect_to players_path, :notice => 'player successfully updated'
+      flash[:notice] = 'player successfully updated'
+      redirect_to @player
     else
       render :edit
     end

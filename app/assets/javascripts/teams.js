@@ -1,6 +1,6 @@
 $(document).ready(function(){
-
-  $('a[disabled=disabled]').click(function(event){
+  $( '#tp-grid' ).stapel({});
+  $( 'a[disabled=disabled]' ).click(function(event){
       event.preventDefault(); // Prevent link from following its href
   });
 

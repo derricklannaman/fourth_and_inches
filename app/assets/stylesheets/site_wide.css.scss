@@ -44,6 +44,10 @@ body > div > header {
 }
 
 #app-content {
+  margin-top: -30px;
+  border: 2px solid #FFA500;
+  height: 560px;
+  overflow: scroll;
 }
 
 #bottom-branding {
@@ -54,6 +58,7 @@ body > div > header {
   margin-top: -75px;
   width: 70px;
   opacity: 0;
+  z-index: 10000;
   div.blurb {
     position: relative;
     width: 90px;
