@@ -1,18 +1,37 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 $(document).ready(function(){
-  $('a.player-delete').on('click', deletePlayer);
+  $('.player-delete').on('click', deletePlayer);
+
+  // $('#tp-grid > li:nth-child(4) > a.btn.btn-danger.btn-xs.player-controls-spacer.delete-player').on('click', deletePlayer);
+
 });
 
 function deletePlayer() {
-  $("a[data-remote]").on("ajax:success", function(e, data, status, xhr) {
-    return alert("The post was deleted.");
-  });
+  console.log('delete player');
+  //   alertify.confirm("clicking OK will permanently delete this player", function(e) {
+  //   if (e) {
+  //     // do something
+  //     console.log('yes...delete')
+  //   }
+  //   else {
+  //     console.log("no donr delete");
+  //     return
+  //   }
+  // });
+
+
+
+  // $("a[data-remote]").on("ajax:success", function(e, data, status, xhr) {
+  //     console.log('do something');
+  //   });
 }
 
 
 // $(function() {
-
+//   $("a[data-remote]").on("ajax:success", function(e, data, status, xhr) {
+//       console.log('do something');
+//     });
 // });
 
 
@@ -43,3 +62,15 @@ function deletePlayer() {
 //     }
 //   });
 // }
+
+
+
+
+  // alertify.confirm("clicking OK will permanently delete this player", function(e) {
+  //   if (e) {
+  //     // do something
+  //   }
+  //   else {
+  //     return
+  //   }
+  // });

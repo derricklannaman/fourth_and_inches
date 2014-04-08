@@ -1,14 +1,18 @@
 @import "bootstrap";
+@import "color_chart";
 
 .navbar {
   margin-bottom: 2px;
+  border-radius: none !important;
 }
 
 .navbar-default {
-  /*background-color: #F8F8F8;*/
   background-color: #FFF;
   border-color: none;
+  border-top: 5px solid $go-green-plus20;
   box-shadow: 0px 0px 5px 0px #AAA;
+  box-shadow: 0 1px 0 #AAA
+
 }
 
 .navbar-brand {

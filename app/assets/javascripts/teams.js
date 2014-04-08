@@ -1,5 +1,20 @@
 $(document).ready(function(){
-  $( '#tp-grid' ).stapel({});
+  var close = $( '#close' );
+  var teamGrid = $( '#tp-grid' );
+  var stapel = teamGrid.stapel({
+    onLoad : function() {
+      // do something before
+    },
+    onAfterOpen : function( pileName ) {
+      close.show();
+    }
+  });
+
+  close.on( 'click', function() {
+    close.hide();
+    stapel.closePile();
+  } );
+
   $( 'a[disabled=disabled]' ).click(function(event){
       event.preventDefault(); // Prevent link from following its href
   });

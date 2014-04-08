@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-
+  respond_to :html, :js
   def index
     @players = current_user.teams.active.players
     find_active_team
@@ -42,8 +42,18 @@ class PlayersController < ApplicationController
   end
 
   def destroy
-    find_player.destroy
-    render nothing: true
+    find_player
+
+    # respond_to do |format|
+    #   format.html { redirect_to @player }
+    #   # format.js {}
+    #   # format.json  { render json: @player}
+    # end
+
+
+    # .destroy
+
+    # render json: @player
   end
 
 

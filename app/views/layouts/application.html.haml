@@ -3,12 +3,12 @@
   %head
     %title FourthAndInches
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => false
     = csrf_meta_tags
 
   %body{:class => "#{controller_name} #{action_name}"}
     :javascript
-      Ajaxify.init( {   scroll_to_top: false, flash_types: ['notice'] } );
+      Ajaxify.init( { scroll_to_top: false, flash_types: ['notice'] } );
 
     .app_nav_bar
       = nav_view_by_login_status
