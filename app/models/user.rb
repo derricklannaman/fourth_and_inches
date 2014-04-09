@@ -30,7 +30,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :authentication_keys => [:login]
 
-  after_create :create_coach_dashboard
+
+  after_create :create_dashboard
+
 
   has_one :dashboard, dependent: :destroy
   has_many :teams
@@ -44,7 +46,7 @@ class User < ActiveRecord::Base
   #   :format => { ... } # etc.
 
 
-  def create_coach_dashboard
+  def create_dashboard
     Dashboard.create(user_id: self.id)
   end
 

@@ -1,6 +1,14 @@
 %h2 Sign up
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
   = devise_error_messages!
+
+  %div
+    = f.radio_button :is_director, true
+    = f.label :is_director, "Director"
+  %div
+    = f.radio_button :is_head_coach, true
+    = f.label :is_head_coach, "Head Coach"
+
   %div
     = f.label :username
     %br/
@@ -17,5 +25,5 @@
     = f.label :password_confirmation
     %br/
     = f.password_field :password_confirmation
-  %div= f.submit "Sign up"
+  %div= f.submit "Sign up", class: "no_ajaxify"
 = render "devise/shared/links"
