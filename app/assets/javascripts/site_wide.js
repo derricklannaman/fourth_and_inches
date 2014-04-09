@@ -11,40 +11,42 @@ $(function(){
     var path = document.location.pathname;
     console.log(path)
     $('#bt-menu').removeClass('bt-menu-open').addClass('bt-menu-close');
+    showPlayerOptions()
+    selectSideNavBasedOnPath(path)
 
-    if ( path == '/team_manager' ) {
-      $('.player-delete').on('click', deletePlayer);
-      run_stapel();
-      setTimeout(function(){
-        showTeamNavPanel();
-        // $('.team-action-sublist').show();
-        // $('#side-panel-list > li:nth-child(5)').show();
-        // $('.player-action-sublist').addClass('no-display');
-      }, 10)
-
-    }
-    else if ( path == '/dashboard' ) {
-      hideTeamNavigationOptions();
-    }
-    else if ( path == '/office_manager' ) {
-      hideTeamNavigationOptions();
-    }
-    else if ( path == '/schedule_manager' ) {
-      hideTeamNavigationOptions();
-    }
-    else if ( path == '/coaches_corner' ) {
-      hideTeamNavigationOptions();
-    }
-    else if ( path == '/players' ) {
-      hideTeamNavigationOptions();
-      $('.player-delete').on('click', deletePlayer);
-
-    }
-    else if ( path == '/players/new' ) {
-      hideTeamNavigationOptions();
-    }
   });
+
 });
+
+function selectSideNavBasedOnPath(path) {
+  if ( path == '/team_manager' ) {
+    $('.player-delete').on('click', deletePlayer);
+    run_stapel();
+    setTimeout(function(){
+      showTeamNavPanel();
+      showPlayerOptions();
+    }, 10)
+  }
+  else if ( path == '/dashboard' ) {
+    hideTeamNavigationOptions();
+  }
+  else if ( path == '/office_manager' ) {
+    hideTeamNavigationOptions();
+  }
+  else if ( path == '/schedule_manager' ) {
+    hideTeamNavigationOptions();
+  }
+  else if ( path == '/coaches_corner' ) {
+    hideTeamNavigationOptions();
+  }
+  else if ( path == '/players' ) {
+    hideTeamNavigationOptions();
+    $('.player-delete').on('click', deletePlayer);
+  }
+  else if ( path == '/players/new' ) {
+    hideTeamNavigationOptions();
+  }
+}
 
 function showTeamNavPanel() {
   $('.team-action-sublist').show().addClass('yes-display');
