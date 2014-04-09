@@ -1,24 +1,24 @@
-- if @active_team.present?
-  .teamBrand.center
-  %ul#tp-grid.tp-grid
-    .teamBanner
-    - @players.each do |player|
-      - if player.id == @players.last.id
-        %li{"data-pile" => "#{@active_team.title.upcase} Football Team" }
-          %span.tp-info
-            %span= "#{@active_team.title.upcase} Football Team"
-          = image_tag('uniondale knight.png', size: '300')
-      - else
-        %li{"data-pile" => "#{@active_team.title.upcase} Football Team" }
-          %a{href: player_path(player.id)}
-            %span.tp-info
-              %span= "#{player.first_name} #{player.last_name}"
-            = image_tag('helmet.png', size: '170')
+/ - if @active_team.present?
+/   .teamBrand.center
+/   %ul#tp-grid.tp-grid
+/     .teamBanner
+/     - @players.each do |player|
+/       - if player.id == @players.last.id
+/         %li{"data-pile" => "#{@active_team.title.upcase} Football Team" }
+/           %span.tp-info
+/             %span= "#{@active_team.title.upcase} Football Team"
+/           = image_tag('uniondale knight.png', size: '300')
+/       - else
+/         %li{"data-pile" => "#{@active_team.title.upcase} Football Team" }
+/           %a{href: player_path(player.id)}
+/             %span.tp-info
+/               %span= "#{player.first_name} #{player.last_name}"
+/             = image_tag('helmet.png', size: '170')
 
-            = link_to "edit", edit_player_path(player), class: 'btn btn-warning btn-xs player-controls-spacer'
+/             = link_to "edit", edit_player_path(player), class: 'btn btn-warning btn-xs player-controls-spacer'
 
-            = link_to "show", player_path(player), class: 'btn btn-success btn-xs player-controls-spacer'
+/             = link_to "show", player_path(player), class: 'btn btn-success btn-xs player-controls-spacer'
 
-            = link_to "delete", player, remote: true, method: :delete, class: 'player-delete player-controls-spacer no_ajaxify'
-- else
-  %h1= "No team currently active"
+/             = link_to "delete", player, remote: true, method: :delete, class: 'player-delete player-controls-spacer no_ajaxify'
+/ - else
+/   %h1= "No team currently active"

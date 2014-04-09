@@ -13,7 +13,10 @@ $(function(){
     $('#bt-menu').removeClass('bt-menu-open').addClass('bt-menu-close');
 
     if ( path == '/team_manager' ) {
+      $('.player-delete').on('click', deletePlayer);
+
       setTimeout(function(){
+
         $('.team-action-sublist').show();
         $('#side-panel-list > li:nth-child(5)').show();
         $('.player-action-sublist').addClass('no-display');

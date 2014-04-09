@@ -5,8 +5,6 @@
     .conceal-players
       %span#close.back ← close
     %br/
-
-    .teamBrand.center
     %ul#tp-grid.tp-grid
       .teamBanner
       - @players.each do |player|
@@ -26,6 +24,7 @@
 
               = link_to "show", player_path(player), class: 'btn btn-success btn-xs player-controls-spacer'
 
-              = link_to "delete", player, remote: true, method: :delete, class: 'player-delete player-controls-spacer no_ajaxify'
+              %a{ class: 'player-delete' } delete
+              =# link_to "delete", player, remote: true, method: :delete, class: 'player-delete player-controls-spacer no_ajaxify'
   - else
     %h1= "No team currently active"
