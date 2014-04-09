@@ -45,7 +45,7 @@ body > div > header {
 
 #app-content {
   margin-top: -30px;
-  border: 2px solid #FFA500;
+  border: 2px solid #CCC;
   height: 560px;
   overflow: scroll;
 }
@@ -74,9 +74,13 @@ h1, h2, h3, h4, h5 {
   color: $base-text;
 }
 
-.no-display {
-  display: none !important;
+.yes-display {
+  display: block;
 }
+
+/*.no-display {
+  display: none !important;
+}*/
 
 #app_sign_in {
   font-size: 10px;

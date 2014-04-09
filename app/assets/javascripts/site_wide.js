@@ -14,12 +14,12 @@ $(function(){
 
     if ( path == '/team_manager' ) {
       $('.player-delete').on('click', deletePlayer);
-
+      run_stapel();
       setTimeout(function(){
-
-        $('.team-action-sublist').show();
-        $('#side-panel-list > li:nth-child(5)').show();
-        $('.player-action-sublist').addClass('no-display');
+        showTeamNavPanel();
+        // $('.team-action-sublist').show();
+        // $('#side-panel-list > li:nth-child(5)').show();
+        // $('.player-action-sublist').addClass('no-display');
       }, 10)
 
     }
@@ -45,6 +45,12 @@ $(function(){
     }
   });
 });
+
+function showTeamNavPanel() {
+  $('.team-action-sublist').show().addClass('yes-display');
+  $('#side-panel-list > li:nth-child(5)').show();
+  $('.player-action-sublist').addClass('yes-display');
+}
 
 // function moveMainContentWithNav() {
 //   var content = $('div#main');
@@ -83,6 +89,8 @@ function moveHelpLogoUp() {
     });
   }
 }
+
+
 
 function hideTeamNavigationOptions() {
   $('.player-action-sublist, .team-action-sublist').hide();
