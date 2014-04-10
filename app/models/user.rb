@@ -25,8 +25,6 @@ class User < ActiveRecord::Base
 
   include Authority::UserAbilities
 
-
-
   rolify
 
   # Include default devise modules. Others available are:
@@ -50,14 +48,8 @@ class User < ActiveRecord::Base
   #   },
   #   :format => { ... } # etc.
 
-  # def add_role
-  #   binding.pry
-  # end
-
   def add_user_role
-    self.add_role :user_type
-    # user.add_role
-    # binding.pry
+    add_role(self.user_type)
   end
 
   def create_dashboard
