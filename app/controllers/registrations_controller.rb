@@ -1,8 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
 
-
   def create
-# binding.pry
     if params[:user][:user_type].present?
       user_type = params[:user][:user_type]
       @user = User.new(user_params)
