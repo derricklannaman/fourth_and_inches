@@ -13,6 +13,11 @@
 
 class Team < ActiveRecord::Base
 
+  resourcify
+
+  include Authority::Abilities
+  self.authorizer_name = 'DirectorAuthorizer'
+
   belongs_to :user
   has_many :players
 

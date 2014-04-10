@@ -22,8 +22,13 @@
 
 class User < ActiveRecord::Base
   attr_accessor :login
+
   include Authority::UserAbilities
+
+
+
   rolify
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -31,7 +36,7 @@ class User < ActiveRecord::Base
          :authentication_keys => [:login]
 
 
-  after_create :create_dashboard
+  after_create :add_user_role, :create_dashboard
 
 
   has_one :dashboard, dependent: :destroy
@@ -45,6 +50,15 @@ class User < ActiveRecord::Base
   #   },
   #   :format => { ... } # etc.
 
+  # def add_role
+  #   binding.pry
+  # end
+
+  def add_user_role
+    self.add_role :user_type
+    # user.add_role
+    # binding.pry
+  end
 
   def create_dashboard
     Dashboard.create(user_id: self.id)
