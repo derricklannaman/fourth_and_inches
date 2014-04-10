@@ -38,6 +38,7 @@ class User < ActiveRecord::Base
 
 
   has_one :dashboard, dependent: :destroy
+  has_one :program
   has_many :teams
   has_many :players
   has_many :players, :through => :teams
