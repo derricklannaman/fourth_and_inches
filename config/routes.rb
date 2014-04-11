@@ -17,7 +17,7 @@ FourthAndInches::Application.routes.draw do
                                                     as: 'schedule_manager'
   get 'team_manager' => 'teams#team_manager',       as: 'team_manager'
 
-
+  resources :program, only: [:new]
   resources :dashboard, only: [:create]
   resources :players
   resources :teams
