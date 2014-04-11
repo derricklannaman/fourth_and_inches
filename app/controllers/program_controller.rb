@@ -21,13 +21,10 @@ class ProgramController < ApplicationController
   end
 
 
-
   private
 
     def program_params
       params.require(:program).permit(:town_name, :team_name, :league_name)
     end
-
-
 
 end
