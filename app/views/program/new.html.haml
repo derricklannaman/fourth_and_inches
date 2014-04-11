@@ -1,2 +1,21 @@
 %h1 Program#new
 %h4 creating a new program goes here
+= form_for(@program, url: program_index_path) do |f|
+  = hidden_field_tag(:user_id, current_user.id)
+  %div
+    = f.label :town_name
+    %br/
+    = f.text_field :town_name
+  %div
+    = f.label :team_name
+    %br/
+    = f.text_field :team_name
+  %div
+    = f.label :league_name
+    %br/
+    = f.text_field :league_name
+
+  %div
+    = f.submit
+
+
