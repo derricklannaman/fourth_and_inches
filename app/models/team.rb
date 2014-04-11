@@ -19,6 +19,7 @@ class Team < ActiveRecord::Base
   self.authorizer_name = 'DirectorAuthorizer'
 
   belongs_to :user
+  belongs_to :program
   has_many :players
 
 

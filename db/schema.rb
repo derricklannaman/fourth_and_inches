@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410220650) do
+ActiveRecord::Schema.define(version: 20140411163610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,9 @@ ActiveRecord::Schema.define(version: 20140410220650) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "league_name"
+    t.string   "town_name"
+    t.string   "team_name"
   end
 
   create_table "roles", force: true do |t|
@@ -67,8 +70,10 @@ ActiveRecord::Schema.define(version: 20140410220650) do
     t.string   "age_group"
     t.integer  "num_of_players", default: 11
     t.boolean  "active",         default: false
+    t.integer  "program_id"
   end
 
+  add_index "teams", ["program_id"], name: "index_teams_on_program_id", using: :btree
   add_index "teams", ["user_id"], name: "index_teams_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
@@ -88,9 +93,11 @@ ActiveRecord::Schema.define(version: 20140410220650) do
     t.string   "last_name"
     t.string   "username"
     t.string   "user_type"
+    t.integer  "program_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["program_id"], name: "index_users_on_program_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
