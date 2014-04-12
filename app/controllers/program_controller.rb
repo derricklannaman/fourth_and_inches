@@ -6,8 +6,10 @@ class ProgramController < ApplicationController
 
   def create
     @program = Program.new(program_params)
-    @program.user_id = params[:user_id]
+    user = User.find(params[:user_id])
     if @program.save
+      user.program_id = @program.id
+      user.save
       redirect_to @program
     else
       flash.notice = @program.errors.full_message.join(' ')

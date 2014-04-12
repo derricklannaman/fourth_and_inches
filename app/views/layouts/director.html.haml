@@ -14,19 +14,16 @@
 
       = nav_view_by_login_status
 
-    .app-container
+    .app-container-director
       #flash_messages
         - if !flash[:notice].blank?
           #notice
             = flash[:notice]
-      #app-content.container
-
-        =# render_changable_side_navigation(controller_name, action_name)
-        #main
-          %h3 Director view
+      #app-content-director.container
+        #main.director-view
           = yield
         = render 'layouts/footer_nav_panel'
 
-  - if user_signed_in?
+  - if user_signed_in? && current_user.has_role?('head_coach')
     %script{src: "assets/classie.js"}
     %script{src: "assets/borderMenu.js"}

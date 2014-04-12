@@ -1,13 +1,24 @@
 %nav.navbar.navbar-default{role: "navigation"}
   .container-fluid
+  - if current_user.program.nil?
+    .navbar-header
+      %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
+      %header.navbar-title
+        .navbar-brand
+          = image_tag('mock_logo.png', alt: 'team logo', size: '50x50')
+        %h3
+          = "Your team name will go here"
+          %span
+
+        = render 'layouts/user_access_controls'
+  - else
     .navbar-header
       %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
       %header.navbar-title
         .navbar-brand
           = image_tag('uniondale knight.png', alt: 'team logo', size: '50x50')
         %h3
-          / TODO: dynamically add program name
-          = "Uniondale Knights"
+          = "#{current_user.program.town_name.capitalize} #{current_user.program.team_name.capitalize}"
           %span
 
         = render 'layouts/user_access_controls'

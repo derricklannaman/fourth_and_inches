@@ -1,5 +1,6 @@
-%h1 Program#new
-%h4 creating a new program goes here
+%h1= "Welcome Director #{current_user.username}"
+
+%h2 Step 1: Name your football program
 = form_for(@program, url: program_index_path) do |f|
   = hidden_field_tag(:user_id, current_user.id)
   %div
@@ -18,4 +19,4 @@
   %div
     = f.submit
 
-
+= link_to "Not the Program Director? ....click HERE", '#'
