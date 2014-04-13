@@ -9,8 +9,6 @@
   height: 100%;
 }
 
-
-
 #director-dashboard-ready {
   width: 1200px;
   margin: 0px auto;
@@ -49,13 +47,20 @@
 }
 
 /*FIND: director view */
+/* CREDIT: http://tympanus.net/codrops/2013/05/30/simple-icon-hover-effects/*/
+
+.hi-icon-wrap {
+  text-align: center;
+  margin: 0 auto;
+  padding: 2em 0 3em;
+}
+
 .action-tile {
   float: left;
-  margin: 0px 5px;
   width: 290px;
   height: 345px;
+  margin: 0 5px;
   background-color: $go-green;
-  /*background-color: $go-purple;*/
   display: block;
   cursor: pointer;
   text-transform: uppercase;
@@ -63,29 +68,117 @@
   text-align: center;
   font-size: 33px;
   margin-bottom: 10px;
-  color: #FFF;
+  color: rgba(255, 255, 255, 0.5);
   &:hover {
     -moz-transition: 1s;
     -web-kit-transition: 1s;
-    transition: 1s;
-    /*@include letter_shadow;*/
+    transition: 0.7s;
     color: #FFF;
     text-decoration: none;
   }
 }
 
-.tile-details {
-  position: relative;
-  top: 250px;
-  left: 34px;
-  border: 1px solid #F00;
-  width: 250px;
-  z-index: 2;
-  color: #FFF;
+.action-tile:after {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  content: '';
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
 }
 
+.action-tile:before {
+  font-family: 'ecoicon';
+  speak: none;
+  font-size: 48px;
+  line-height: 90px;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  display: block;
+  -webkit-font-smoothing: antialiased;
+}
 
+.hi-icon-effect-8 .action-tile {
+  -webkit-transition: -webkit-transform ease-out 0.1s, background 0.2s;
+  -moz-transition: -moz-transform ease-out 0.1s, background 0.2s;
+  transition: transform ease-out 0.1s, background 0.2s;
+}
 
+.hi-icon-effect-8 .action-tile:after {
+  top: 0;
+  left: 0;
+  padding: 0;
+  z-index: -1;
+  box-shadow: 0 0 0 2px rgba(255,255,255,1);
+  opacity: 0;
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  transform: scale(0.9);
+}
+
+.no-touch .hi-icon-effect-8 .action-tile:hover {
+  background: rgba(118,204,102,0.8);
+  -webkit-transform: scale(0.93);
+  -moz-transform: scale(0.93);
+  -ms-transform: scale(0.93);
+  transform: scale(0.93);
+  color: #fff;
+}
+
+.hi-icon-effect-8 .action-tile:hover:after {
+  -webkit-animation: sonarEffect .7s ease-out 75ms;
+  -moz-animation: sonarEffect .7s ease-out 75ms;
+  animation: sonarEffect .7s ease-out 75ms
+}
+
+@-webkit-keyframes sonarEffect {
+  0% {
+    opacity: 0.3;
+  }
+  40% {
+    opacity: 0.5;
+    box-shadow: 0 0 0 3px $go-green-plus20, 0 0 8px 8px $go-green, 0 0 0 8px #FFF;
+  }
+  100% {
+    box-shadow: 0 0 0 3px $go-green-plus20, 0 0 8px 8px $go-green, 0 0 0 8px #FFF;
+    -webkit-transform: scale(1.1);
+    opacity: 0;
+  }
+}
+@-moz-keyframes sonarEffect {
+  0% {
+    opacity: 0.3;
+  }
+  40% {
+    opacity: 0.5;
+    box-shadow: 0 0 0 3px $go-green-plus20, 0 0 8px 8px $go-green, 0 0 0 8px #FFF;
+  }
+  100% {
+    box-shadow: 0 0 0 3px $go-green-plus20, 0 0 8px 8px $go-green, 0 0 0 8px #FFF;
+    -moz-transform: scale(1.1);
+    opacity: 0;
+  }
+}
+@keyframes sonarEffect {
+  0% {
+    opacity: 0.3;
+  }
+  40% {
+    opacity: 0.5;
+    box-shadow: 0 0 0 3px $go-green-plus20, 0 0 8px 8px $go-green, 0 0 0 8px #FFF;
+  }
+  100% {
+    box-shadow: 0 0 0 3px $go-green-plus20, 0 0 8px 8px $go-green, 0 0 0 8px #FFF;
+    transform: scale(1.1);
+    opacity: 0;
+  }
+}
 
 
 
