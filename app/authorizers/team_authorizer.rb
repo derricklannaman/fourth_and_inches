@@ -1,7 +1,7 @@
 class TeamAuthorizer < ApplicationAuthorizer
 
-  def self.creatable_by?(user)
-
+  def self.creatable_by(user)
+    binding.pry
   end
 
 
