@@ -1,4 +1,7 @@
-class ProgramController < ApplicationController
+class ProgramsController < ApplicationController
+
+  def index
+  end
 
   def new
     @program = Program.new

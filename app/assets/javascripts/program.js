@@ -1,2 +1,9 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+$(document).ready(function(){
+  $('.not-yet-implemented').on('click', notYetImplemented)
+
+});
+
+
+function notYetImplemented() {
+  alertify.alert("This feature has not been implemented yet!");
+}
