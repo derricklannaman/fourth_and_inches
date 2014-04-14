@@ -1,6 +1,7 @@
 class ProgramsController < ApplicationController
 
   def index
+    @programs = current_user.program
   end
 
   def new

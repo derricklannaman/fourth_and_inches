@@ -27,7 +27,7 @@ Authority.configure do |config|
   #   :create  => 'create',
   #   :edit    => 'update',
   #   :update  => 'update',
-  #   :destroy => 'delete'
+  #   :destroy => 'delete',
   # }
 
   # ABILITIES
