@@ -1,5 +1,19 @@
-%h2 TODO:
-%h4 List program Info here
-%h4 List all board members here
+= render 'programs/nav_controls_director'
 
-%h4 Program - CRUD..update, cancel program == cancel account
+%h1
+  %span= @programs.town_name.capitalize
+  %span= @programs.team_name.capitalize
+  %h3 Youth Football Program
+
+%h3 Year founded:
+
+%h3 Founding Members:
+
+= link_to 'add founders', '#'
+
+
+%h4 TODO:
+%p List program Info here
+%p List all board members here
+
+%p Program - CRUD..update, cancel program == cancel account
