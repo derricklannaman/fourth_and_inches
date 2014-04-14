@@ -1,0 +1,36 @@
+.nav-bar
+  #bt-menu.bt-menu
+    %a.bt-menu-trigger{href: "#"}
+      %p Menu
+      %span Menu
+    %ul#team-side-panel-list
+      %li
+        = link_to_unless_current "dashboard", dashboard_path
+      %li
+        / link_to unnecessary...allows for slideToggle
+        %a{ id: 'add-team-button'} teams
+      %li.team-action-sublist
+        = link_to 'add new team', new_team_path, id: 'new-team-side-link'
+      %li.team-action-sublist
+        = link_to 'Edit', edit_team_path(@active_team), id: 'edit-team-side-link'
+      %li
+        / ...allows for slideToggle
+        %a{ id: 'player-button'} Players
+      %li.player-action-sublist
+        = link_to 'add new player', new_player_path, id: 'new-player-side-link'
+      %li
+        = link_to "staff", schedule_manager_path
+      %li
+        = link_to "program info", programs_path
+      %li
+        = link_to "events", events_path
+      %li
+        = link_to "sponsors", events_path
+      %li
+        = link_to "merchandiser", events_path
+      %li
+        = link_to "inventory", events_path
+      %li
+        = link_to "admin", events_path
+      %li
+        = link_to "website", events_path

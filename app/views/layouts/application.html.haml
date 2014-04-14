@@ -20,7 +20,7 @@
             = flash[:notice]
       #app-content.container
 
-        = render_changable_side_navigation(controller_name, action_name)
+        = coach_side_navigation(controller_name, action_name)
         #main
           = yield
         = render 'layouts/footer_nav_panel'

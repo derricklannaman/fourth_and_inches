@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   def index
     if user_signed_in?
       if (current_user.program.blank?) && (current_user.has_role?("director"))
-        redirect_to(controller: "program", action: "new")
+        redirect_to(controller: "programs", action: "new")
       else
         redirect_to(controller: "dashboard", action: "show")
       end

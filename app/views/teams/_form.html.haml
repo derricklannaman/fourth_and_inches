@@ -7,7 +7,7 @@
     = f.text_field :title
 
   %div
-    = f.label :age_group, 'Select age group'
+    = f.label :age_group, 'Division'
 
   %div
     = f.select(:age_group, options_for_select([ ['7 Year Olds', 1], ['8 Year Olds', 2], ['9 Year Olds', 3], ['10 Year Olds', 4] ]))

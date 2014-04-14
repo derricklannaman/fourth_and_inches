@@ -17,8 +17,7 @@
       %header.navbar-title
         .navbar-brand
           = image_tag('uniondale knight.png', alt: 'team logo', size: '50x50')
-        %h3
-          = "#{current_user.program.town_name.capitalize} #{current_user.program.team_name.capitalize}"
-          %span
+        %h1
+          = display_team_title
 
         = render 'layouts/user_access_controls'

@@ -1,14 +1,46 @@
-%h2 TODO:
-%h4 List all teams here
-%h4 List all divisions here
-%h4 Team - CRUD
-%h4 Division - CRUD
+= render 'director_navigation/main_side_panel'
 
-%section#all-teams
+%section#all-teams.red_border
+  %h2 team view
+  %h4
+    Program Stats:
+    Total team count:
+    = @teams.count
+    |
+    Total player count:
 
-  = @teams.count
 
-%section#all-divisions
+  - @teams.each do |team|
+    .team_pod
+      %div
+        = image_tag('uniondale knight.png', alt: 'team logo', size: '50x50')
+      %div
+        Division:
+        = team.age_group
+      %div
+        Number of Players:
+        = team.num_of_players
+
+
+
+  %h5 TODO:
+
+  %h5 Team - CRUD
+
+
+
+%section#all-divisions.red_border
+
+
+
+
+  %h5 TODO:
+  %h5 List all divisions here
+  %h5 Division - CRUD
+
+
+
+
 
 
 
