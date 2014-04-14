@@ -7,7 +7,7 @@ class TeamsController < ApplicationController
 
   def index
     @teams = current_user.teams
-    @program = current_user.programs
+    # @program = current_user.programs
   end
 
   def new
