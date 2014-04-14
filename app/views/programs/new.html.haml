@@ -1,7 +1,7 @@
 %h1= "Welcome Director #{current_user.username}"
 
 %h2 Step 1: Name your football program
-= form_for(@program, url: new_program_path) do |f|
+= form_for(@program, url: programs_path) do |f|
   = hidden_field_tag(:user_id, current_user.id)
   %div
     = f.label :town_name
