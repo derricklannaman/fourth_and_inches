@@ -43,6 +43,14 @@ body > div > header {
   margin-top: -70px;
 }
 
+html body.denied-403 {
+  background: url('images/baby-crying.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 #app-content {
   margin-top: -30px;
   border: 2px solid #CCC;

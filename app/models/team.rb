@@ -14,9 +14,9 @@
 class Team < ActiveRecord::Base
 
   resourcify
-
   include Authority::Abilities
-  self.authorizer_name = 'DirectorAuthorizer'
+
+  self.authorizer_name = 'TeamAuthorizer'
 
   belongs_to :user
   belongs_to :program

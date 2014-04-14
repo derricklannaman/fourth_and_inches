@@ -7,29 +7,9 @@ class ApplicationAuthorizer < Authority::Authorizer
   # @param [Symbol] adjective; example: `:creatable`
   # @param [Object] current_user - whatever represents the current user in your app
   # @return [Boolean]
+
   def self.default(adjective, user)
     user.has_role? :director
   end
-
-  def updatable_by?(user)
-    user.has_role?(:director)
-  end
-
-  def updatable_by?(user)
-    user.has_role?(:director)
-  end
-
-  def updatable_by?(user)
-    user.has_role?(:director)
-  end
-
-  def updatable_by?(user)
-    user.has_role?(:director)
-  end
-
-
-
-
-
 
 end

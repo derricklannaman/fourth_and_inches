@@ -1,8 +1,13 @@
 class TeamsController < ApplicationController
 
+  authorize_actions_for(Team)
+  authority_actions :team_manager => 'read'
+
   respond_to :html, :js
 
   def index
+    @teams = current_user.teams
+    @program = current_user.programs
   end
 
   def new
@@ -74,6 +79,7 @@ class TeamsController < ApplicationController
     @players = current_user.teams.active.players unless current_user.teams.empty?
     @team = Team.new
     @active_team = Team.active
+    # authorize_action_for(@team)
   end
 
 private
