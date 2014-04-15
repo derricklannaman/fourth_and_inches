@@ -14,19 +14,22 @@ class TeamsController < ApplicationController
   def new
     @team = Team.new
     @user = current_user
+    @divisions = current_user.program.divisions.pluck(:name)
+   # binding.pry
   end
 
   def create
+    binding.pry
     @team = Team.new(team_params)
     @team.user_id = current_user.id
     @team.active = true
-    group = params[:team][:age_group]
-    @team.age_group = get_age_group(group) # TODO: clean up
+    # group = params[:team][:age_group]
+    # @team.age_group = get_age_group(group) # TODO: clean up
       if @team.save
         jumbotron_active_team(@team)
         redirect_to team_manager_path
       else
-        flash[:notice] = @user.errors.full_messages.join (', ')
+        flash[:notice] = @team.errors.full_messages.join (', ')
         render 'new'
       end
   end
@@ -107,20 +110,20 @@ private
 
 # TODO: remove hardcoded youth options once director model and program is
 # created...and correct in controllers
-  def get_age_group(age_group)
-    case age_group
-    when "1"
-      "7 Year Olds"
-    when "2"
-      "8 Year Olds"
-    when "3"
-      "9 Year Olds"
-    when "4"
-      "10 Year Olds"
-    else
-      "Players"
-    end
-  end
+  # def get_age_group(age_group)
+  #   case age_group
+  #   when "1"
+  #     "7 Year Olds"
+  #   when "2"
+  #     "8 Year Olds"
+  #   when "3"
+  #     "9 Year Olds"
+  #   when "4"
+  #     "10 Year Olds"
+  #   else
+  #     "Players"
+  #   end
+  # end
 
 
 end

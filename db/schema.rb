@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140415165916) do
+ActiveRecord::Schema.define(version: 20140415213854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140415165916) do
     t.integer  "program_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "weight_class"
   end
 
   add_index "divisions", ["program_id"], name: "index_divisions_on_program_id", using: :btree
@@ -80,8 +81,10 @@ ActiveRecord::Schema.define(version: 20140415165916) do
     t.integer  "num_of_players", default: 11
     t.boolean  "active",         default: false
     t.integer  "program_id"
+    t.integer  "division_id"
   end
 
+  add_index "teams", ["division_id"], name: "index_teams_on_division_id", using: :btree
   add_index "teams", ["program_id"], name: "index_teams_on_program_id", using: :btree
   add_index "teams", ["user_id"], name: "index_teams_on_user_id", using: :btree
 

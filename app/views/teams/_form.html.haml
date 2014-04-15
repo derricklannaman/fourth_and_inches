@@ -10,7 +10,8 @@
     = f.label :age_group, 'Division'
 
   %div
-    = f.select(:age_group, options_for_select([ ['7 Year Olds', 1], ['8 Year Olds', 2], ['9 Year Olds', 3], ['10 Year Olds', 4] ]))
+    = f.select(:age_group, options_for_select(@divisions.collect{ |d| [d,{class: 'some-class'} ]} ))
+
 
   %div
     = f.label :num_of_players
