@@ -1,0 +1,15 @@
+%h1 Step 2: Add divisions to your program
+
+= form_for(@division, url: divisions_path) do |f|
+  = hidden_field_tag(:program_id, @program_id)
+  %div
+    = f.label :name
+    %br/
+    = f.text_field :name
+  %div
+    = f.label :age_group
+    %br/
+    = f.text_field :age_group
+
+  %div
+    = f.submit

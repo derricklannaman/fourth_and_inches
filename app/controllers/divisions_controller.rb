@@ -1,5 +1,31 @@
 class DivisionsController < ApplicationController
   def index
-    @divisions = ['7 Year Olds', '8 Year Olds']
+    @divisions = current_user.program.division
   end
+
+  def new
+    @division = Division.new
+    @program_id = current_user.program.id
+    @program = current_user.program.team_name
+  end
+
+
+  def create
+    @division = Division.new(division_params)
+    @division.program_id = params[:program_id]
+    if @division.save
+      redirect_to(controller: 'dashboard', action: 'show')
+    else
+      render 'new'
+    end
+  end
+
+
+  private
+
+    def division_params
+      params.require(:division).permit(:name, :age_group)
+    end
+
+
 end

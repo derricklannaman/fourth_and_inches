@@ -28,18 +28,17 @@
 
 
 %section#all-divisions.red_border
-
+  = link_to "add new division", "#"
   %h3 Divisions:
+
   - @divisions.each do |div|
     .division-pod
       %h3
-        = div
+        = "#{div.name} Division"
       %div
-        = link_to "add new division", "#"
+        = link_to "edit", '#'
         |
-        = link_to "edit division", '#'
-        |
-        = link_to "remove division", '#'
+        = link_to "remove", '#'
 
 
 

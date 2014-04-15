@@ -8,7 +8,7 @@ class TeamsController < ApplicationController
   def index
     @teams = current_user.teams
     @programs = current_user.program
-    @divisions = ['7 Year Olds', '8 Year Olds']
+    @divisions = current_user.program.divisions
   end
 
   def new
