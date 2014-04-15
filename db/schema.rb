@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140411211317) do
+ActiveRecord::Schema.define(version: 20140415165916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20140411211317) do
   end
 
   add_index "dashboards", ["user_id"], name: "index_dashboards_on_user_id", using: :btree
+
+  create_table "divisions", force: true do |t|
+    t.string   "name"
+    t.string   "age_group"
+    t.integer  "program_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "divisions", ["program_id"], name: "index_divisions_on_program_id", using: :btree
 
   create_table "players", force: true do |t|
     t.string   "first_name"

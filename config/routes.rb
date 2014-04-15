@@ -18,6 +18,7 @@ FourthAndInches::Application.routes.draw do
   get 'team_manager' => 'teams#team_manager',       as: 'team_manager'
 
   resources :programs, only: [:new, :create, :show, :index]
+  resources :divisions, only: [:index]
   resources :events, only: [:index]
   resources :coaches, only: [:index]
   resources :dashboard, only: [:create]

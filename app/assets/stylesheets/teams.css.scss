@@ -95,4 +95,20 @@
   cursor: pointer;
 }
 
+#all-divisions {
+  height: 250px;
+  margin: 5px 0px;
+}
+
+div.division-pod {
+  float: left;
+  width: 200px;
+  background-color: #FF0;
+  border: 1px solid #000;
+  margin: 8px;
+  padding: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 

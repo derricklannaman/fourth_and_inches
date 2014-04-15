@@ -21,8 +21,6 @@
         Number of Players:
         = team.num_of_players
 
-
-
   %h5 TODO:
 
   %h5 Team - CRUD
@@ -31,12 +29,17 @@
 
 %section#all-divisions.red_border
 
-
-
-
-  %h5 TODO:
-  %h5 List all divisions here
-  %h5 Division - CRUD
+  %h3 Divisions:
+  - @divisions.each do |div|
+    .division-pod
+      %h3
+        = div
+      %div
+        = link_to "add new division", "#"
+        |
+        = link_to "edit division", '#'
+        |
+        = link_to "remove division", '#'
 
 
 
