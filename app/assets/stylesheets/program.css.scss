@@ -1,0 +1,18 @@
+/*////////////////////////////////////////////////////
+/                  PROGRAM STYLE                    /
+//////////////////////////////////////////////////*/
+@import 'color_chart';
+@import 'mixins';
+
+#program-contents {
+  position: relative;
+  margin-left: -75px;
+}
+
+.program-section {
+  border: 1px solid blue;
+  margin: 5px;
+  width: 420px;
+  float: left;
+  height: 245px;
+}

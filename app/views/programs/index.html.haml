@@ -1,19 +1,30 @@
 = render 'director_navigation/main_side_panel'
-=# render 'programs/nav_controls_director'
 
-%h2
-  = display_team_title
-  %h3 Youth Football Program
+%section#program-contents
+  %section.program-section
+    %h4 Program - CRUD
+    %h4 List program info here
 
-%h3 Year founded:
+    %p
+      = display_team_title
+    %p Youth Football Program
 
-%h3 Founding Members:
-
-= link_to 'add founders', '#'
+    %p Year founded:
 
 
-%h4 TODO:
-%p List program Info here
-%p List all board members here
+  %section.program-section
+    %h3 Divisions:
+    %h4 List all divisions here
 
-%p Program - CRUD..update, cancel program == cancel account
+
+  %section.program-section
+    %h3 Board members:
+    %h4 CRUD List all board members here
+  %section.program-section
+    %h3 Founders:
+    %h4 CRUD List founders here
+
+
+
+
+
