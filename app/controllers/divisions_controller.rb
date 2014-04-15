@@ -1,6 +1,6 @@
 class DivisionsController < ApplicationController
   def index
-    @divisions = current_user.program.division
+    @divisions = current_user.program.division #REFACTOR: add model scope
   end
 
   def new

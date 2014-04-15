@@ -8,23 +8,23 @@ class TeamsController < ApplicationController
   def index
     @teams = current_user.teams
     @programs = current_user.program
-    @divisions = current_user.program.divisions
+    @divisions = current_user.program.divisions #REFACTOR: add model scope
   end
 
   def new
     @team = Team.new
     @user = current_user
-    @divisions = current_user.program.divisions.pluck(:name)
-   # binding.pry
+    @divisions = current_user.program.divisions.pluck(:name) #REFACTOR: add model scope
   end
 
   def create
-    binding.pry
     @team = Team.new(team_params)
     @team.user_id = current_user.id
+    @team.program_id = current_user.program_id
     @team.active = true
-    # group = params[:team][:age_group]
-    # @team.age_group = get_age_group(group) # TODO: clean up
+    division = Division.where(name: params[:team][:division]) #REFACTOR: add model scope
+    @team.division_id = division.first.id #REFACTOR: add model scope
+    @team.age_group = division[0].age_group
       if @team.save
         jumbotron_active_team(@team)
         redirect_to team_manager_path
@@ -54,8 +54,8 @@ class TeamsController < ApplicationController
   def update
     find_team
     @team.update(team_params)
-    group = params[:team][:age_group]
-    @team.age_group = get_age_group(group) # TODO: clean up
+    # group = params[:team][:age_group]
+    # @team.age_group = get_age_group(group) # TODO: clean up
     if @team.save
       flash[:notice] = "Team successfully updated"
       redirect_to team_manager_path
@@ -89,7 +89,7 @@ class TeamsController < ApplicationController
 private
 
   def team_params
-    params.require(:team).permit(:title, :user_id, :age_group, :num_of_players)
+    params.require(:team).permit(:title, :user_id, :division_id, :num_of_players)
   end
 
   def find_team
@@ -106,24 +106,5 @@ private
       end
     end
   end
-
-
-# TODO: remove hardcoded youth options once director model and program is
-# created...and correct in controllers
-  # def get_age_group(age_group)
-  #   case age_group
-  #   when "1"
-  #     "7 Year Olds"
-  #   when "2"
-  #     "8 Year Olds"
-  #   when "3"
-  #     "9 Year Olds"
-  #   when "4"
-  #     "10 Year Olds"
-  #   else
-  #     "Players"
-  #   end
-  # end
-
 
 end

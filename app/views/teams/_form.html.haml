@@ -1,18 +1,13 @@
 = form_for(@team, html: {id: "new-team-form"}) do |f|
-
+  = current_user.username
   %div
     = f.label :title
-
   %div
     = f.text_field :title
-
   %div
-    = f.label :age_group, 'Division'
-
+    = f.label :division, 'Division'
   %div
-    = f.select(:age_group, options_for_select(@divisions.collect{ |d| [d,{class: 'some-class'} ]} ))
-
-
+    = f.select(:division, options_for_select(@divisions.collect{ |d| [d,{class: 'some-class'} ]} ))
   %div
     = f.label :num_of_players
 

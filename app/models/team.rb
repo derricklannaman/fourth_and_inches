@@ -20,6 +20,7 @@ class Team < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :program
+  belongs_to :division
   has_many :players
 
 
