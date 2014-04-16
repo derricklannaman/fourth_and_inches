@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password) }
   end
 
+  def get_divisions #REFACTOR: add to access arg to allow chaining
+    current_user.program.divisions
+  end
+
 end

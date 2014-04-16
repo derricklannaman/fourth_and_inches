@@ -8,13 +8,13 @@ class TeamsController < ApplicationController
   def index
     @teams = current_user.teams
     @programs = current_user.program
-    @divisions = current_user.program.divisions #REFACTOR: add model scope
+    @divisions = get_divisions
   end
 
   def new
     @team = Team.new
     @user = current_user
-    @divisions = current_user.program.divisions.pluck(:name) #REFACTOR: add model scope
+    @divisions = current_user.program.divisions.pluck(:name)
   end
 
   def create
@@ -23,7 +23,7 @@ class TeamsController < ApplicationController
     @team.program_id = current_user.program_id
     @team.active = true
     division = Division.where(name: params[:team][:division]) #REFACTOR: add model scope
-    @team.division_id = division.first.id #REFACTOR: add model scope
+    @team.division_id = division.first.id
     @team.age_group = division[0].age_group
       if @team.save
         jumbotron_active_team(@team)

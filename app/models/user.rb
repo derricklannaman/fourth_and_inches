@@ -33,7 +33,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :authentication_keys => [:login]
 
-
   after_create :add_user_role, :create_dashboard
 
 
@@ -65,5 +64,6 @@ class User < ActiveRecord::Base
       where(conditions).first
     end
   end
+
 
 end
