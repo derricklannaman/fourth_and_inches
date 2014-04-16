@@ -69,8 +69,8 @@ class TeamsController < ApplicationController
   def destroy
     find_team
     team = { id: @team.id, title: @team.title }
-    flash[:notice] = "Team successfully deleted"
-    @team.destroy
+    flash.now[:notice] = "Team successfully deleted"
+    # @team.destroy
     render :json => {team: team}
   end
 
