@@ -81,7 +81,15 @@
 
 /* TEAMS INDEX Director Perspective */
 
+#all-teams,
+#all-divisions {
+  float: left;
+  width: 900px;
+  margin: 3px 0px;
+}
+
 #all-teams > div.team_pod {
+  float: left;
   width: 200px;
   background-color: #FF0;
   border: 1px solid #000;
@@ -93,11 +101,6 @@
 
 #add-team-button {
   cursor: pointer;
-}
-
-#all-divisions {
-  height: 250px;
-  margin: 5px 0px;
 }
 
 div.division-pod {
