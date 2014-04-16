@@ -14,7 +14,6 @@ class ProgramsController < ApplicationController
     if @program.save
       user.program_id = @program.id
       user.save
-      # redirect_to @program
       redirect_to(controller: 'divisions', action: 'new')
     else
       flash.notice = @program.errors.full_message.join(' ')

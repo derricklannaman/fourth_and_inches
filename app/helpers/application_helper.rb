@@ -5,6 +5,11 @@ module ApplicationHelper
      #{current_user.program.team_name.capitalize} " + "Youth Football"
   end
 
+  def show_teams_division(team)
+    div_id = team.division_id
+    div_id.nil? ? "None on file" : Division.find(div_id).name
+  end
+
   def nav_view_by_login_status
     if user_signed_in?
       render 'layouts/interior_nav_bar'

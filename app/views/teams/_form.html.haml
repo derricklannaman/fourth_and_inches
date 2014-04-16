@@ -2,8 +2,10 @@
   = current_user.username
   %div
     = f.label :division, 'Division'
+
   %div
-    = f.select(:division, options_for_select(@divisions.collect{ |d| [d,{class: 'some-class'} ]} ))
+    = f.select(:division, options_for_select(@divisions.collect{ |d| [d.name,{class: 'division-options'} ]} ))
+
   %div
     = f.label :title
   %div

@@ -1,5 +1,5 @@
 = render 'director_navigation/main_side_panel'
-
+/ stat bar
 %section#all-teams.red_border
   %h2 team view
   %h4
@@ -16,14 +16,16 @@
         = image_tag('uniondale knight.png', alt: 'team logo', size: '50x50')
       %div
         Division:
-        = team.age_group
+        = show_teams_division(team)
       %div
         Number of Players:
         = team.num_of_players
-
-  %h5 TODO:
-
-  %h5 Team - CRUD
+      %div
+        = link_to 'show', team_path(team)
+        |
+        = link_to 'edit', edit_team_path(team)
+        |
+        = link_to 'delete', team_path(team), method: :delete, data: { confirm: ' are u sure' }
 
 
 

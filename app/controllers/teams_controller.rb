@@ -37,6 +37,7 @@ class TeamsController < ApplicationController
 
   def edit
     find_team
+    @divisions = get_divisions
   end
 
   def show
@@ -58,7 +59,7 @@ class TeamsController < ApplicationController
     # @team.age_group = get_age_group(group) # TODO: clean up
     if @team.save
       flash[:notice] = "Team successfully updated"
-      redirect_to team_manager_path
+      redirect_to teams_path
     else
       render 'edit'
     end
