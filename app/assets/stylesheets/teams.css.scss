@@ -88,15 +88,33 @@
   margin: 3px 0px;
 }
 
-#all-teams > div.team_pod {
+div.team_pod {
   float: left;
-  width: 200px;
-  background-color: #FF0;
-  border: 1px solid #000;
+  width: 210px;
+  height: 255px;
+  background-color: #FFF;
+  background: url('uniondale knight.png') no-repeat center center;
   margin: 8px;
   padding: 15px;
   border-radius: 5px;
   cursor: pointer;
+  border: 20px solid #FF0;
+  box-shadow: 0px 0px 9px #999;
+}
+
+div.inner_team_pod {
+  box-shadow: inset 0px 0px 7px #999;
+  width: 179px;
+  padding: 14px;
+  padding-top: 0px;
+  margin: -15px;
+  margin-left: -19px;
+  height: 215px;
+}
+
+.team_pod_controls {
+  margin-top: 140px;
+  padding: 0px 12px;
 }
 
 #add-team-button {

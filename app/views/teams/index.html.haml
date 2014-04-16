@@ -12,20 +12,21 @@
 
   - @teams.each do |team|
     .team_pod
-      %div
-        = image_tag('uniondale knight.png', alt: 'team logo', size: '50x50')
-      %div
-        Division:
-        = show_teams_division(team)
-      %div
-        Number of Players:
-        = team.num_of_players
-      %div
-        = link_to 'show', team_path(team)
-        |
-        = link_to 'edit', edit_team_path(team)
-        |
-        = link_to 'delete', team_path(team), method: :delete, data: { confirm: ' are u sure' }
+      .inner_team_pod
+        %div
+          =# image_tag('uniondale knight.png', alt: 'team logo', size: '50x50')
+        %div
+          Division:
+          = show_teams_division(team)
+        %div
+          Number of Players:
+          = team.num_of_players
+        .team_pod_controls
+          = link_to 'show', team_path(team)
+          |
+          = link_to 'edit', edit_team_path(team)
+          |
+          = link_to 'delete', team_path(team), remote: true, method: :delete
 
 
 
