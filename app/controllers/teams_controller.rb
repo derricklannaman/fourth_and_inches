@@ -55,8 +55,9 @@ class TeamsController < ApplicationController
   def update
     find_team
     @team.update(team_params)
-    # group = params[:team][:age_group]
-    # @team.age_group = get_age_group(group) # TODO: clean up
+    division = Division.where(name: params[:team][:division]) #REFACTOR: add model scope
+    @team.division_id = division.first.id
+    @team.age_group = division[0].age_group
     if @team.save
       flash[:notice] = "Team successfully updated"
       redirect_to teams_path
