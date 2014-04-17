@@ -38,6 +38,7 @@ function deleteTeamPod() {
         success: function(result) {
           var msg = "<div id='notice'>Team successfully deleted</div>";
           $('#flash_messages').wrapInner(msg);
+          updateTeamCount();
           pod.fadeOut(100);
           fadeFlash();
         },
@@ -50,6 +51,17 @@ function deleteTeamPod() {
       return
     }
   });
+}
+
+function updateTeamCount() {
+  var teamCounter = $('#team-counter');
+  var oldCnt = teamCounter.text();
+  var a = $.trim(oldCnt).split(' ');
+  var n = parseInt(a[a.length - 1]);
+  n--;
+  a[a.length - 1] = n;
+  var newCnt = a.join(" ");
+  teamCounter.text(newCnt);
 }
 
 function run_stapel() {
