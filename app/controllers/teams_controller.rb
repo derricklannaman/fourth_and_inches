@@ -15,6 +15,8 @@ class TeamsController < ApplicationController
     @team = Team.new
     @user = current_user
     @divisions = current_user.program.divisions.pluck(:name)
+    @head_coaches = User.where(user_type: "head coach")
+
   end
 
   def create
@@ -23,6 +25,7 @@ class TeamsController < ApplicationController
     @team.program_id = current_user.program_id
     @team.active = true
     div_info = params[:team][:division]
+    @team.head_coach = params[:team][:head_coach].to_i
     division = Division.find_teams_divisions(div_info)
     @team.division_id = division.first.id
     @team.age_group = division[0].age_group
@@ -83,7 +86,8 @@ class TeamsController < ApplicationController
 private
 
   def team_params
-    params.require(:team).permit(:title, :user_id, :division_id, :num_of_players)
+    params.require(:team).permit(:title, :user_id, :division_id,
+                                 :head_coach,  :num_of_players)
   end
 
   def find_team

@@ -12,6 +12,12 @@
     = f.select(:division, options_for_select(@divisions.collect{ |d| [d.name,{class: 'division-options'} ]} ))
 
   %div
+    = f.label :head_coach
+  %div
+    = f.select(:head_coach, options_for_select(@head_coaches.collect{ |hc| [hc.username, hc.id,{class: 'division-options'} ]} ))
+
+
+  %div
     = f.label :title
   %div
     = f.text_field :title
@@ -24,3 +30,4 @@
 
   %div
     =f.submit
+

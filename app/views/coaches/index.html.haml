@@ -2,3 +2,9 @@
 %h4 List all Head Coaches
 %h4 Head Coach - CRUD
 %h4 Assign Head Coach to team
+
+
+%ul
+- @head_coaches.each do |coach|
+  %li
+    = coach.username

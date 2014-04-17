@@ -17,7 +17,9 @@
 #  updated_at             :datetime
 #  first_name             :string(255)
 #  last_name              :string(255)
-#  is_head_coach          :boolean
+#  username               :string(255)
+#  user_type              :string(255)
+#  program_id             :integer
 #
 
 class User < ActiveRecord::Base

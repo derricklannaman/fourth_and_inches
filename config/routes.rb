@@ -21,6 +21,7 @@ FourthAndInches::Application.routes.draw do
   resources :divisions, only: [:index, :new, :create]
   resources :events, only: [:index]
   resources :coaches, only: [:index]
+  resources :staff_members, only: [:index]
   resources :dashboard, only: [:create]
   resources :players
   resources :teams

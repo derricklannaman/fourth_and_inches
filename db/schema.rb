@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140415213854) do
+ActiveRecord::Schema.define(version: 20140417214226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,9 +82,11 @@ ActiveRecord::Schema.define(version: 20140415213854) do
     t.boolean  "active",         default: false
     t.integer  "program_id"
     t.integer  "division_id"
+    t.integer  "head_coach"
   end
 
   add_index "teams", ["division_id"], name: "index_teams_on_division_id", using: :btree
+  add_index "teams", ["head_coach"], name: "index_teams_on_head_coach", using: :btree
   add_index "teams", ["program_id"], name: "index_teams_on_program_id", using: :btree
   add_index "teams", ["user_id"], name: "index_teams_on_user_id", using: :btree
 

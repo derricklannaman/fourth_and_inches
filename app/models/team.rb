@@ -9,6 +9,9 @@
 #  updated_at     :datetime
 #  age_group      :string(255)
 #  num_of_players :integer          default(11)
+#  active         :boolean          default(FALSE)
+#  program_id     :integer
+#  division_id    :integer
 #
 
 class Team < ActiveRecord::Base
