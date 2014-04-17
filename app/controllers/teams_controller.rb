@@ -22,13 +22,13 @@ class TeamsController < ApplicationController
     @team.user_id = current_user.id
     @team.program_id = current_user.program_id
     @team.active = true
-    # division = find_teams_division(params[:team][:division])
-    division = Division.find_teams_divisions(params[:team][:division]) #REFACTOR: add model scope
+    div_info = params[:team][:division]
+    division = Division.find_teams_divisions(div_info)
     @team.division_id = division.first.id
     @team.age_group = division[0].age_group
       if @team.save
         jumbotron_active_team(@team)
-        redirect_to team_manager_path
+        redirect_to teams_path
       else
         flash[:notice] = @team.errors.full_messages.join (', ')
         render 'new'
@@ -51,7 +51,8 @@ class TeamsController < ApplicationController
   def update
     find_team
     @team.update(team_params)
-    division = Division.where(name: params[:team][:division]) #REFACTOR: add model scope
+    div_info = params[:team][:division]
+    division = Division.find_teams_divisions(div_info)
     @team.division_id = division.first.id
     @team.age_group = division[0].age_group
     if @team.save
@@ -72,9 +73,6 @@ class TeamsController < ApplicationController
   def staff
   end
 
-  def schedule_manager
-  end
-
   def team_manager
     @players = current_user.teams.active.players unless current_user.teams.empty?
     @team = Team.new
@@ -91,10 +89,6 @@ private
   def find_team
     @team = Team.find(params[:id])
   end
-
-  # def find_teams_division()
-
-  # end
 
   def jumbotron_active_team(team)
     active_team_id = team.id
