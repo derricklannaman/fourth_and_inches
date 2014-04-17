@@ -22,7 +22,8 @@ class TeamsController < ApplicationController
     @team.user_id = current_user.id
     @team.program_id = current_user.program_id
     @team.active = true
-    division = Division.where(name: params[:team][:division]) #REFACTOR: add model scope
+    # division = find_teams_division(params[:team][:division])
+    division = Division.find_teams_divisions(params[:team][:division]) #REFACTOR: add model scope
     @team.division_id = division.first.id
     @team.age_group = division[0].age_group
       if @team.save
@@ -34,7 +35,6 @@ class TeamsController < ApplicationController
       end
   end
 
-
   def edit
     find_team
     @divisions = get_divisions
@@ -42,14 +42,10 @@ class TeamsController < ApplicationController
 
   def show
     @active_team = Team.active
-
     respond_to do |format|
     format.html # show.html.erb
     format.json { render json: @active_team }
-  end
-
-
-
+    end
   end
 
   def update
@@ -69,8 +65,7 @@ class TeamsController < ApplicationController
   def destroy
     find_team
     team = { id: @team.id, title: @team.title }
-    flash.now[:notice] = "Team successfully deleted"
-    # @team.destroy
+    @team.destroy
     render :json => {team: team}
   end
 
@@ -81,7 +76,6 @@ class TeamsController < ApplicationController
   end
 
   def team_manager
-
     @players = current_user.teams.active.players unless current_user.teams.empty?
     @team = Team.new
     @active_team = Team.active
@@ -97,6 +91,10 @@ private
   def find_team
     @team = Team.find(params[:id])
   end
+
+  # def find_teams_division()
+
+  # end
 
   def jumbotron_active_team(team)
     active_team_id = team.id

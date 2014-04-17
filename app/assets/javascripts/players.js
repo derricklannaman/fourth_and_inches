@@ -3,8 +3,6 @@
 $(document).ready(function(){
   $('.player-delete').on('click', deletePlayer);
 
-  // $('#tp-grid > li:nth-child(4) > a.btn.btn-danger.btn-xs.player-controls-spacer.delete-player').on('click', deletePlayer);
-
 });
 
 function deletePlayer() {

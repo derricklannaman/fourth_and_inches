@@ -1,6 +1,5 @@
 $(function(){
-  $('#notice').delay(3000).fadeOut(3000);
-
+  fadeFlash();
   $('.player-action-sublist, .team-action-sublist').hide();
   $('#side-panel-list > li:nth-child(5)').hide() // player button
   $('#add-team-button').on('click', showTeamOptions)
@@ -54,8 +53,6 @@ function showTeamNavPanel() {
   $('.player-action-sublist').addClass('yes-display');
 }
 
-
-
 function moveHelpLogoUp() {
   var getHelpFlag = $('#get-help-flag');
   var isOpen = 'is-open';
@@ -74,8 +71,6 @@ function moveHelpLogoUp() {
     });
   }
 }
-
-
 
 function hideTeamNavigationOptions() {
   $('.player-action-sublist, .team-action-sublist').hide();
@@ -108,4 +103,16 @@ function showPlayerOptions() {
 //     });
 //   }
 // }
+
+//////////////////////////////////////////////////////
+//           Site Wide Utility functions           //
+//////////////////////////////////////////////////*/
+
+function fadeFlash() {
+  $('#notice').delay(3000).fadeOut(3000);
+}
+
+function whoopsErrorMessage() {
+  alertify.alert('Whoops! Something went wrong. Sorry, we gotta fix that...')
+}
 

@@ -4,6 +4,11 @@
     = f.label :division, 'Division'
 
   %div
+  - if (controller_name == 'teams' && action_name == 'new' )
+    = f.select(:division, options_for_select(@divisions.collect{ |d| [d,{class: 'division-options'} ]} ))
+
+  - elsif (controller_name == 'teams' && action_name == 'edit')
+
     = f.select(:division, options_for_select(@divisions.collect{ |d| [d.name,{class: 'division-options'} ]} ))
 
   %div

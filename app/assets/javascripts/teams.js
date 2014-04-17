@@ -16,10 +16,9 @@ $(document).ready(function(){
 });
 
 function toggleAllTeamsPanel() {
-  // alert("This works!");
   $('.team-list-panel').slideToggle(300, function(){
     var symbl = $('.plus-minus');
-    var s = symbl.text()
+    var s = symbl.text();
     s == '-' ? $( symbl ).text('+') : $( symbl ).text('-')
   })
 }
@@ -37,24 +36,20 @@ function deleteTeamPod() {
         type: 'DELETE',
         url: '/teams/'+ id,
         success: function(result) {
-          console.log(result);
+          var msg = "<div id='notice'>Team successfully deleted</div>";
+          $('#flash_messages').wrapInner(msg);
           pod.fadeOut(100);
+          fadeFlash();
         },
         error: function(e) {
-
+          whoopsErrorMessage();
         }
       });
-      // do something
-      console.log('yes...delete')
     }
     else {
-      console.log("no dont delete");
       return
     }
   });
-
-
-
 }
 
 function run_stapel() {
