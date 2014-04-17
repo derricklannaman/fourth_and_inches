@@ -57,7 +57,7 @@ function updateTeamCount() {
   var teamCounter = $('#team-counter');
   var oldCnt = teamCounter.text();
   var a = $.trim(oldCnt).split(' ');
-  var n = parseInt(a[a.length - 1]);
+  var n = a[a.length - 1];
   n--;
   a[a.length - 1] = n;
   var newCnt = a.join(" ");
