@@ -1,5 +1,6 @@
 $(document).ready(function(){
-  $('a.delete-team-pod').on('click', deleteTeamPod)
+  $('a.delete-team-pod').on('click', deleteTeamPod);
+  $('#all-teams > div.stat-bar').on('click', toggleAllTeamsPanel)
   run_stapel();
   $( 'a[disabled=disabled]' ).click(function(event){
       event.preventDefault(); // Prevent link from following its href
@@ -13,6 +14,15 @@ $(document).ready(function(){
   //     height: 336,
   // });
 });
+
+function toggleAllTeamsPanel() {
+  // alert("This works!");
+  $('.team-list-panel').slideToggle(300, function(){
+    var symbl = $('.plus-minus');
+    var s = symbl.text()
+    s == '-' ? $( s ).text('+') : $( s ).text('-')
+  })
+}
 
 
 function deleteTeamPod() {

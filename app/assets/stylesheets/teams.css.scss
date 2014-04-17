@@ -88,12 +88,29 @@
   margin: 3px 0px;
 }
 
+#all-teams > div.stat-bar {
+  background-color: #EEE;
+  position: relative;
+  top: 1px;
+  padding: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  .plus-minus {
+    font-size: 100px;
+    float: right;
+    margin-top: -110px;
+    height: 0px;
+  }
+}
+
 div.team_pod {
   float: left;
   width: 210px;
   height: 255px;
   background-color: #FFF;
   background: url('uniondale knight.png') no-repeat center center;
+  /*background: url('mock_logo.png') no-repeat center center;*/
+  background-size: 125px;
   margin: 8px;
   padding: 15px;
   border-radius: 5px;
@@ -110,6 +127,14 @@ div.inner_team_pod {
   margin: -15px;
   margin-left: -19px;
   height: 215px;
+}
+
+.pod_title {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #FFF;
+  width: 177px;
+  margin-left: -13px;
+  padding: 0 10px;
 }
 
 .team_pod_controls {

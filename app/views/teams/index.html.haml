@@ -1,31 +1,34 @@
 = render 'director_navigation/main_side_panel'
 / stat bar
 %section#all-teams.red_border
-  %h2 team view
-  %h4
-    Program Stats:
-    Total team count:
-    = @teams.count
-    |
-    Total player count:
+  .stat-bar
+
+    %h4
+      Program Stats:
+    #team-counter
+      Total team count:
+      = @teams.count
+    .plus-minus -
 
 
-  - @teams.each do |team|
-    .team_pod
-      .inner_team_pod
-        %div
-          Division:
-          = show_teams_division(team)
-        %div
-          Number of Players:
-          = team.num_of_players
-        .team_pod_controls
-          = link_to 'show', team_path(team)
-          |
-          = link_to 'edit', edit_team_path(team)
-          |
-          %a.delete-team-pod
-            delete
+  .team-list-panel
+    - @teams.each do |team|
+      .team_pod
+        .inner_team_pod
+          .pod_title
+            %div
+              Division:
+              = show_teams_division(team)
+            %div
+              Number of Players:
+              = team.num_of_players
+          .team_pod_controls
+            = link_to 'show', team_path(team)
+            |
+            = link_to 'edit', edit_team_path(team)
+            |
+            %a.delete-team-pod
+              delete
 
 
 %section#all-divisions.red_border
