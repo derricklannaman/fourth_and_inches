@@ -2,7 +2,8 @@ $(function(){
   fadeFlash();
   $('.player-action-sublist, .team-action-sublist').hide();
   $('#side-panel-list > li:nth-child(5)').hide() // player button
-  $('#add-team-button').on('click', showTeamOptions)
+  $('#add-team-button').on('click', showTeamOptions);
+  $('#tm-player-button').on('click', addPlayerOptions);
   $('#player-button').on('click', showPlayerOptions);
   $('a.btn-menu-trigger').on('click', moveHelpLogoUp);
 
@@ -17,9 +18,15 @@ $(function(){
 
 });
 
+function addPlayerOptions() {
+  alert("This works!");
+}
+
 function selectSideNavBasedOnPath(path) {
   if ( path == '/team_manager' ) {
-    $('.player-delete').on('click', deletePlayer);
+    $('#tm-player-button').on('click', showPlayerOptions);
+
+    // $('.player-delete').on('click', deletePlayer);
     run_stapel();
     setTimeout(function(){
       showTeamNavPanel();

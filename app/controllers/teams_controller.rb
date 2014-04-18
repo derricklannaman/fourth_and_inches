@@ -1,7 +1,8 @@
 class TeamsController < ApplicationController
 
-  authorize_actions_for(Team)
-  authority_actions :team_manager => 'read'
+  authorize_actions_for Team, :except => :team_manager
+  # authority_actions :team_manager => 'read'
+  # authority_actions :team_manager => 'update'
 
   respond_to :html, :js
 
@@ -16,7 +17,6 @@ class TeamsController < ApplicationController
     @user = current_user
     @divisions = current_user.program.divisions.pluck(:name)
     @head_coaches = User.where(user_type: "head coach")
-
   end
 
   def create
@@ -71,9 +71,6 @@ class TeamsController < ApplicationController
     team = { id: @team.id, title: @team.title }
     @team.destroy
     render :json => {team: team}
-  end
-
-  def staff
   end
 
   def team_manager
