@@ -80,9 +80,9 @@ class TeamsController < ApplicationController
     @players = current_user.teams.active.players
  # binding.pry
     @team = Team.new
-    # @active_team = Team.active
+    @active_team = Team.active
     # binding.pry
-    @active_team = current_user.teams[0]
+    # @active_team = current_user.teams[0]
     # authorize_action_for(@team)
   end
 
