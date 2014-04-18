@@ -15,7 +15,7 @@
     = f.label :head_coach
     / TODO: list current head coach here
   %div
-   / this works for team/new
+    / this works for team/new
     = f.select(:head_coach, options_for_select(@head_coaches.collect{ |hc| [hc.username, hc.id,{class: 'division-options'} ]} ))
 
   %div

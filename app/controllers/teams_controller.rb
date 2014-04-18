@@ -1,13 +1,13 @@
 class TeamsController < ApplicationController
 
-  authorize_actions_for Team, :except => :team_manager
+  # authorize_actions_for Team, :except => :team_manager, :show
   # authority_actions :team_manager => 'read'
   # authority_actions :team_manager => 'update'
 
   respond_to :html, :js
 
   def index
-    @teams = current_user.teams
+    @teams = current_user.program.teams
     @programs = current_user.program
     @divisions = get_divisions
   end
@@ -21,11 +21,12 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.new(team_params)
-    @team.user_id = current_user.id
     @team.program_id = current_user.program_id
+    @team.user_id = params[:team][:head_coach].to_i
+    @team.head_coach = params[:team][:head_coach].to_i
+
     @team.active = true
     div_info = params[:team][:division]
-    @team.head_coach = params[:team][:head_coach].to_i
     division = Division.find_teams_divisions(div_info)
     @team.division_id = division.first.id
     @team.age_group = division[0].age_group
@@ -75,9 +76,13 @@ class TeamsController < ApplicationController
   end
 
   def team_manager
-    @players = current_user.teams.active.players unless current_user.teams.empty?
+    # @players = current_user.teams.active.players unless current_user.teams.empty?
+    @players = current_user.teams.active.players
+ # binding.pry
     @team = Team.new
-    @active_team = Team.active
+    # @active_team = Team.active
+    # binding.pry
+    @active_team = current_user.teams[0]
     # authorize_action_for(@team)
   end
 

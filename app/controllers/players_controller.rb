@@ -14,7 +14,7 @@ class PlayersController < ApplicationController
     @player = Player.new(player_params)
     @player.team_id = params[:team_id]
     if @player.save
-       redirect_to @player, :notice => "player successfully created"
+       redirect_to team_manager_path, :notice => "player successfully created"
     else
       render :new
     end
