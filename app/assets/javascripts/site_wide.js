@@ -3,23 +3,23 @@ $(function(){
   $('.player-action-sublist, .team-action-sublist').hide();
   $('#side-panel-list > li:nth-child(5)').hide() // player button
   $('#add-team-button').on('click', showTeamOptions);
-  $('#tm-player-button').on('click', addPlayerOptions);
+  // $('li > a#tm-player-button').on('click', addPlayerOptions);
   $('#player-button').on('click', showPlayerOptions);
   $('a.btn-menu-trigger').on('click', moveHelpLogoUp);
 
-  $(document).on('ajaxify:content_loaded', function() {
+  // $(document).on('ajaxify:content_loaded', function() {
     var path = document.location.pathname;
     console.log(path)
     $('#bt-menu').removeClass('bt-menu-open').addClass('bt-menu-close');
     showPlayerOptions()
     selectSideNavBasedOnPath(path)
 
-  });
+  // });
 
 });
 
 function addPlayerOptions() {
-  alert("This works!");
+  // $('.player-action-sublist').attr('display', 'block');
 }
 
 function selectSideNavBasedOnPath(path) {

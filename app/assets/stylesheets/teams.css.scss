@@ -22,6 +22,10 @@
    /*margin-top: -300px;*/
 }
 
+li > a#tm-player-button {
+  cursor: pointer;
+}
+
 .team-action-sublist,
 .player-action-sublist {
   background-color: lighten($nav-bg-color, 50%);
@@ -49,6 +53,7 @@
   position: relative;
   padding: 20px 0;
   margin: 0 auto 15px -210px;
+  z-index: 0;
 }
 
 .back {

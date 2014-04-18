@@ -41,6 +41,7 @@ class TeamsController < ApplicationController
   def edit
     find_team
     @divisions = get_divisions
+    @head_coaches = User.where(user_type: "head coach")
   end
 
   def show

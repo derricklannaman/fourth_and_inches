@@ -9,11 +9,6 @@
       %li
         / link_to unnecessary...allows for slideToggle
         %a{ id: 'team-mgr-button'} team manager
-
-      %li.team-action-sublist
-        = link_to 'add new team', new_team_path, id: 'new-team-side-link'
-      %li.team-action-sublist
-        = link_to 'Edit', edit_team_path(@active_team), id: 'edit-team-side-link'
       %li
         / ...allows for slideToggle
         %a{ id: 'tm-player-button'} Players
