@@ -71,6 +71,7 @@ class PlayersController < ApplicationController
     end
 
     def check_for_team_cover(team)
+      # binding.pry
       if (team.players[0].first_name == 'cover') && \
          (team.players[0].last_name == 'team_'+ team.id.to_s)
         team.players.shift

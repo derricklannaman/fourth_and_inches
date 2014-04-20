@@ -21,24 +21,14 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.new(team_params)
-    @team.program_id = current_user.program_id
-    head_coach_id = params[:team][:head_coach].to_i
-    @team.user_id = head_coach_id
-    @team.head_coach = head_coach_id
-    @team.active = true
-
-    div_info = params[:team][:division]
-    division = Division.find_teams_divisions(div_info)
-    @team.division_id = division.first.id
-    @team.age_group = division[0].age_group
-      if @team.save
-        add_team_cover(@team)
-        jumbotron_active_team(@team)
-        redirect_to teams_path
-      else
-        flash[:notice] = @team.errors.full_messages.join (', ')
-        render 'new'
-      end
+    @team = load_team_attributes(@team)
+    if @team.save
+      add_team_cover(@team)
+      redirect_to teams_path
+    else
+      flash[:notice] = @team.errors.full_messages.join (', ')
+      render 'new'
+    end
   end
 
   def edit
@@ -78,7 +68,9 @@ class TeamsController < ApplicationController
   end
 
   def team_manager
-    @players = current_user.teams.active.players
+    unless current_user.teams.empty?
+      @players = current_user.teams.active.players
+    end
     @team = Team.new
     @active_team = current_user.teams[0]
   end
@@ -94,12 +86,35 @@ private
     @team = Team.find(params[:id])
   end
 
+  def add_coach(team)
+    head_coach_id = params[:team][:head_coach].to_i
+    team.program_id  = current_user.program_id
+    team.user_id     = head_coach_id
+    team.head_coach  = head_coach_id
+  end
+
+  def find_and_add_division(team)
+    div_info = params[:team][:division]
+    division         = Division.find_teams_divisions(div_info)
+    team.division_id = division.first.id
+    team.age_group   = division[0].age_group
+  end
+
+  def load_team_attributes(team)
+    add_coach(team)
+    team.active = true
+    find_and_add_division(team)
+    binding.pry
+    return team
+  end
+
   def add_team_cover(team)
     team.players << Player.create(first_name: 'cover', last_name: 'team_'+ @team.id.to_s,
                                     team_id: @team.id)
   end
 
   def jumbotron_active_team(team)
+    binding.pry
     active_team_id = team.id
     all_actives = current_user.teams.where(active: true)
     all_actives.each do |t|
