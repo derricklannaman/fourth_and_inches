@@ -14,9 +14,11 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require modernizr.custom.js
+//= require modernizr2.custom.js
 //= require avgrund.js
 //= require alertify.js
 //= require ajaxify_rails
 //= require jquery.stapel.js
+
 
 //= require_tree .

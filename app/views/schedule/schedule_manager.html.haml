@@ -1,2 +1,88 @@
 = render 'layouts/nav_controls'
 %h2 Schedule Manager
+.container
+  / Top Navigation
+  .codrops-top.clearfix
+    %a.codrops-icon.codrops-icon-prev{href: "http://tympanus.net/Development/3DGridEffect/"}
+      %span Previous Demo
+    %span.right
+      %a.codrops-icon.codrops-icon-drop{href: "http://tympanus.net/codrops/?p=18780"}
+        %span Back to the Codrops Article
+  %header.codrops-header
+    %h1
+      Minimal Form Interface
+      %span Simplistic, single input view form
+  %section
+    %form#theForm.simform{autocomplete: "off"}
+      .simform-inner
+        %ol.questions
+          %li
+            %span
+              %label{for: "q1"} What's your favorite movie?
+            %input#q1{name: "q1", type: "text"}/
+          %li
+            %span
+              %label{for: "q2"} Where do you live?
+            %input#q2{name: "q2", type: "text"}/
+          %li
+            %span
+              %label{for: "q3"} What time do you got to work?
+            %input#q3{name: "q3", type: "text"}/
+          %li
+            %span
+              %label{for: "q4"} How do you like your veggies?
+            %input#q4{name: "q4", type: "text"}/
+          %li
+            %span
+              %label{for: "q5"} What book inspires you?
+            %input#q5{name: "q5", type: "text"}/
+          %li
+            %span
+              %label{for: "q6"} What's your profession?
+            %input#q6{name: "q6", type: "text"}/
+        / /questions
+        %button.submit{type: "submit"} Send answers
+        .controls
+          %button.next
+          .progress
+          %span.number
+            %span.number-current
+            %span.number-total
+          %span.error-message
+        / / controls
+      / /simform-inner
+      %span.final-message
+    / /simform
+  %section.related
+    %p If you enjoyed this demo you might also like:
+    %a{href: "http://tympanus.net/Tutorials/NaturalLanguageForm/"}
+      %img{src: "http://tympanus.net/codrops/wp-content/uploads/2013/05/NaturalLanguageForm2-300x162.png"}/
+      %h3 Natural Language Form
+    %a{href: "http://tympanus.net/Development/AnimatedCheckboxes/"}
+      %img{src: "http://tympanus.net/codrops/wp-content/uploads/2013/10/AnimatedCheckboxes-300x162.png"}/
+      %h3 Animated Checkboxes with SVG
+/ /container
+/ %script{src: "js/modernizr.custom.js"}
+
+%script{src: "assets/classie.js"}
+%script{src: "assets/stepsForm.js"}
+:javascript
+  var theForm = document.getElementById( 'theForm' );
+
+  new stepsForm( theForm, {
+    onSubmit : function( form ) {
+      // hide form
+      classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
+
+      /*
+      form.submit()
+      or
+      AJAX request (maybe show loading indicator while we don't have an answer..)
+      */
+
+      // let's just simulate something...
+      var messageEl = theForm.querySelector( '.final-message' );
+      messageEl.innerHTML = 'Thank you! We\'ll be in touch.';
+      classie.addClass( messageEl, 'show' );
+    }
+  } );

@@ -13,6 +13,6 @@
 
 class Program < ActiveRecord::Base
   has_many :users
-  has_many :teams
-  has_many :divisions
+  has_many :teams, dependent: :destroy
+  has_many :divisions, dependent: :destroy
 end
