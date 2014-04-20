@@ -6,7 +6,6 @@ $(function(){
   // $('li > a#tm-player-button').on('click', addPlayerOptions);
   $('#player-button').on('click', showPlayerOptions);
   $('a.btn-menu-trigger').on('click', moveHelpLogoUp);
-  run_stapel();
 
   // $(document).on('ajaxify:content_loaded', function() {
     var path = document.location.pathname;
@@ -28,7 +27,7 @@ function selectSideNavBasedOnPath(path) {
     $('#tm-player-button').on('click', showPlayerOptions);
 
     // $('.player-delete').on('click', deletePlayer);
-    run_stapel();
+    // run_stapel();
     setTimeout(function(){
       showTeamNavPanel();
       showPlayerOptions();
