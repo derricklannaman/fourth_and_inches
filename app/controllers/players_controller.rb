@@ -14,8 +14,7 @@ class PlayersController < ApplicationController
     @player = Player.new(player_params)
     team = Team.find(params[:team_id])
     @player.team_id = team.id
-
-    cover = team.players.shift if (team.players[0].first_name == 'cover') && (team.players[0].last_name = 'team_'+ team.id.to_s)
+    cover = check_for_team_cover(team)
     if @player.save
        team.players.unshift(cover)
        redirect_to team_manager_path, :notice => "player successfully created"
@@ -69,6 +68,13 @@ class PlayersController < ApplicationController
 
     def find_active_team
       @active_team = Team.active
+    end
+
+    def check_for_team_cover(team)
+      if (team.players[0].first_name == 'cover') && \
+         (team.players[0].last_name == 'team_'+ team.id.to_s)
+        team.players.shift
+      end
     end
 
     def player_params
