@@ -1,5 +1,6 @@
 class PlayersController < ApplicationController
   respond_to :html, :js
+
   def index
     @players = current_user.teams.active.players
     find_active_team
@@ -66,12 +67,15 @@ class PlayersController < ApplicationController
       @player = Player.find(params[:id])
     end
 
+    def find_team
+      Team.find(params[:team_id])
+    end
+
     def find_active_team
       @active_team = Team.active
     end
 
     def check_for_team_cover(team)
-      # binding.pry
       if (team.players[0].first_name == 'cover') && \
          (team.players[0].last_name == 'team_'+ team.id.to_s)
         team.players.shift

@@ -1,6 +1,7 @@
 %nav.navbar.navbar-default{role: "navigation"}
   .container-fluid
-  - if current_user.program.nil?
+  - if current_user.program_id.nil?
+    / TODO: redirect in controller once director can issue key for head coach access
     .navbar-header
       %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
       %header.navbar-title

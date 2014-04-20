@@ -84,14 +84,14 @@ private
   end
 
   def add_coach(team)
-    head_coach_id = params[:team][:head_coach].to_i
+    head_coach_id    = params[:team][:head_coach].to_i
     team.program_id  = current_user.program_id
     team.user_id     = head_coach_id
     team.head_coach  = head_coach_id
   end
 
   def find_and_add_division(team)
-    div_info = params[:team][:division]
+    div_info         = params[:team][:division]
     division         = Division.find_teams_divisions(div_info)
     team.division_id = division.first.id
     team.age_group   = division[0].age_group
@@ -101,7 +101,6 @@ private
     add_coach(team)
     team.active = true
     find_and_add_division(team)
-    binding.pry
     return team
   end
 
@@ -111,7 +110,6 @@ private
   end
 
   def jumbotron_active_team(team)
-    binding.pry
     active_team_id = team.id
     all_actives = current_user.teams.where(active: true)
     all_actives.each do |t|
