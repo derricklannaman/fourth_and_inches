@@ -12,8 +12,12 @@ class PlayersController < ApplicationController
 
   def create
     @player = Player.new(player_params)
-    @player.team_id = params[:team_id]
+    team = Team.find(params[:team_id])
+    @player.team_id = team.id
+
+    cover = team.players.shift if (team.players[0].first_name == 'cover') && (team.players[0].last_name = 'team_'+ team.id.to_s)
     if @player.save
+       team.players.unshift(cover)
        redirect_to team_manager_path, :notice => "player successfully created"
     else
       render :new

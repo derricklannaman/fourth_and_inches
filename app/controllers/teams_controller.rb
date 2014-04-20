@@ -22,15 +22,17 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     @team.program_id = current_user.program_id
-    @team.user_id = params[:team][:head_coach].to_i
-    @team.head_coach = params[:team][:head_coach].to_i
-
+    head_coach_id = params[:team][:head_coach].to_i
+    @team.user_id = head_coach_id
+    @team.head_coach = head_coach_id
     @team.active = true
+
     div_info = params[:team][:division]
     division = Division.find_teams_divisions(div_info)
     @team.division_id = division.first.id
     @team.age_group = division[0].age_group
       if @team.save
+        add_team_cover(@team)
         jumbotron_active_team(@team)
         redirect_to teams_path
       else
@@ -76,14 +78,9 @@ class TeamsController < ApplicationController
   end
 
   def team_manager
-    # @players = current_user.teams.active.players unless current_user.teams.empty?
     @players = current_user.teams.active.players
- # binding.pry
     @team = Team.new
-    @active_team = Team.active
-    # binding.pry
-    # @active_team = current_user.teams[0]
-    # authorize_action_for(@team)
+    @active_team = current_user.teams[0]
   end
 
 private
@@ -95,6 +92,11 @@ private
 
   def find_team
     @team = Team.find(params[:id])
+  end
+
+  def add_team_cover(team)
+    team.players << Player.create(first_name: 'cover', last_name: 'team_'+ @team.id.to_s,
+                                    team_id: @team.id)
   end
 
   def jumbotron_active_team(team)
