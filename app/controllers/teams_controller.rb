@@ -16,7 +16,7 @@ class TeamsController < ApplicationController
     @team = Team.new
     @user = current_user
     @divisions = current_user.program.divisions.pluck(:name)
-    @head_coaches = User.where(user_type: "head coach")
+    @head_coaches = User.get_head_coaches
   end
 
   def create
@@ -34,7 +34,7 @@ class TeamsController < ApplicationController
   def edit
     find_team
     @divisions = get_divisions
-    @head_coaches = User.where(user_type: "head coach")
+    @head_coaches = User.get_head_coaches
   end
 
   def show
@@ -48,10 +48,7 @@ class TeamsController < ApplicationController
   def update
     find_team
     @team.update(team_params)
-    div_info = params[:team][:division]
-    division = Division.find_teams_divisions(div_info)
-    @team.division_id = division.first.id
-    @team.age_group = division[0].age_group
+    find_and_add_division(@team)
     if @team.save
       flash[:notice] = "Team successfully updated"
       redirect_to teams_path
