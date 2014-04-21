@@ -1,8 +1,7 @@
-/ %h1= "Welcome Director #{current_user.username}"
-
 %header.form-header
-  %h1
-    STEP 1:  Setup your football program
+  %h1#step1
+    STEP 1:
+    %span Setup your football program
   = form_for(@program, url: programs_path, autocomplete: "off", html: {class: 'simform', id: 'theForm'} ) do |f|
     = hidden_field_tag(:user_id, current_user.id)
     .simform-inner
@@ -31,24 +30,4 @@
 
     %span.final-message
 
-
-:javascript
-  var theForm = document.getElementById( 'theForm' );
-
-  new stepsForm( theForm, {
-    onSubmit : function( form ) {
-      // hide form
-
-      classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
-
-      var messageEl = theForm.querySelector( '.final-message' );
-      messageEl.innerHTML = 'Now, Let\'s add the league divisions';
-      classie.addClass( messageEl, 'show' );
-
-      setTimeout(function(){
-        form.submit()
-      }, 3000)
-
-    }
-  });
 

@@ -169,12 +169,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.next.show {
-  opacity: 1;
+/*.next.show {
+  opacity: 0;
   -webkit-transform: translateX(0);
   transform: translateX(0);
   pointer-events: auto;
-}
+}*/
 
 /* Progress bar */
 .simform .progress {
