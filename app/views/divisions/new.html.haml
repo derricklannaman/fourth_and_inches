@@ -1,18 +1,50 @@
-%h1 Step 2: Add divisions to your program
+%header.form-header
+  %h1#step2
+    STEP 2:
+    %span Add divisions to your program
+  = form_for(@division, url: divisions_path, autocomplete: "off", html: {class: 'simform', id: 'theForm'} ) do |f|
+    = hidden_field_tag(:program_id, @program_id)
+    .simform-inner
+      %ol.questions
+        %li
+          %span
+            = f.label :name, "What's the name of the division?"
+          = f.text_field :name
+        %li
+          %span
+            = f.label :age_group, "What's the age group?"
+          = f.text_field :age_group
+        %li
+          %span
+            = f.label :weight_class, "and the weight class?"
+          = f.text_field :weight_class
+      .controls
+        %button.next
+        .progress
+        %span.number
+          %span.number-current
+          %span.number-total
+        %span.error-message
+        .press_enter_msg
+          %span Please press enter to continue
 
-= form_for(@division, url: divisions_path) do |f|
-  = hidden_field_tag(:program_id, @program_id)
-  %div
-    = f.label :name
-    %br/
-    = f.text_field :name
-  %div
-    = f.label :age_group
-    %br/
-    = f.text_field :age_group
-  %div
-    = f.label :weight_class
-    %br/
-    = f.text_field :weight_class
-  %div
-    = f.submit
+    %span.final-message
+
+
+
+/ = form_for(@division, url: divisions_path) do |f|
+/   = hidden_field_tag(:program_id, @program_id)
+/   %div
+/     = f.label :name
+/     %br/
+/     = f.text_field :name
+/   %div
+/     = f.label :age_group
+/     %br/
+/     = f.text_field :age_group
+/   %div
+/     = f.label :weight_class
+/     %br/
+/     = f.text_field :weight_class
+/   %div
+/     = f.submit
