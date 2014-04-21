@@ -1,6 +1,5 @@
 $(document).ready(function(){
   $('.not-yet-implemented').on('click', notYetImplemented)
-
 });
 
 

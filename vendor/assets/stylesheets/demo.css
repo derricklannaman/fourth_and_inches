@@ -32,26 +32,26 @@ a:hover, a:focus {
 	color: rgba(0,0,0,0.6);
 }
 
-.codrops-header {
+.form-header {
 	margin: 0 auto;
-	padding: 3em 1em;
-	text-align: center;
+	padding: 1em;
+	/*text-align: center;*/
 	color: rgba(0,0,0,0.35);
 }
 
-.codrops-header h1 {
+/*.codrops-header h1 {
 	margin: 0;
 	font-weight: 400;
 	font-size: 2.5em;
-}
+}*/
 
-.codrops-header h1 span {
+/*.codrops-header h1 span {
 	display: block;
 	padding: 0 0 0.6em 0.1em;
 	font-size: 0.6em;
 	opacity: 0.7;
 }
-
+*/
 /* To Navigation Style */
 .codrops-top {
 	width: 100%;

@@ -1,22 +1,54 @@
-%h1= "Welcome Director #{current_user.username}"
+/ %h1= "Welcome Director #{current_user.username}"
 
-%h2 Step 1: Name your football program
-= form_for(@program, url: programs_path) do |f|
-  = hidden_field_tag(:user_id, current_user.id)
-  %div
-    = f.label :town_name
-    %br/
-    = f.text_field :town_name
-  %div
-    = f.label :team_name
-    %br/
-    = f.text_field :team_name
-  %div
-    = f.label :league_name
-    %br/
-    = f.text_field :league_name
+%header.form-header
+  %h1
+    STEP 1:  Setup your football program
+  = form_for(@program, url: programs_path, autocomplete: "off", html: {class: 'simform', id: 'theForm'} ) do |f|
+    = hidden_field_tag(:user_id, current_user.id)
+    .simform-inner
+      %ol.questions
+        %li
+          %span
+            = f.label :town_name, "What's your town name?"
+          = f.text_field :town_name
+        %li
+          %span
+            = f.label :team_name, "What's your team name?"
+          = f.text_field :team_name
+        %li
+          %span
+            = f.label :league_name, "What league do you belong to?"
+          = f.text_field :league_name
+      .controls
+        %button.next
+        .progress
+        %span.number
+          %span.number-current
+          %span.number-total
+        %span.error-message
+        .press_enter_msg
+          %span Please press enter to continue
 
-  %div
-    = f.submit
+    %span.final-message
 
-=# link_to "Not the Program Director? ....click HERE", '#'
+
+:javascript
+  var theForm = document.getElementById( 'theForm' );
+
+  new stepsForm( theForm, {
+    onSubmit : function( form ) {
+      // hide form
+
+      classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
+
+      var messageEl = theForm.querySelector( '.final-message' );
+      messageEl.innerHTML = 'Now, Let\'s add the league divisions';
+      classie.addClass( messageEl, 'show' );
+
+      setTimeout(function(){
+        form.submit()
+      }, 3000)
+
+    }
+  });
+

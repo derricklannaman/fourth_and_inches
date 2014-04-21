@@ -5,9 +5,10 @@
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
-
+      %script{src: "assets/stepsForm.js"}
   %body{:class => "#{controller_name} #{action_name}"}
     :javascript
+
       Ajaxify.init( { active: false, scroll_to_top: false, flash_types: ['notice'] } );
 
     .app_nav_bar
@@ -27,3 +28,7 @@
   - if user_signed_in? && current_user.has_role?('director')
     %script{src: "assets/classie.js"}
     %script{src: "assets/borderMenu.js"}
+    / %script{src: "assets/stepsForm.js"}
+
+
+
