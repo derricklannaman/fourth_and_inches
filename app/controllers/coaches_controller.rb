@@ -3,6 +3,6 @@ class CoachesController < ApplicationController
   end
 
   def index
-    @head_coaches = User.where(user_type: "head coach")
+    @head_coaches = User.get_head_coaches
   end
 end
