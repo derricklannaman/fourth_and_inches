@@ -24,7 +24,3 @@
           = yield
         = render 'layouts/footer_nav_panel'
 
-  - if user_signed_in? && current_user.has_role?('director')
-    %script{src: "assets/classie.js"}
-    %script{src: "assets/borderMenu.js"}
-    / %script{src: "assets/stepsForm.js"}

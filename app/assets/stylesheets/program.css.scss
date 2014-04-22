@@ -305,6 +305,11 @@
   transition: opacity 0.3s, visibility 0s 0.3s;
 }
 
+#theForm > div.spinner > img {
+  margin-top: -100px;
+  margin-left: 250px;
+}
+
 /* No JS Fallback */
 .no-js .simform {
   font-size: 1.75em;

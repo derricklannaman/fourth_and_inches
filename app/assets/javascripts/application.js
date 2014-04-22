@@ -24,7 +24,7 @@
 //= require jquery.stapel.js
 //= require stepsForm.js
 //= require classie.js
-//= require borderMenu.js
+
 
 
 //= require_tree .
