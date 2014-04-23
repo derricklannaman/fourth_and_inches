@@ -11,7 +11,6 @@ class DivisionsController < ApplicationController
 
 
   def create
-    # binding.pry
     @division = Division.new(division_params)
     @division.program_id = params[:program_id]
     if @division.save

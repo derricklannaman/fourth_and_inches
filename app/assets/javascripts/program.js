@@ -9,13 +9,24 @@ $(document).ready(function(){
 
 });
 
+function change_alertify_buttons() {
+  setTimeout(function(){
+    var a = document.getElementById('alertify');
+    var y = $(a).find('button#alertify-ok').text('Yes, Add Another Division');
+    var n = $(a).find('button#alertify-cancel').text('Finished');
+  }, 0)
+}
+
+
 function runStepsForm() {
   var theForm = document.getElementById( 'theForm' );
   new stepsForm( theForm, {
     onSubmit : function( form ) {
+      change_alertify_buttons();
+
       var fv = $('#form_name')[0].value;
       if (fv === 'add-division') {
-        alertify.confirm("click OK to Add another division", function(e) {
+        alertify.confirm("Add another division?", function(e) {
           if (e) {
             classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
             var addAnother = 'Adding another division';
