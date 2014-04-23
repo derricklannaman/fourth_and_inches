@@ -1,24 +1,24 @@
-= render 'director_navigation/main_side_panel'
-
-
-
 %section#user-content
 
   %h1 Users
   %p
     = "User count #{@users.count}"
+    %br/
 
 
-  %section.user-section
-    #coaches
+  %section#coach-tile-panel.user-section
+    %header#coaches
       %h4 Coaches
+      =link_to "Grant Coaching Access"
+
+    #coaches-grid
       - @head_coaches.each do |coach|
-        %div
+        .coach-tile
           = coach.username
 
 
-      %h4 Coaches CRUD links
-    =link_to "add coach", '#'
+
+
 
 
 

@@ -1,5 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
 
+  skip_before_filter :require_no_authentication
+
   def create
     if params[:user][:user_type].present?
       user_type = params[:user][:user_type]
@@ -28,7 +30,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     def user_params
       params.require(:user).permit( :password, :password_confirmation, :is_director, :user_type, :username,
-        :email )
+        :email)
     end
 
 

@@ -5,5 +5,10 @@ class UsersController < ApplicationController
     find_all_coaches
   end
 
+  def new
+    @user = User.new()
+  end
+
+
 
 end
