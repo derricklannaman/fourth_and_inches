@@ -26,20 +26,21 @@ function toggleAllTeamsPanel() {
 
 function deleteDivision() {
   var thisLink = $( this );
-  var id = thisLink.prev()[0].id;
   var pod = thisLink.closest('div.division-pod');
-
-  // var id = btn.prev()
-  //             .attr('href')
-  //             .split('/')[2]
+  var id = thisLink.prev()
+              .attr('href')
+              .split('/')[2]
 
   $.ajax({
     type: 'DELETE',
     url: '/divisions/' + id,
     success: function(result){
-      console.log(result);
+      pod.fadeOut(100);
+      fadeFlash();
+
     },
     error: function(e) {
+      whoopsErrorMessage();
       console.log(e);
     }
   });

@@ -38,6 +38,14 @@ class DivisionsController < ApplicationController
     end
   end
 
+  def destroy
+    @division = Division.find(params[:id])
+    division = { id: @division.id }
+    # @division.destroy
+    render :json => {status: "ok"}
+  end
+
+
   private
 
     def division_params
