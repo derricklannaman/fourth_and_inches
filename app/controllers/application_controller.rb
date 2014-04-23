@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
     current_user.program.divisions
   end
 
+  def find_all_coaches
+    @head_coaches = User.get_head_coaches
+  end
+
 end

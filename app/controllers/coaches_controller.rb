@@ -3,6 +3,6 @@ class CoachesController < ApplicationController
   end
 
   def index
-    @head_coaches = User.get_head_coaches
+    find_all_coaches
   end
 end

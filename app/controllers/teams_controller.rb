@@ -16,7 +16,7 @@ class TeamsController < ApplicationController
     @team = Team.new
     @user = current_user
     @divisions = current_user.program.divisions.pluck(:name)
-    @head_coaches = User.get_head_coaches
+    find_all_coaches
   end
 
   def create
@@ -34,7 +34,7 @@ class TeamsController < ApplicationController
   def edit
     find_team
     @divisions = get_divisions
-    @head_coaches = User.get_head_coaches
+    find_all_coaches
   end
 
   def show

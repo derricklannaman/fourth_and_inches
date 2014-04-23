@@ -1,0 +1,35 @@
+= render 'director_navigation/main_side_panel'
+
+
+
+%section#user-content
+
+  %h1 Users
+  %p
+    = "User count #{@users.count}"
+
+
+  %section.user-section
+    #coaches
+      %h4 Coaches
+      - @head_coaches.each do |coach|
+        %div
+          = coach.username
+
+
+      %h4 Coaches CRUD links
+    =link_to "add coach", '#'
+
+
+
+  %section.user-section
+    %h3 Staff:
+    %h4 Staff CRUD links
+
+  / %section.user-section
+  /   %h3 General public:
+  /   %h4 CRUD List all board members here
+
+  / %section.user-section
+  /   %h3 Founders:
+  /   %h4 CRUD List founders here
