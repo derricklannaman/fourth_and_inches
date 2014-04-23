@@ -1,5 +1,6 @@
 $(document).ready(function(){
   $('a.delete-team-pod').on('click', deleteTeamPod);
+  $('a.delete-division-pod').on('click', deleteDivision);
   $('#all-teams > div.stat-bar').on('click', toggleAllTeamsPanel)
   run_stapel();
   $( 'a[disabled=disabled]' ).click(function(event){
@@ -23,6 +24,26 @@ function toggleAllTeamsPanel() {
   })
 }
 
+function deleteDivision() {
+  var thisLink = $( this );
+  var id = thisLink.prev()[0].id;
+  var pod = thisLink.closest('div.division-pod');
+
+  // var id = btn.prev()
+  //             .attr('href')
+  //             .split('/')[2]
+
+  $.ajax({
+    type: 'DELETE',
+    url: '/divisions/' + id,
+    success: function(result){
+      console.log(result);
+    },
+    error: function(e) {
+      console.log(e);
+    }
+  });
+}
 
 function deleteTeamPod() {
   var btn = $( this );

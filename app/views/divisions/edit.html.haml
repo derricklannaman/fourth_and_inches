@@ -1,0 +1,15 @@
+%h1 Edit Divisions
+
+%ul
+= form_for(@division, url: division_path) do |f|
+  %li
+    = f.label :name, "What's the name of the division?"
+    = f.text_field :name
+  %li
+    = f.label :age_group, "What's the age group?"
+    = f.text_field :age_group
+  %li
+    = f.label :weight_class, "and the weight class?"
+    = f.text_field :weight_class
+  %li
+    = f.submit

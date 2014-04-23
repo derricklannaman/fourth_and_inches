@@ -9,7 +9,6 @@ class DivisionsController < ApplicationController
     @program = current_user.program.team_name
   end
 
-
   def create
     @division = Division.new(division_params)
     @division.program_id = params[:program_id]
@@ -24,6 +23,13 @@ class DivisionsController < ApplicationController
       render 'new'
     end
   end
+
+  def edit
+    @division = Division.find(params[:id])
+  end
+
+
+
 
 
   private

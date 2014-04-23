@@ -39,9 +39,10 @@
       %h3
         = "#{div.name} Division"
       %div
-        = link_to "edit", '#'
+        = link_to "edit", edit_division_path(div)
         |
-        = link_to "remove", '#'
+        %a.delete-division-pod
+          delete
 
 
 
