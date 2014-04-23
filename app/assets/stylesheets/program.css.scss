@@ -25,10 +25,15 @@
   color: rgba(0,0,0,0.35);
 }
 
+#step2 {
+  height: 50px;
+  display: inline-block;
+}
+
 .simform {
   position: relative;
   margin: 0 auto;
-  padding: 2em 0;
+  padding: 1em 0;
   max-width: 860px;
   width: 100%;
   text-align: left;
