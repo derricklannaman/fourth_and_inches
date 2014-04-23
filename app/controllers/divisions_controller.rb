@@ -28,9 +28,15 @@ class DivisionsController < ApplicationController
     @division = Division.find(params[:id])
   end
 
-
-
-
+  def update
+    @division = Division.find(params[:id])
+    @division.update(division_params)
+    if @division.save
+      redirect_to teams_path, notice: 'division successfully updated'
+    else
+      render 'edit'
+    end
+  end
 
   private
 
