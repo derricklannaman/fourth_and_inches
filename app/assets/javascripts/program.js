@@ -34,20 +34,21 @@ function runStepsForm() {
             setTimeout(function(){
               var fv = $('#form_name')[0].value = "add more"
               form.submit()
-            }, 600)
+            }, 300)
           }
           else {
             classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
             var nextMsg = 'Now, Let\'s add the league divisions';
             setTimeout(function(){
               form.submit()
-            }, 600)
+            }, 300)
           }
         });
       }
       else if (fv === 'add-program'){
         classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
         var nextMsg = 'Now, Let\'s add the league divisions';
+        // TODO: get better spinner
         $('div.spinner').show();
         $('#step1').text(nextMsg).hide().fadeIn(500);
         setTimeout(function(){

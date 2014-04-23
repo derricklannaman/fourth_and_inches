@@ -1,6 +1,5 @@
 %header.form-header
   %h1#step2
-    STEP 2:
     %span Add divisions to your program
   = form_for(@division, url: divisions_path, autocomplete: "off", html: {class: 'simform', id: 'theForm'} ) do |f|
     = hidden_field_tag(:program_id, @program_id)

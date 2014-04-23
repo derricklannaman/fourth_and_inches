@@ -148,7 +148,7 @@
 .next {
   position: absolute;
   right: 0;
-  bottom: 2.15em; /* padding-bottom of form plus progress bar height */
+  bottom: 3.15em; /* padding-bottom of form plus progress bar height */
   display: block;
   padding: 0;
   width: 2em;
@@ -156,6 +156,8 @@
   border: none;
   background: none;
   color: rgba(0,0,0,0.4);
+  color: $go-green;
+  /*TODO: background: url(add arrow image);*/
   text-align: center;
   opacity: 0;
   z-index: 100;
@@ -190,12 +192,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/*.next.show {
-  opacity: 0;
+.next.show {
+  opacity: 1;
   -webkit-transform: translateX(0);
   transform: translateX(0);
   pointer-events: auto;
-}*/
+}
 
 /* Progress bar */
 .simform .progress {
