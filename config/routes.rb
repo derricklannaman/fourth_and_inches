@@ -9,6 +9,7 @@ FourthAndInches::Application.routes.draw do
   get 'faq'       => 'home#faq',       as: 'faq'
   get 'features'  => 'home#features',  as: 'features'
 
+  post 'send_access_code' => 'access_codes#send_access_code', as: 'send_access_code'
 
   get 'coaches_corner' => 'coaches#coaches_corner', as: 'coaches_corner'
   get 'office_manager' => 'office#office_manager',
@@ -17,12 +18,12 @@ FourthAndInches::Application.routes.draw do
                                                     as: 'schedule_manager'
   get 'team_manager' => 'teams#team_manager',       as: 'team_manager'
 
-  resources :users, only: [:index, :new]
+  resources :users, only: [:index]
   resources :programs, only: [:new, :create, :show, :index]
   resources :divisions
   resources :events, only: [:index]
-  resources :coaches, only: [:index]
-  resources :staff_members, only: [:index]
+  # resources :coaches, only: [:index]
+  # resources :staff_members, only: [:index]
   resources :dashboard, only: [:create]
   resources :players
   resources :teams

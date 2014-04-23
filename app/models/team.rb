@@ -12,6 +12,7 @@
 #  active         :boolean          default(FALSE)
 #  program_id     :integer
 #  division_id    :integer
+#  head_coach     :integer
 #
 
 class Team < ActiveRecord::Base

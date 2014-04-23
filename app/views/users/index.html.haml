@@ -1,15 +1,25 @@
 %section#user-content
 
-  %h1 Users
+  %h1 Staff
   %p
     = "User count #{@users.count}"
     %br/
 
-
+  %h4 Coaches
   %section#coach-tile-panel.user-section
     %header#coaches
-      %h4 Coaches
-      =link_to "Grant Coaching Access"
+
+      %a.btn.btn-warning#coach-invite-button
+        Grant Coaching Access
+
+    #coach-invite-form
+      = form_tag(send_access_code_path) do
+        .form-field
+          = label_tag :email
+        .form-field
+          = text_field_tag :email
+        .form-field
+          = submit_tag
 
     #coaches-grid
       - @head_coaches.each do |coach|
