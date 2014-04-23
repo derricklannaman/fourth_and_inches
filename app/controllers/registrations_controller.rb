@@ -1,6 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
 
-  skip_before_filter :require_no_authentication
+  # skip_before_filter :require_no_authentication
 
   def create
     if params[:user][:user_type].present?
