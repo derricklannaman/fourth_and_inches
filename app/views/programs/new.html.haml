@@ -4,6 +4,8 @@
     %span Setup your football program
   = form_for(@program, url: programs_path, autocomplete: "off", html: {class: 'simform', id: 'theForm'} ) do |f|
     = hidden_field_tag(:user_id, current_user.id)
+    = hidden_field_tag(:form_name, "add-program")
+
     .spinner
       = image_tag('ajax-loader.gif', size: '70x70')
     .simform-inner
