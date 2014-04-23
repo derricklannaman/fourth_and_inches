@@ -1,46 +1,4 @@
 %h1 Add Staff
 
-=# form_for(@user) do |f|
-= form_for(@user, url: users_path) do |f|
-  .form-field
-    = f.label :first_name
-    %br/
-    = f.text_field :first_name
-
-  .form-field
-    = f.label :email
-    %br/
-    = f.text_field :email
-
-  .user-type-panel
-    .form-field
-      = f.radio_button :user_type, "head coach"
-      = f.label :user_head_coach, "Head Coach"
-      |
-      = f.radio_button :user_type, "staff"
-      = f.label :user_director, "Staff"
-
-  .form-field
-    = f.submit "create staff and send email"
-
-
-/ #  id                     :integer          not null, primary key
-/ #  email                  :string(255)      default(""), not null
-/ #  encrypted_password     :string(255)      default(""), not null
-/ #  reset_password_token   :string(255)
-/ #  reset_password_sent_at :datetime
-/ #  remember_created_at    :datetime
-/ #  sign_in_count          :integer          default(0), not null
-/ #  current_sign_in_at     :datetime
-/ #  last_sign_in_at        :datetime
-/ #  current_sign_in_ip     :string(255)
-/ #  last_sign_in_ip        :string(255)
-/ #  created_at             :datetime
-/ #  updated_at             :datetime
-/ #  first_name             :string(255)
-/ #  last_name              :string(255)
-/ #  username               :string(255)
-/ #  user_type              :string(255)
-/ #  program_id             :integer
 
 

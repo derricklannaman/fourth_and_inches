@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140417214226) do
+ActiveRecord::Schema.define(version: 20140423220539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "access_codes", force: true do |t|
+    t.string   "access_code"
+    t.integer  "program_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "access_codes", ["program_id"], name: "index_access_codes_on_program_id", using: :btree
+  add_index "access_codes", ["user_id"], name: "index_access_codes_on_user_id", using: :btree
 
   create_table "dashboards", force: true do |t|
     t.string   "name"

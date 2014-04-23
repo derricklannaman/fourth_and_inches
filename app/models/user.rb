@@ -38,7 +38,9 @@ class User < ActiveRecord::Base
   after_create :add_user_role, :create_dashboard
 
   has_one :dashboard, dependent: :destroy
+
   belongs_to :program
+  has_one :access_code
   has_many :teams
   has_many :players
   has_many :players, :through => :teams

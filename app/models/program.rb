@@ -13,6 +13,7 @@
 
 class Program < ActiveRecord::Base
   has_many :users
+  has_many :access_codes
   has_many :teams, dependent: :destroy
   has_many :divisions, dependent: :destroy
 end
