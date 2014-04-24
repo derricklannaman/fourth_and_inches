@@ -23,23 +23,26 @@ class AccessCodesController < ApplicationController
   end
 
   def verify_access_code
-    access_code_parts = params[:id].split('_')
-    handle_access_code
-    user_type = access_code_parts[1]
-    render text: 'next step'
+    handle_access_code_on_arrival
+    user_type = params[:id].split('-')[1]
+    if user_type == "7403214027"
+
+    else
+
+    end
+    render nothing: true
   end
 
   private
 
-    def handle_access_code
-      access_code_parts = params[:id].split('_')
+    def handle_access_code_on_arrival
+      access_code_parts = params[:id].split('-')
       access_id = access_code_parts[0]
       access_code = AccessCode.find(access_id)
     end
 
-
     def check_access_code_exist
-      handle_access_code
+      handle_access_code_on_arrival
       rescue ActiveRecord::RecordNotFound
         redirect_to root_path, notice: "Sorry, your access code is NOT valid!"
     end
