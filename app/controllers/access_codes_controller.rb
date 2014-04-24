@@ -7,7 +7,7 @@ class AccessCodesController < ApplicationController
     receipent_email = params[:email]
     access_key = invite.access_code
     program = Program.find(program_id)
-    program_name = program.town_name + ' ' + program.team_name
+    program_name = program.town_name + '_' + program.team_name
     invite_info = {
       email:  receipent_email,
       type:   user_type,
@@ -15,8 +15,7 @@ class AccessCodesController < ApplicationController
       program:  program_name
     }
 
-
-
+    InviteMailer.send_staff_invite(invite_info).deliver
     redirect_to(:back)
   end
 
