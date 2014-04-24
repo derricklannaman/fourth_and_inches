@@ -16,7 +16,7 @@ class InviteMailer < ActionMailer::Base
     # 7403214027 == headcoach and 1819055 == staff
     @type == 'head_coach' ? @param = '7403214027' : @param = '1819055'
 
-    @url = "http://#{ActionMailer::Base.smtp_settings[:domain]}/access/#{@program_name}/#{@key}-#{@param} "
+    @url = "http://#{ActionMailer::Base.smtp_settings[:domain]}/access/#{@key}-#{@param} "
     sub = "You're invited to join the #{@pname} staff"
 
     mail(:subject => sub,
