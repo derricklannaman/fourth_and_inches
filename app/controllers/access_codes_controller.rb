@@ -1,10 +1,22 @@
 class AccessCodesController < ApplicationController
 
   def send_access_code
-    code = generate_key
-    ac = AccessCode.create(access_code: code,
-                           program_id: current_user.program_id)
-    binding.pry
+    program_id = current_user.program_id
+    invite = AccessCode.create(program_id: program_id)
+    user_type = params[:user_type]
+    receipent_email = params[:email]
+    access_key = invite.access_code
+    program = Program.find(program_id)
+    program_name = program.town_name + ' ' + program.team_name
+    invite_info = {
+      email:  receipent_email,
+      type:   user_type,
+      key:    access_key,
+      program:  program_name
+    }
+
+
+
     redirect_to(:back)
   end
 

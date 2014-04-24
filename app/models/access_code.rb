@@ -17,7 +17,7 @@ class AccessCode < ActiveRecord::Base
   before_create :generate_key
 
   def generate_key
-    self.key = loop do
+    self.access_code = loop do
       random_key = rand(36**8).to_s(36)
       break random_key unless AccessCode.where(access_code: random_key).exists?
     end
