@@ -10,14 +10,14 @@ class InviteMailer < ActionMailer::Base
     @type = invite_info[:type]
     @key = invite_info[:key]
     @program_name = invite_info[:program]
-    @pname =  @program_name.split('_').join(' ')
+    @pname =  @program_name.split('_').join(' ').titleize
+
     # convert user-type to num based on alphabet position
     # 7403214027 == headcoach and 1819055 == staff
-    @type == 'head_coach' ? @param = 7403214027 : @param = 1819055
+    @type == 'head_coach' ? @param = '7403214027' : @param = '1819055'
 
-    @url = "http://#{ActionMailer::Base.smtp_settings[:domain]}/access/#{@program_name}/#{@param}-#{@key}"
-
-    sub = " invites you to join the #{@pname} staff"
+    @url = "http://#{ActionMailer::Base.smtp_settings[:domain]}/access/#{@program_name}/#{@key}-#{@param} "
+    sub = "You're invited to join the #{@pname} staff"
 
     mail(:subject => sub,
        :to => @email,
@@ -25,7 +25,4 @@ class InviteMailer < ActionMailer::Base
     ).deliver
 
   end
-
-
-
 end

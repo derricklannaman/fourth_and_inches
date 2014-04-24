@@ -2,17 +2,30 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  <style>
+
+  </style>
+
+
   </head>
   <body>
-    <h1>Welcome to example.com, <%= @email %></h1>
-    <p>
 
-      You have successfully signed up to example.com,
-      your username is: <%= @key %>.<br>
-    </p>
+    <h1>Welcome to the <%= @pname %> Team Website</h1>
+
+    <% if @param = 7403214027 %>
+      <p>
+        Congratulations, you a now a head coach. As a head coach....
+      </p>
+    <% else %>
+      <p>
+        Thanks for joining the Staff. To access Staff info....
+      </p>
+    <% end %>
+
     <p>
       To login to the site, just follow this link: <%= @url %>.
     </p>
     <p>Thanks for joining and have a great day!</p>
+
   </body>
 </html>
