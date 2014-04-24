@@ -21,6 +21,7 @@ class AccessCode < ActiveRecord::Base
       random_key = rand(36**8).to_s(36)
       break random_key unless AccessCode.where(access_code: random_key).exists?
     end
+  # binding.pry
   end
 
 end

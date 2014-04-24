@@ -14,12 +14,13 @@
 
     #coach-invite-form
       = form_tag(send_access_code_path) do
+        = hidden_field_tag(:user_type, "head_coach")
         .form-field
           = label_tag :email
         .form-field
           = text_field_tag :email
         .form-field
-          = submit_tag
+          = submit_tag "Send coaching invite"
 
     #coaches-grid
       - @head_coaches.each do |coach|
