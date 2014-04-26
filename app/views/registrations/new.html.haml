@@ -1,7 +1,8 @@
 %h2 Sign up
+
+%h4 Sign up as a...
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
   = devise_error_messages!
-
   %div
     = f.radio_button :user_type, "director"
     = f.label :user_director, "Director"

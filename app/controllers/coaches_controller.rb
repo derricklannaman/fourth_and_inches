@@ -10,6 +10,11 @@ class CoachesController < ApplicationController
     @coach = User.new()
   end
 
+  def create
+    binding.pry
+    @coach = User.new(params)
+  end
+
 
 
 

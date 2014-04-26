@@ -6,6 +6,7 @@ class RegistrationsController < Devise::RegistrationsController
     if params[:user][:user_type].present?
       user_type = params[:user][:user_type]
       @user = User.new(user_params)
+      binding.pry
       @user.user_type = user_type
         if @user.save
           sign_in_and_redirect resource

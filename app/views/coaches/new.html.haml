@@ -1,31 +1,22 @@
 %header.form-header
   %h1#step1
-
     %span New Coach Sign Up
-  = form_for(@coach, url: coaches_path, autocomplete: "off", html: {class: 'simform', id: 'theForm'} ) do |f|
+  = form_for(@coach, url: coaches_path, html: {class: '', id: 'theForm'} ) do |f|
+    = hidden_field_tag(:access, params[:key])
+    %div
+      = f.label :first_name
+      %br/
+      = f.text_field :first_name, :autofocus => true
 
-    .simform-inner
-      %ol.questions
-        %li
-          %span
-            = f.label :first_name, "What's your town name?"
-          = f.text_field :first_name
-        %li
-          %span
-            = f.label :last_name, "What's your team name?"
-          = f.text_field :last_name
-        %li
-          / %span
-          /   = f.label :league_name, "What league do you belong to?"
-          / = f.text_field :league_name
-      .controls
-        %button.next
-        .progress
-        %span.number
-          %span.number-current
-          %span.number-total
-        %span.error-message
-        .press_enter_msg
-          %span Please press enter to continue
+    %div
+      = f.label :last_name
+      %br/
+      = f.text_field :last_name
 
-    %span.final-message
+    %div
+      = f.label :username
+      %br/
+      = f.text_field :username
+
+    %div
+      = f.submit "Sign up"

@@ -26,11 +26,11 @@ class AccessCodesController < ApplicationController
     handle_access_code_on_arrival
     user_type = params[:id].split('-')[1]
     if user_type == "7403214027"
-
+      # binding.pry
+      redirect_to new_coach_path(key: params[:id])
     else
-
+      render nothing: true
     end
-    render nothing: true
   end
 
   private
