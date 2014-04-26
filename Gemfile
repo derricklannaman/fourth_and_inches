@@ -36,6 +36,7 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'unicorn'
 end
 
 group :doc do

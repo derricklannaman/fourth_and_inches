@@ -44,6 +44,7 @@ class AccessCodesController < ApplicationController
     def check_access_code_exist
       handle_access_code_on_arrival
       rescue ActiveRecord::RecordNotFound
+        # render 'public/403'
         redirect_to root_path, notice: "Sorry, your access code is NOT valid!"
     end
 
