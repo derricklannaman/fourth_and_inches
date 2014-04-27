@@ -15,7 +15,8 @@ class AccessCodesController < ApplicationController
       email:  receipent_email,
       type:   user_type,
       key:    access_key,
-      program:  program_name
+      program:  program_name,
+      program_id: program_id
     }
 
     InviteMailer.send_staff_invite(invite_info).deliver
@@ -26,8 +27,8 @@ class AccessCodesController < ApplicationController
     handle_access_code_on_arrival
     user_type = params[:id].split('-')[1]
     if user_type == "7403214027"
-      # binding.pry
       redirect_to new_coach_path(key: params[:id])
+    # binding.pry
     else
       render nothing: true
     end
@@ -38,13 +39,12 @@ class AccessCodesController < ApplicationController
     def handle_access_code_on_arrival
       access_code_parts = params[:id].split('-')
       access_id = access_code_parts[0]
-      access_code = AccessCode.find(access_id)
+      access_code = AccessCode.find_by_access_code(access_id)
     end
 
     def check_access_code_exist
       handle_access_code_on_arrival
       rescue ActiveRecord::RecordNotFound
-        # render 'public/403'
         redirect_to root_path, notice: "Sorry, your access code is NOT valid!"
     end
 
