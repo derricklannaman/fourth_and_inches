@@ -215,6 +215,7 @@
 		switch( err ) {
 			case 'EMPTYSTR' :
 				message = 'Please fill the field before continuing';
+				$('.press_enter_msg').fadeTo(100, 0.3);
 				break;
 			case 'INVALIDEMAIL' :
 				message = 'Please fill a valid email address';
@@ -228,6 +229,7 @@
 	// clears/hides the current error message
 	stepsForm.prototype._clearError = function() {
 		classie.removeClass( this.error, 'show' );
+	$('.press_enter_msg').fadeTo(100, 1);
 	}
 
 	// add to global namespace

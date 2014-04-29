@@ -23,15 +23,21 @@
             = f.label :league_name, "What league do you belong to?"
           = f.text_field :league_name
       .controls
-        %button.next
+        %button.next.fa.fa-arrow-circle-right.fa-2x
+
         .progress
         %span.number
           %span.number-current
           %span.number-total
         %span.error-message
         .press_enter_msg
-          %span Please press enter to continue
+          %span Please press enter
+          %em or
+          %span
+            %i.fa.fa-arrow-circle-right
+          %span to continue
 
     %span.final-message
+
 
 

@@ -20,13 +20,17 @@
           = f.text_field :weight_class
 
       .controls
-        %button.next
+        %button.next.fa.fa-arrow-circle-right.fa-2x
         .progress
         %span.number
           %span.number-current
           %span.number-total
         %span.error-message
         .press_enter_msg
-          %span Please press enter to continue
+          %span Please press enter
+          %em or
+          %span
+            %i.fa.fa-arrow-circle-right
+          %span to continue
 
     %span.final-message

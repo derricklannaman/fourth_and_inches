@@ -73,6 +73,8 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.0.2)
+    font-awesome-sass (4.0.3.1)
+      sass (~> 3.2)
     haml (4.0.5)
       tilt
     haml-rails (0.5.1)
@@ -215,6 +217,7 @@ DEPENDENCIES
   bootstrap-sass
   capybara
   devise
+  font-awesome-sass
   haml
   haml-rails
   html2haml

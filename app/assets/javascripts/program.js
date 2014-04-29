@@ -1,6 +1,6 @@
 $(document).ready(function(){
-  $('.not-yet-implemented').on('click', notYetImplemented)
-  $('div#add-division').on('click', runStepsForm)
+  $('.not-yet-implemented').on('click', notYetImplemented);
+  $('div#add-division').on('click', runStepsForm);
   $('div.spinner').hide();
   if (document.location.pathname == '/programs/new' ||
       document.location.pathname == '/divisions/new' ) {

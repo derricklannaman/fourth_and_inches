@@ -1,10 +1,11 @@
 %h2 Sign up
-
+/ TODO: REFACTOR
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
   = devise_error_messages!
   - params[:key] ? key = params[:key].split('-')[1] : nil
   - unless key == "7403214027"
     %div
+      To establish a new program, click here
       = f.radio_button :user_type, "director"
       = f.label :user_director, "Director"
 
@@ -44,7 +45,15 @@
       = f.submit "Sign up"
 
   - else
+    %div
+      = f.label :first_name
+      %br/
+      = f.text_field :first_name, :autofocus => true
 
+    %div
+      = f.label :last_name
+      %br/
+      = f.text_field :last_name
     %div
       = f.label :username
       %br/
