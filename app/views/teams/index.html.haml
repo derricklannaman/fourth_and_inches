@@ -11,6 +11,20 @@
 
 
   .team-list-panel
+  - if @teams.blank?
+    .first-time-intructions
+      %h3
+        To get started, add a new team
+        %span= link_to 'Add Team', new_team_path
+        %span ...
+      %h3
+        second, send invites to your coaches
+        %span= link_to 'Add Staff', users_path
+        %span ...
+      %h3
+        then use the Menu to expand your program
+
+  - else
     - @teams.each do |team|
       .team_pod
         .inner_team_pod
