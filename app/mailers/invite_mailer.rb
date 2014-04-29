@@ -3,7 +3,7 @@ class InviteMailer < ActionMailer::Base
   include ERB::Util
 
   default from: ENV['MANDRILL_USERNAME']
-  default :to => "support@memloom.com"
+  default :to => "support@whatever.com"
 
   def send_staff_invite(invite_info)
     @email = invite_info[:email]

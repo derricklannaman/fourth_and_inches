@@ -2,20 +2,35 @@ class RegistrationsController < Devise::RegistrationsController
 
   # skip_before_filter :require_no_authentication
 
+
+
   def create
     if params[:user][:user_type].present?
-      user_type = params[:user][:user_type]
       @user = User.new(user_params)
-      binding.pry
+      user_type = params[:user][:user_type]
       @user.user_type = user_type
         if @user.save
           sign_in_and_redirect resource
         else
-          render :new
+          render :new, notice: "Please pick an user type"
         end
-    else
-      flash[:notice] = "Please pick an user type."
-      render :new
+    elsif params[:access].present?
+      @user = User.new(user_params)
+      parts = params[:access].split('-')
+      code_num = parts[0]                 # Find access code
+      id = parts[2]                       # Find program id
+      code = AccessCode.where(access_code: code_num)[0]
+      @user.user_type = "head_coach"
+      @user.program_id = id
+      if @user.save
+        code.user_id = @user.id # Set access code to new user if saved
+        code.save
+        sign_in_and_redirect resource
+      else
+        puts ">>>>>>#{@user.errors.full_messages}<<<<"
+        flash[:notice] = @user.errors.full_messages
+        render :new
+      end
     end
   end
 
@@ -30,7 +45,7 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
     def user_params
-      params.require(:user).permit( :password, :password_confirmation, :is_director, :user_type, :username,
+      params.require(:user).permit( :first_name, :last_name, :password, :password_confirmation, :is_director, :user_type, :username,
         :email)
     end
 

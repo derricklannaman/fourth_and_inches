@@ -27,10 +27,9 @@ class AccessCodesController < ApplicationController
     handle_access_code_on_arrival
     user_type = params[:id].split('-')[1]
     if user_type == "7403214027"
-      redirect_to new_coach_path(key: params[:id])
-    # binding.pry
+      redirect_to new_user_registration_path(key: params[:id])
     else
-      render nothing: true
+      redirect_to root_path, notice: "Sorry, your access code is NOT valid!"
     end
   end
 
