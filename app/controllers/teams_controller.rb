@@ -39,6 +39,7 @@ class TeamsController < ApplicationController
 
   def show
     @active_team = Team.active
+
     respond_to do |format|
     format.html # show.html.erb
     format.json { render json: @active_team }
@@ -49,8 +50,8 @@ class TeamsController < ApplicationController
     find_team
     @team.update(team_params)
     find_and_add_division(@team)
+    add_coach(@team)
     if @team.save
-      flash[:notice] = "Team successfully updated"
       redirect_to teams_path
     else
       render 'edit'

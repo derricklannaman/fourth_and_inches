@@ -16,6 +16,12 @@
         .inner_team_pod
           .pod_title
             %div
+              - if team.title.blank?
+                Name: * none *
+              - else
+                Name:
+                = team.title
+            %div
               Division:
               = show_teams_division(team)
             %div
