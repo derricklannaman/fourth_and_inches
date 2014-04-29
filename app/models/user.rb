@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
   has_many :players
   has_many :players, :through => :teams
 
-  scope :get_head_coaches, lambda { where(user_type: "head coach") }
+  scope :get_head_coaches, lambda { where(user_type: "head_coach") }
 
 
   # validates :username,
