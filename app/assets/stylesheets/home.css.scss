@@ -1,0 +1,19 @@
+.home-index-marquee {
+  background: url('Football-helmuts.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 75% ;
+  #app-content {
+    border: none !important;
+  }
+  h1 {
+    color: #FFF;
+    font-size: 65px;
+  }
+  p {
+    color: #FFF;
+    font-size: 25px;
+  }
+}

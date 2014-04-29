@@ -1,5 +1,9 @@
 $(function(){
   fadeFlash();
+  var path = document.location.pathname;
+  if (path == '/') {
+    $('#app-content').addClass('home-index-marquee')
+  }
   $('.player-action-sublist, .team-action-sublist').hide();
   $('#side-panel-list > li:nth-child(5)').hide() // player button
   $('#add-team-button').on('click', showTeamOptions);
@@ -8,7 +12,7 @@ $(function(){
   $('a.btn-menu-trigger').on('click', moveHelpLogoUp);
 
   // $(document).on('ajaxify:content_loaded', function() {
-    var path = document.location.pathname;
+    // var path = document.location.pathname;
     console.log(path)
     $('#bt-menu').removeClass('bt-menu-open').addClass('bt-menu-close');
     showPlayerOptions()
