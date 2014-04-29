@@ -9,12 +9,12 @@
       = f.radio_button :user_type, "director"
       = f.label :user_director, "Director"
 
-  - if key == "7403214027"                #then they recvd an invite to coach
+  - if key == "7403214027"      #then they received an invite to coach
     = hidden_field_tag(:access, params[:key])
     %h4  New Coach Sign Up
     = render partial: 'registrations/form', locals: {f: f}
 
-  - else                                  #they are signing up as normal
+  - else                        #they are signing up as normal
     = render partial: 'registrations/form', locals: {f: f}
 
   = render "devise/shared/links"
