@@ -116,6 +116,7 @@ nav a:focus {
   border-width: 0px 0px 90px 215px;
   -webkit-transition: border-width 0.3s, background-color 0.3s;
   transition: border-width 0.3s, background-color 0.3s;
+  z-index: 1;
 }
 
 .bt-overlay,
@@ -382,6 +383,7 @@ nav a:focus {
   border-width: 0px 0px 90px 0px;
   -webkit-transition: border-width 0.3s, background-color 0.3s;
   transition: border-width 0.3s, background-color 0.3s;
+  z-index: 2;
 }
 
 .btn-menu-trigger {

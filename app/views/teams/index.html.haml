@@ -1,6 +1,6 @@
 = render 'director_navigation/main_side_panel'
 
-%section#all-teams.red_border
+%section#all-teams
   .stat-bar
     %h4
       Program Stats:
@@ -13,14 +13,16 @@
   .team-list-panel
   - if @teams.blank?
     .first-time-intructions
-      %h3
-        To get started, add a new team
-        %span= link_to 'Add Team', new_team_path
-        %span ...
-      %h3
-        second, send invites to your coaches
-        %span= link_to 'Add Staff', users_path
-        %span ...
+      .show-box
+        %h3
+          %p To get started, add your first team
+          .fat-call-to-action
+            = link_to 'Add Team', new_team_path
+      .show-box
+        %h3
+          %p Or, send invites to your staff
+          .fat-call-to-action
+            = link_to 'Add Staff', users_path
       %h3
         then use the Menu to expand your program
 
@@ -46,12 +48,12 @@
               delete
 
 
-%section#all-divisions.red_border
+%section#all-divisions
   = link_to "add new division", new_division_path
   %h3 Divisions:
 
   - @divisions.each do |div|
-    .division-pod
+    .show-box
       %h3
         = "#{div.name} Division"
       %div

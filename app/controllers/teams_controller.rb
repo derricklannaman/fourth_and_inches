@@ -24,7 +24,7 @@ class TeamsController < ApplicationController
     @team = load_team_attributes(@team)
     if @team.save
       add_team_cover(@team)
-      redirect_to teams_path
+      redirect_to teams_path, notice: 'team added successfully'
     else
       flash[:notice] = @team.errors.full_messages.join (', ')
       render 'new'
