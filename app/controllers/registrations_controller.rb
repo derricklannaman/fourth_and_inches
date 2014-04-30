@@ -18,7 +18,11 @@ class RegistrationsController < Devise::RegistrationsController
       code_num = parts[0]                 # Find access code
       id = parts[2]                       # Find program id
       code = AccessCode.where(access_code: code_num)[0]
-      @user.user_type = "head_coach"
+      if parts[1] == "1819055"
+        @user.user_type = "staff"
+      elsif parts[1] == '7403214027'
+        @user.user_type = "head_coach"
+      end
       @user.program_id = id
       if @user.save
         code.user_id = @user.id # Set access code to new user if saved
