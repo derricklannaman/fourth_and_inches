@@ -7,25 +7,41 @@
 
 #user-content {
   @include default_panel;
-  width: 1010px;
+  width: 1070px;
+  padding: 30px;
 }
 
 .user-section {
-  border: 1px solid #00F;
+  @include default_panel;
   margin: 5px;
   width: 490px;
   float: left;
   height: 245px;
+  overflow: scroll;
 }
 
-header#coaches {
-  border: 1px solid #F00;
+header#coaches,
+header#staff {
+  @include nav_shadow;
 }
 
-#coaches-grid > .coach-tile {
+#coach-invite-button, #staff-invite-button  {
+  margin: 10px;
+}
+
+#coaches-grid > .coach-tile,
+#staff-grid > .staff-tile {
   float: left;
   width: 100px;
   height: 100px;
   margin: 10px;
-  border: 1px solid #F00;
+  border: 1px solid #999;
+  cursor: pointer;
+}
+
+div#coach-invite-form,
+div#staff-invite-form {
+  background: #F7F7F7;
+  margin-top: 5px;
+  padding: 10px;
 }

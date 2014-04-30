@@ -9,7 +9,7 @@ $(function(){
   $('#add-team-button').on('click', showTeamOptions);
   // $('li > a#tm-player-button').on('click', addPlayerOptions);
   $('#player-button').on('click', showPlayerOptions);
-  $('a.btn-menu-trigger').on('click', moveHelpLogoUp);
+  // $('a.btn-menu-trigger').on('click', moveHelpLogoUp);
 
   // $(document).on('ajaxify:content_loaded', function() {
     // var path = document.location.pathname;
