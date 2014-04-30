@@ -1,3 +1,10 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'mixins';
+
+section.event-section {
+  @include default_panel;
+  padding: 20px;
+}

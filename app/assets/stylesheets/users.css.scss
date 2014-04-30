@@ -2,11 +2,12 @@
 /                   USER STYLE                      /
 //////////////////////////////////////////////////*/
 
+@import 'mixins';
+
+
 #user-content {
-  float: left;
+  @include default_panel;
   width: 1010px;
-  margin-left: 20px;
-  border: 1px solid red;
 }
 
 .user-section {

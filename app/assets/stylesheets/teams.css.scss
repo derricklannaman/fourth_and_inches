@@ -92,12 +92,7 @@ div.first-time-intructions {
 
 #all-teams,
 #all-divisions {
-  float: left;
-  width: 920px;
-  margin: 10px 0px;
-  border: 1px solid #BBB;
-  background-color: #FFF;
-  @include light_box_shadow;
+  @include default_panel;
 }
 
 #all-teams > div.stat-bar {
