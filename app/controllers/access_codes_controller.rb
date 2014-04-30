@@ -26,7 +26,9 @@ class AccessCodesController < ApplicationController
   def verify_access_code
     handle_access_code_on_arrival
     user_type = params[:id].split('-')[1]
-    if user_type == "7403214027"
+    if user_type == '7403214027'
+      redirect_to new_user_registration_path(key: params[:id])
+    elsif user_type == '1819055'
       redirect_to new_user_registration_path(key: params[:id])
     else
       redirect_to root_path, notice: "Sorry, your access code is NOT valid!"

@@ -27,11 +27,12 @@
 }
 
 html {
-  background: url('gun_metal_@2X.png')
+
 }
 
 body  {
   font-family: 'Raleway', sans-serif;
+  background: url('light_noise_diagonal.png');
   p{
     color: $base-text;
   }
@@ -56,16 +57,18 @@ html body.denied-403 {
 
 div.app_nav_bar {
   margin-bottom: 10px;
+  @include nav_shadow;
+}
+
+#new-team-form {
+  /*@include default_panel;*/
 }
 
 #app-content {
   width: 100%;
   margin-top: -30px;
-  border: 2px solid #CCC;
   height: 660px;
-  height: 1000000000px;
   overflow: scroll;
-  background: url('light_noise_diagonal.png');
 }
 
 #bottom-branding {

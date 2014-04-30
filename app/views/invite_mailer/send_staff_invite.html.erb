@@ -11,12 +11,11 @@
   <body>
 
     <h1>Welcome to the <%= @pname %> Team Website</h1>
-
-    <% if @param = 7403214027 %>
+    <% if @param == '7403214027' %>
       <p>
         Congratulations, you a now a head coach. As a head coach....
       </p>
-    <% else %>
+    <% elsif @param == '1819055' %>
       <p>
         Thanks for joining the Staff. To access Staff info....
       </p>

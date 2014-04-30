@@ -23,6 +23,7 @@ class RegistrationsController < Devise::RegistrationsController
       if @user.save
         code.user_id = @user.id # Set access code to new user if saved
         code.save
+        # TODO: post a confirmation that a coach signed up to directors' activity feed
         sign_in_and_redirect resource
       else
         puts ">>>>>>#{@user.errors.full_messages}<<<<"

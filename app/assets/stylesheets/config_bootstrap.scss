@@ -1,5 +1,10 @@
 @import "bootstrap";
 @import "color_chart";
+@import 'mixins';
+
+.nav {
+  @include nav_shadow;
+}
 
 .navbar {
   margin-bottom: 2px;
