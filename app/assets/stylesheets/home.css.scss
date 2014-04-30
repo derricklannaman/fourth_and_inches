@@ -1,9 +1,9 @@
 .home-index-marquee {
-  background: url('Football-helmuts.jpg') no-repeat center center fixed;
+  background: url('Football-helmuts.jpg') no-repeat center center fixed !important;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover !important;
   height: 75% ;
   #app-content {
     border: none !important;

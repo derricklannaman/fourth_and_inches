@@ -120,7 +120,7 @@ function showPlayerOptions() {
 //////////////////////////////////////////////////*/
 
 function fadeFlash() {
-  // $('#notice').delay(3000).fadeOut(3000);
+  $('#notice').delay(3000).fadeOut(3000);
 }
 
 function whoopsErrorMessage() {
