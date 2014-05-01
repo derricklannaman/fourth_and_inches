@@ -17,7 +17,7 @@ $(document).ready(function(){
 });
 
 function toggleAllTeamsPanel() {
-  $('.team-list-panel').slideToggle(300, function(){
+  $('.team-list-panel').slideToggle(100, function(){
     var symbl = $('.plus-minus');
     var s = symbl.text();
     s == '-' ? $( symbl ).text('+') : $( symbl ).text('-')

@@ -1,4 +1,7 @@
-= render 'layouts/nav_controls'
-%h1 add new team
-%section#addNewTeam
-  = render 'teams/new'
+- if current_user.has_role? 'director'
+  %div
+    = link_to 'Back to All Teams', teams_path
+
+  %h1 add new team
+  %section#addNewTeam
+    = render 'teams/new'
