@@ -1,2 +1,9 @@
-%h1
-  = "coach #{@user.first_name}"
+= render 'director_navigation/main_side_panel'
+
+%h2
+  .form-field
+    = "First Name: #{@user.first_name}"
+  .form-field
+    = "Last Name: #{@user.last_name}"
+  .form-field
+    = "Email:  #{@user.email}"

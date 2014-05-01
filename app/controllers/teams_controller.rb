@@ -39,7 +39,7 @@ class TeamsController < ApplicationController
 
   def show
     @active_team = Team.active
-
+    @players = @active_team.players
     respond_to do |format|
     format.html # show.html.erb
     format.json { render json: @active_team }

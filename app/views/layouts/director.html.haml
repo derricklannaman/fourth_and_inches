@@ -4,6 +4,9 @@
     %title FourthAndInches
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
+    / = javascript_include_tag "classie.js"
+    / = javascript_include_tag "borderMenu.js"
+
     = csrf_meta_tags
 
   %body{:class => "#{controller_name} #{action_name}"}
@@ -23,4 +26,9 @@
         #main.director-view
           = yield
         = render 'layouts/footer_nav_panel'
+
+    - if user_signed_in?
+      %script{src: "assets/classie.js"}
+      %script{src: "assets/borderMenu.js"}
+
 
