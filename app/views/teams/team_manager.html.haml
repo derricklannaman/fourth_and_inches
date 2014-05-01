@@ -1,7 +1,8 @@
 = render 'layouts/nav_controls'
 
-= render 'active'
+- if @active_team.present?
+  = render 'active'
 
-  - else
-    %h1= "The program director has been notified, "
-    %h1= "and a team will be assigned to you shortly"
+- else
+  %h1= "The program director has been notified, "
+  %h1= "and a team will be assigned to you shortly"

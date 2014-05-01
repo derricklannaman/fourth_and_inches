@@ -9,12 +9,13 @@
   @include default_panel;
   width: 1070px;
   padding: 30px;
+  margin-left: -40px;
 }
 
 .user-section {
   @include default_panel;
   margin: 5px;
-  width: 490px;
+  width: 485px;
   float: left;
   height: 245px;
   overflow: scroll;

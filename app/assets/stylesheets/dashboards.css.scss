@@ -24,12 +24,13 @@
   width: inherit;
   padding: 0px;
   height: 85%;
-  margin-top: -65px;
+  margin-top: -20px;
   overflow: scroll;
 }
 
 .director-view {
   padding-left: 0px !important;
+  margin-top: -35px;
 }
 
 .manager-button {
@@ -60,6 +61,7 @@
   height: 345px;
   margin: 0 5px;
   background-color: $go-green;
+  border: 2px solid $go-green-plus20;
   border-top: 50px solid $go-green-plus20;
   display: block;
   cursor: pointer;
