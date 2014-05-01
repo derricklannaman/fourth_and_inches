@@ -1,5 +1,6 @@
-= render 'director_navigation/main_side_panel'
+- if current_user.has_role? 'director'
+  %div
+    = link_to 'Back to All Teams', teams_path
 
-
-%h1 edit team
-= render 'teams/form'
+  %h1 edit team
+  = render 'teams/form'
