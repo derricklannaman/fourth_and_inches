@@ -164,4 +164,17 @@ div.division-pod {
   cursor: pointer;
 }
 
+/*Team Show Page*/
+
+div.team-info-box {
+  @include default_panel;
+  padding: 25px;
+  width: 320px;
+  text-align: center;
+}
+
+div.team-view {
+  margin-top: 175px;
+}
+
 
