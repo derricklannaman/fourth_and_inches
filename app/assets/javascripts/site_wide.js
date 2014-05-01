@@ -1,8 +1,10 @@
 $(function(){
   fadeFlash();
+  $('#home_jumbotron').hide();
   var path = document.location.pathname;
   if (path == '/') {
-    $('#app-content').addClass('home-index-marquee')
+    $('#app-content').addClass('home-index-marquee');
+    $('#home_jumbotron').delay(500).fadeIn(1000);
   }
   $('.player-action-sublist, .team-action-sublist').hide();
   $('#side-panel-list > li:nth-child(5)').hide() // player button
