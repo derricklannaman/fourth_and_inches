@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     find_all_coaches
-    @staff = User.where(user_type: "staff")
+    @staff = User.where(user_type: "staff") #TODO:REFACTOR
   end
 
   def new
