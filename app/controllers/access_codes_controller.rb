@@ -43,11 +43,22 @@ class AccessCodesController < ApplicationController
       access_code = AccessCode.find_by_access_code(access_id)
     end
 
-    def check_access_code_exist
-      handle_access_code_on_arrival
-      rescue ActiveRecord::RecordNotFound
-        redirect_to root_path, notice: "Sorry, your access code is NOT valid!"
+    def reject_if_access_code_taken(code)
+      if code.user_id.present?
+        redirect_to root_path, notice: "Sorry, this access code belongs\n
+                          to someone else. Please contact the program director."
+      end
     end
+
+    def check_access_code_exist
+      ac = handle_access_code_on_arrival
+      reject_if_access_code_taken(ac)
+      rescue ActiveRecord::RecordNotFound
+        redirect_to root_path, notice: "Sorry, your access code is NOT valid. \n
+                                          Please contact the program director."
+    end
+
+
 
 
 end

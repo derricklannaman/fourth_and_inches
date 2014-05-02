@@ -13,4 +13,10 @@
     = "Email:  #{@user.email}"
   .form-field
     = link_to 'edit', edit_user_path(@user)
+    |
+    %a.deny-access
+      cancel access
+    |
+    %a.delete-staff
+      delete
 
