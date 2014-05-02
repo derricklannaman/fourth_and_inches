@@ -2,7 +2,7 @@ $(document).ready(function(){
   $('a.delete-team-pod').on('click', deleteTeamPod);
   $('a.delete-division-pod').on('click', deleteDivision);
   $('#all-teams > div.stat-bar').on('click', toggleAllTeamsPanel)
-  // run_stapel();
+  run_stapel();
   $( 'a[disabled=disabled]' ).click(function(event){
       event.preventDefault(); // Prevent link from following its href
   });
