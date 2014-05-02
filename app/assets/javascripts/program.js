@@ -10,11 +10,11 @@ $(document).ready(function(){
 });
 
 function change_alertify_buttons() {
-  setTimeout(function(){
-    var a = document.getElementById('alertify');
-    var y = $(a).find('button#alertify-ok').text('Yes, Add Another Division');
-    var n = $(a).find('button#alertify-cancel').text('Finished');
-  }, 0)
+  // setTimeout(function(){
+  //   var a = document.getElementById('alertify');
+  //   var y = $(a).find('button#alertify-ok').text('Yes, Add Another Division');
+  //   var n = $(a).find('button#alertify-cancel').text('Finished');
+  // }, 0)
 }
 
 
