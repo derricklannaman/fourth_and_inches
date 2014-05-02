@@ -62,7 +62,7 @@ class TeamsController < ApplicationController
     find_team
     team = { id: @team.id, title: @team.title }
     # @team.destroy
-binding.pry
+# binding.pry
     render :json => {team: team}
   end
 
