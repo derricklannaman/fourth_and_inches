@@ -26,23 +26,23 @@ $(function(){
 
 function addBottomHilight() {
   var option = $( this );
-  // console.log(option);
-    if ( option.hasClass('player-action-sublist') ) {
-     option.addClass('bottom-hilight-reverse');
-    }
-    else {
-        option.addClass('bottom-hilight');
-    }
+  if ( option.hasClass('player-action-sublist' ) ||
+       option.hasClass('team-action-sublist' ) ) {
+            option.addClass('bottom-hilight-reverse');
+  }
+  else {
+      option.addClass('bottom-hilight');
+  }
 }
 
 function removeBottomHilight() {
   var option = $( this );
-    if ( option.hasClass('player-action-sublist') ) {
-     option.removeClass('bottom-hilight-reverse');
-    }
-    else {
-        option.removeClass('bottom-hilight');
-    }
+  if ( option.hasClass('player-action-sublist') || option.hasClass('team-action-sublist' ) ) {
+            option.removeClass('bottom-hilight-reverse');
+  }
+  else {
+      option.removeClass('bottom-hilight');
+  }
 }
 
 function selectSideNavBasedOnPath(path) {
