@@ -94,6 +94,8 @@ div.first-time-intructions {
 #all-teams,
 #all-divisions {
   @include default_panel;
+  @include translucent_border;
+  border: 20px solid rgba(73, 85, 95, 0.1);
 }
 
 #all-teams > div.stat-bar,
@@ -111,14 +113,12 @@ div.first-time-intructions {
     margin-top: -110px;
     height: 0px;
     color: $steel-light-on-dark-60;
+    @include letter_shadow;
   }
   #plus-minus2 {
     margin-top: -90px;
   }
 }
-
-
-
 
 .stat-bar-title {
   color: $steel-light-on-dark-60;
@@ -164,6 +164,10 @@ div.inner_team_pod {
 
 #add-team-button {
   cursor: pointer;
+}
+
+div.division-list-panel {
+  padding-left: 15px;
 }
 
 div.division-pod {
