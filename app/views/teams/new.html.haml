@@ -1,6 +1,5 @@
-- if current_user.has_role? 'director'
-  %div
-    = link_to 'Back to All Teams', teams_path
+%div
+  = render 'layouts/nav_controls'
 
   %h1 add new team
   %section#addNewTeam

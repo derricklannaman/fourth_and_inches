@@ -362,6 +362,15 @@ nav a:focus {
   }
 }
 
+.bottom-hilight {
+  border-right: 10px solid $steel-light-40;
+}
+
+.bottom-hilight-reverse {
+  border-right: 10px solid $steel-light-25;
+
+}
+
 /* FIND: the help logo*/
 /*.btn-menu-trigger {
   &:hover {

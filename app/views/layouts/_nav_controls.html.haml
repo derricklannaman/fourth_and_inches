@@ -1,7 +1,15 @@
-%section#on-page-nav
-  %nav.inner-nav-links
-    = link_to 'dashboard', dashboard_path, class: 'mini-manager-buttons'
-    = link_to 'team', team_manager_path, class: 'mini-manager-buttons'
-    = link_to 'schedule', schedule_manager_path, class: 'mini-manager-buttons'
-    = link_to 'office', office_manager_path, class: 'mini-manager-buttons'
-    = link_to 'coaches', coaches_corner_path, class: 'mini-manager-buttons'
+- if current_user.has_role? 'head_coach'
+  %section#on-page-nav
+    %nav.inner-nav-links
+      = link_to 'dashboard', dashboard_path, class: 'mini-manager-buttons'
+      = link_to 'team', team_manager_path, class: 'mini-manager-buttons'
+      = link_to 'schedule', schedule_manager_path, class: 'mini-manager-buttons'
+      = link_to 'office', office_manager_path, class: 'mini-manager-buttons'
+      = link_to 'coaches', coaches_corner_path, class: 'mini-manager-buttons'
+
+- elsif current_user.has_role? 'director'
+  %section#on-page-nav
+    %nav.inner-nav-links
+      = link_to 'dashboard', dashboard_path, class: 'mini-manager-buttons'
+      = link_to 'staff', users_path, class: 'mini-manager-buttons'
+      = link_to 'all teams', teams_path, class: 'mini-manager-buttons'

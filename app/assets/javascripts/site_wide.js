@@ -9,7 +9,7 @@ $(function(){
   $('.player-action-sublist, .team-action-sublist').hide();
   $('#side-panel-list > li:nth-child(5)').hide() // player button
   $('#add-team-button').on('click', showTeamOptions);
-  // $('li > a#tm-player-button').on('click', addPlayerOptions);
+  $('#team-side-panel-list > li').hover(addBottomHilight, removeBottomHilight);
   $('#player-button').on('click', showPlayerOptions);
   // $('a.btn-menu-trigger').on('click', moveHelpLogoUp);
 
@@ -24,8 +24,25 @@ $(function(){
 
 });
 
-function addPlayerOptions() {
-  // $('.player-action-sublist').attr('display', 'block');
+function addBottomHilight() {
+  var option = $( this );
+  // console.log(option);
+    if ( option.hasClass('player-action-sublist') ) {
+     option.addClass('bottom-hilight-reverse');
+    }
+    else {
+        option.addClass('bottom-hilight');
+    }
+}
+
+function removeBottomHilight() {
+  var option = $( this );
+    if ( option.hasClass('player-action-sublist') ) {
+     option.removeClass('bottom-hilight-reverse');
+    }
+    else {
+        option.removeClass('bottom-hilight');
+    }
 }
 
 function selectSideNavBasedOnPath(path) {
@@ -122,7 +139,7 @@ function showPlayerOptions() {
 //////////////////////////////////////////////////*/
 
 function fadeFlash() {
-  $('#notice').delay(3000).fadeOut(3000);
+  // $('#notice').delay(3000).fadeOut(3000);
 }
 
 function whoopsErrorMessage() {

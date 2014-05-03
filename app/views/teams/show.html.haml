@@ -1,19 +1,17 @@
-/ TODO: better design
-- if current_user.has_role? 'director'
-  %div
-    = link_to 'Back to All Teams', teams_path
-  .team-info-box
-    %h2
-      = "#{@active_team.title}"
-    %h3
-      Age group:
-      = @active_team.age_group
-    %h3
-      Number of Players:
-      = @active_team.players.count-1
+%div
+  = render 'layouts/nav_controls'
+.team-info-box
+  %h2
+    = "#{@active_team.title}"
+  %h3
+    Age group:
+    = @active_team.age_group
+  %h3
+    Number of Players:
+    = @active_team.players.count-1
 
-  .team-view
-    = render 'active'
+.team-view
+  = render 'active'
 
 
 
