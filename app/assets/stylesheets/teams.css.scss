@@ -29,7 +29,8 @@ li > a#tm-player-button {
 
 .team-action-sublist,
 .player-action-sublist {
-  background-color: lighten($nav-bg-color, 50%);
+  color: $steel;
+  background-color: $steel-light-40;
   a {
     display: block;
     text-align: right;
@@ -95,8 +96,9 @@ div.first-time-intructions {
   @include default_panel;
 }
 
-#all-teams > div.stat-bar {
-  background-color: #EEE;
+#all-teams > div.stat-bar,
+#all-divisions > div.stat-bar {
+  background-color: $steel-light-40;
   position: relative;
   top: 1px;
   padding: 5px;
@@ -109,6 +111,13 @@ div.first-time-intructions {
     height: 0px;
     color: #999;
   }
+  h3 {
+
+  }
+}
+.stat-bar-title {
+ color: $steel-light-on-dark-60;
+
 }
 
 div.team_pod {

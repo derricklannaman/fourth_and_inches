@@ -2,8 +2,8 @@
 
 %section#all-teams
   .stat-bar
-    %h4
-      Program Stats:
+    %h3.stat-bar-title Program Stats:
+
     #team-counter
       Total team count:
       = @teams.count
@@ -48,8 +48,10 @@
 
 
 %section#all-divisions
-  = link_to "add new division", new_division_path
-  %h3 Divisions:
+  .stat-bar
+    %h3.stat-bar-title Divisions
+    = link_to "add new division", new_division_path
+
 
   - @divisions.each do |div|
     .division-pod.show-box

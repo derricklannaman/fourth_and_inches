@@ -35,6 +35,7 @@ body  {
   background: url('light_noise_diagonal.png');
   p{
     color: $base-text;
+    color: $steel;
   }
 }
 
@@ -94,7 +95,18 @@ div.app_nav_bar {
 
 h1, h2, h3, h4, h5 {
   font-family: 'Raleway', sans-serif;
-  color: $base-text;
+  /*color: $base-text;*/
+  color: $steel-light-10;
+}
+
+h3.stat-bar-title {
+  position: relative;
+  top: -50px;
+  /*left: 31%;*/
+  z-index: 1000;
+  font-size: 3em;
+  margin-bottom: -70px;
+  padding: 20px;
 }
 
 .yes-display {
