@@ -104,9 +104,9 @@ nav a:focus {
   height: 0;
   border-width: 0px;
   border-style: solid;
-  /*border-color: $steel; */
   border-color: $steel-light-10;
   background-color: rgba(0,0,0,0);
+  z-index: 2;
   -webkit-backface-visibility: hidden;
   -webkit-transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
   transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
@@ -117,7 +117,7 @@ nav a:focus {
   border-width: 0px 0px 90px 215px;
   -webkit-transition: border-width 0.3s, background-color 0.3s;
   transition: border-width 0.3s, background-color 0.3s;
-  z-index: 1;
+  z-index: 2;
 }
 
 .bt-overlay,

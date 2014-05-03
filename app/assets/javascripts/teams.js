@@ -2,6 +2,7 @@ $(document).ready(function(){
   $('a.delete-team-pod').on('click', deleteTeamPod);
   $('a.delete-division-pod').on('click', deleteDivision);
   $('#all-teams > div.stat-bar').on('click', toggleAllTeamsPanel)
+  $('#all-divisions > div.stat-bar').on('click', toggleDivisionsPanel)
   run_stapel();
   $( 'a[disabled=disabled]' ).click(function(event){
       event.preventDefault(); // Prevent link from following its href
@@ -16,9 +17,20 @@ $(document).ready(function(){
   // });
 });
 
+function toggleDivisionsPanel() {
+  $('.division-list-panel').slideToggle(100, function(){
+    var symbl = $('#plus-minus2');
+    var s = symbl.text();
+    s == '-' ? $( symbl ).text('+') : $( symbl ).text('-')
+  })
+}
+
+
+
+
 function toggleAllTeamsPanel() {
   $('.team-list-panel').slideToggle(100, function(){
-    var symbl = $('.plus-minus');
+    var symbl = $('#plus-minus1');
     var s = symbl.text();
     s == '-' ? $( symbl ).text('+') : $( symbl ).text('-')
   })

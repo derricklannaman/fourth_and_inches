@@ -11,7 +11,6 @@ $(function(){
   $('#add-team-button').on('click', showTeamOptions);
   $('#team-side-panel-list > li').hover(addBottomHilight, removeBottomHilight);
   $('#player-button').on('click', showPlayerOptions);
-  // $('a.btn-menu-trigger').on('click', moveHelpLogoUp);
 
   // $(document).on('ajaxify:content_loaded', function() {
     // var path = document.location.pathname;
@@ -48,9 +47,6 @@ function removeBottomHilight() {
 function selectSideNavBasedOnPath(path) {
   if ( path == '/team_manager' ) {
     $('#tm-player-button').on('click', showPlayerOptions);
-
-    // $('.player-delete').on('click', deletePlayer);
-    // run_stapel();
     setTimeout(function(){
       showTeamNavPanel();
       showPlayerOptions();

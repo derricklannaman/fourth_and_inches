@@ -69,9 +69,15 @@ div.app_nav_bar {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  margin-top: -30px;
+  margin-top: -15px;
   height: 660px;
   overflow: scroll;
+}
+
+.footer-separation {
+  border-top: 1px solid #FFF;
+  box-shadow: 0px -2px 8px #999;
+  position: relative;
 }
 
 #bottom-branding {

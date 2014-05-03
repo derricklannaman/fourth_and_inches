@@ -7,7 +7,7 @@
     #team-counter
       Total team count:
       = @teams.count
-    .plus-minus -
+    #plus-minus1 -
 
   .team-list-panel
     - if @teams.blank?
@@ -51,17 +51,18 @@
   .stat-bar
     %h3.stat-bar-title Divisions
     = link_to "add new division", new_division_path
+    #plus-minus2 -
 
-
-  - @divisions.each do |div|
-    .division-pod.show-box
-      %h3
-        = "#{div.name} Division"
-      %div
-        = link_to "edit", edit_division_path(div)
-        |
-        %a.delete-division-pod
-          delete
+  .division-list-panel
+    - @divisions.each do |div|
+      .division-pod.show-box
+        %h3
+          = "#{div.name} Division"
+        %div
+          = link_to "edit", edit_division_path(div)
+          |
+          %a.delete-division-pod
+            delete
 
 
 

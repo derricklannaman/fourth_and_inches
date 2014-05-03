@@ -61,8 +61,7 @@ class TeamsController < ApplicationController
   def destroy
     find_team
     team = { id: @team.id, title: @team.title }
-    # @team.destroy
-# binding.pry
+    @team.destroy
     render :json => {team: team}
   end
 
