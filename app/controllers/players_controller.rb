@@ -17,10 +17,10 @@ class PlayersController < ApplicationController
     @player.team_id = team.id
     cover = check_for_team_cover(team)
     if @player.save
-       team.num_of_players += 1
-       tea.save
-       team.players.unshift(cover)
-       redirect_to team_manager_path, :notice => "player successfully added"
+      team.num_of_players.nil? ? team.num_of_players = 1 : team.num_of_players += 1
+      team.save
+     team.players.unshift(cover)
+     redirect_to team_manager_path, :notice => "player successfully added"
     else
       render :new
     end
