@@ -41,7 +41,7 @@
                 = team.num_of_players
               %div
                 Coach:
-                = team.head_coach
+                = show_team_coach(team)
             .team_pod_controls
               = link_to 'show', team_path(team)
               |

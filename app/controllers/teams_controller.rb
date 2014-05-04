@@ -10,6 +10,7 @@ class TeamsController < ApplicationController
     @teams = current_user.program.teams
     @programs = current_user.program
     @divisions = get_divisions
+    @coach =  @teams.where(user_type: 'head_coach')
   end
 
   def new
@@ -20,10 +21,12 @@ class TeamsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @team = Team.new(team_params)
     @team = load_team_attributes(@team)
     if @team.save
       add_team_cover(@team)
+      jumbotron_active_team(@team)
       redirect_to teams_path, notice: 'team added successfully'
     else
       flash[:notice] = @team.errors.full_messages.join (', ')
@@ -51,6 +54,7 @@ class TeamsController < ApplicationController
     @team.update(team_params)
     find_and_add_division(@team)
     add_coach(@team)
+    jumbotron_active_team(@team)
     if @team.save
       redirect_to teams_path
     else
@@ -112,7 +116,8 @@ private
 
   def jumbotron_active_team(team)
     active_team_id = team.id
-    all_actives = current_user.teams.where(active: true)
+    coach = User.find(team.head_coach)
+    all_actives = coach.teams.where(active: true)
     all_actives.each do |t|
       unless t.id == active_team_id
         t.active = false

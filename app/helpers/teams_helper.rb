@@ -8,4 +8,9 @@ module TeamsHelper
     end
   end
 
+  def show_team_coach(team)
+    u = User.find(team.head_coach)
+    return u.last_name.capitalize
+  end
+
 end

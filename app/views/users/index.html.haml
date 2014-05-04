@@ -27,7 +27,7 @@
 
     #coaches-grid
       - @head_coaches.each do |coach|
-        = link_to coach.username, user_path(coach.id), class: 'coach-tile'
+        = link_to coach.last_name, user_path(coach.id), class: 'coach-tile'
 
 
   %section#staff-tile-panel.user-section
