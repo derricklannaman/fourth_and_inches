@@ -37,13 +37,15 @@
   width: 180px;
   height: 175px;
   border: 1px solid #999;
-  border-radius: 100px;
   display: block;
   cursor: pointer;
   padding-top: 175px;
   text-align: center;
   font-size: 20px;
   margin-bottom: 50px;
+/*  @include translucent_border;
+*/  border-radius: 100px;
+
 }
 
 /*FIND: director view */
