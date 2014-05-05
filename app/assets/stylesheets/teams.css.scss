@@ -18,9 +18,7 @@
    height: 300px;
    position: absolute;
    left: 50%;
-   /*top: 50%;*/
    margin-left: -150px;
-   /*margin-top: -300px;*/
 }
 
 li > a#tm-player-button {
@@ -92,7 +90,8 @@ div.first-time-intructions {
 }
 
 #all-teams,
-#all-divisions {
+#all-divisions,
+#user-content {
   @include default_panel;
   @include translucent_border;
   border: 20px solid rgba(73, 85, 95, 0.1);
@@ -100,7 +99,8 @@ div.first-time-intructions {
 }
 
 #all-teams > div.stat-bar,
-#all-divisions > div.stat-bar {
+#all-divisions > div.stat-bar,
+#user-content > div.stat-bar {
   background-color: $steel-light-40;
   position: relative;
   top: 1px;
@@ -119,9 +119,15 @@ div.first-time-intructions {
   #plus-minus2 {
     margin-top: -90px;
   }
+  a {
+    position: relative;
+    top: -20px;
+    left: 400px;
+  }
 }
 
 .stat-bar-title {
+  width: 400px;
   color: $steel-light-on-dark-60;
 }
 

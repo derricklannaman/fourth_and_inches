@@ -11,7 +11,7 @@ module TeamsHelper
   def show_team_coach(team)
     return if User.find_by_id(team.head_coach).nil?
     u = User.find(team.head_coach)
-    return u.last_name.capitalize
+    u.last_name.capitalize
   end
 
 end

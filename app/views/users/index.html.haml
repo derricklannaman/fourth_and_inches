@@ -1,54 +1,52 @@
 = render 'director_navigation/main_side_panel'
 
-
 %section#user-content
+  .stat-bar
+    %h3.stat-bar-title Staff
 
-  %h1 Staff
-  %p
-    = "User count #{@users.count}"
-    %br/
+    #plus-minus1 -
+  .inner-content
+    %h4 Coaches
+    %section#coach-tile-panel.user-section
+      %header#coaches
 
-  %h4 Coaches
-  %section#coach-tile-panel.user-section
-    %header#coaches
+        %a.btn.btn-warning#coach-invite-button
+          Grant Coaching Access
 
-      %a.btn.btn-warning#coach-invite-button
-        Grant Coaching Access
+      #coach-invite-form
+        = form_tag(send_access_code_path) do
+          = hidden_field_tag(:user_type, "head_coach")
+          .form-field
+            = label_tag :email
+          .form-field
+            = text_field_tag :email
+          .form-field
+            = submit_tag "Send coaching invite"
 
-    #coach-invite-form
-      = form_tag(send_access_code_path) do
-        = hidden_field_tag(:user_type, "head_coach")
-        .form-field
-          = label_tag :email
-        .form-field
-          = text_field_tag :email
-        .form-field
-          = submit_tag "Send coaching invite"
-
-    #coaches-grid
-      - @head_coaches.each do |coach|
-        = link_to coach.last_name, user_path(coach.id), class: 'coach-tile'
+      #coaches-grid
+        - @head_coaches.each do |coach|
+          = link_to coach.last_name, user_path(coach.id), class: 'coach-tile'
 
 
-  %section#staff-tile-panel.user-section
-    %header#staff
+    %section#staff-tile-panel.user-section
+      %header#staff
 
-      %a.btn.btn-warning#staff-invite-button
-        Grant Staff Access
+        %a.btn.btn-warning#staff-invite-button
+          Grant Staff Access
 
-    #staff-invite-form
-      = form_tag(send_access_code_path) do
-        = hidden_field_tag(:user_type, "staff")
-        .form-field
-          = label_tag :email
-        .form-field
-          = text_field_tag :email
-        .form-field
-          = submit_tag "Send Staff invite"
+      #staff-invite-form
+        = form_tag(send_access_code_path) do
+          = hidden_field_tag(:user_type, "staff")
+          .form-field
+            = label_tag :email
+          .form-field
+            = text_field_tag :email
+          .form-field
+            = submit_tag "Send Staff invite"
 
-    #staff-grid
-      - @staff.each do |s|
-        = link_to s.username, user_path(s.id), class: 'staff-tile'
+      #staff-grid
+        - @staff.each do |s|
+          = link_to s.username, user_path(s.id), class: 'staff-tile'
 
 
 

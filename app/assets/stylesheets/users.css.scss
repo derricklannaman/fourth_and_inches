@@ -6,24 +6,27 @@
 
 
 #user-content {
-  @include default_panel;
-  width: 1050px;
-  padding: 15px;
-  margin-left: -30px;
+  margin-left: 10px;
+  height: 450px;
+  overflow: scroll;
 }
 
 .user-section {
   @include default_panel;
   margin: 5px;
-  width: 485px;
+  width: 425px;
   float: left;
-  height: 245px;
+  height: 220px;
   overflow: scroll;
 }
 
 header#coaches,
 header#staff {
   @include nav_shadow;
+}
+
+div.inner-content {
+  padding-left: 20px;
 }
 
 #coach-invite-button, #staff-invite-button  {

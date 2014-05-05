@@ -1,7 +1,7 @@
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
   = devise_error_messages!
   - params[:key] ? key = params[:key].split('-')[1] : nil
-  - if key == "7403214027"
+  - unless key == "7403214027" || key == "1819055"
     %div
       To establish a new program, click here
       = f.radio_button :user_type, "director"
@@ -20,10 +20,6 @@
 
   - else                        #they are signing up as normal
     %h1 Sign up
-    %div
-      To establish a new program, click here
-      = f.radio_button :user_type, "director"
-      = f.label :user_director, "Director"
     = render partial: 'registrations/form', locals: {f: f}
 
   = render "devise/shared/links"

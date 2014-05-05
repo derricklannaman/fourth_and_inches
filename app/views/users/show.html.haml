@@ -1,19 +1,19 @@
 %div
   = render 'layouts/nav_controls'
 
-%h2
-  .form-field
-    = "First Name: #{@user.first_name}"
-  .form-field
-    = "Last Name: #{@user.last_name}"
-  .form-field
-    = "Email:  #{@user.email}"
-  .form-field
-    = link_to 'edit', edit_user_path(@user)
-    |
-    %a.deny-access
-      cancel access
-    |
-    %a.delete-staff
-      delete
+
+.form-field
+  = "First Name: #{@user.first_name}"
+.form-field
+  = "Last Name: #{@user.last_name}"
+.form-field
+  = "Email:  #{@user.email}"
+.form-field
+  = link_to 'edit', edit_user_path(@user)
+  |
+  %a.deny-access
+    cancel access
+  |
+  %a.delete-staff
+    delete
 
