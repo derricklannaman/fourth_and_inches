@@ -44,10 +44,15 @@ class AccessCodesController < ApplicationController
     end
 
     def reject_if_access_code_taken(code)
-      if code.user_id.present?
-        redirect_to root_path, notice: "Sorry, this access code belongs\n
-                          to someone else. Please contact the program director."
+      if code.blank? || code.user_id.present?
+        redirect_to root_path, notice: "Sorry, this access link is not valid \n
+                          . Please contact the program director."
+        # return
       end
+      # if code.user_id.present?
+      #   redirect_to root_path, notice: "Sorry, this access code belongs\n
+      #                     to someone else. Please contact the program director."
+      # end
     end
 
     def check_access_code_exist
