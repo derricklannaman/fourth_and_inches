@@ -3,7 +3,7 @@
 //////////////////////////////////////////////////*/
 
 @import 'mixins';
-
+@import 'color_chart';
 
 #user-content {
   margin-left: 10px;
@@ -39,8 +39,11 @@ div.inner-content {
   width: 100px;
   height: 100px;
   margin: 10px;
-  border: 1px solid #999;
+  border: 1px solid #DDD;
   cursor: pointer;
+  text-align: center;
+  text-transform: capitalize;
+  @include box_inset;
 }
 
 div#coach-invite-form,
@@ -48,4 +51,17 @@ div#staff-invite-form {
   background: #F7F7F7;
   margin-top: 5px;
   padding: 10px;
+}
+
+/*User Show*/
+
+div.show-user-box {
+  border: 1px solid #FFF;
+  width: 300px;
+  padding: 25px;
+  @include box_inset;
+}
+
+a.delete-staff {
+  cursor: pointer;
 }
