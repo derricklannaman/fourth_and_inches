@@ -116,7 +116,11 @@ private
 
   def jumbotron_active_team(team)
     active_team_id = team.id
-    coach = User.find(team.head_coach)
+    if User.find_by_id(team.head_coach).nil?
+      return
+    else
+      coach = User.find(team.head_coach)
+    end
     all_actives = coach.teams.where(active: true)
     all_actives.each do |t|
       unless t.id == active_team_id

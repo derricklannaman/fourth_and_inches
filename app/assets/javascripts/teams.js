@@ -25,9 +25,6 @@ function toggleDivisionsPanel() {
   })
 }
 
-
-
-
 function toggleAllTeamsPanel() {
   $('.team-list-panel').slideToggle(100, function(){
     var symbl = $('#plus-minus1');
