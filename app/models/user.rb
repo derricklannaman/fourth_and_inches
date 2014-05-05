@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
   has_one :dashboard, dependent: :destroy
 
   belongs_to :program
-  has_one :access_code
+  has_one :access_code, dependent: :destroy
   has_many :teams
   has_many :players
   has_many :players, :through => :teams
