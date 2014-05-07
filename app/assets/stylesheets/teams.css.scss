@@ -126,6 +126,17 @@ div.first-time-intructions {
   }
 }
 
+div#team-counter {
+  /*@include box_inset;*/
+  position: relative;
+  top: -40px;
+  left: 400px;
+  width: 250px;
+  padding: 10px;
+  margin-bottom: -32px;
+  color: $steel-light-on-dark-60;
+}
+
 .stat-bar-title {
   width: 400px;
   color: $steel-light-on-dark-60;

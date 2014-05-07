@@ -3,12 +3,16 @@ class RegistrationsController < Devise::RegistrationsController
   # skip_before_filter :require_no_authentication
 
   def create
+    if params[:user][:user_type].blank?
+      params[:user][:user_type] = 'user'
+    end
     if params[:user][:user_type].present?
       @user = User.new(user_params)
       user_type = params[:user][:user_type]
       @user.user_type = user_type
         if @user.save
           sign_in_and_redirect resource
+          #TODO: Send generic user to team website? - user flow WIP?
         else
           render :new, notice: "Please pick an user type"
         end
@@ -31,7 +35,7 @@ class RegistrationsController < Devise::RegistrationsController
         sign_in_and_redirect resource
       else
         puts ">>>>>>#{@user.errors.full_messages}<<<<"
-        flash[:notice] = @user.errors.full_messages
+        flash[:error] = @user.errors.full_messages
         render :new
       end
     end

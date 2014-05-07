@@ -8,6 +8,9 @@
     #team-counter
       Total team count:
       = @teams.count
+      %br
+      Some other metric:
+      = @teams.count
     #plus-minus1 -
 
   .team-list-panel
@@ -52,7 +55,7 @@
 %section#all-divisions
   .stat-bar
     %h3.stat-bar-title Divisions
-    = link_to "add new division", new_division_path
+    = link_to "add new division", new_division_path, class: 'btn btn-success button-float'
     #plus-minus2 -
 
   .division-list-panel
