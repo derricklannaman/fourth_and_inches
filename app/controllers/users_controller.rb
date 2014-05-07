@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+
+
   def index
     @users = User.all
     find_all_coaches
@@ -30,8 +32,9 @@ class UsersController < ApplicationController
 
   def destroy
     find_user
-    # @user.destroy
-    redirect_to users_path
+    @user.destroy
+    flash[:notice] = "#{@user.last_name} successfully deleted"
+    render nothing: true
   end
 
 

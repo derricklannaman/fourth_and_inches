@@ -11,16 +11,24 @@ function deleteStaff() {
   var id = thisLink.prev()
               .attr('href')
               .split('/')[2]
-
-  $.ajax({
-    type: 'DELETE',
-    url: '/users/' + id,
-    success: function(result) {
-      console.log('works');
-    },
-    error: function(e) {
-      console.log(e);
-      whoopsErrorMessage();
+  alertify.confirm("clicking OK will permanently delete this team", function(e) {
+    if (e) {
+      $.ajax({
+        type: 'DELETE',
+        url: '/users/' + id,
+        success: function(result) {
+          console.log('works');
+          var prev = document.referrer
+          location.assign(prev)
+        },
+        error: function(e) {
+          console.log(e);
+          whoopsErrorMessage();
+        }
+      });
+    }
+    else {
+      return
     }
   });
 }

@@ -33,6 +33,14 @@ div.inner-content {
   margin: 10px;
 }
 
+div#coaches-grid,
+div#staff-grid {
+  padding-left: 30px;
+  /*background-color: $steel-light-on-dark-60;*/
+  float: left;
+}
+
+
 #coaches-grid > .coach-tile,
 #staff-grid > .staff-tile {
   float: left;
