@@ -137,13 +137,18 @@ h3.stat-bar-title {
   width: 100%;
   position: relative;
   text-align: center;
-  margin-bottom: 5px;
+  margin-bottom: -8px;
   display: inline-block;
   color: #FFF;
   font-size: 20px;
   letter-spacing: 2px;
   z-index: 1;
-  @include hr_fade_notice;
+  .notice {
+    @include hr_fade_notice;
+  }
+  .error {
+    @include hr_fade_error;
+  }
 }
 
 /*main content area position*/

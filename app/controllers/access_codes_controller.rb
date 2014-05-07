@@ -31,7 +31,9 @@ class AccessCodesController < ApplicationController
     elsif user_type == '1819055'
       redirect_to new_user_registration_path(key: params[:id])
     else
-      redirect_to root_path, notice: "Sorry, your access code is NOT valid!"
+      flash[:error] = "Sorry, this access link is not valid \n
+                      . Please contact the program director."
+      redirect_to root_path
     end
   end
 
@@ -45,22 +47,19 @@ class AccessCodesController < ApplicationController
 
     def reject_if_access_code_taken(code)
       if code.blank? || code.user_id.present?
-        redirect_to root_path, notice: "Sorry, this access link is not valid \n
+        flash[:error] = "Sorry, this access link is not valid \n
                           . Please contact the program director."
-        # return
+        redirect_to root_path
       end
-      # if code.user_id.present?
-      #   redirect_to root_path, notice: "Sorry, this access code belongs\n
-      #                     to someone else. Please contact the program director."
-      # end
     end
 
     def check_access_code_exist
       ac = handle_access_code_on_arrival
       reject_if_access_code_taken(ac)
       rescue ActiveRecord::RecordNotFound
-        redirect_to root_path, notice: "Sorry, your access code is NOT valid. \n
-                                          Please contact the program director."
+        flash[:error] = "Sorry, this access link is not valid \n
+                          . Please contact the program director."
+        redirect_to root_path
     end
 
 

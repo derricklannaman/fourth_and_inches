@@ -1,0 +1,8 @@
+#flash_messages
+  - if !flash[:notice].blank? || !flash[:error].blank?
+    - if flash[:notice]
+      #notice
+        .notice= flash[:notice]
+    - elsif flash[:error]
+      #notice
+        .error= flash[:error]

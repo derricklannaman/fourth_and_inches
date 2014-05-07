@@ -14,10 +14,8 @@
       = nav_view_by_login_status
 
     .app-container
-      #flash_messages
-        - if !flash[:notice].blank?
-          #notice
-            = flash[:notice]
+      = render 'layouts/flash_messaging'
+
       #app-content.container
         = coach_side_navigation(controller_name, action_name)
         #main
