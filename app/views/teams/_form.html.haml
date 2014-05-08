@@ -1,28 +1,29 @@
-= form_for(@team, html: {id: "new-team-form"}) do |f|
-  = current_user.username
-  %div
-    = f.label :division, 'Division'
+.form-contents
+  = form_for(@team, html: {id: "new-team-form"}) do |f|
 
-  %div
-  - if (controller_name == 'teams' && action_name == 'new' )
-    = f.select(:division, options_for_select(@divisions.collect{ |d| [d,{class: 'division-options'} ]} ))
+    .form-field
+      = f.label :division, 'Division'
 
-  - elsif (controller_name == 'teams' && action_name == 'edit')
+    .form-field
+    - if (controller_name == 'teams' && action_name == 'new' )
+      = f.select(:division, options_for_select(@divisions.collect{ |d| [d,{class: 'division-options'} ]} ))
 
-    = f.select(:division, options_for_select(@divisions.collect{ |d| [d.name,{class: 'division-options'} ]} ))
+    - elsif (controller_name == 'teams' && action_name == 'edit')
 
-  %div
-    = f.label :head_coach
-    / TODO: list current head coach here
-  %div
-    / this works for team/new
-    = f.select(:head_coach, options_for_select(@head_coaches.collect{ |hc| [hc.first_name + ' ' + hc.last_name, hc.id,{class: 'division-options'} ]} ))
+      = f.select(:division, options_for_select(@divisions.collect{ |d| [d.name,{class: 'division-options'} ]} ))
 
-  %div
-    = f.label :title
-  %div
-    = f.text_field :title
+    .form-field
+      = f.label :head_coach
+      / TODO: list current head coach here
+    .form-field
+      / this works for team/new
+      = f.select(:head_coach, options_for_select(@head_coaches.collect{ |hc| [hc.first_name + ' ' + hc.last_name, hc.id,{class: 'division-options'} ]} ))
+    .form-section-2
+      .form-field
+        = f.label :title
+      .form-field
+        = f.text_field :title
 
-  %div
-    =f.submit
+    .form-field
+      =f.submit nil, class: 'submit-form-field'
 

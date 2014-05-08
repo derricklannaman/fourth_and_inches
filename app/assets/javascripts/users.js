@@ -1,8 +1,5 @@
 $(document).ready(function(){
-
   $('a.delete-staff').on('click', deleteStaff);
-
-
 });
 
 function deleteStaff() {
@@ -11,7 +8,7 @@ function deleteStaff() {
   var id = thisLink.prev()
               .attr('href')
               .split('/')[2]
-  alertify.confirm("clicking OK will permanently delete this team", function(e) {
+  alertify.confirm("Permanently delete this staff member?", function(e) {
     if (e) {
       $.ajax({
         type: 'DELETE',

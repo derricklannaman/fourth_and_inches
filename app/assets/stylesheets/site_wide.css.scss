@@ -61,9 +61,6 @@ div.app_nav_bar {
   @include nav_shadow;
 }
 
-#new-team-form {
-}
-
 #app-content {
   width: 100%;
   max-width: 1200px;
@@ -184,3 +181,57 @@ div.show-box {
   padding: 10px;
   text-align: center;
 }
+
+
+/* FORMS */
+
+div.form-template {
+  width: 400px;
+  padding: 20px;
+  background-color: $go-green-15;
+  box-shadow: 0px 16px 20px #999;
+  header {
+    background-color: $go-green-plus20;
+    width: inherit;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid $go-green;
+    margin-left: -20px;
+    margin-top: -21px;
+    padding: 1px;
+    text-align: center;
+    text-transform: capitalize;
+    h1 {
+      color: #FFF;
+    }
+  }
+}
+
+div.form-contents {
+  width: 400px;
+  padding: 20px;
+  font-size: 20px;
+  .form-field {
+    color: $go-green-plus20;
+    input#team_title {
+      background-color: $go-green-30;
+    }
+  }
+}
+
+input.submit-form-field {
+  float: left;
+  width: 400px;
+  margin-left: -40px;
+  margin-top: 20px;
+  border: none;
+  background-color: $go-green;
+  height: 75px;
+  color: #FFF;
+  font-size: 1.65em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-top: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 2px 7px 25px -2px #BBB;
+}
+
+

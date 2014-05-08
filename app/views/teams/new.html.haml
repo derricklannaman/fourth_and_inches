@@ -1,6 +1,8 @@
 %div
   = render 'layouts/nav_controls'
 
-  %h1 add new team
-  %section#addNewTeam
-    = render 'teams/new'
+  .form-template
+    %header
+      %h1 add new team
+    %section#addNewTeam
+      = render 'teams/new'

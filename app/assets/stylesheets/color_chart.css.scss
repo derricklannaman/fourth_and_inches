@@ -9,13 +9,30 @@ $base-gray:          #E1E1E1;
 $base-text:          #B2B2B2;
 $go-green:           #76cc66;
 $go-green-minus10:   lighten($go-green, 10%);
+$go-green-15:        lighten($go-green, 15%);
+$go-green-20:        lighten($go-green, 20%);
+$go-green-25:        lighten($go-green, 25%);
+$go-green-30:        lighten($go-green, 30%);
+
+$go-green-plus5:     darken($go-green, 5%);
 $go-green-plus20:    darken($go-green, 10%);
+$go-green-plus30:    darken($go-green, 30%);
+$go-green-plus40:    darken($go-green, 40%);
 $go-aqua:            #bbe9df;
 $go-purple:          #772858;
 $go-purple-minus10:  lighten($go-purple, 10%);
 $line-break-dark:    #272727;
-$steel:              #495563;
-$steel-light-10:     lighten($steel, 10%);
-$steel-light-25:     lighten($steel, 25%);
-$steel-light-40:     lighten($steel, 40%);
-$steel-light-on-dark-60:     lighten($steel, 60%);
+$sky-blue:           #68B5E3;
+
+$sky-blue-10:        darken($sky-blue, 10%);
+$sky-blue-20:        darken($sky-blue, 20%);
+$sky-blue-25:        darken($sky-blue, 25%);
+/* 50 Shades of Grey */
+$steel:                   #495563;
+$steel-light-10:          lighten($steel, 10%);
+$steel-light-20:          lighten($steel, 20%);
+$steel-light-25:          lighten($steel, 25%);
+$steel-light-30:          lighten($steel, 30%);
+$steel-light-40:          lighten($steel, 40%);
+$steel-light-50:          lighten($steel, 50%);
+$steel-light-on-dark-60:  lighten($steel, 60%);
