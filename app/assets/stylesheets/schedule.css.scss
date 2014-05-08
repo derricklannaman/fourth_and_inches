@@ -1,11 +1,12 @@
 @import 'mixins';
+@import 'color_chart';
 
 div.form-wrapper {
   margin-top: 5px;
 }
 
 .schedule-manager-buffer {
-  margin-top: -242px;
+  margin-top: -262px;
 }
 
 div#schedule-controls {
@@ -20,6 +21,7 @@ div#schedule-controls {
 
 form.schedule-forms {
   width: 250px;
+  height: 238px;
   background-color: #FFF;
   padding: 20px;
   position: relative;
@@ -40,3 +42,26 @@ form.schedule-forms {
   z-index: 2;
   margin-top: -40px;
 }
+
+.submit-schedule {
+  width: 250px;
+  margin-left: -20px;
+  margin-top: 15px;
+  border: none;
+  background-color: $go-green;
+  height: 50px;
+  color: #FFF;
+  font-size: 1.3em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 5px;
+  padding-top: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+
+
+
+
