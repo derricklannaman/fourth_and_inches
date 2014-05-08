@@ -16,7 +16,7 @@ FourthAndInches::Application.routes.draw do
   get 'coaches_corner' => 'coaches#coaches_corner', as: 'coaches_corner'
   get 'office_manager' => 'office#office_manager',
                                                     as: 'office_manager'
-  get 'schedule_manager' => 'schedule#schedule_manager',
+  get 'schedule_manager' => 'schedules#schedule_manager',
                                                     as: 'schedule_manager'
   get 'team_manager' => 'teams#team_manager',       as: 'team_manager'
 
@@ -25,6 +25,7 @@ FourthAndInches::Application.routes.draw do
   resources :programs, only: [:new, :create, :show, :index]
   resources :divisions
   resources :events, only: [:index]
+  resources :schedules, except: :index
   resources :dashboard, only: :create
   resources :players
   resources :teams
