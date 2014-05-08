@@ -4,8 +4,6 @@ class TeamsController < ApplicationController
   # authority_actions :team_manager => 'read'
   # authority_actions :team_manager => 'update'
 
-  # after_action :create_teams_schedule_calendar
-
   respond_to :html, :js
 
   def index
@@ -88,10 +86,6 @@ private
 
   def find_team
     @team = Team.find(params[:id])
-  end
-
-  def create_teams_schedule_calendar
-
   end
 
   def add_coach(team)

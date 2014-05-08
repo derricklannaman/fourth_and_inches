@@ -1,2 +1,13 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+$(document).ready(function(){
+  $('#add-practice, #add-game').on('click', addToCalendar);
+  $('div.form-wrapper').hide();
+
+
+});
+
+function addToCalendar() {
+  $('div.form-wrapper').toggle(0, function(){
+    var cal = $('#schedule-manager');
+    cal.toggleClass('schedule-manager-buffer');
+  });
+}

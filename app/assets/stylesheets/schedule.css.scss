@@ -1,3 +1,42 @@
-// Place all the styles related to the schedule controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'mixins';
+
+div.form-wrapper {
+  margin-top: 5px;
+}
+
+.schedule-manager-buffer {
+  margin-top: -242px;
+}
+
+div#schedule-controls {
+  padding: 10px;
+  margin-bottom: -20px;
+}
+
+#add-practice, #add-game {
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+form.schedule-forms {
+  width: 250px;
+  background-color: #FFF;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+  @include form_shadow;
+}
+
+.form-pointer {
+  content: ' ';
+  border: 20px solid;
+  width: 0px;
+  margin: 0 0 -1px 15px;
+  border-color: #FFF transparent transparent transparent;
+  -ms-transform:rotate(180deg); /* IE 9 */
+  -webkit-transform:rotate(180deg); /* Opera, Chrome, and Safari */
+  transform:rotate(180deg);
+  position: relative;
+  z-index: 2;
+  margin-top: -40px;
+}

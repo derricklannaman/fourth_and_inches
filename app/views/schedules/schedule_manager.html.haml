@@ -1,12 +1,37 @@
 = render 'layouts/nav_controls'
-%h2 Schedule Manager Calendar
+%h2 Schedule Manager
+#schedule-controls
+  #add-practice.btn.btn-success add a Practice
+  .form-wrapper
+    .form-pointer
+    = form_tag '/schedule', class: 'schedule-forms' do
+      %div
+        = label_tag :type
+      %div
+        = text_field_tag :type
+
+      %div
+        = label_tag :date
+      %div
+        = text_field_tag :date
+
+      %div
+        = label_tag :time
+      %div
+        = text_field_tag :time
+
+      %div
+        = submit_tag
+
+
+  / #add-game add a Game
 
 #schedule-manager
 
   %h2#month
-    =# link_to "<", date: @date.prev_month
-    =# @date.strftime("%B %Y")
-    =# link_to ">", date: @date.next_month
+    = link_to "<", date: @date.prev_month
+    = @date.strftime("%B %Y")
+    = link_to ">", date: @date.next_month
   = calendar @date do |date|
     = date.day
     / - if @appointments_by_date[date.to_datetime]
