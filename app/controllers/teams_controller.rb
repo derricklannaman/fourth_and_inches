@@ -21,7 +21,6 @@ class TeamsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @team = Team.new(team_params)
     @team = load_team_attributes(@team)
     if @team.save

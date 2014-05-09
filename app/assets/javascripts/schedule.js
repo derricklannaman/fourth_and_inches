@@ -6,17 +6,17 @@ $(document).ready(function(){
 });
 
 function addPracticeToCalendar() {
+  var event_type = $(this).closest('form').find('select')[0].value
   var inputs = $(this).closest('form').find('input');
   var id   = inputs[2].value;
-  var type = inputs[3].value;
-  var date = inputs[4].value;
-  var time = inputs[5].value;
+  var date = inputs[3].value;
+  var time = inputs[4].value;
 
   var entry = {
     'id': id,
-    'type': type,
     'date': date,
     'time': time,
+    'event_type': event_type,
   }
 
   $.ajax({

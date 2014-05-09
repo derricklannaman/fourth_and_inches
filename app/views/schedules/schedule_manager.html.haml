@@ -6,9 +6,11 @@
     .form-pointer
     = form_tag '/schedule', class: 'schedule-forms' do
       = hidden_field_tag(:team_id, current_user.teams.first.id)
-      %div
-        = select_tag(:schedule, options_for_select(@event_types.collect{ |d| [d,{class: 'dropdown-options'} ]} ))
 
+      %div
+        = label_tag :entry_type, 'Type'
+      %div
+        = select_tag(:entry_type, options_for_select([ ['practice', 1], ['game', 2] , ['other', 3] ]))
       %div
         = label_tag :date
       %div
