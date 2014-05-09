@@ -1,14 +1,13 @@
 = render 'layouts/nav_controls'
 %h2 Schedule Manager
 #schedule-controls
-  #add-practice.btn.btn-success add a Practice
+  #add-practice.btn.btn-success add Event
   .form-wrapper
     .form-pointer
     = form_tag '/schedule', class: 'schedule-forms' do
+      = hidden_field_tag(:team_id, current_user.teams.first.id)
       %div
-        = label_tag :type
-      %div
-        = text_field_tag :type
+        = select_tag(:schedule, options_for_select(@event_types.collect{ |d| [d,{class: 'dropdown-options'} ]} ))
 
       %div
         = label_tag :date

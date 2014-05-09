@@ -93,6 +93,7 @@ private
     team.program_id  = current_user.program_id
     team.user_id     = head_coach_id
     team.head_coach  = head_coach_id
+    # binding.pry
   end
 
   def find_and_add_division(team)
@@ -120,6 +121,8 @@ private
       return
     else
       coach = User.find(team.head_coach)
+      team.active = true
+      team.save
     end
     all_actives = coach.teams.where(active: true)
     all_actives.each do |t|
