@@ -24,7 +24,9 @@ function addPracticeToCalendar() {
     url: '/schedules',
     data: { entry: entry },
     success: function(result) {
-      console.log(result);
+      $('#schedule-manager').removeClass('schedule-manager-buffer');
+      $('div.form-wrapper').hide();
+      // console.log(result);
     },
     error: function(e) {
       console.log(e);
