@@ -1,16 +1,14 @@
 class SchedulesController < ApplicationController
 
   def schedule_manager
+    @appointments = @authenticated_user.appointments
+    @appointments_by_date = @appointments.group_by(&:appointment_date)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
     @team_id = current_user.teams
-    # @event_types = [ ['practice', 1], ['game', 2] , ['other', 3] ]
-    # binding.pry
   end
 
   def new
     @scheduled_event = Schedule.new
-    # @event_types = ['practice',  'game', 'other' ]
-    # binding.pry
   end
 
   def create
@@ -23,7 +21,6 @@ class SchedulesController < ApplicationController
     # calendar_event.type = params[:entry][:date]
     # calendar_event.type = params[:entry][:time]
     @cal_event.save
-
     render json: { event: @cal_event}
   end
 

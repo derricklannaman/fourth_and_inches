@@ -2,8 +2,19 @@ $(document).ready(function(){
   $('div.form-wrapper').hide();
   $('#add-practice, #add-game').on('click', toggleScheduleForm);
   $('.submit-schedule').on('click', addPracticeToCalendar);
-
+  $( "#schedule-picker" ).datepicker({
+        // minDate: getFormattedDate(new Date())
+    });
 });
+
+
+function getFormattedDate(date){
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear().toString().slice(2);
+    return day + '-' + month + '-' + year;
+}
+
 
 function addPracticeToCalendar() {
   var event_type = $(this).closest('form').find('select')[0].value

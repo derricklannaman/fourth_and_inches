@@ -4,7 +4,7 @@
   #add-practice.btn.btn-success add Event
   .form-wrapper
     .form-pointer
-    = form_tag '/schedule', class: 'schedule-forms' do
+    = form_tag schedules_path, class: 'schedule-forms' do
       = hidden_field_tag(:team_id, current_user.teams.first.id)
 
       %div
@@ -14,7 +14,7 @@
       %div
         = label_tag :date
       %div
-        = text_field_tag :date
+        = text_field_tag :date, nil, id: "schedule-picker"
 
       %div
         = label_tag :time
@@ -34,7 +34,16 @@
     = link_to ">", date: @date.next_month
   = calendar @date do |date|
     = date.day
-    / - if @appointments_by_date[date.to_datetime]
-    /   %ul
-    /     - @appointments_by_date[date].each do |appointment|
-    /       %li= link_to appointment.client_name, appointment_path(appointment.id)
+    - if @appointments_by_date[date.to_datetime]
+      %ul
+        - @appointments_by_date[date].each do |appointment|
+
+
+
+
+
+
+
+
+
+
