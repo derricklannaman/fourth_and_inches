@@ -10,7 +10,7 @@
       %div
         = label_tag :entry_type, 'Type'
       %div
-        = select_tag(:entry_type, options_for_select([ ['practice', 1], ['game', 2] , ['other', 3] ]))
+        = select_tag(:entry_type, options_for_select([ ['PRACTICE', 1], ['GAME', 2] , ['OTHER', 3] ]))
       %div
         = label_tag :date
       %div
@@ -34,9 +34,10 @@
     = link_to ">", date: @date.next_month
   = calendar @date do |date|
     = date.day
-    - if @appointments_by_date[date.to_datetime]
+    - if @appointments_by_date[date]
       %ul
         - @appointments_by_date[date].each do |appointment|
+          %li= link_to appointment.entry_type, '#'
 
 
 

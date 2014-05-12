@@ -26,7 +26,7 @@ class Team < ActiveRecord::Base
   belongs_to :program
   belongs_to :division
   has_many :players
-  has_one :schedule
+  has_many :schedules
 
 
   scope :active, lambda { where(active: true)[0] }

@@ -1,8 +1,8 @@
 class SchedulesController < ApplicationController
 
   def schedule_manager
-    @appointments = @authenticated_user.appointments
-    @appointments_by_date = @appointments.group_by(&:appointment_date)
+    @appointments = current_user.teams.active.schedules
+    @appointments_by_date = @appointments.group_by(&:date)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
     @team_id = current_user.teams
   end
@@ -18,9 +18,9 @@ class SchedulesController < ApplicationController
     set_calendar_event_type(@cal_event, num)
 
     @cal_event.team_id = params[:entry][:id]
-    # calendar_event.type = params[:entry][:date]
-    # calendar_event.type = params[:entry][:time]
+    @cal_event.date = params[:entry][:date]
     @cal_event.save
+    # redirect_to schedule_manager_path
     render json: { event: @cal_event}
   end
 

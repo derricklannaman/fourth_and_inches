@@ -3,6 +3,7 @@ $(document).ready(function(){
   $('#add-practice, #add-game').on('click', toggleScheduleForm);
   $('.submit-schedule').on('click', addPracticeToCalendar);
   $( "#schedule-picker" ).datepicker({
+      dateFormat: 'yy-mm-dd'
         // minDate: getFormattedDate(new Date())
     });
 });
@@ -37,17 +38,12 @@ function addPracticeToCalendar() {
     success: function(result) {
       $('#schedule-manager').removeClass('schedule-manager-buffer');
       $('div.form-wrapper').hide();
-      // console.log(result);
+      location.reload();
     },
     error: function(e) {
       console.log(e);
     }
   });
-
-
-
-  // console.log(practice)
-  // ajax call to schedule#create
 }
 
 function toggleScheduleForm() {
