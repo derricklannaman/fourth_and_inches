@@ -1,11 +1,12 @@
 $(document).ready(function(){
   $('div.form-wrapper').hide();
   $('#add-practice, #add-game').on('click', toggleScheduleForm);
-  $('.submit-schedule').on('click', addPracticeToCalendar);
-  $( "#schedule-picker" ).datepicker({
+  $('#submit-schedule').on('click', addPracticeToCalendar);
+  $('#schedule-picker').datepicker({
       dateFormat: 'yy-mm-dd'
         // minDate: getFormattedDate(new Date())
     });
+  $('#schedule-time-picker').timepicker({ 'scrollDefaultNow': true });
 });
 
 
@@ -24,10 +25,12 @@ function addPracticeToCalendar() {
   var date = inputs[3].value;
   var time = inputs[4].value;
 
+  var p = time.match('pm');
+  var t = time.replace(p, '')
   var entry = {
     'id': id,
     'date': date,
-    'time': time,
+    'time': t,
     'event_type': event_type,
   }
 

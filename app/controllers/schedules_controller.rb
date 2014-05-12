@@ -19,8 +19,8 @@ class SchedulesController < ApplicationController
 
     @cal_event.team_id = params[:entry][:id]
     @cal_event.date = params[:entry][:date]
+    @cal_event.time = params[:entry][:time]
     @cal_event.save
-    # redirect_to schedule_manager_path
     render json: { event: @cal_event}
   end
 

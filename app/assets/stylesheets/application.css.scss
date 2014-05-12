@@ -9,7 +9,9 @@
  * compiled file, but it's generally better to create a new file per style scope.
 
  *
- *= require jquery.ui.all
+ *= require jquery.ui.datepicker
+ *= require jquery.timepicker
+
  *= require normalize.css
  *= require color_chart
  *= require alertify.core.css

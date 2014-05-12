@@ -15,7 +15,9 @@
 
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.all
+//= require jquery.ui.datepicker
+//= require jquery.timepicker.js
+
 //= require bootstrap
 //= require modernizr.custom.js
 //= require modernizr2.custom.js

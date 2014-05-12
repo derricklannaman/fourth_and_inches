@@ -14,14 +14,14 @@
       %div
         = label_tag :date
       %div
-        = text_field_tag :date, nil, id: "schedule-picker"
+        = text_field_tag :date, nil, id: 'schedule-picker'
 
       %div
         = label_tag :time
       %div
-        = text_field_tag :time
+        = text_field_tag :time, nil, id: 'schedule-time-picker'
 
-      .submit-schedule Add to Calendar
+      #submit-schedule Add to Calendar
 
 
   / #add-game add a Game
@@ -37,7 +37,8 @@
     - if @appointments_by_date[date]
       %ul
         - @appointments_by_date[date].each do |appointment|
-          %li= link_to appointment.entry_type, '#'
+          %li= link_to appointment.entry_type, appointment
+          %span= show_time(appointment.time)
 
 
 
