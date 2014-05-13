@@ -12,6 +12,11 @@
       %div
         = select_tag(:entry_type, options_for_select([ ['PRACTICE', 1], ['GAME', 2] , ['OTHER', 3] ]))
       %div
+        = label_tag :entry_type, 'Type'
+      %div
+        = select_tag(:entry_type, options_for_select([ ['PRACTICE', 1], ['GAME', 2] , ['OTHER', 3] ]))
+
+      %div
         = label_tag :date
       %div
         = text_field_tag :date, nil, id: 'schedule-picker'
@@ -22,9 +27,6 @@
         = text_field_tag :time, nil, id: 'schedule-time-picker'
 
       #submit-schedule Add to Calendar
-
-
-  / #add-game add a Game
 
 #schedule-manager
 

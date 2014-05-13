@@ -25,12 +25,12 @@ function addPracticeToCalendar() {
   var date = inputs[3].value;
   var time = inputs[4].value;
 
-  var p = time.match('pm');
-  var t = time.replace(p, '')
+  // var p = time.match('pm');
+  // var t = time.replace(p, '')
   var entry = {
     'id': id,
     'date': date,
-    'time': t,
+    'time': time,
     'event_type': event_type,
   }
 

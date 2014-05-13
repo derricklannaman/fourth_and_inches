@@ -1,0 +1,26 @@
+- if @event.entry_type == "Practice"
+
+  %h1
+    = "#{@event.entry_type}"
+  %h3
+    Date:
+    = "#{@event.date.strftime('%B %e')}"
+
+  %h3
+    Time:
+    = "Practice starts at #{show_time(@event.time)}, sharp."
+
+
+- elsif @event.entry_type == "Game"
+
+  %h1
+    = "#{@event.entry_type} Day"
+  %h3
+    Date:
+    = "#{@event.date.strftime('%B %e')}"
+
+  %h3
+    Time:
+    = "Please arrive by #{show_time(@event.time)}, sharp."
+
+
