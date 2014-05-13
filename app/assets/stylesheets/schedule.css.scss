@@ -19,7 +19,8 @@ div#schedule-controls {
   cursor: pointer;
 }
 
-form.schedule-forms {
+form.schedule-forms,
+#new_opponent {
   width: 250px;
   height: 238px;
   background-color: #FFF;

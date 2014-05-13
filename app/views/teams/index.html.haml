@@ -6,11 +6,16 @@
     %h3.stat-bar-title Program Stats:
 
     #team-counter
-      Total team count:
-      = @teams.count
-      %br
-      Some other metric:
-      = @teams.count
+      .stat-box
+        Total team count:
+        = @teams.count
+        %br
+        Total divisions:
+        = @divisions.count
+        %br
+      / .stat-box
+      /   Total Rivals:
+      /   = @opponents.count
     #plus-minus1 -
 
   .team-list-panel
@@ -75,7 +80,7 @@
     = link_to "add new opponent", new_opponent_path, class: 'btn btn-success button-float'
     #plus-minus2 -
 
-  .division-list-panel
+  .opponent-list-panel
     - @opponents.each do |opp|
       .division-pod.show-box
         %h3

@@ -186,12 +186,17 @@ div.inner_team_pod {
   cursor: pointer;
 }
 
-div.division-list-panel {
+div.division-list-panel,
+div.opponent-list-panel {
   padding-left: 15px;
 }
 
-div.division-pod {
-}
+div.stat-box{
+/*  border: 1px solid red;
+  float: left;
+*/}
+
+
 
 a.delete-division-pod {
   cursor: pointer;

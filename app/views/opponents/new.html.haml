@@ -1,2 +1,21 @@
 %h1 Opponents#new
-%p Find me in app/views/opponents/new.html.haml
+
+.form-pointer
+= form_for @opponent, class: 'opponent-forms' do |f|
+  = hidden_field_tag(:program_id, @program_id)
+  Program id:
+  = @program_id
+  %div
+    = f.label :name
+  %div
+    = f.text_field :name
+
+  %div
+    = f.label :location, "add location"
+  %div
+    = f.text_area :location
+
+  %div
+    = f.submit id: "submit-schedule"
+
+
