@@ -28,6 +28,8 @@ function addPracticeToCalendar() {
   var id   = inputs[2].value;
   var date = inputs[3].value;
   var time = inputs[4].value;
+// add opponent to ajax call
+
 
   // var p = time.match('pm');
   // var t = time.replace(p, '')

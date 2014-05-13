@@ -69,6 +69,22 @@
           %a.delete-division-pod
             delete
 
+%section#all-opponents
+  .stat-bar
+    %h3.stat-bar-title Opponents
+    = link_to "add new opponent", new_opponent_path, class: 'btn btn-success button-float'
+    #plus-minus2 -
+
+  .division-list-panel
+    - @opponents.each do |opp|
+      .division-pod.show-box
+        %h3
+          = "#{opp.name}"
+        %div
+          = link_to "edit", edit_opponent_path(opp)
+          |
+          %a.delete-division-pod
+            delete
 
 
 

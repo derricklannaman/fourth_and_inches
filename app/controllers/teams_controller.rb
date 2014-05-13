@@ -7,6 +7,7 @@ class TeamsController < ApplicationController
   respond_to :html, :js
 
   def index
+    @opponents = Opponent.all
     @teams = current_user.program.teams
     @programs = current_user.program
     @divisions = get_divisions

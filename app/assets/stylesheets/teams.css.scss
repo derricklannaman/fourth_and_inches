@@ -91,6 +91,7 @@ div.first-time-intructions {
 
 #all-teams,
 #all-divisions,
+#all-opponents,
 #user-content {
   @include default_panel;
   @include translucent_border;
@@ -100,7 +101,8 @@ div.first-time-intructions {
 
 #all-teams > div.stat-bar,
 #all-divisions > div.stat-bar,
-#user-content > div.stat-bar {
+#user-content > div.stat-bar,
+#all-opponents > div.stat-bar {
   background-color: $steel-light-40;
   position: relative;
   top: 1px;
