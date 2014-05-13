@@ -21,7 +21,7 @@ class SchedulesController < ApplicationController
     @cal_event.team_id = params[:entry][:id]
     @cal_event.date = params[:entry][:date]
     @cal_event.time = params[:entry][:time]
-    binding.pry
+    # binding.pry
     @cal_event.save
     render json: { event: @cal_event}
   end

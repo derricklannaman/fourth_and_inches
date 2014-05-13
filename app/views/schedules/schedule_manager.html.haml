@@ -9,12 +9,13 @@
 
       %div
         = label_tag :entry_type, 'Type'
-      %div
-        = select_tag(:entry_type, options_for_select([ ['PRACTICE', 1], ['GAME', 2] , ['OTHER', 3] ]))
-      %div
-        = label_tag :opponent_id
-      %div
-        = select_tag(:opponent_id, options_for_select(@opponents.collect{ |d| [d,{class: 'division-options'} ]} ))
+      #entry-type-choice
+        = select_tag(:entry_type, options_for_select([ ['PRACTICE', 1, {class: 'entry-options'}], ['GAME', 2, {class: 'entry-options'}] , ['OTHER', 3, {class: 'entry-options'}] ]))
+      #opponent-dropdown
+        %div
+          = label_tag :opponent_id
+        %div
+          = select_tag(:opponent_id, options_for_select(@opponents.collect{ |d| [d,{class: 'division-options'} ]} ))
 
       %div
         = label_tag :date

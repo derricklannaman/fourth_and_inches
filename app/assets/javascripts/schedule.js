@@ -1,22 +1,26 @@
 $(document).ready(function(){
-  $('div.form-wrapper').hide();
+  $('div.form-wrapper, #opponent-dropdown').hide();
+  $('#entry-type-choice').change(changeForm);
   $('#add-practice, #add-game').on('click', toggleScheduleForm);
   $('#submit-schedule').on('click', addPracticeToCalendar);
-  $('#schedule-picker').datepicker({
-      dateFormat: 'yy-mm-dd'
-        // minDate: getFormattedDate(new Date())
-    });
+  $('#schedule-picker').datepicker({ dateFormat: 'yy-mm-dd' });
   $('#schedule-time-picker').timepicker({ 'scrollDefaultNow': true });
 });
 
-
-function getFormattedDate(date){
-    var day = date.getDate();
-    var month = date.getMonth() + 1;
-    var year = date.getFullYear().toString().slice(2);
-    return day + '-' + month + '-' + year;
+function changeForm(evt) {
+  var opt = $(this).find('option:selected')[0]
+  var opt_type = $( opt ).text();
+  var game_dropdown = $('#opponent-dropdown');
+  if (opt_type === 'GAME') {
+    game_dropdown.show();
+  }
+  else if (opt_type === 'PRACTICE') {
+    game_dropdown.hide();
+  }
+  else {
+    game_dropdown.hide();
+  }
 }
-
 
 function addPracticeToCalendar() {
   var event_type = $(this).closest('form').find('select')[0].value
