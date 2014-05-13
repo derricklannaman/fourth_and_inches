@@ -12,9 +12,9 @@
       %div
         = select_tag(:entry_type, options_for_select([ ['PRACTICE', 1], ['GAME', 2] , ['OTHER', 3] ]))
       %div
-        = label_tag :entry_type, 'Type'
+        = label_tag :opponent_id
       %div
-        = select_tag(:entry_type, options_for_select([ ['PRACTICE', 1], ['GAME', 2] , ['OTHER', 3] ]))
+        = select_tag(:opponent_id, options_for_select(@opponents.collect{ |d| [d,{class: 'division-options'} ]} ))
 
       %div
         = label_tag :date
