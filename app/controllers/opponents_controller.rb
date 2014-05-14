@@ -10,7 +10,7 @@ class OpponentsController < ApplicationController
   def create
     @opponent = Opponent.new(opponent_params)
     if @opponent.save
-      redirect_to @opponent, notice: "opponent added"
+      redirect_to @opponent, notice: "#{@opponent.name} added."
     else
       render 'new'
     end
@@ -25,7 +25,13 @@ class OpponentsController < ApplicationController
   end
 
   def update
-    binding.pry
+    @opponent = Opponent.find(params[:id])
+    @opponent.update(opponent_params)
+    if @opponent.save
+      redirect_to @opponent, notice: "#{@opponent.name} successfully updated."
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -44,11 +50,8 @@ class OpponentsController < ApplicationController
   private
 
     def opponent_params
-      params.require(:opponent).permit(:name, :street, :town, :zip, :location,
+      params.require(:opponent).permit(:name, :street, :town, :zip, :notes,
                                        :program_id,:team_id, :division)
     end
-
-
-
 
 end

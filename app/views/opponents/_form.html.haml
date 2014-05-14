@@ -24,8 +24,8 @@
         = f.text_field :zip
     .input-box-2
       %div
-        = f.label :location, "additional notes"
+        = f.label :notes, "additional notes"
       %div
-        = f.text_area :location, rows: 9
+        = f.text_area :notes, rows: 9
     %div
       = f.submit id: "submit-new-opponent", class: 'default-submit-button'

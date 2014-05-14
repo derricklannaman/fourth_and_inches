@@ -14,7 +14,8 @@
     %h2
       = "#{@opponent.town}, #{@opponent.zip}"
     %h4
-      Notes:
-      = @opponent.location
+      %p Additional Notes:
+      .additional-info
+        = @opponent.notes
 
   .map-container

@@ -39,11 +39,19 @@ div.location-container {
   height: 325px;
 }
 
+div.additional-info {
+  border: 1px solid $go-green-minus10;
+  height: 127px;
+  overflow: scroll;
+  text-align: initial;
+  padding: 5px;
+}
+
 div.map-container {
   float: left;
   width: 450px;
   height: 325px;
-  border: 1px solid #F00;
+  border: 1px solid $go-green-minus10;
 }
 
 

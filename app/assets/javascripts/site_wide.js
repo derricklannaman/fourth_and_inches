@@ -111,31 +111,12 @@ function showPlayerOptions() {
   $('.player-action-sublist').removeClass('no-display').slideToggle(150)
 }
 
-// function moveMainContentWithNav() {
-//   var content = $('div#main');
-//   var isOpen = 'is-open';
-//   if ( $(content).hasClass(isOpen) ){
-//     content.animate({
-//       marginLeft: "-=160",
-//     }, 300, function() {
-//       content.removeClass(isOpen);
-//     });
-//   }
-//   else {
-//     content.animate({
-//       marginLeft: "+=160",
-//     }, 300, function() {
-//       content.addClass(isOpen);
-//     });
-//   }
-// }
-
 //////////////////////////////////////////////////////
 //           Site Wide Utility functions           //
 //////////////////////////////////////////////////*/
 
 function fadeFlash() {
-  // $('#notice').delay(3000).fadeOut(3000);
+  $('#notice').delay(10000).slideUp(100);
 }
 
 function whoopsErrorMessage() {
