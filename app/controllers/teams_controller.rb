@@ -93,7 +93,6 @@ private
     team.program_id  = current_user.program_id
     team.user_id     = head_coach_id
     team.head_coach  = head_coach_id
-    # binding.pry
   end
 
   def find_and_add_division(team)

@@ -1,6 +1,7 @@
 class OpponentsController < ApplicationController
 
-  # before_action :find_opponent, only: [:create, :show]
+  before_action :find_opponent, only: [:edit, :show, :update, :destroy,
+                                       :list_destroy]
 
   def new
     @opponent = Opponent.new
@@ -17,15 +18,12 @@ class OpponentsController < ApplicationController
   end
 
   def edit
-    @opponent = Opponent.find(params[:id])
   end
 
   def show
-    @opponent = Opponent.find(params[:id])
   end
 
   def update
-    @opponent = Opponent.find(params[:id])
     @opponent.update(opponent_params)
     if @opponent.save
       redirect_to @opponent, notice: "#{@opponent.name} successfully updated."
@@ -35,13 +33,11 @@ class OpponentsController < ApplicationController
   end
 
   def destroy
-    @opponent = Opponent.find(params[:id])
     @opponent.destroy
     redirect_to teams_path, notice: "#{@opponent.name} has been deleted."
   end
 
   def list_destroy
-    @opponent = Opponent.find(params[:id])
     @opponent.destroy
     render json: @opponent
   end
@@ -52,6 +48,10 @@ class OpponentsController < ApplicationController
     def opponent_params
       params.require(:opponent).permit(:name, :street, :town, :zip, :notes,
                                        :program_id,:team_id, :division)
+    end
+
+    def find_opponent
+      @opponent = Opponent.find(params[:id])
     end
 
 end
