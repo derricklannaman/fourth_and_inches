@@ -1,5 +1,6 @@
 = render 'director_navigation/main_side_panel'
 
+/ TEAM DISPLAY PANEL
 
 %section#all-teams
   .stat-bar
@@ -13,10 +14,7 @@
         Total divisions:
         = @divisions.count
         %br
-      / .stat-box
-      /   Total Rivals:
-      /   = @opponents.count
-    #plus-minus1 -
+    .plus-minus -
 
   .team-list-panel
     - if @teams.blank?
@@ -56,12 +54,12 @@
               %a.delete-team-pod
                 delete
 
-
+/ DIVISION DISPLAY PANEL
 %section#all-divisions
   .stat-bar
     %h3.stat-bar-title Divisions
     = link_to "add new division", new_division_path, class: 'btn btn-success button-float'
-    #plus-minus2 -
+    .plus-minus -
 
   .division-list-panel
     - @divisions.each do |div|
@@ -74,11 +72,12 @@
           %a.delete-division-pod
             delete
 
+/ OPPONENT DISPLAY PANEL
 %section#all-opponents
   - if @opponents.blank?
     .stat-bar
       %h3.stat-bar-title Opponents
-      #plus-minus2 -
+      .plus-minus -
 
     .opponent-list-panel
       .first-time-intructions
@@ -91,7 +90,7 @@
     .stat-bar
       %h3.stat-bar-title Opponents
       = link_to "add new opponent", new_opponent_path, class: 'btn btn-success button-float'
-      #plus-minus2 -
+      .plus-minus -
 
     .opponent-list-panel
       - @opponents.each do |opp|

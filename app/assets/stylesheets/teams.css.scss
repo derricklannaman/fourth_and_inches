@@ -105,6 +105,7 @@ div.first-time-intructions {
 #user-content > div.stat-bar,
 #all-opponents > div.stat-bar,
 .opponent > div.stat-bar {
+  height: 75px;
   background-color: $steel-light-40;
   position: relative;
   top: 1px;
@@ -112,16 +113,13 @@ div.first-time-intructions {
   padding-top: 16px;
   margin-bottom: 10px;
   cursor: pointer;
-  #plus-minus1, #plus-minus2 {
+  .plus-minus {
     font-size: 100px;
     float: right;
     margin-top: -110px;
     height: 0px;
     color: $steel-light-on-dark-60;
     @include letter_shadow;
-  }
-  #plus-minus2 {
-    margin-top: -90px;
   }
   a {
     position: relative;

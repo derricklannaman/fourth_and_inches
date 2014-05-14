@@ -2,33 +2,22 @@ $(document).ready(function(){
   $('a.delete-team-pod').on('click', deleteTeamPod);
   $('a.delete-division-pod').on('click', deleteDivision);
   $('a.delete-opponent-pod').on('click', deleteOpponent);
-  $('#all-teams > div.stat-bar').on('click', toggleAllTeamsPanel)
-  $('#all-divisions > div.stat-bar').on('click', toggleDivisionsPanel)
+
+  // TOGGLE PANELS
+  $('#all-teams > div.stat-bar, #all-divisions > div.stat-bar')
+            .add('#all-opponents > div.stat-bar').on('click', toggleGroupPanel)
+
   run_stapel();
   $( 'a[disabled=disabled]' ).click(function(event){
       event.preventDefault(); // Prevent link from following its href
   });
 
-  ///////////// for avgrund modal
-  // $('#new-team-side-link').avgrund({
-  //     onBlurContainer: '.app-container',
-  //     template: $('section#addNewTeam'),
-  //     width: 456,
-  //     height: 336,
-  // });
 });
 
-function toggleDivisionsPanel() {
-  $('.division-list-panel').slideToggle(100, function(){
-    var symbl = $('#plus-minus2');
-    var s = symbl.text();
-    s == '-' ? $( symbl ).text('+') : $( symbl ).text('-')
-  })
-}
-
-function toggleAllTeamsPanel() {
-  $('.team-list-panel').slideToggle(100, function(){
-    var symbl = $('#plus-minus1');
+function toggleGroupPanel() {
+  var panel = $(this).next();
+  panel.slideToggle(100, function(){
+    var symbl = panel.parent().find('.plus-minus');
     var s = symbl.text();
     s == '-' ? $( symbl ).text('+') : $( symbl ).text('-')
   })
