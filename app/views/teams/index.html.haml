@@ -3,107 +3,19 @@
 / TEAM DISPLAY PANEL
 
 %section#all-teams
-  .stat-bar
-    %h3.stat-bar-title Program Stats:
+  = render partial: 'program_panel'
 
-    #team-counter
-      .stat-box
-        Total team count:
-        = @teams.count
-        %br
-        Total divisions:
-        = @divisions.count
-        %br
-    .plus-minus -
-
-  .team-list-panel
-    - if @teams.blank?
-      .first-time-intructions
-        .show-box
-          %h3
-            %p To get started, add your first team
-            .fat-call-to-action
-              = link_to 'Add Team', new_team_path
-        .show-box
-          %h3
-            %p Or, send invites to your staff
-            .fat-call-to-action
-              = link_to 'Add Staff', users_path
-
-    - else
-      - @teams.each do |team|
-        .team_pod
-          .inner_team_pod
-            .pod_title
-              %div
-                = show_team_name(team)
-              %div
-                Division:
-                = show_teams_division(team)
-              %div
-                Number of Players:
-                = team.num_of_players
-              %div
-                Coach:
-                = show_team_coach(team)
-            .team_pod_controls
-              = link_to 'show', team_path(team)
-              |
-              = link_to 'edit', edit_team_path(team)
-              |
-              %a.delete-team-pod
-                delete
 
 / DIVISION DISPLAY PANEL
-%section#all-divisions
-  .stat-bar
-    %h3.stat-bar-title Divisions
-    = link_to "add new division", new_division_path, class: 'btn btn-success button-float'
-    .plus-minus -
 
-  .division-list-panel
-    - @divisions.each do |div|
-      .division-pod.show-box
-        %h3
-          = "#{div.name} Division"
-        %div
-          = link_to "edit", edit_division_path(div)
-          |
-          %a.delete-division-pod
-            delete
+%section#all-divisions
+  = render partial: 'division_panel'
 
 / OPPONENT DISPLAY PANEL
+
 %section#all-opponents
-  - if @opponents.blank?
-    .stat-bar
-      %h3.stat-bar-title Opponents
-      .plus-minus -
+  = render partial: 'opponent_panel'
 
-    .opponent-list-panel
-      .first-time-intructions
-        .show-box
-          %h3
-            %p To get started, add your programs' opponents
-            .fat-call-to-action
-              = link_to 'Add Opponent', new_opponent_path
-  - else
-    .stat-bar
-      %h3.stat-bar-title Opponents
-      = link_to "add new opponent", new_opponent_path, class: 'btn btn-success button-float'
-      .plus-minus -
-
-    .opponent-list-panel
-      - @opponents.each do |opp|
-        .opponent-pod.show-box
-          %h3
-            = "#{opp.name.upcase}"
-          %div
-            = link_to "edit", edit_opponent_path(opp)
-            |
-            = link_to "show", opponent_path(opp)
-            |
-            %a.delete-opponent-pod
-              delete
 
 
 

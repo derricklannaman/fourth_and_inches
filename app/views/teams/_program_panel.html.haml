@@ -1,0 +1,50 @@
+.stat-bar
+  %h3.stat-bar-title Program Stats:
+
+  #team-counter
+    .stat-box
+      Total team count:
+      = @teams.count
+      %br
+      Total divisions:
+      = @divisions.count
+      %br
+  .plus-minus -
+
+.team-list-panel
+  - if @teams.blank?
+    .first-time-intructions
+      .show-box
+        %h3
+          %p To get started, add your first team
+          .fat-call-to-action
+            = link_to 'Add Team', new_team_path
+      .show-box
+        %h3
+          %p Or, send invites to your staff
+          .fat-call-to-action
+            = link_to 'Add Staff', users_path
+
+  - else
+    - @teams.each do |team|
+      .team_pod
+        .inner_team_pod
+          .pod_title
+            %div
+              = show_team_name(team)
+            %div
+              Division:
+              = show_teams_division(team)
+            %div
+              Number of Players:
+              = team.num_of_players
+            %div
+              Coach:
+              = show_team_coach(team)
+          .team_pod_controls
+            = link_to 'show', team_path(team)
+            |
+            = link_to 'edit', edit_team_path(team)
+            |
+            %a.delete-team-pod
+              delete

@@ -1,0 +1,15 @@
+.stat-bar
+  %h3.stat-bar-title Divisions
+  = link_to "add new division", new_division_path, class: 'btn btn-success button-float'
+  .plus-minus -
+
+.division-list-panel
+  - @divisions.each do |div|
+    .division-pod.show-box
+      %h3
+        = "#{div.name} Division"
+      %div
+        = link_to "edit", edit_division_path(div)
+        |
+        %a.delete-division-pod
+          delete
