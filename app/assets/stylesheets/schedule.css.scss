@@ -19,15 +19,8 @@ div#schedule-controls {
   cursor: pointer;
 }
 
-form.schedule-forms,
-#new_opponent {
-  width: 250px;
-  height: 238px;
-  background-color: #FFF;
-  padding: 20px;
-  position: relative;
-  z-index: 1;
-  @include form_shadow;
+form.schedule-forms {
+  @include mini_forms;
 }
 
 .form-pointer {

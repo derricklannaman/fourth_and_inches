@@ -84,9 +84,11 @@
     - @opponents.each do |opp|
       .division-pod.show-box
         %h3
-          = "#{opp.name}"
+          = "#{opp.name.upcase}"
         %div
           = link_to "edit", edit_opponent_path(opp)
+          |
+          = link_to "show", opponent_path(opp)
           |
           %a.delete-division-pod
             delete

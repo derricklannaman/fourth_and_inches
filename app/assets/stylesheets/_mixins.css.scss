@@ -83,3 +83,45 @@
    background-clip: content-box;
 }
 
+/*FORMS*/
+
+@mixin default_submit_button {
+  width: 111%;
+  margin-left: -20px;
+  margin-top: 25px;
+  border: none;
+  background-color: $go-green;
+  height: 60px;
+  color: #FFF;
+  font-size: 1.5em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  /*padding: 5px;*/
+  /*padding-top: 10px;*/
+  /*position: relative;*/
+  cursor: pointer;
+}
+
+
+@mixin default_forms {
+  width: 400px;
+  background-color: #FFF;
+  padding: 20px;
+  padding-bottom: 0px;
+  margin-top: 15px;
+  position: relative;
+  z-index: 1;
+  @include form_shadow;
+}
+
+@mixin mini_forms {
+  width: 250px;
+  height: 238px;
+  background-color: #FFF;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+  @include form_shadow;
+}
+
