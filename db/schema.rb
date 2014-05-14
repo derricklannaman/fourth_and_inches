@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140513003549) do
+ActiveRecord::Schema.define(version: 20140514163104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,9 @@ ActiveRecord::Schema.define(version: 20140513003549) do
     t.string   "division"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "street"
+    t.string   "town"
+    t.string   "zip"
   end
 
   add_index "opponents", ["program_id"], name: "index_opponents_on_program_id", using: :btree

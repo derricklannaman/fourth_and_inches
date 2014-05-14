@@ -10,7 +10,7 @@ class OpponentsController < ApplicationController
   def create
     @opponent = Opponent.new(opponent_params)
     if @opponent.save
-      redirect_to teams_path, notice: "opponent added"
+      redirect_to @opponent, notice: "opponent added"
     else
       render 'new'
     end
@@ -21,14 +21,31 @@ class OpponentsController < ApplicationController
   end
 
   def show
+    @opponent = Opponent.find(params[:id])
+  end
+
+  def update
+    binding.pry
+  end
+
+  def destroy
+    @opponent = Opponent.find(params[:id])
+    @opponent.destroy
+    redirect_to teams_path, notice: "#{@opponent.name} has been deleted."
+  end
+
+  def list_destroy
+    @opponent = Opponent.find(params[:id])
+    @opponent.destroy
+    render json: @opponent
   end
 
 
   private
 
     def opponent_params
-      params.require(:opponent).permit(:name, :location, :program_id,
-                                        :team_id, :division)
+      params.require(:opponent).permit(:name, :street, :town, :zip, :location,
+                                       :program_id,:team_id, :division)
     end
 
 

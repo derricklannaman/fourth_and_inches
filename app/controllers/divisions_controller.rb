@@ -41,7 +41,7 @@ class DivisionsController < ApplicationController
   def destroy
     @division = Division.find(params[:id])
     division = { id: @division.id }
-    # @division.destroy
+    @division.destroy
     render :json => {status: "ok"}
   end
 

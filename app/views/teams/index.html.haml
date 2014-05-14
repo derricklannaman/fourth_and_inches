@@ -75,23 +75,36 @@
             delete
 
 %section#all-opponents
-  .stat-bar
-    %h3.stat-bar-title Opponents
-    = link_to "add new opponent", new_opponent_path, class: 'btn btn-success button-float'
-    #plus-minus2 -
+  - if @opponents.blank?
+    .stat-bar
+      %h3.stat-bar-title Opponents
+      #plus-minus2 -
 
-  .opponent-list-panel
-    - @opponents.each do |opp|
-      .division-pod.show-box
-        %h3
-          = "#{opp.name.upcase}"
-        %div
-          = link_to "edit", edit_opponent_path(opp)
-          |
-          = link_to "show", opponent_path(opp)
-          |
-          %a.delete-division-pod
-            delete
+    .opponent-list-panel
+      .first-time-intructions
+        .show-box
+          %h3
+            %p To get started, add your programs' opponents
+            .fat-call-to-action
+              = link_to 'Add Opponent', new_opponent_path
+  - else
+    .stat-bar
+      %h3.stat-bar-title Opponents
+      = link_to "add new opponent", new_opponent_path, class: 'btn btn-success button-float'
+      #plus-minus2 -
+
+    .opponent-list-panel
+      - @opponents.each do |opp|
+        .opponent-pod.show-box
+          %h3
+            = "#{opp.name.upcase}"
+          %div
+            = link_to "edit", edit_opponent_path(opp)
+            |
+            = link_to "show", opponent_path(opp)
+            |
+            %a.delete-opponent-pod
+              delete
 
 
 

@@ -21,6 +21,7 @@ FourthAndInches::Application.routes.draw do
   get 'schedule_manager' => 'schedules#schedule_manager',
                                                     as: 'schedule_manager'
   get 'team_manager' => 'teams#team_manager',       as: 'team_manager'
+  post 'opponents/:id/list_destroy' => 'opponents#list_destroy',  as: 'list_destroy'
 
   resources :users
   resources :coaches, only: [:new, :create]

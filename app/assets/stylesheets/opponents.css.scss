@@ -5,6 +5,12 @@
   @include default_forms;
 }
 
+/* Form Interior */
+div.input-box-1 {
+  /*border: 1px solid #F00;*/
+  float: left;
+  margin-right: 20px;
+}
 
 .form-pointer-default {
   content: ' ';
@@ -18,6 +24,26 @@
   position: relative;
   z-index: 2;
   margin-top: -23px;
+}
+
+/* DISPLAY OPPONENT */
+
+div.location-container {
+  /*TODO: Decide?;*/
+  /*@include box_inset;*/
+  float: left;
+  width: 340px;
+  margin: 35px;
+  margin-top: 0px;
+  text-align: center;
+  height: 325px;
+}
+
+div.map-container {
+  float: left;
+  width: 450px;
+  height: 325px;
+  border: 1px solid #F00;
 }
 
 

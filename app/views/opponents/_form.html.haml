@@ -2,15 +2,30 @@
 = form_for @opponent, html: {class: 'opponent-forms'} do |f|
   = hidden_field_tag(:program_id, @program_id)
   .inner-form-wrapper
-    %div
-      = f.label :name
-    %div
-      = f.text_field :name
+    .input-box-1
+      %div
+        = f.label :name
+      %div
+        = f.text_field :name
 
-    %div
-      = f.label :location, "add location"
-    %div
-      = f.text_area :location
+      %div
+        = f.label :street
+      %div
+        = f.text_field :street
 
+      %div
+        = f.label :town
+      %div
+        = f.text_field :town
+
+      %div
+        = f.label :zip
+      %div
+        = f.text_field :zip
+    .input-box-2
+      %div
+        = f.label :location, "additional notes"
+      %div
+        = f.text_area :location, rows: 9
     %div
       = f.submit id: "submit-new-opponent", class: 'default-submit-button'

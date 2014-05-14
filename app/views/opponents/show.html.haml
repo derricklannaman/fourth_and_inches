@@ -1,2 +1,20 @@
-%h1 Opponents#show
-%p Find me in app/views/opponents/show.html.haml
+%section.opponent
+  .stat-bar
+    %h3.stat-bar-title
+      = "#{@opponent.name}"
+    = link_to "edit", edit_opponent_path, class: 'btn btn-success button-float'
+    = link_to "delete", opponent_path, method: :delete, class: 'btn btn-danger button-float'
+
+
+  .location-container
+    %h2
+      = "#{@opponent.name.upcase} Football"
+    %h2
+      = @opponent.street
+    %h2
+      = "#{@opponent.town}, #{@opponent.zip}"
+    %h4
+      Notes:
+      = @opponent.location
+
+  .map-container

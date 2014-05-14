@@ -1,6 +1,7 @@
 $(document).ready(function(){
   $('a.delete-team-pod').on('click', deleteTeamPod);
   $('a.delete-division-pod').on('click', deleteDivision);
+  $('a.delete-opponent-pod').on('click', deleteOpponent);
   $('#all-teams > div.stat-bar').on('click', toggleAllTeamsPanel)
   $('#all-divisions > div.stat-bar').on('click', toggleDivisionsPanel)
   run_stapel();
@@ -31,6 +32,27 @@ function toggleAllTeamsPanel() {
     var s = symbl.text();
     s == '-' ? $( symbl ).text('+') : $( symbl ).text('-')
   })
+}
+
+function deleteOpponent() {
+  var thisLink = $( this );
+  var pod = thisLink.closest('div.opponent-pod');
+  var id = thisLink.prev()
+              .attr('href')
+              .split('/')[2]
+
+  $.ajax({
+    type: 'POST',
+    url: '/opponents/' + id + '/list_destroy',
+    success: function(result){
+      pod.fadeOut(100);
+      fadeFlash();
+    },
+    error: function(e) {
+      whoopsErrorMessage();
+      console.log(e);
+    }
+  });
 }
 
 function deleteDivision() {
