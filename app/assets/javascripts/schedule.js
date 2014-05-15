@@ -24,6 +24,7 @@ function changeForm(evt) {
 
 function addPracticeToCalendar() {
   var event_type = $(this).closest('form').find('select')[0].value
+  // WIP// var opp = $(this).closest('form').find('')[0].value
   var inputs = $(this).closest('form').find('input');
   var id   = inputs[2].value;
   var date = inputs[3].value;

@@ -41,8 +41,10 @@
     - if @appointments_by_date[date]
       %ul
         - @appointments_by_date[date].each do |appointment|
-          %li= link_to appointment.entry_type, appointment
+          %li
+          = link_to appointment.entry_type, appointment
           %span= show_time(appointment.time)
+
 
 
 

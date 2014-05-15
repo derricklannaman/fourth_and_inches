@@ -5,17 +5,5 @@
     = link_to "edit", edit_opponent_path, class: 'btn btn-success button-float'
     = link_to "delete", opponent_path, method: :delete, class: 'btn btn-danger button-float'
 
+  = render partial: 'opponent_information'
 
-  .location-container
-    %h2
-      = "#{@opponent.name.upcase} Football"
-    %h2
-      = @opponent.street
-    %h2
-      = "#{@opponent.town}, #{@opponent.zip}"
-    %h4
-      %p Additional Notes:
-      .additional-info
-        = @opponent.notes
-
-  .map-container

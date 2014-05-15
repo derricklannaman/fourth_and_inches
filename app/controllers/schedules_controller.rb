@@ -28,7 +28,8 @@ class SchedulesController < ApplicationController
 
   def show
     @event = Schedule.find(params[:id])
-
+    # @opponent = Opponent.find(params[:id])
+    # binding.pry
   end
 
 
