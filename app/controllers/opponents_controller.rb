@@ -15,7 +15,6 @@ class OpponentsController < ApplicationController
     add_address = "#{params[:opponent][:street] + ', ' +params[:opponent][:town] + state + params[:opponent][:zip]}"
     @opponent.address = add_address
     if @opponent.save
-      binding.pry
       redirect_to @opponent, notice: "#{@opponent.name} added."
     else
       render 'new'

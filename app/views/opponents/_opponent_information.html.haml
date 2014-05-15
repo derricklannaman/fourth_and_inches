@@ -11,3 +11,4 @@
       = @opponent.notes
 
 .map-container
+  = image_tag "http://maps.google.com/maps/api/staticmap?size=430x305&sensor=false&zoom=16&markers=#{@opponent.latitude}%2C#{@opponent.longitude}", class: "map-box"
