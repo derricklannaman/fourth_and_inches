@@ -16,7 +16,7 @@
         %div
           = label_tag :opponent_id
         %div
-          = select_tag(:opponent_id, options_for_select(@opponents.collect{ |d| [d,{class: 'division-options'} ]} ))
+          = select_tag(:opponent_id, options_for_select(@opponents.collect{ |opponent| [opponent.name.capitalize, {class: 'division-options'} ]} ))
 
       %div
         = label_tag :date
