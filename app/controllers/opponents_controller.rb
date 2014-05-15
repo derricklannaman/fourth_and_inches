@@ -11,7 +11,11 @@ class OpponentsController < ApplicationController
   def create
     @opponent = Opponent.new(opponent_params)
     @opponent.program_id = params[:program_id]
+    state = ' NY '
+    add_address = "#{params[:opponent][:street] + ', ' +params[:opponent][:town] + state + params[:opponent][:zip]}"
+    @opponent.address = add_address
     if @opponent.save
+      binding.pry
       redirect_to @opponent, notice: "#{@opponent.name} added."
     else
       render 'new'
@@ -47,7 +51,7 @@ class OpponentsController < ApplicationController
   private
 
     def opponent_params
-      params.require(:opponent).permit(:name, :street, :town, :zip, :notes, :program_id, :team_id, :division)
+      params.require(:opponent).permit(:name, :street, :town, :zip, :notes, :program_id, :team_id, :division, :latitude, :longitude, :address)
     end
 
     def find_opponent
