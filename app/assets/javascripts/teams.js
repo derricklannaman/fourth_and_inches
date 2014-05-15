@@ -2,7 +2,6 @@ $(document).ready(function(){
   $('a.delete-team-pod').on('click', deleteTeamPod);
   $('a.delete-division-pod').on('click', deleteDivision);
   $('a.delete-opponent-pod').on('click', deleteOpponent);
-
   // TOGGLE PANELS
   $('#all-teams > div.stat-bar, #all-divisions > div.stat-bar')
             .add('#all-opponents > div.stat-bar').on('click', toggleGroupPanel)
@@ -34,7 +33,8 @@ function deleteOpponent() {
     type: 'POST',
     url: '/opponents/' + id + '/list_destroy',
     success: function(result){
-      pod.fadeOut(100);
+      $(pod).animate({backgroundColor: "#EDEFF1"}, 10)
+                .hide('explode', { pieces: 30 }, 1100);
       fadeFlash();
     },
     error: function(e) {

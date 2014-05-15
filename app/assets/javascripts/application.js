@@ -16,6 +16,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.datepicker
+//= require jquery.ui.effect-explode
 //= require jquery.timepicker.js
 
 //= require bootstrap

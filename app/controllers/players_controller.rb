@@ -1,4 +1,6 @@
 class PlayersController < ApplicationController
+
+  before_action :find_player, only: [:edit, :update, :show, :destroy]
   respond_to :html, :js
 
   def index
@@ -27,12 +29,10 @@ class PlayersController < ApplicationController
   end
 
   def edit
-    find_player
     find_active_team
   end
 
   def update
-    find_player
     @player.update(player_params)
     if @player.save
       flash[:notice] = 'player successfully updated'
@@ -44,11 +44,9 @@ class PlayersController < ApplicationController
 
   def show
     @players = current_user.teams.active.players
-    find_player
   end
 
   def destroy
-    find_player
 
     # respond_to do |format|
     #   format.html { redirect_to @player }

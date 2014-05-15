@@ -1,4 +1,7 @@
 class DivisionsController < ApplicationController
+
+  before_action :find_division, only: [:edit, :update, :destroy]
+
   def index
     @divisions = get_divisions
   end
@@ -17,7 +20,7 @@ class DivisionsController < ApplicationController
       if params.has_value? "add more"
         redirect_to :back, notice: 'Please add another division.'
       else
-        redirect_to(controller: 'dashboard', action: 'show')
+        redirect_to(controller: 'teams', action: 'index')
       end
     else
       render 'new'
@@ -25,11 +28,9 @@ class DivisionsController < ApplicationController
   end
 
   def edit
-    @division = Division.find(params[:id])
   end
 
   def update
-    @division = Division.find(params[:id])
     @division.update(division_params)
     if @division.save
       redirect_to teams_path, notice: 'division successfully updated'
@@ -39,7 +40,6 @@ class DivisionsController < ApplicationController
   end
 
   def destroy
-    @division = Division.find(params[:id])
     division = { id: @division.id }
     @division.destroy
     render :json => {status: "ok"}
@@ -47,6 +47,10 @@ class DivisionsController < ApplicationController
 
 
   private
+
+    def find_division
+      @division = Division.find(params[:id])
+    end
 
     def division_params
       params.require(:division).permit(:name, :age_group)

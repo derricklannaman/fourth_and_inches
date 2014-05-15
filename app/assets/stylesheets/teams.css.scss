@@ -194,7 +194,10 @@ div.stat-box{
   float: left;
 */}
 
-
+a.btn.btn-success.button-float {
+  position: relative;
+  z-index: 100 !important;
+}
 
 a.delete-division-pod,
 a.delete-opponent-pod {
