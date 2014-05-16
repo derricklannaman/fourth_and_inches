@@ -18,11 +18,14 @@
   %h3
     Date:
     = "#{@event.date.strftime('%B %e')}"
+    |
+    %span
+      Time:
+      = "Please arrive by #{show_time(@event.time)}, sharp."
 
-  %h3
-    Time:
-    = "Please arrive by #{show_time(@event.time)}, sharp."
-
-  =# render partial: 'opponents/opponent_information'
+%section.opponent
+  .stat-bar
+    %h3.stat-bar-title
+  = render partial: 'opponents/opponent_information', locals: {opponent: @opponent }
 
 
