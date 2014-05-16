@@ -15,22 +15,19 @@ class SchedulesController < ApplicationController
   def create
     @cal_event = Schedule.new()
     num = params[:entry][:event_type]
-
     set_calendar_event_type(@cal_event, num)
+    set_calendar_event_attrs(@cal_event)
 
-    @cal_event.team_id = params[:entry][:id]
-    @cal_event.date = params[:entry][:date]
-    @cal_event.time = params[:entry][:time]
-    # @cal_event.opponent_id = Opponent.find(params[:entry][:vs]).id
-    binding.pry
+    # @cal_event.team_id = params[:entry][:id]
+    # @cal_event.date = params[:entry][:date]
+    # @cal_event.time = params[:entry][:time]
     @cal_event.save
     render json: { event: @cal_event}
   end
 
   def show
     @event = Schedule.find(params[:id])
-    # @opponent = Opponent.find(params[:id])
-    # binding.pry
+
   end
 
 
@@ -46,6 +43,13 @@ class SchedulesController < ApplicationController
       elsif num == '3'
         @cal_event.entry_type = 'Other'
       end
+    end
+
+    def set_calendar_event_attrs(cal_event)
+      @cal_event = cal_event
+      @cal_event.team_id = params[:entry][:id]
+      @cal_event.date = params[:entry][:date]
+      @cal_event.time = params[:entry][:time]
     end
 
 end

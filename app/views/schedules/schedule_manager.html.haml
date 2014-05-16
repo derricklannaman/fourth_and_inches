@@ -39,9 +39,8 @@
   = calendar @date do |date|
     = date.day
     - if @appointments_by_date[date]
-      %ul
-        - @appointments_by_date[date].each do |appointment|
-          %li
+      - @appointments_by_date[date].each do |appointment|
+        .cal_events
           = link_to appointment.entry_type, appointment
           %span at
           %span= show_time(appointment.time)
