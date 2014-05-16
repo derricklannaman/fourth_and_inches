@@ -47,16 +47,15 @@ div.additional-info {
   padding: 5px;
 }
 
-#map {
+div.map-container {
   float: left;
-  width: 450px;
-  height: 325px;
-  padding: 8px;
-  margin-top: 4px;
-  border: 1px solid $go-green-minus10;
+  width: 495px;
+  margin-top: 20px;
+  margin-left: -10px;
 }
 
-.map-box {
+#map {
+  height: 310px;
   @include form_shadow;
 }
 

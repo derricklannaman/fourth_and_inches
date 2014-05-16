@@ -12,17 +12,15 @@
     .additional-info
       = @opponent.notes
 
-#map
-  =# image_tag "http://maps.google.com/maps/api/staticmap?size=430x305&sensor=false&zoom=16&markers=#{@opponent.latitude}%2C#{@opponent.longitude}", class: "map-box"
-
-
-:javascript
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers(#{raw @hash.to_json});
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-  });
+.map-container
+  #map
+  :javascript
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(#{raw @hash.to_json});
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
 
 
 
