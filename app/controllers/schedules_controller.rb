@@ -21,7 +21,8 @@ class SchedulesController < ApplicationController
     @cal_event.team_id = params[:entry][:id]
     @cal_event.date = params[:entry][:date]
     @cal_event.time = params[:entry][:time]
-    # binding.pry
+    # @cal_event.opponent_id = Opponent.find(params[:entry][:vs]).id
+    binding.pry
     @cal_event.save
     render json: { event: @cal_event}
   end
@@ -41,6 +42,7 @@ class SchedulesController < ApplicationController
         @cal_event.entry_type = 'Practice'
       elsif num == '2'
         @cal_event.entry_type = 'Game'
+        @cal_event.opponent_id = Opponent.find(params[:entry][:vs]).id #add only if Game selected
       elsif num == '3'
         @cal_event.entry_type = 'Other'
       end

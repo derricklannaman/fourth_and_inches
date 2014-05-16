@@ -16,7 +16,7 @@
         %div
           = label_tag :opponent_id
         %div
-          = select_tag(:opponent_id, options_for_select(@opponents.collect{ |opponent| [opponent.name.capitalize, {class: 'division-options'} ]} ))
+          = select_tag(:opponent_id, options_for_select(@opponents.collect{ |opponent| [opponent.name.capitalize, opponent.id, {class: 'division-options'} ]} ))
 
       %div
         = label_tag :date
@@ -43,7 +43,9 @@
         - @appointments_by_date[date].each do |appointment|
           %li
           = link_to appointment.entry_type, appointment
+          %span at
           %span= show_time(appointment.time)
+          %span= show_opponent(appointment)
 
 
 

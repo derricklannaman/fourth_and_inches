@@ -23,22 +23,20 @@ function changeForm(evt) {
 }
 
 function addPracticeToCalendar() {
-  var event_type = $(this).closest('form').find('select')[0].value
-  // WIP// var opp = $(this).closest('form').find('')[0].value
-  var inputs = $(this).closest('form').find('input');
-  var id   = inputs[2].value;
-  var date = inputs[3].value;
-  var time = inputs[4].value;
-// add opponent to ajax call
+  var selections = $(this).closest('form').find('select');
+      event_type = selections[0].value
+      vs = selections[1].value
+      inputs = $(this).closest('form').find('input');
+      id   = inputs[2].value;
+      date = inputs[3].value;
+      time = inputs[4].value;
 
-
-  // var p = time.match('pm');
-  // var t = time.replace(p, '')
   var entry = {
     'id': id,
     'date': date,
     'time': time,
     'event_type': event_type,
+    'vs': vs,
   }
 
   $.ajax({
