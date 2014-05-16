@@ -6,13 +6,13 @@ class OpponentsController < ApplicationController
   def new
     @opponent = Opponent.new
     @program_id = current_user.program.id
+
   end
 
   def create
     @opponent = Opponent.new(opponent_params)
     @opponent.program_id = params[:program_id]
-    state = ' NY '
-    add_address = "#{params[:opponent][:street] + ', ' +params[:opponent][:town] + state + params[:opponent][:zip]}"
+    add_address = "#{params[:opponent][:street] + ', ' +params[:opponent][:town] + ', ' + params[:opponent][:state] + ' '+ params[:opponent][:zip]}"
     @opponent.address = add_address
     if @opponent.save
       redirect_to @opponent, notice: "#{@opponent.name} added."
@@ -28,7 +28,7 @@ class OpponentsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@opponent) do |opponent, marker|
       marker.lat opponent.latitude
       marker.lng opponent.longitude
-      marker.infowindow "#{opponent.name + opponent.address}"
+      marker.infowindow "#{opponent.name} #{opponent.address}"
     end
   end
 
@@ -55,7 +55,7 @@ class OpponentsController < ApplicationController
   private
 
     def opponent_params
-      params.require(:opponent).permit(:name, :street, :town, :zip, :notes, :program_id, :team_id, :division, :latitude, :longitude, :address)
+      params.require(:opponent).permit(:name, :street, :town, :state, :zip, :notes, :program_id, :team_id, :division, :latitude, :longitude, :address)
     end
 
     def find_opponent
