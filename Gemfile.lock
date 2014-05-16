@@ -76,6 +76,7 @@ GEM
     font-awesome-sass (4.0.3.1)
       sass (~> 3.2)
     geocoder (1.1.5)
+    gmaps4rails (2.1.2)
     haml (4.0.5)
       tilt
     haml-rails (0.5.1)
@@ -222,6 +223,7 @@ DEPENDENCIES
   devise
   font-awesome-sass
   geocoder
+  gmaps4rails
   haml
   haml-rails
   html2haml

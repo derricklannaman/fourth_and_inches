@@ -28,7 +28,8 @@
 //= require jquery.stapel.js
 //= require stepsForm.js
 //= require classie.js
-
+//= require underscore
+//= require gmaps/google
 
 
 //= require_tree .

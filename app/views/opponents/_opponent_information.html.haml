@@ -1,3 +1,5 @@
+%script{src: "//maps.google.com/maps/api/js?v=3.13&sensor=false&libraries=geometry", type: "text/javascript"}
+%script{src: "//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js", type: "text/javascript"}
 .location-container
   %h2
     = "#{@opponent.name.upcase} Football"
@@ -10,5 +12,19 @@
     .additional-info
       = @opponent.notes
 
-.map-container
-  = image_tag "http://maps.google.com/maps/api/staticmap?size=430x305&sensor=false&zoom=16&markers=#{@opponent.latitude}%2C#{@opponent.longitude}", class: "map-box"
+#map
+  =# image_tag "http://maps.google.com/maps/api/staticmap?size=430x305&sensor=false&zoom=16&markers=#{@opponent.latitude}%2C#{@opponent.longitude}", class: "map-box"
+
+
+:javascript
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(#{raw @hash.to_json});
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+
+
+
+
+

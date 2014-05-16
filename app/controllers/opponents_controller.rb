@@ -25,6 +25,11 @@ class OpponentsController < ApplicationController
   end
 
   def show
+    @hash = Gmaps4rails.build_markers(@opponent) do |opponent, marker|
+      marker.lat opponent.latitude
+      marker.lng opponent.longitude
+      marker.infowindow "#{opponent.name + opponent.address}"
+    end
   end
 
   def update
