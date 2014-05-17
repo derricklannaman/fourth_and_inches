@@ -1,3 +1,4 @@
+= render 'layouts/nav_controls'
 - if @event.entry_type == "Practice"
 
   %h1
@@ -23,9 +24,9 @@
       Time:
       = "Please arrive by #{show_time(@event.time)}, sharp."
 
-%section.opponent
-  .stat-bar
-    %h3.stat-bar-title
-  = render partial: 'opponents/opponent_information', locals: {opponent: @opponent }
+  %section.opponent
+    .stat-bar
+      %h3.stat-bar-title
+    = render partial: 'opponents/opponent_information', locals: {opponent: @opponent }
 
 

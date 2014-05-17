@@ -23,7 +23,16 @@ class SchedulesController < ApplicationController
 
   def show
     @event = Schedule.find(params[:id])
-    @opponent = Opponent.find(@event.opponent_id)
+    @opponent = Opponent.find_by id: @event.opponent_id
+    if @opponent.nil?
+      return
+    else
+      @hash = Gmaps4rails.build_markers(@opponent) do |opponent, marker|
+        marker.lat opponent.latitude
+        marker.lng opponent.longitude
+        marker.infowindow "#{opponent.name} #{opponent.address}"
+      end
+    end
   end
 
 
