@@ -1,11 +1,22 @@
 $(document).ready(function(){
   $('div.form-wrapper, #opponent-dropdown').hide();
+  // $('html').click(closeForm)
   $('#entry-type-choice').change(changeForm);
   $('#add-practice, #add-game').on('click', toggleScheduleForm);
   $('#submit-schedule').on('click', addPracticeToCalendar);
   $('#schedule-picker').datepicker({ dateFormat: 'yy-mm-dd' });
   $('#schedule-time-picker').timepicker({ 'scrollDefaultNow': true });
+  $('#add-practice, form.schedule-forms').click(function(event){
+      event.stopPropagation();
+  });
 });
+
+function closeForm() {
+  if ( $('#schedule-manager').hasClass('schedule-manager-buffer') ) {
+    $('div.form-wrapper').hide();
+    $('#schedule-manager').removeClass('schedule-manager-buffer')
+  }
+}
 
 function changeForm(evt) {
   var opt = $(this).find('option:selected')[0]

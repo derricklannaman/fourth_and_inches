@@ -1,8 +1,12 @@
 module ScheduleHelper
 
   def show_time(time)
-    time = time.to_time
-    time.utc.strftime('%l:%M')
+    if time.blank?
+      time = 'Regular Time'
+    else
+      time = time.to_time
+      time.utc.strftime('%l:%M')
+    end
   end
 
   def show_opponent(event)

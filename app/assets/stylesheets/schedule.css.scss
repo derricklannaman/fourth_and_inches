@@ -3,7 +3,14 @@
 
 div.form-wrapper {
   margin-top: 5px;
+  /*z-index: 1002;*/
+  position: relative;
 }
+
+/*div#schedule-manager {
+  margin-top: -300px;
+  position: relative;
+}*/
 
 .schedule-manager-buffer {
   margin-top: -262px;
@@ -17,6 +24,8 @@ div#schedule-controls {
 #add-practice, #add-game {
   margin-bottom: 20px;
   cursor: pointer;
+  position: relative;
+  z-index: 20000;
 }
 
 form.schedule-forms {
