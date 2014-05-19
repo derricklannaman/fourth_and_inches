@@ -33,19 +33,31 @@
   margin-top: -35px;
 }
 
+div.outer-rink {
+  width: 222px;
+  height: 222px;
+  display: block;
+  cursor: pointer;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+  border-radius: 120px;
+  padding: 22px;
+  box-shadow: inset 0px 0px 11px 0px $steel-light-30;
+  background-color: $steel-light-on-dark-60;
+}
+
 .manager-button {
   width: 180px;
   height: 175px;
-  border: 1px solid #999;
   display: block;
   cursor: pointer;
   padding-top: 175px;
   text-align: center;
   font-size: 20px;
-  margin-bottom: 50px;
-/*  @include translucent_border;
-*/  border-radius: 100px;
-
+  border-radius: 100px;
+  background-color: $steel-light-65;
+  @include form_shadow;
 }
 
 /*FIND: director view */

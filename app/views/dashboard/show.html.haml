@@ -8,14 +8,18 @@
     .row#middle_third
       %h2 Dashboard buttons
       .col-md-3.col-xs-6
-        = link_to 'team manager', team_manager_path, class: 'manager-button'
+        .outer-rink
+          = link_to 'team manager', team_manager_path, class: 'manager-button'
       .col-md-3.col-xs-6
-        = link_to 'schedule manager', schedule_manager_path, class: 'manager-button'
+        .outer-rink
+          = link_to 'schedule manager', schedule_manager_path, class: 'manager-button'
       .col-md-3.col-xs-6
-        = link_to 'office manager', office_manager_path, class: 'manager-button'
+        .outer-rink
+          = link_to 'office manager', office_manager_path, class: 'manager-button'
       .col-md-3.col-xs-6
-        = link_to 'coaches\' corner', coaches_corner_path, class: 'manager-button'
-        =# link_to(image_tag('playcall.png', size: '90', id: 'cc_icon') +  'coaches\' corner', coaches_corner_path, class: 'manager-button')
+        .outer-rink
+          = link_to 'coaches\' corner', coaches_corner_path, class: 'manager-button'
+
     .row
       %section#bottom_third
 

@@ -3,7 +3,7 @@
 #schedule-controls
   #add-practice.btn.btn-success add Event
   .form-wrapper
-    .form-pointer
+    .form-pointer-default
     = form_tag schedules_path, class: 'schedule-forms' do
       / TODO: refactor hidden field tags into method
       = hidden_field_tag(:team_id, current_user.teams.first.id)

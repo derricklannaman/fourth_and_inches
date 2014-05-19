@@ -1,30 +1,17 @@
 @import 'mixins';
 @import 'color_chart';
 
-.opponent-forms {
+.default-form-template {
   @include default_forms;
 }
 
 /* Form Interior */
 div.input-box-1 {
-  /*border: 1px solid #F00;*/
   float: left;
   margin-right: 20px;
 }
 
-.form-pointer-default {
-  content: ' ';
-  border: 25px solid;
-  width: 0px;
-  margin: 0 0 -16px 70px;
-  border-color: #FFF transparent transparent transparent;
-  -ms-transform:rotate(180deg); /* IE 9 */
-  -webkit-transform:rotate(180deg); /* Opera, Chrome, and Safari */
-  transform:rotate(180deg);
-  position: relative;
-  z-index: 2;
-  margin-top: -23px;
-}
+
 
 /* DISPLAY OPPONENT */
 
