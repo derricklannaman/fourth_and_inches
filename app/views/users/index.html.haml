@@ -19,8 +19,8 @@
             = label_tag :email
           .form-field
             = text_field_tag :email
-          .form-field
-            = submit_tag "Send coaching invite"
+          %div
+            = submit_tag "Send coaching invite", class: 'default-submit-button'
 
       #coaches-grid
         - @head_coaches.each do |coach|
@@ -41,7 +41,7 @@
           .form-field
             = text_field_tag :email
           .form-field
-            = submit_tag "Send Staff invite"
+            = submit_tag "Send Staff invite", class: 'default-submit-button'
 
       #staff-grid
         - @staff.each do |s|

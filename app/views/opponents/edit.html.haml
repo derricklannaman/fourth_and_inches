@@ -1,3 +1,7 @@
-%h1 Edit Opponent Team
+%div
+  = render 'layouts/nav_controls'
+
+%h1
+  = "Edit #{@opponent.name}'s Program Information"
 
 = render 'opponents/form'

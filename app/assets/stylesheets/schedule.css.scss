@@ -1,17 +1,6 @@
 @import 'mixins';
 @import 'color_chart';
 
-div.form-wrapper {
-  margin-top: 5px;
-  /*z-index: 1002;*/
-  position: relative;
-}
-
-/*div#schedule-manager {
-  margin-top: -300px;
-  position: relative;
-}*/
-
 .schedule-manager-buffer {
   margin-top: -262px;
 }
@@ -30,20 +19,6 @@ div#schedule-controls {
 
 form.schedule-forms {
   @include mini_forms;
-}
-
-.form-pointer {
-  content: ' ';
-  border: 20px solid;
-  width: 0px;
-  margin: 0 0 -1px 15px;
-  border-color: #FFF transparent transparent transparent;
-  -ms-transform:rotate(180deg); /* IE 9 */
-  -webkit-transform:rotate(180deg); /* Opera, Chrome, and Safari */
-  transform:rotate(180deg);
-  position: relative;
-  z-index: 2;
-  margin-top: -40px;
 }
 
 #submit-schedule {

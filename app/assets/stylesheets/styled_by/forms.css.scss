@@ -8,6 +8,11 @@
   @include default_forms;
 }
 
+div.form-wrapper {
+  margin-top: 5px;
+  position: relative;
+}
+
 .form-pointer-default {
   content: ' ';
   border: 25px solid;
@@ -29,12 +34,9 @@ div.signup-signin {
   margin-bottom: -21px;
 }
 
-/*form#new_user {
-  margin-top: 11px;
-  border-top: 5px solid $go-green;
-}*/
 
 /* Sign In / Up Links */
+
 a.sign_in_link {
   float: left;
   margin-top: 40px;
