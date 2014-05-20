@@ -1,23 +1,30 @@
 = render 'layouts/nav_controls'
 
-%div
-name:
-= @player.first_name
-= @player.last_name
+.player-card
+  .stars-top
+    - 5.times do
+      %span
+        %i.fa.fa-star
+  .inner-card
+    = image_tag('mateo-football.png',class: 'player-image' )
+  .card_info
 
-%div
-address:
-= @player.address
+    .player_name
+      .player-banner-stitches-top
+        = @player.first_name
+        = @player.last_name
+      .player-banner-stitches-bottom
 
-%div
+    .trading-card-team-banner
+      .ribbon
+        .ribbon-stitches-top
+        %strong.ribbon-content
+          %h1= full_team_name
+        .ribbon-stitches-bottom
+  .stars-bottom
+    - 5.times do
+      %span
+        %i.fa.fa-star
 
-town:
-= @player.town
-
-%div
-zip:
-= @player.zip
-
-%div
-Age:
-= @player.age
+.player-stats
+  .player-card

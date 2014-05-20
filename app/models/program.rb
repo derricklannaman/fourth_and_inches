@@ -18,3 +18,9 @@ class Program < ActiveRecord::Base
   has_many :divisions, dependent: :destroy
   has_many :opponents, dependent: :destroy
 end
+
+
+def self.team_name
+  self.name = self.town_name + ' ' + self.team_name
+  self.save
+end

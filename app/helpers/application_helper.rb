@@ -5,6 +5,11 @@ module ApplicationHelper
      #{current_user.program.team_name.capitalize} " + "Youth Football"
   end
 
+  def full_team_name
+    "#{current_user.program.town_name.capitalize}
+    #{current_user.program.team_name.capitalize} "
+  end
+
   def show_teams_division(team)
     div_id = team.division_id
     div_id.nil? ? "None on file" : Division.find(div_id).name

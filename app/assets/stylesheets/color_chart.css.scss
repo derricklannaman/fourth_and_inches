@@ -35,9 +35,13 @@ $steel-light-25:          lighten($steel, 25%);
 $steel-light-30:          lighten($steel, 30%);
 $steel-light-40:          lighten($steel, 40%);
 $steel-light-50:          lighten($steel, 50%);
+$steel-light-55:          lighten($steel, 55%);
 $steel-light-on-dark-60:  lighten($steel, 60%);
 $steel-light-65:          lighten($steel, 65%);
 
-
+/*Player Trading Card Banners*/
+$sea-green:          #5F9EA0;
+$sea-green-light:    lighten(#5F9EA0, 20%);
+$sea-green-dark:     darken(#5F9EA0, 20%);
 
 
