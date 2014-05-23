@@ -27,4 +27,23 @@
         %i.fa.fa-star
 
 .player-stats
-  .player-card
+  .player-stat-panel
+    .name
+      = @player.first_name
+      = @player.last_name
+    .street
+      = @player.address
+    .town
+      = @player.town
+      %span , NY
+    .zip
+      = @player.zip
+    .birth_day
+      Born:
+      = @player.dob
+    .age
+      Age:
+      = @player.age
+
+
+
