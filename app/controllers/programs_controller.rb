@@ -11,6 +11,7 @@ class ProgramsController < ApplicationController
   def create
     @program = Program.new(program_params)
     user = User.find(params[:user_id])
+    @program.name = @program.team_name
     if @program.save
       user.program_id = @program.id
       user.save

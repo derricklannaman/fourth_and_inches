@@ -17,7 +17,8 @@ class ApplicationController < ActionController::Base
   end
 
   def find_all_coaches
-    @head_coaches = User.get_head_coaches
+    id = current_user.program.id
+    @head_coaches = User.where("user_type = 'head_coach' AND program_id =" + id.to_s)
   end
 
 end
