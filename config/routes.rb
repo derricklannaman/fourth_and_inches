@@ -1,7 +1,5 @@
 FourthAndInches::Application.routes.draw do
 
-  get "opponents/new"
-  get "opponents/show"
   devise_for :users, controllers: { registrations: "registrations" }
 
   root 'home#index'
@@ -33,4 +31,7 @@ FourthAndInches::Application.routes.draw do
   resources :dashboard, only: :create
   resources :players
   resources :teams
+  resources :sponsors, only: [:index]
+  resources :inventory, only: [:index]
+  resources :merchandise, only: [:index]
 end
