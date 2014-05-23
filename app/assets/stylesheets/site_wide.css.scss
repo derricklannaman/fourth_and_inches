@@ -48,6 +48,11 @@ body > div > header {
   margin-top: -70px;
 }
 
+div.todays_date {
+  width: 100px;
+  float: right;
+}
+
 /*FORMS*/
 
 .default-submit-button {
@@ -192,57 +197,12 @@ div.show-box {
 /* FORMS */
 
 div.form-template {
-/*  width: 400px;
-  padding: 20px;
-  background-color: $steel-light-on-dark-60;
-  box-shadow: 0px 16px 20px #999;
-  border-top: 6px solid $steel-light-40;*/
-@include default_forms;
-/*  &:hover {
-    transition: border-top 1s ease;
-    border-top: 6px solid $go-green-15;
-  }*/
-/*  header {
-    background-color: #FFF;
-    width: inherit;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-    margin-left: -20px;
-    margin-top: -21px;
-    padding: 1px;
-    text-align: center;
-    text-transform: capitalize;
-    h1 {
-      color: $steel-light-on-dark-60;
-    }
-  }*/
+  @include default_forms;
 }
 
 div.form-contents {
-  /*width: 400px;*/
-  /*padding: 20px;*/
   font-size: 20px;
-/*  .form-field {
-    color: $steel-light-20;
-    input#team_title {
-      background-color: $go-green-30;
-    }
-  }*/
 }
 
-/*input.submit-form-field {
-  float: left;
-  width: 400px;
-  margin-left: -40px;
-  margin-top: 20px;
-  border: none;
-  background-color: $go-green;
-  height: 75px;
-  color: #FFF;
-  font-size: 1.65em;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  border-top: 1px solid rgba(255, 255, 255, .5);
-  box-shadow: 2px 7px 25px -2px #BBB;
-}*/
 
 

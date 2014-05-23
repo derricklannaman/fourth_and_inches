@@ -2,11 +2,11 @@
   .content-container
     .row
       %section#top_third
-
-        %h2= current_user.username
-
+        .todays_date
+          = display_todays_date
+        %h3
+          = "Coach #{current_user.first_name.capitalize}'s Dashboard"
     .row#middle_third
-      %h2 Dashboard buttons
       .col-md-3.col-xs-6
         .outer-rink
           = link_to 'team manager', team_manager_path, class: 'manager-button'

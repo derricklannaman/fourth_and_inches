@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def display_todays_date
+    Time.now.strftime('%B %d, %Y')
+  end
+
   def display_team_title
     "#{current_user.program.town_name.capitalize} \
      #{current_user.program.team_name.capitalize} " + "Youth Football"
