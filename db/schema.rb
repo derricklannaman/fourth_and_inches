@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140516163510) do
+ActiveRecord::Schema.define(version: 20140524215104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 20140516163510) do
     t.string   "league_name"
     t.string   "town_name"
     t.string   "team_name"
+    t.string   "logo_image"
   end
 
   create_table "roles", force: true do |t|
@@ -152,6 +153,11 @@ ActiveRecord::Schema.define(version: 20140516163510) do
     t.string   "username"
     t.string   "user_type"
     t.integer  "program_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.string   "image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
