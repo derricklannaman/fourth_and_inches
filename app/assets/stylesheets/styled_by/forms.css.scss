@@ -27,6 +27,26 @@ div.form-wrapper {
   margin-top: -23px;
 }
 
+div#error_explanation {
+  background-color: #F00;
+  color: #FFF;
+  text-align: center;
+  margin-top: -26px;
+  border-radius: 10px;
+  h2 {
+    color: #FFF;
+  }
+}
+
+
+.field_with_errors {
+  input {
+    border: 1px solid red;
+  }
+  label {
+    color: red;
+  }
+}
 
 /*Sign-Up*/
 

@@ -3,7 +3,10 @@ class RegistrationsController < Devise::RegistrationsController
   # skip_before_filter :require_no_authentication
 
   def create
-    if params[:user][:user_type].present?
+    if params[:user][:user_type].nil?
+      flash[:error] = "Please select Director to create a Football Program!"
+      redirect_to new_user_registration_path
+    elsif params[:user][:user_type].present?
       @user = User.new(user_params)
       user_type = params[:user][:user_type]
       @user.user_type = user_type
