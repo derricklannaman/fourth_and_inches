@@ -18,10 +18,11 @@
     %h1  New Staff Sign Up
     = render partial: 'registrations/form', locals: {f: f}
 
-
   - else                        #they are signing up as normal
 
     .signup-signin
       = render partial: 'registrations/form', locals: {f: f}
 
-  = render "devise/shared/links"
+
+= render "devise/shared/links"
+

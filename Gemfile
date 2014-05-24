@@ -12,12 +12,15 @@ gem 'html2haml'
 gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'pg'
 gem 'rails', '4.0.0'
 gem 'rolify'
 gem 'sass-rails', '~> 4.0.0'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+
 
 
 group :development do

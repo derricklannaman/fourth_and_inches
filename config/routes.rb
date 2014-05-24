@@ -1,6 +1,6 @@
 FourthAndInches::Application.routes.draw do
 
-  devise_for :users, controllers: { registrations: "registrations" }
+  devise_for :users, controllers: { registrations: "registrations", omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root 'home#index'
   get 'about'     => 'home#about',     as: 'about'
@@ -8,6 +8,10 @@ FourthAndInches::Application.routes.draw do
   get 'dashboard' => 'dashboard#show', as: 'dashboard'
   get 'faq'       => 'home#faq',       as: 'faq'
   get 'features'  => 'home#features',  as: 'features'
+
+  match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match 'auth/failure', to: redirect('/'), via: [:get, :post]
+  match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
   # Access Codes
   post 'send_access_code' => 'access_codes#send_access_code', as: 'send_access_code'
