@@ -88,9 +88,15 @@ div#notice {
 .line-separation {
   border-top: 1px solid #FFF;
   box-shadow: 0px -2px 8px #999;
-  position: relative;
-  height: 88px;
+  /*position: relative;*/
+  /*height: 88px;*/
   /*bottom: -80px;*/
+}
+
+.power-line-separator {
+  border-top: 1px solid #FFF;
+  padding-bottom: 25px;
+  margin-top: 25px;
 }
 
 #bottom-branding {

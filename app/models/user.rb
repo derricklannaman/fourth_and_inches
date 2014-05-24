@@ -23,7 +23,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessor :login
+  attr_accessor :email
 
   include Authority::UserAbilities
 
@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :authentication_keys => [:login]
+         :authentication_keys => [:email]
 
   after_create :add_user_role, :create_dashboard
 

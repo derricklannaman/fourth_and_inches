@@ -24,6 +24,8 @@ class RegistrationsController < Devise::RegistrationsController
         @user.user_type = "head_coach"
       end
       @user.program_id = id
+      @user.username = "#{params[:first_name]}" + '_' + "#{params[:last_name]}"
+      binding.pry
       if @user.save
         code.user_id = @user.id # Set access code to new user if saved
         code.save

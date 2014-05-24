@@ -42,7 +42,6 @@ div.outer-rink {
   font-size: 20px;
   margin-bottom: 20px;
   border-radius: 120px;
-
   border-bottom: 2px solid rgba(255, 255, 255, 0.8);
   padding: 22px;
   box-shadow: inset 0px -2px 11px 0px $steel-light-30;
@@ -65,6 +64,8 @@ section#top_third {
   border-radius: 100px;
   border-top: 2px solid rgba(255, 255, 255, 1);
   background-color: $steel-light-55;
+  line-height: 4em;
+  color: $steel-light-30;
   @include form_shadow;
 }
 
@@ -74,6 +75,12 @@ div.dash-btn-image {
     color: $sky-blue;
   }
 }
+
+div.link-text {
+  margin-top: 19px;
+  font-size: 20px;
+}
+
 
 /*FIND: director view */
 /* CREDIT: http://tympanus.net/codrops/2013/05/30/simple-icon-hover-effects/*/
