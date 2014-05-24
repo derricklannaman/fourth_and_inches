@@ -16,16 +16,18 @@
 
   %h1
     = "#{@event.entry_type} Day"
-  %h3
-    Date:
-    = "#{@event.date.strftime('%B %e')}"
-    |
-    %span
-      Time:
-      = "Please arrive by #{show_time(@event.time)}, sharp."
 
   %section.opponent
+
     .stat-bar
+      %h3
+        Date:
+        = "#{@event.date.strftime('%B %e')}"
+        |
+        %span
+          Time:
+          = "Please arrive by #{show_time(@event.time)}, sharp."
+
       %h3.stat-bar-title
     = render partial: 'opponents/opponent_information', locals: {opponent: @opponent }
 

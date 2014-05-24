@@ -46,5 +46,12 @@ div.map-container {
   @include form_shadow;
 }
 
+.opponent .stat-bar h3 {
+  color: #FFF;
+  padding-left: 20px;
+  margin-top: 8px;
+  font-size: 30px;
+}
+
 
 
