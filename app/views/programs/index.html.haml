@@ -2,17 +2,22 @@
 
 %section#program-contents
   %section.program-section
-    %h4 Program - CRUD
-    %h4 List program info here
-
-    %p
-      = display_team_title
-    %p Youth Football Program
-
-    %p Year founded:
-
+    %h3
+      Program:
+      %span= full_team_name
+    %br
+    %h4 Upload Team Logo
+    = form_for @program, :url => programs_path, :html => { :multipart => true } do |f|
+      = f.label :logo_image
+      = f.file_field :logo_image
+      %br
+      = f.submit "upload Logo"
 
   %section.program-section
+    = @programs.name
+    = image_tag @program.logo_image
+    = image_tag('https://s3.amazonaws.com/fourthandinchesmedia/programs/logo_images/000/000/071/thumb/uniondale_knight.png')
+
     %h3 Divisions:
     %h4 List all divisions here
 

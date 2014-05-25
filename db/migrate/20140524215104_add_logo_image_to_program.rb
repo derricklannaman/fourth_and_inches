@@ -1,5 +1,11 @@
 class AddLogoImageToProgram < ActiveRecord::Migration
-  def change
-    add_column :programs, :logo_image, :string
+
+  def self.up
+    add_attachment :programs, :logo_image
   end
+
+  def self.down
+    remove_attachment :programs, :logo_image
+  end
+
 end

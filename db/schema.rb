@@ -90,7 +90,10 @@ ActiveRecord::Schema.define(version: 20140524215104) do
     t.string   "league_name"
     t.string   "town_name"
     t.string   "team_name"
-    t.string   "logo_image"
+    t.string   "logo_image_file_name"
+    t.string   "logo_image_content_type"
+    t.integer  "logo_image_file_size"
+    t.datetime "logo_image_updated_at"
   end
 
   create_table "roles", force: true do |t|

@@ -2,6 +2,7 @@ class ProgramsController < ApplicationController
 
   def index
     @programs = current_user.program
+    @program = Program.new
   end
 
   def new
@@ -10,12 +11,17 @@ class ProgramsController < ApplicationController
 
   def create
     @program = Program.new(program_params)
-    user = User.find(params[:user_id])
+    user = User.find(params[:user_id]) unless params[:user_id].nil?
     @program.name = @program.team_name
     if @program.save
-      user.program_id = @program.id
-      user.save
-      redirect_to(controller: 'divisions', action: 'new')
+      if !user.blank?
+         user.program_id = @program.id
+         user.save
+         redirect_to(controller: 'divisions', action: 'new')
+      else
+        redirect_to(:back)
+      end
+
     else
       flash.notice = @program.errors.full_message.join(' ')
       render :new
@@ -31,7 +37,8 @@ class ProgramsController < ApplicationController
   private
 
     def program_params
-      params.require(:program).permit(:town_name, :team_name, :league_name)
+      params.require(:program).permit(:town_name, :team_name, :league_name,
+                                      :logo_image)
     end
 
 end

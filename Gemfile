@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'ajaxify_rails'
 gem 'authority'
+gem 'aws-sdk'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'font-awesome-sass'
@@ -12,12 +13,15 @@ gem 'html2haml'
 gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'paperclip'
 gem 'pg'
 gem 'rails', '4.0.0'
 gem 'rolify'
 gem 'sass-rails', '~> 4.0.0'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+
+
 
 
 group :development do
