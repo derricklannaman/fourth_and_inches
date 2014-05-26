@@ -9,7 +9,6 @@ class TeamsController < ApplicationController
   def index
     @opponents = current_user.program.opponents
     @teams = current_user.program.teams
-    # @program = current_user.program
     @divisions = get_divisions
     @coach =  @teams.where(user_type: 'head_coach')
   end
