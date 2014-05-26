@@ -7,21 +7,16 @@
       %span= full_team_name
     %br
 
-    = link_to "Edit Team Info", '#', class: 'btn btn-warning'
-    = link_to "Add Team Logo", logo_path(@programs.id), class: 'btn btn-warning'
-
-
+    = link_to "Edit Team Info", edit_program_path(@program.id), class: 'btn btn-warning'
+    = link_to "Add Team Logo", logo_path(@program.id), class: 'btn btn-warning'
 
   %section.program-section
-    = display_team_logo(:thumb)
-
     %h3 Divisions:
     %h4 List all divisions here
 
 
   %section.program-section
     %h3 Board members:
-    = display_team_logo(:thumb)
   %section.program-section
     %h3 Founders:
     %h4 CRUD List founders here

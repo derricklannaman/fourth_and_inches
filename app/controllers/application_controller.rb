@@ -4,7 +4,18 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
+
+  before_filter :get_current_program
+
   protected
+
+  def get_current_program
+    if current_user.nil?
+      return
+    else
+      @program = current_user.program
+    end
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit({ roles: [] }, :username, :email, :password, :password_confirmation, :remember_me, :is_director, :is_head_coach) }

@@ -17,6 +17,16 @@ section.program-section {
   padding: 20px;
 }
 
+div.logo-border {
+  padding: 10px 80px;
+  background-color: $go-green-30;
+  h2 {
+    font-size: 30px;
+    width: 300px;
+    margin-left: -58px;
+  }
+}
+
 /*JIT form inputs*/
 
 .form-header {

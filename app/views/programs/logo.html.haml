@@ -1,8 +1,24 @@
+%div
+  = render 'layouts/nav_controls'
+
 %h1 Update logo
 
-
-= form_for( @program, :multipart => true ) do |f|
-  = f.label :logo_image, 'Select Team Logo'
-  = f.file_field :logo_image
-  %br
-  = f.submit "upload Logo"
+.form-pointer-default
+= form_for( @program, html: {:class => 'default-form-template', :multipart => true} ) do |f|
+  %div
+    %h3 Current logo
+    .logo-border
+      - if @program.logo_image_updated_at.nil?
+        %h2 Please upload a logo
+      - else
+        = display_team_logo(:square)
+  %div
+    = f.label :logo_image, 'Select Team Logo'
+    %br/
+  %div
+    = f.file_field :logo_image
+    %br/
+  %div
+    %br/
+    = f.submit "upload Logo"
+  %br/

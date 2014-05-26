@@ -8,6 +8,7 @@ class DashboardController < ApplicationController
 
   def show
     @user = current_user
+    # @program = current_user.program
   end
 
   private

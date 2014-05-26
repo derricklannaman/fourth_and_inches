@@ -5,7 +5,9 @@ module ApplicationHelper
   end
 
   def display_team_logo(size)
-    image_tag @programs.logo_image.url(size)
+    unless current_user.program.logo_image_content_type.nil?
+      image_tag @program.logo_image.url(size)
+    end
   end
 
   def display_team_title

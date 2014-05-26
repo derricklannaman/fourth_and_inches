@@ -23,7 +23,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessor :email
+  # attr_accessor :email
 
   include Authority::UserAbilities
 

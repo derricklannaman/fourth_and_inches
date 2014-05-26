@@ -41,6 +41,8 @@
             %div
               Coach:
               = show_team_coach(team)
+          .display-logo
+            = display_team_logo(:square)
           .team_pod_controls
             = link_to 'show', team_path(team)
             |

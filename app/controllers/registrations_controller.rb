@@ -6,7 +6,9 @@ class RegistrationsController < Devise::RegistrationsController
     if params[:user][:user_type].present?
       @user = User.new(user_params)
       user_type = params[:user][:user_type]
+      user_name = params[:user][:first_name] + '_' + params[:user][:last_name]
       @user.user_type = user_type
+      @user.username = user_name
         if @user.save
           sign_in_and_redirect resource
         else
@@ -24,8 +26,7 @@ class RegistrationsController < Devise::RegistrationsController
         @user.user_type = "head_coach"
       end
       @user.program_id = id
-      @user.username = "#{params[:first_name]}" + '_' + "#{params[:last_name]}"
-      binding.pry
+      @user.username = user_name
       if @user.save
         code.user_id = @user.id # Set access code to new user if saved
         code.save
@@ -50,8 +51,8 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
     def user_params
-      params.require(:user).permit( :first_name, :last_name, :password, :password_confirmation, :user_type, :username,
-        :email)
+      params.require(:user).permit( :first_name, :last_name, :password,
+                          :password_confirmation, :user_type, :username, :email)
     end
 
 

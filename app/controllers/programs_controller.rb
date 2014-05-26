@@ -1,31 +1,46 @@
 class ProgramsController < ApplicationController
 
   def index
-    @programs = current_user.program
+    # @program = current_user.program
   end
 
   def new
     @program = Program.new
   end
 
+
   def create
     @program = Program.new(program_params)
-    user = User.find(params[:user_id]) unless params[:user_id].nil?
+    user = User.find(params[:user_id])
     @program.name = @program.team_name
     if @program.save
-      if !user.blank?
-         user.program_id = @program.id
-         user.save
-         redirect_to(controller: 'divisions', action: 'new')
-      else
-        redirect_to(:back)
-      end
-
+      user.program_id = @program.id
+      user.save
+      redirect_to(controller: 'divisions', action: 'new')
     else
       flash.notice = @program.errors.full_message.join(' ')
       render :new
     end
   end
+
+  # def create
+  #   @program = Program.new(program_params)
+  #   # user = User.find(params[:user_id]) unless params[:user_id].nil?
+  #   @program.name = @program.team_name
+  #   if @program.save
+  #     if !user.blank?
+  #        user.program_id = @program.id
+  #        user.save
+  #        redirect_to(controller: 'divisions', action: 'new')
+  #     else
+  #       redirect_to(:back)
+  #     end
+
+  #   else
+  #     flash.notice = @program.errors.full_message.join(' ')
+  #     render :new
+  #   end
+  # end
 
   def edit
     @program = Program.find(params[:id])

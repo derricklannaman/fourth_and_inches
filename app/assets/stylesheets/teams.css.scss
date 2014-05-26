@@ -147,7 +147,7 @@ div.team_pod {
   width: 210px;
   height: 255px;
   background-color: #FFF;
-  background: url('uniondale knight.png') no-repeat center center;
+  /*background: url('uniondale knight.png') no-repeat center center;*/
   background-size: 125px;
   margin: 8px;
   padding: 15px;
@@ -173,11 +173,20 @@ div.inner_team_pod {
   width: 177px;
   margin-left: -13px;
   padding: 0 10px;
+  position: relative;
+  z-index: 1;
 }
 
 .team_pod_controls {
   margin-top: 100px;
   padding: 0px 12px;
+}
+
+div.display-logo {
+  margin-top: -73px;
+  margin-left: -10px;
+  width: 170px;
+  overflow: hidden;
 }
 
 #add-team-button {
