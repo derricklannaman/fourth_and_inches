@@ -2,7 +2,6 @@ class ProgramsController < ApplicationController
 
   def index
     @programs = current_user.program
-    @program = Program.new
   end
 
   def new
@@ -28,9 +27,27 @@ class ProgramsController < ApplicationController
     end
   end
 
+  def edit
+    @program = Program.find(params[:id])
+  end
+
   def show
     @program = Program.find(params[:id])
     redirect_to(controller: "dashboard", action: "show" )
+  end
+
+  def update
+    @program = Program.find(params[:id])
+    @program.update(program_params)
+    if @program.save
+      redirect_to programs_path
+    else
+      render :logo
+    end
+  end
+
+  def logo
+    @program = Program.find(params[:id])
   end
 
 

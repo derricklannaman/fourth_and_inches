@@ -1,0 +1,8 @@
+%h1 Update logo
+
+
+= form_for( @program, :multipart => true ) do |f|
+  = f.label :logo_image, 'Select Team Logo'
+  = f.file_field :logo_image
+  %br
+  = f.submit "upload Logo"

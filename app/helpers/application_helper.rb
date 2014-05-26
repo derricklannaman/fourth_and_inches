@@ -4,6 +4,10 @@ module ApplicationHelper
     Time.now.strftime('%B %d, %Y')
   end
 
+  def display_team_logo(size)
+    image_tag @programs.logo_image.url(size)
+  end
+
   def display_team_title
     "#{current_user.program.town_name.capitalize} \
      #{current_user.program.team_name.capitalize} " + "Youth Football"

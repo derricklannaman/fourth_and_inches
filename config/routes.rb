@@ -21,9 +21,11 @@ FourthAndInches::Application.routes.draw do
   get 'team_manager' => 'teams#team_manager',       as: 'team_manager'
   post 'opponents/:id/list_destroy' => 'opponents#list_destroy',  as: 'list_destroy'
 
+  get 'programs/:id/logo' => 'programs#logo', as: 'logo'
+
   resources :users
   resources :coaches, only: [:new, :create]
-  resources :programs, only: [:new, :create, :show, :index]
+  resources :programs
   resources :divisions
   resources :opponents
   resources :events, only: [:index]

@@ -20,6 +20,7 @@ class Program < ActiveRecord::Base
 
   # This method associates the attribute ":avatar" with a file attachment
   has_attached_file :logo_image, styles: {
+    mini: '50x50>',
     thumb: '100x100>',
     square: '200x200#',
     medium: '300x300>'
