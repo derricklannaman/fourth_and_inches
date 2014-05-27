@@ -4,6 +4,14 @@ module ApplicationHelper
     Time.now.strftime('%B %d, %Y')
   end
 
+  def display_born_on(player)
+    if player.date_of_birth.nil?
+      "Add Date of birth"
+    else
+      player.date_of_birth.strftime('%B %d, %Y')
+    end
+  end
+
   def display_team_logo(size)
     unless current_user.program.logo_image_content_type.nil?
       image_tag @program.logo_image.url(size)

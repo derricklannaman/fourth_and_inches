@@ -14,12 +14,12 @@ class PlayersController < ApplicationController
   end
 
   def create
-    binding.pry
     @player = Player.new(player_params)
     team = Team.find(params[:team_id])
     @player.team_id = team.id
     cover = check_for_team_cover(team)
     if @player.save
+      calculate_age(@player)
       team.num_of_players.nil? ? team.num_of_players = 1 : team.num_of_players += 1
       team.save
      team.players.unshift(cover)
@@ -35,6 +35,7 @@ class PlayersController < ApplicationController
 
   def update
     @player.update(player_params)
+    calculate_age(@player)
     if @player.save
       flash[:notice] = 'player successfully updated'
       redirect_to @player
@@ -83,9 +84,16 @@ class PlayersController < ApplicationController
       end
     end
 
+    def calculate_age(player)
+      bday = player.date_of_birth.to_date
+      player.age = (Date.today - bday).to_i / 365
+      player.save
+    end
+
     def player_params
       params.require(:player)
-              .permit(:first_name, :last_name, :address, :town, :zip, :age, :avatar)
+              .permit(:first_name, :last_name, :address, :town, :zip, :age,
+                      :avatar, :date_of_birth)
     end
 
 

@@ -47,7 +47,8 @@
 
     .birth_day
       Born:
-      = @player.dob
+      = display_born_on(@player)
+      =# @player.date_of_birth.strftime('%B %d, %Y')
     .age
       Age:
       = @player.age
