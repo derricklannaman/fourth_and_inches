@@ -50,7 +50,8 @@
     .age
       Age:
       = @player.age
-
+      %br/
+      = link_to "edit player info", edit_player_path(@player), class: 'btn btn-warning'
 
 
     .photo-section
