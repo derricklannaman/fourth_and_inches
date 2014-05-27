@@ -10,6 +10,14 @@ module ApplicationHelper
     end
   end
 
+  def display_player_image
+    if @player.avatar_updated_at.nil?
+      image_tag('helmet.png', size: '250x250', class: 'player-image')
+    else
+      image_tag @player.avatar.url(:medium), class: 'player-image'
+    end
+  end
+
   def display_team_title
     "#{current_user.program.town_name.capitalize} \
      #{current_user.program.team_name.capitalize} " + "Youth Football"

@@ -6,8 +6,9 @@
       %span
         %i.fa.fa-star
   .inner-card
-
-    = image_tag @player.avatar.url(:medium), class: 'player-image'
+    - if @player.avatar_updated_at.nil?
+      Please upload a photo
+    = display_player_image
   .card_info
 
     .player_name
@@ -29,6 +30,10 @@
 
 .player-stats
   .player-stat-panel
+    .player_name
+      .player-banner-stitches-top
+        Player Stats
+      .player-banner-stitches-bottom
     .name
       = @player.first_name
       = @player.last_name
@@ -51,14 +56,17 @@
     .photo-section
       = form_for @player, :url => player_path(@player.id), :html => { :multipart => true } do |f|
 
-        %div
-          = f.label :avatar, 'Select Player Image'
+        .player-avatar-label
+          .player_name
+            .player-banner-stitches-top
+              = f.label :avatar, 'Select Player Image'
+            .player-banner-stitches-bottom
           %br/
         %div
           = f.file_field :avatar
         %div
           %br/
-          = f.submit "upload Logo"
+          = f.submit "Add Player Image"
         %br/
 
 

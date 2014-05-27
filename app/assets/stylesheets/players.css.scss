@@ -35,14 +35,24 @@ div.info-section {
 }
 
 div.photo-section {
-  width: 300px;
+  width: 315px;
   float: left;
-  border: 1px solid #999;
-  margin-left: -15px;
-  margin-top: 125px;
+  margin-left: -23px;
+  margin-top: 30px;
   font-size: 20px;
+  padding: 20px;
+  text-align: left;
 }
 
+div.player-avatar-label {
+  margin-left: -21px;
+  width: 320px;
+}
+
+.player-banner-stitches-top > label {
+  padding-left: 21px;
+  font-weight: normal;
+}
 
 /*Player Show*/
 
@@ -63,7 +73,13 @@ div.player-card, div.player-stat-panel {
 div.player-stat-panel {
   float: left;
   width: 350px;
-  margin-left: 150px;
+  margin-left: 60px;
+}
+
+div.player-stat-panel > .player_name {
+  margin-top: -25px;
+  margin-left: -25px;
+  width: 320px;
 }
 
 div.inner-card {
@@ -94,14 +110,8 @@ img.player-image {
   padding: 15px 10px;
 }
 
-/*div.player_team {
-  background-color: #8B0000;
-  font-size: 1em;
-  text-transform: uppercase;
-}*/
-
 div.card_info {
-  margin-top: -10px;
+  margin-top: -33px;
   position: relative;
 }
 
@@ -116,7 +126,6 @@ div.stars-bottom {
   .fa-star {
   }
 }
-
 
 /*Player Trading Card Banner*/
 
