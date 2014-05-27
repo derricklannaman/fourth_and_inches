@@ -70,7 +70,9 @@ class TeamsController < ApplicationController
 
   def team_manager
     unless current_user.teams.empty?
-      @players = current_user.teams.active.players
+      players = current_user.teams.active.players
+      first, *rest = players
+      @players = rest << first
     end
     @team = Team.new
     @active_team = current_user.teams[0]

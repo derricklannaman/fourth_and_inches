@@ -16,4 +16,8 @@
             %a{href: player_path(player.id)}
               %span.tp-info
                 %span= "#{player.first_name} #{player.last_name}"
-              = image_tag('helmet.png', size: '170')
+              - if player.avatar_updated_at.nil?
+                = image_tag('helmet.png', size: '200')
+              - else
+                = image_tag player.avatar.url(:medium), class: 'player-profile-picture'
+
