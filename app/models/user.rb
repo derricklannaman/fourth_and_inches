@@ -20,6 +20,11 @@
 #  username               :string(255)
 #  user_type              :string(255)
 #  program_id             :integer
+#  provider               :string(255)
+#  uid                    :string(255)
+#  oauth_token            :string(255)
+#  oauth_expires_at       :datetime
+#  image                  :string(255)
 #
 
 class User < ActiveRecord::Base
