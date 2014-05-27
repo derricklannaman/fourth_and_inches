@@ -23,8 +23,6 @@
 #
 
 class User < ActiveRecord::Base
-  # attr_accessor :email
-
   include Authority::UserAbilities
 
   rolify

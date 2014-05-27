@@ -6,7 +6,8 @@
       %span
         %i.fa.fa-star
   .inner-card
-    = image_tag('mateo-football.png',class: 'player-image' )
+
+    = image_tag @player.avatar.url(:medium), class: 'player-image'
   .card_info
 
     .player_name
@@ -45,5 +46,19 @@
       Age:
       = @player.age
 
+
+
+    .photo-section
+      = form_for @player, :url => player_path(@player.id), :html => { :multipart => true } do |f|
+
+        %div
+          = f.label :avatar, 'Select Player Image'
+          %br/
+        %div
+          = f.file_field :avatar
+        %div
+          %br/
+          = f.submit "upload Logo"
+        %br/
 
 

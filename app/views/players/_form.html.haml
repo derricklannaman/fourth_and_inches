@@ -1,39 +1,46 @@
 .form-pointer-default
 = form_for(@player, html: {class: 'default-form-template'}) do |f|
   = hidden_field_tag(:team_id, @active_team.id)
-  %div
-    = f.label :first_name
-    %br/
-    = f.text_field :first_name, autofocus: true
+  .inner-player-form
+    .info-section
+      %div
+        = f.label :first_name
+        %br/
+        = f.text_field :first_name, autofocus: true
 
-  %div
-    = f.label :last_name
-    %br/
-    = f.text_field :last_name
+      %div
+        = f.label :last_name
+        %br/
+        = f.text_field :last_name
 
-  %div
-    = f.label :address
-    %br/
-    = f.text_field :address
+      %div
+        = f.label :address
+        %br/
+        = f.text_field :address
 
-  %div
-    = f.label :town
-    %br/
-    = f.text_field :town
+      %div
+        = f.label :town
+        %br/
+        = f.text_field :town
 
-  %div
-    = f.label :zip
-    %br/
-    = f.text_field :zip
+      %div
+        = f.label :zip
+        %br/
+        = f.text_field :zip
 
-  / %div
-  /   = f.label :dob, 'born on'
-  / %br/
-  /   = f.date_field :dob
+      / %div
+      /   = f.label :dob, 'born on'
+      / %br/
+      /   = f.date_field :dob
 
-  %div
-    = f.label :age
-    %br/
-    = f.text_field :age
-  %div
-    = f.submit class: 'default-submit-button'
+      %div
+        = f.label :age
+        %br/
+        = f.text_field :age
+
+
+    %div
+      = f.submit class: 'default-submit-button'
+
+
+

@@ -84,7 +84,7 @@ class PlayersController < ApplicationController
 
     def player_params
       params.require(:player)
-              .permit(:first_name, :last_name, :address, :town, :zip, :age)
+              .permit(:first_name, :last_name, :address, :town, :zip, :age, :avatar)
     end
 
 

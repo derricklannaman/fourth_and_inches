@@ -27,6 +27,23 @@
   cursor: pointer;
 }
 
+/* Player Form */
+
+div.info-section {
+  float: left;
+  width: 180px;
+}
+
+div.photo-section {
+  width: 300px;
+  float: left;
+  border: 1px solid #999;
+  margin-left: -15px;
+  margin-top: 125px;
+  font-size: 20px;
+}
+
+
 /*Player Show*/
 
 div.player-card, div.player-stat-panel {
@@ -84,7 +101,7 @@ img.player-image {
 }*/
 
 div.card_info {
-  margin-top: -35px;
+  margin-top: -10px;
   position: relative;
 }
 

@@ -10,7 +10,7 @@
           %li{"data-pile" => "#{@active_team.title.upcase} Football Team" }
             %span.tp-info
               %span= "#{@active_team.title.upcase} Football Team"
-            = image_tag('uniondale knight.png', size: '300')
+            = display_team_logo(:square)
         - else
           %li{"data-pile" => "#{@active_team.title.upcase} Football Team" }
             %a{href: player_path(player.id)}

@@ -9,11 +9,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def get_current_program
-    if current_user.nil?
-      return
-    else
-      @program = current_user.program
-    end
+    current_user.nil? ? return : @program = current_user.program
   end
 
   def configure_permitted_parameters
