@@ -27,7 +27,6 @@
 
 div.info-section {
   float: left;
-  width: 180px;
 }
 
 div.photo-section {
@@ -42,6 +41,7 @@ div.photo-section {
 
 div.player-avatar-label {
   margin-left: -21px;
+  margin-top: -45px;
   width: 320px;
 }
 
@@ -70,12 +70,20 @@ div.player-stat-panel {
   float: left;
   width: 350px;
   margin-left: 60px;
+  font-size: 24px;
 }
 
 div.player-stat-panel > .player_name {
   margin-top: -25px;
   margin-left: -25px;
   width: 320px;
+}
+
+div.player-stat-panel {
+  .birth_day, .age {
+    text-align: left;
+    margin-bottom: 10px;
+  }
 }
 
 div.inner-card {

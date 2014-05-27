@@ -28,15 +28,15 @@
         %br/
         = f.text_field :zip
 
-      / %div
-      /   = f.label :dob, 'born on'
-      / %br/
-      /   = f.date_field :dob
-
       %div
-        = f.label :age
+        = f.label :dob, 'Date of Birth'
         %br/
-        = f.text_field :age
+        = f.date_select(:dob, start_year: Date.today.year - 13, end_year: Date.today.year, :order => [:month, :day, :year])
+
+      / %div
+      /   = f.label :age
+      /   %br/
+      /   = f.text_field :age
 
 
     %div
