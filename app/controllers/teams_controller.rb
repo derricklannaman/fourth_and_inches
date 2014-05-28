@@ -69,10 +69,11 @@ class TeamsController < ApplicationController
   end
 
   def team_manager
-    unless current_user.teams.empty?
-      players = current_user.teams.active.players
-      first, *rest = players
-      @players = rest << first
+    if current_user.teams.present?
+      @players = current_user.teams.active.players
+      # first, *rest = players
+      # @players = rest << first
+      # binding.pry
     end
     @team = Team.new
     @active_team = current_user.teams[0]

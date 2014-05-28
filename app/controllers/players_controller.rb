@@ -49,7 +49,8 @@ class PlayersController < ApplicationController
   end
 
   def show
-    @players = current_user.teams.active.players
+    # @players = current_user.teams.active.players
+    find_player
   end
 
   def destroy
