@@ -35,6 +35,24 @@ nav a:focus {
   margin-top: -25px;
 }
 
+#logo-place-holder {
+  width: 115px;
+  background: url('paper4.png');
+  padding: 10px;
+  margin-top: -30px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  transform: translateY(0) scale(0.95, 0.95);
+}
+
+#logo-place-holder.active {
+  box-shadow: 0 11px 18px rgba(0,0,0,0.2);
+  transform: translateY(-20px) scale(1, 1);
+}
+
 .mini-manager-buttons {
   text-decoration: none !important;
   color: darken( $go-green, 10% );

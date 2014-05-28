@@ -2,6 +2,9 @@ $(document).ready(function(){
   $('.not-yet-implemented').on('click', notYetImplemented);
   $('div#add-division').on('click', runStepsForm);
   $('div.spinner').hide();
+  $('#logo-place-holder').hover(function(){
+    $('#logo-place-holder').toggleClass('active')
+  })
   if (document.location.pathname == '/programs/new' ||
       document.location.pathname == '/divisions/new' ) {
       runStepsForm();
