@@ -1,7 +1,7 @@
 class PlayersController < ApplicationController
 
   before_action :find_player, only: [:edit, :update, :show, :destroy]
-  after_action :capitalize_name, only: [:create, :update]
+  after_action :capitalize_name, only: [:create]
   respond_to :html, :js
 
   def index

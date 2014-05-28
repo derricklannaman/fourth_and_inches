@@ -12,6 +12,8 @@ module ApplicationHelper
     end
   end
 
+  # /////// DISPLAY IMAGES
+
   def display_team_logo(size)
     unless current_user.program.logo_image_content_type.nil?
       image_tag @program.logo_image.url(size)
@@ -25,6 +27,16 @@ module ApplicationHelper
       image_tag @player.avatar.url(:medium), class: 'player-image'
     end
   end
+
+  def display_mini_player_image(player)
+    if player.avatar_updated_at.nil?
+      image_tag('helmet.png', class: 'mini-player-image')
+    else
+      image_tag(player.avatar.url(:thumb), class: 'mini-player-image')
+    end
+  end
+
+  # //////////
 
   def display_team_title
     "#{current_user.program.town_name.capitalize} \
@@ -94,8 +106,6 @@ module ApplicationHelper
       end
     end
   end
-
-
 
   def dashboard_nav
     render 'layouts/dashboard_nav_panel'

@@ -5,6 +5,7 @@
 %table.all-players
   #table-header All Players List
   %tr
+    %th Photo
     %th First Name
     %th Last Name
     %th Address
@@ -13,9 +14,11 @@
   - @all_players.each do |player|
     %tr
       %td
+        = display_mini_player_image(player)
+      %td
         = player.first_name
       %td
-        = player.last_name
+        = link_to player.last_name, player_path(player)
       %td
         = "#{player.address}, #{player.town}, #{player.zip}"
       %td
