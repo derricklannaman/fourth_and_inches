@@ -1,7 +1,9 @@
 %section#currentTeam
   - if @active_team.present?
     .conceal-players
-      %span#close.back ← close
+      %span#close.back
+        %span.arrow ←
+        close
     %br/
     %ul#tp-grid.tp-grid
       .teamBanner

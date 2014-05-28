@@ -79,9 +79,11 @@ li > a#tm-player-button {
 
 .no-touch .back:hover {
   background-color: $go-green;
-  color: #FFF;
+  color: $go-green-plus5;
+  span.arrow {
+      color: #FFF;
+  }
 }
-
 
 /* TEAMS INDEX Director Perspective */
 
