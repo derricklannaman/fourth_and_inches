@@ -1,12 +1,13 @@
 class PlayersController < ApplicationController
 
   before_action :find_player, only: [:edit, :update, :show, :destroy]
+  before_action :capitalize_name, only: [:create, :update]
   respond_to :html, :js
 
   def index
     @players = current_user.teams.active.players \
                           unless current_user.user_type == 'director'
-    all_players = Player.all
+    all_players = Player.order('last_name ASC')
     @all_players = all_players.delete_if { |p| p.first_name == 'cover' }
     find_active_team
   end
@@ -78,6 +79,10 @@ class PlayersController < ApplicationController
 
     def find_active_team
       @active_team = current_user.teams.first
+    end
+
+    def capitalize_name
+      self.last_name = self.last_name.capitalize
     end
 
     def check_for_team_cover(team)

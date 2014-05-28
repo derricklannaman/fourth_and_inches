@@ -5,6 +5,7 @@
     %th Last Name
     %th Address
     %th Age
+    %th Team
   - @all_players.each do |player|
     %tr
       %td
@@ -15,4 +16,8 @@
         = "#{player.address}, #{player.town}, #{player.zip}"
       %td
         = "#{player.age}"
+      %td
+        = team_player_belongs_to(player)
+
+
 

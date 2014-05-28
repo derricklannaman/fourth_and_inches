@@ -36,6 +36,12 @@ module ApplicationHelper
     #{current_user.program.team_name.capitalize} "
   end
 
+  def team_player_belongs_to(player)
+    if Team.exists?(player.team_id)
+      Team.find(player.team_id).title
+    end
+  end
+
   def show_teams_division(team)
     div_id = team.division_id
     div_id.nil? ? "None on file" : Division.find(div_id).name
