@@ -33,11 +33,6 @@
         %br/
         = f.date_select(:date_of_birth, start_year: Date.today.year - 13, end_year: Date.today.year, :order => [:month, :day, :year])
 
-      / %div
-      /   = f.label :age
-      /   %br/
-      /   = f.text_field :age
-
 
     %div
       = f.submit class: 'default-submit-button'

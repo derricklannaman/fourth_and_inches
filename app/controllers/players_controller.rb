@@ -4,7 +4,10 @@ class PlayersController < ApplicationController
   respond_to :html, :js
 
   def index
-    @players = current_user.teams.active.players
+    @players = current_user.teams.active.players \
+                          unless current_user.user_type == 'director'
+    all_players = Player.all
+    @all_players = all_players.delete_if { |p| p.first_name == 'cover' }
     find_active_team
   end
 

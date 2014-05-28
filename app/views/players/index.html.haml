@@ -1,21 +1,18 @@
-/ = render 'layouts/nav_controls'
+%table.all-players
+  #table-header All Players List
+  %tr
+    %th First Name
+    %th Last Name
+    %th Address
+    %th Age
+  - @all_players.each do |player|
+    %tr
+      %td
+        = player.first_name
+      %td
+        = player.last_name
+      %td
+        = "#{player.address}, #{player.town}, #{player.zip}"
+      %td
+        = "#{player.age}"
 
-/ %h1= "#{@active_team.title} Players"
-
-/ %ul#players-profile
-/   - @players.each do |player|
-/     .player-profile
-/       %li
-/         = "#{player.first_name} #{player.last_name}"
-/       %li
-/         = "#{player.address}"
-/       %li
-/         = "#{player.town}, #{player.zip}"
-/       %li
-/         = "age: #{player.age}"
-/       %li
-/         = link_to "edit", edit_player_path(player)
-/         |
-/         = link_to "show", player_path(player)
-/         |
-/         %a{ class: 'player-delete' } delete
