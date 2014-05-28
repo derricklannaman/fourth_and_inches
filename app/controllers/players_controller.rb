@@ -1,7 +1,7 @@
 class PlayersController < ApplicationController
 
   before_action :find_player, only: [:edit, :update, :show, :destroy]
-  before_action :capitalize_name, only: [:create, :update]
+  after_action :capitalize_name, only: [:create, :update]
   respond_to :html, :js
 
   def index
@@ -82,7 +82,8 @@ class PlayersController < ApplicationController
     end
 
     def capitalize_name
-      self.last_name = self.last_name.capitalize
+      @player.last_name = params[:player][:last_name].capitalize
+      @player.save
     end
 
     def check_for_team_cover(team)

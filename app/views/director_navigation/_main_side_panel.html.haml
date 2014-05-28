@@ -16,6 +16,8 @@
         %a{ id: 'player-button'} Players
       %li.player-action-sublist
         = link_to 'add new player', new_player_path, id: 'new-player-side-link'
+      %li.player-action-sublist
+        = link_to 'view all players', players_path, id: 'new-player-side-link'
       %li
         = link_to "staff", users_path
       %li
