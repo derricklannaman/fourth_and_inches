@@ -41,7 +41,6 @@ end
 
 def create_default_website
    Website.create(program_url: "#{'/' + self.town_name + '/' + self.team_name}", program_id: self.id)
-   binding.pry
 end
 
 
