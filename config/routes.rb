@@ -1,5 +1,6 @@
 FourthAndInches::Application.routes.draw do
 
+  get "websites/show"
   devise_for :users, controllers: { registrations: "registrations" }
 
   root 'home#index'
@@ -23,9 +24,12 @@ FourthAndInches::Application.routes.draw do
 
   get 'programs/:id/logo' => 'programs#logo', as: 'logo'
 
+  # get "websites" => 'websites#index', as: 'website'
+
   resources :users
   resources :coaches, only: [:new, :create]
   resources :programs
+  resources :websites
   resources :divisions
   resources :opponents
   resources :events, only: [:index]
