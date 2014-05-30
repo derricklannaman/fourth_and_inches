@@ -1,6 +1,28 @@
-%h1
-  = "This will be the #{@name} Website"
+.page-header
+  %h1.massive-banner
+    = "#{@town} #{@name}"
 
-%br
-= "#{root_url}#{@website.program_url}"
+#carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
+  / Indicators
+  %ol.carousel-indicators
+    %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+    %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+    %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+  / Wrapper for slides
+  .carousel-inner
+    .item.active
+      = image_tag('Football-helmuts.jpg', class: 'website-carousel-image')
+      .carousel-caption
+        Picture number 1
+    .item
+      = image_tag('paper4.png')
+      .carousel-caption
+        Picture number 2
+
+
+  / Controls
+  %a.left.carousel-control{"data-slide" => "prev", href: "#carousel-example-generic"}
+    %span.glyphicon.glyphicon-chevron-left
+  %a.right.carousel-control{"data-slide" => "next", href: "#carousel-example-generic"}
+    %span.glyphicon.glyphicon-chevron-right
 

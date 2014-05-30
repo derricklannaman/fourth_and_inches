@@ -25,4 +25,23 @@
   margin-left: -80px;
 }
 
+.carousel {
+  position: relative;
+  height: 400px;
+  background-color: #999;
+  .carousel-inner {
+    height: inherit;
+  }
+}
+
+.carousel-inner > .item > .website-carousel-image,
+.carousel-inner > .item > a > .website-carousel-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  line-height: 1;
+}
+
+
+
 
