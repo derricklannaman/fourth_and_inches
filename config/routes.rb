@@ -24,12 +24,15 @@ FourthAndInches::Application.routes.draw do
 
   get 'programs/:id/logo' => 'programs#logo', as: 'logo'
 
-  # get "websites" => 'websites#index', as: 'website'
+  get "websites/:id" => 'websites#show', as: 'website'
+
+  resources :websites, only: [:create]
+
 
   resources :users
   resources :coaches, only: [:new, :create]
   resources :programs
-  resources :websites
+
   resources :divisions
   resources :opponents
   resources :events, only: [:index]

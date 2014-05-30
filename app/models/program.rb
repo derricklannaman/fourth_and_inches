@@ -16,13 +16,15 @@
 #
 
 class Program < ActiveRecord::Base
+
+  include Rails.application.routes.url_helpers
+
   has_many :users, dependent: :destroy
   has_many :access_codes, dependent: :destroy
   has_many :teams, dependent: :destroy
   has_many :divisions, dependent: :destroy
   has_many :opponents, dependent: :destroy
   has_many :websites
-
 
   after_create :create_default_website
 
@@ -39,8 +41,14 @@ class Program < ActiveRecord::Base
 
 end
 
+def show_app_url
+  host = Rails.application.config.action_mailer.default_url_options[:host]
+  programs_url(@program)
+  # binding.pry
+end
+
 def create_default_website
-   Website.create(program_url: "#{'/' + self.town_name + '/' + self.team_name}", program_id: self.id)
+   Website.create(program_url: "#{self.town_name + '/' + self.team_name}", program_id: self.id)
 end
 
 
