@@ -1,50 +1,57 @@
 = render 'layouts/nav_controls'
-%h2 Schedule Manager
-#schedule-controls
-  #add-practice.btn.btn-success add Event
-  .form-wrapper
-    .form-pointer-default
-    = form_tag schedules_path, class: 'schedule-forms' do
-      / TODO: refactor hidden field tags into method
-      = hidden_field_tag(:team_id, current_user.teams.first.id)
 
-      %div
-        = label_tag :entry_type, 'Type'
-      #entry-type-choice
-        = select_tag(:entry_type, options_for_select([ ['PRACTICE', 1, {class: 'entry-options'}], ['GAME', 2, {class: 'entry-options'}] , ['OTHER', 3, {class: 'entry-options'}] ]))
-      #opponent-dropdown
+- if current_user.teams.blank?
+  %h1= "There is no team schedule until a"
+  %h1= "team is assigned to you."
+- else
+  %h2 Schedule Manager
+  #schedule-controls
+    #add-practice.btn.btn-success add Event
+    .form-wrapper
+      .form-pointer-default
+      = form_tag schedules_path, class: 'schedule-forms' do
+        / TODO: refactor hidden field tags into method
+        = hidden_field_tag(:team_id, current_user.teams.first.id)
+
         %div
-          = label_tag :opponent_id
+          = label_tag :entry_type, 'Type'
+        #entry-type-choice
+          = select_tag(:entry_type, options_for_select([ ['PRACTICE', 1, {class: 'entry-options'}], ['GAME', 2, {class: 'entry-options'}] , ['OTHER', 3, {class: 'entry-options'}] ]))
+        #opponent-dropdown
+          %div
+            = label_tag :opponent_id
+          %div
+            = select_tag(:opponent_id, options_for_select(@opponents.collect{ |opponent| [opponent.name.capitalize, opponent.id, {class: 'division-options'} ]} ))
+
         %div
-          = select_tag(:opponent_id, options_for_select(@opponents.collect{ |opponent| [opponent.name.capitalize, opponent.id, {class: 'division-options'} ]} ))
+          = label_tag :date
+        %div
+          = text_field_tag :date, nil, id: 'schedule-picker'
 
-      %div
-        = label_tag :date
-      %div
-        = text_field_tag :date, nil, id: 'schedule-picker'
+        %div
+          = label_tag :time
+        %div
+          = text_field_tag :time, nil, id: 'schedule-time-picker'
 
-      %div
-        = label_tag :time
-      %div
-        = text_field_tag :time, nil, id: 'schedule-time-picker'
+        #submit-schedule Add to Calendar
 
-      #submit-schedule Add to Calendar
 
-#schedule-manager
+  = render "schedules/calendar_view"
+  #schedule-manager
 
-  %h2#month
-    = link_to "<", date: @date.prev_month
-    = @date.strftime("%B %Y")
-    = link_to ">", date: @date.next_month
-  = calendar @date do |date|
-    = date.day
-    - if @appointments_by_date[date]
-      - @appointments_by_date[date].each do |appointment|
-        .cal_events
-          = link_to appointment.entry_type, appointment
-          %span at
-          %span= show_time(appointment.time)
-          %span= show_opponent(appointment)
+    %h2#month
+      = link_to "<", date: @date.prev_month
+      = @date.strftime("%B %Y")
+      = link_to ">", date: @date.next_month
+    = calendar @date do |date|
+      = date.day
+      - if @appointments_by_date[date]
+        - @appointments_by_date[date].each do |appointment|
+          .cal_events
+            = link_to appointment.entry_type, appointment
+            %span at
+            %span= show_time(appointment.time)
+            %span= show_opponent(appointment)
 
 
 

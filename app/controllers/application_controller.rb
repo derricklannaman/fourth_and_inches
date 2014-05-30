@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
     current_user.nil? ? return : @program = current_user.program
   end
 
+  def get_website
+    current_user.nil? ? return : current_user.program.websites.first
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit({ roles: [] }, :username, :email, :password, :password_confirmation, :remember_me, :is_director, :is_head_coach) }
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }

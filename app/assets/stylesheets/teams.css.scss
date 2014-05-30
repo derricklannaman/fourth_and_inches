@@ -190,6 +190,10 @@ div.display-logo {
   overflow: hidden;
 }
 
+div.display-logo.without-image {
+  margin-top: 60px;
+}
+
 #add-team-button {
   cursor: pointer;
 }

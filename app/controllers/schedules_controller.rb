@@ -2,10 +2,13 @@ class SchedulesController < ApplicationController
 
   def schedule_manager
     @opponents = current_user.program.opponents
-    @appointments = current_user.teams.active.schedules
-    @appointments_by_date = @appointments.group_by(&:date)
-    @date = params[:date] ? Date.parse(params[:date]) : Date.today
-    @team_id = current_user.teams
+    unless current_user.teams.blank?
+      @appointments = current_user.teams.active.schedules
+      @appointments_by_date = @appointments.group_by(&:date)
+      @date = params[:date] ? Date.parse(params[:date]) : Date.today
+      @team_id = current_user.teams
+    end
+
   end
 
   def new

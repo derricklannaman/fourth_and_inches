@@ -8,6 +8,5 @@ class Website < ActiveRecord::Base
     ]
   end
 
-
   belongs_to :program
 end

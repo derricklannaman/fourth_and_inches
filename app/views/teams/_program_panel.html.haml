@@ -41,8 +41,11 @@
             %div
               Coach:
               = show_team_coach(team)
-          .display-logo
-            = display_team_logo(:square)
+          - if current_user.program.logo_image_content_type.nil?
+            .display-logo.without-image
+          - else
+            .display-logo
+              = display_team_logo(:square)
           .team_pod_controls
             = link_to 'show', team_path(team)
             |

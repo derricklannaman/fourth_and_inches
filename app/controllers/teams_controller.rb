@@ -11,7 +11,7 @@ class TeamsController < ApplicationController
     @teams = current_user.program.teams
     @divisions = get_divisions
     @coach =  @teams.where(user_type: 'head_coach')
-    @website = current_user.program.websites.first
+    @website = get_website
   end
 
   def new

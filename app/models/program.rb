@@ -24,7 +24,7 @@ class Program < ActiveRecord::Base
   has_many :teams, dependent: :destroy
   has_many :divisions, dependent: :destroy
   has_many :opponents, dependent: :destroy
-  has_many :websites
+  has_many :websites, dependent: :destroy
 
   after_create :create_default_website
 
