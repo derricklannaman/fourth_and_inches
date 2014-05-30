@@ -16,7 +16,7 @@ module ApplicationHelper
 
   def display_team_logo(size)
     if current_user.program.logo_image_content_type.nil?
-      link_to '<div id="logo-place-holder" >add logo</div>'.html_safe, logo_path(@program.id)
+      link_to '<div id="logo-place-holder" >add logo</div>'.html_safe, logo_path(current_user.program.id)
     else
       image_tag @program.logo_image.url(size)
     end

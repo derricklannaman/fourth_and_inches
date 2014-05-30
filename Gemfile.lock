@@ -83,6 +83,8 @@ GEM
     execjs (2.0.2)
     font-awesome-sass (4.0.3.1)
       sass (~> 3.2)
+    friendly_id (5.0.4)
+      activerecord (>= 4.0.0)
     geocoder (1.1.5)
     gmaps4rails (2.1.2)
     haml (4.0.5)
@@ -238,6 +240,7 @@ DEPENDENCIES
   capybara
   devise
   font-awesome-sass
+  friendly_id (~> 5.0.0)
   geocoder
   gmaps4rails
   haml

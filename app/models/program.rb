@@ -41,14 +41,14 @@ class Program < ActiveRecord::Base
 
 end
 
-def show_app_url
-  host = Rails.application.config.action_mailer.default_url_options[:host]
-  programs_url(@program)
-  # binding.pry
-end
+# def show_app_url
+#   host = Rails.application.config.action_mailer.default_url_options[:host]
+#   programs_url(@program)
+# end
 
 def create_default_website
-   Website.create(program_url: "#{self.town_name + '/' + self.team_name}", program_id: self.id)
+  Website.create(program_id: self.id, town: self.town_name, \
+    team: self.team_name, program_url: "#{self.town_name + '/' + self.team_name}")
 end
 
 
