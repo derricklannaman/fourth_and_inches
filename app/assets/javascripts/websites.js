@@ -4,4 +4,6 @@ $(document).ready(function(){
     interval: false
   });
 
+  // $('#myModal').modal()
+
 });
