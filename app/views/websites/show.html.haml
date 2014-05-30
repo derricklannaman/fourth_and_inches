@@ -1,6 +1,28 @@
+/ Button trigger modal
+%button.btn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal"}
+  Register Now
+
+
+.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h4.modal-title Modal title
+      .modal-body
+        %p One fine body…
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+        %button.btn.btn-primary{type: "button"} Save changes
+    / /.modal-content
+  / /.modal-dialog
+/ /.modal
+
 .page-header
   %h1.massive-banner
     = "#{@town} #{@name}"
+.user-action-panel
+
 
 #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
   / Indicators
