@@ -15,12 +15,13 @@
               %i.fa.fa-clipboard.fa-5x
             .link-text team manager
 
-      .col-md-3.col-xs-6
-        .outer-rink
-          = link_to schedule_manager_path, class: "manager-button" do
-            .dash-btn-image
-              %i.fa.fa-calendar.fa-5x
-            .link-text schedule manager
+      - unless current_user.teams.blank?
+        .col-md-3.col-xs-6
+          .outer-rink
+            = link_to schedule_manager_path, class: "manager-button" do
+              .dash-btn-image
+                %i.fa.fa-calendar.fa-5x
+              .link-text schedule manager
 
       .col-md-3.col-xs-6
         .outer-rink

@@ -42,7 +42,7 @@ module ApplicationHelper
 
   def display_team_title
     "#{current_user.program.town_name.capitalize} \
-     #{current_user.program.team_name.capitalize} " + "Youth Football"
+     #{current_user.program.team_name.capitalize} " + "Football"
   end
 
   def full_team_name
