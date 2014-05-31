@@ -8,12 +8,16 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def get_appointments
+    @appointments = current_user.teams.active.schedules unless current_user.nil?
+  end
+
   def get_current_program
     current_user.nil? ? return : @program = current_user.program
   end
 
   def get_website
-    current_user.nil? ? return : current_user.program.websites.first
+    current_user.nil? ? return : @website = current_user.program.websites.first
   end
 
   def configure_permitted_parameters
