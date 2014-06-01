@@ -18,7 +18,6 @@ class PlayersController < ApplicationController
   end
 
   def create
-    binding.pry
     @player = Player.new(player_params)
     team = Team.find(params[:team_id])
     @player.team_id = team.id

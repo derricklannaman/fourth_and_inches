@@ -5,6 +5,7 @@ class WebsitesController < ApplicationController
     @town = @website.town.capitalize
     @name = @website.team.capitalize
     @player = Player.new
+    @user = User.new
 # WIP: fix current_user if not signed in
     # unless !current_user.blank?
     #   @appointments = current_user.teams.active.schedules

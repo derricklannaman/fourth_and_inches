@@ -1,3 +1,25 @@
-// Place all the styles related to the websites controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'color_chart';
+@import 'mixins';
+
+
+div.sign_up_buffer {
+  margin-top: 365px;
+}
+
+/*form#general_sign_up_form {
+  position: relative;
+  z-index: 100;
+}*/
+
+a.general_user_sign_up_btn {
+  cursor: pointer;
+}
+
+#carousel_view {
+  position: relative;
+  z-index: 2;
+}
+
+/*.add_sign-up-buffer {
+  margin-top: -365px;
+}*/

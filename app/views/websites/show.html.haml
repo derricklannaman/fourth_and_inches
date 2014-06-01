@@ -1,92 +1,111 @@
+=# signed_in_user_web_access
 / Button trigger modal
-%button.btn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal"}
-  Registration Form
-/ Modal
-#myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
-  .modal-dialog
-    .modal-content
-      .modal-header
-        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-        %h4#myModalLabel.modal-title Player Registration
-      .modal-body
-        = form_for(@player) do |f|
-          .inner-player-form
-            .info-section-participant
-              %div
-                = f.label :first_name
-                %br/
-                = f.text_field :first_name, autofocus: true
+/ %button.btn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal"}
+/   Registration Form
+/ / Modal
+/ #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+/   .modal-dialog
+/     .modal-content
+/       .modal-header
+/         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+/         %h4#myModalLabel.modal-title Player Registration
+/       .modal-body
+/         = form_for(@player) do |f|
+/           .inner-player-form
+/             .info-section-participant
+/               %div
+/                 = f.label :first_name
+/                 %br/
+/                 = f.text_field :first_name, autofocus: true
 
-              %div
-                = f.label :last_name
-                %br/
-                = f.text_field :last_name
+/               %div
+/                 = f.label :last_name
+/                 %br/
+/                 = f.text_field :last_name
 
-              %div
-                = f.label :address
-                %br/
-                = f.text_field :address
+/               %div
+/                 = f.label :address
+/                 %br/
+/                 = f.text_field :address
 
-              %div
-                = f.label :town
-                %br/
-                = f.text_field :town
+/               %div
+/                 = f.label :town
+/                 %br/
+/                 = f.text_field :town
 
-              %div
-                = f.label :zip
-                %br/
-                = f.text_field :zip
+/               %div
+/                 = f.label :zip
+/                 %br/
+/                 = f.text_field :zip
 
-              %div
-                = f.label :date_of_birth, 'Date of Birth'
-                %br/
-                = f.date_select(:date_of_birth, start_year: Date.today.year - 13, end_year: Date.today.year, :order => [:month, :day, :year])
-            .info-section-parents
-              %div
-                = f.label :first_name
-                %br/
-                = f.text_field :first_name
+/               %div
+/                 = f.label :date_of_birth, 'Date of Birth'
+/                 %br/
+/                 = f.date_select(:date_of_birth, start_year: Date.today.year - 13, end_year: Date.today.year, :order => [:month, :day, :year])
+/             .info-section-parents
+/               %div
+/                 = f.label :first_name
+/                 %br/
+/                 = f.text_field :first_name
 
-              %div
-                = f.label :last_name
-                %br/
-                = f.text_field :last_name
+/               %div
+/                 = f.label :last_name
+/                 %br/
+/                 = f.text_field :last_name
 
 
-              .clear
-              %div
-                = f.submit
-      .modal-footer
-        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+/               .clear
+/                 %div
+/                   = f.submit
+/       .modal-footer
+/         %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
 
 .page-header
   %h1.massive-banner
-    = "#{@town} #{@name}"
+    = "#{@town} #{@name} #{Date.today.year}"
+.power-line-separator
 .user-action-panel
 
+- if user_signed_in?
+  =# render "schedules/calendar_view"
+- else
 
-#carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
-  / Indicators
-  %ol.carousel-indicators
-    %li.active{"data-slide-to" => "0", "data-wrap" => "false", "data-target" => "#carousel-example-generic"}
-    %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
-    %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
-  / Wrapper for slides
-  .carousel-inner
-    .item.active
-      = image_tag('Football-helmuts.jpg', class: 'website-carousel-image')
-      .carousel-caption
-        Picture number 1
-    .item
-      = image_tag('paper4.png')
-      .carousel-caption
-        Picture number 2
+  %a.general_user_sign_up_btn
+    Sign Up
+    = form_for(@user, url: new_user_path, html: { id: 'general_sign_up_form'}) do |f|
+
+      %div
+        = f.label :first_name
+        %br/
+        = f.text_field :first_name, :autofocus => true
+
+      %div
+        = f.label :last_name
+        %br/
+        = f.text_field :last_name
+
+      %div
+        = f.label :email
+        %br/
+        = f.text_field :email
+
+      %div
+        = f.label :password
+        %br/
+        = f.password_field :password
+      %div
+        = f.label :password_confirmation
+        %br/
+        = f.password_field :password_confirmation
+
+      %div
+        = f.submit "Sign up", class: 'default-submit-button'
 
 
-  / Controls
-  %a.left.carousel-control{"data-slide" => "prev", href: "#carousel-example-generic"}
-    %span.glyphicon.glyphicon-chevron-left
-  %a.right.carousel-control{"data-slide" => "next", href: "#carousel-example-generic"}
-    %span.glyphicon.glyphicon-chevron-right
 
-=# render "schedules/calendar_view"
+
+
+  #carousel_view
+    = render 'carousel'
+
+
