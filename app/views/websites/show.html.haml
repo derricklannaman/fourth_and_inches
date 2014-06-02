@@ -1,65 +1,3 @@
-=# signed_in_user_web_access
-/ Button trigger modal
-/ %button.btn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal"}
-/   Registration Form
-/ / Modal
-/ #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
-/   .modal-dialog
-/     .modal-content
-/       .modal-header
-/         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-/         %h4#myModalLabel.modal-title Player Registration
-/       .modal-body
-/         = form_for(@player) do |f|
-/           .inner-player-form
-/             .info-section-participant
-/               %div
-/                 = f.label :first_name
-/                 %br/
-/                 = f.text_field :first_name, autofocus: true
-
-/               %div
-/                 = f.label :last_name
-/                 %br/
-/                 = f.text_field :last_name
-
-/               %div
-/                 = f.label :address
-/                 %br/
-/                 = f.text_field :address
-
-/               %div
-/                 = f.label :town
-/                 %br/
-/                 = f.text_field :town
-
-/               %div
-/                 = f.label :zip
-/                 %br/
-/                 = f.text_field :zip
-
-/               %div
-/                 = f.label :date_of_birth, 'Date of Birth'
-/                 %br/
-/                 = f.date_select(:date_of_birth, start_year: Date.today.year - 13, end_year: Date.today.year, :order => [:month, :day, :year])
-/             .info-section-parents
-/               %div
-/                 = f.label :first_name
-/                 %br/
-/                 = f.text_field :first_name
-
-/               %div
-/                 = f.label :last_name
-/                 %br/
-/                 = f.text_field :last_name
-
-
-/               .clear
-/                 %div
-/                   = f.submit
-/       .modal-footer
-/         %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-
 .page-header
   %h1.massive-banner
     = "#{@town} #{@name} #{Date.today.year}"
@@ -67,12 +5,88 @@
 .user-action-panel
 
 - if user_signed_in?
+  %h3
+    User signed in?:
+    = user_signed_in?
+    = @user.email
+
+  Button trigger modal
+  %button.btn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal"}
+    Registration Form
+  / Modal
+  #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+          %h4#myModalLabel.modal-title Player Registration
+        .modal-body
+          = form_for(@player) do |f|
+            .inner-player-form
+              .info-section-participant
+                %div
+                  = f.label :first_name
+                  %br/
+                  = f.text_field :first_name, autofocus: true
+
+                %div
+                  = f.label :last_name
+                  %br/
+                  = f.text_field :last_name
+
+                %div
+                  = f.label :address
+                  %br/
+                  = f.text_field :address
+
+                %div
+                  = f.label :town
+                  %br/
+                  = f.text_field :town
+
+                %div
+                  = f.label :zip
+                  %br/
+                  = f.text_field :zip
+
+                %div
+                  = f.label :date_of_birth, 'Date of Birth'
+                  %br/
+                  = f.date_select(:date_of_birth, start_year: Date.today.year - 13, end_year: Date.today.year, :order => [:month, :day, :year])
+              .info-section-parents
+                %div
+                  = f.label :first_name
+                  %br/
+                  = f.text_field :first_name
+
+                %div
+                  = f.label :last_name
+                  %br/
+                  = f.text_field :last_name
+
+
+                .clear
+                  %div
+                    = f.submit
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+
+
+
+
+
   =# render "schedules/calendar_view"
 - else
+  %h3
+    User signed in?:
+    = user_signed_in?
 
   %a.general_user_sign_up_btn
     Sign Up
-    = form_for(@user, url: new_user_path, html: { id: 'general_sign_up_form'}) do |f|
+    = form_for(@user, url: user_registration_path, html: { id: 'general_sign_up_form'}) do |f|
+      = hidden_field_tag(:form_type, "web_sign_up")
+      = hidden_field_tag(:site_id, @website.id)
+      = hidden_field_tag(:program_id, @website.program_id)
 
       %div
         = f.label :first_name

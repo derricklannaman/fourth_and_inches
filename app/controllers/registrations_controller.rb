@@ -3,15 +3,17 @@ class RegistrationsController < Devise::RegistrationsController
   # skip_before_filter :require_no_authentication
 
   def create
-    # user = User.find(params[:user_id]) unless params[:user_id].nil?
-    # if params[:user][:user_type].blank?
-    #   @user = User.new(user_params)
-    #   if @user.save
-    #     redirect_to website_path
-    #   else
-    #     render :new
-    #   end
-    # end
+    if params.fetch(:form_type) == 'web_sign_up' && params[:user][:user_type].blank?
+      site_id = params.fetch(:site_id)
+      @user = User.new(user_params)
+      @user.user_type = 'parent_user'
+      @user.program_id = params[:program_id]
+      if @user.save
+        sign_in_and_redirect @user
+      else
+        render :new
+      end
+    end
     if params[:user][:user_type].present?
       @user = User.new(user_params)
       user_type = params[:user][:user_type]

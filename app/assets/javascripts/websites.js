@@ -7,6 +7,7 @@ $(document).ready(function(){
 
   /////////// for avgrund modal
   $('a.general_user_sign_up_btn').avgrund({
+      onLoad: function (elem) { $('#general_sign_up_form').show();},
       onBlurContainer: '.app-container',
       template: $('form#general_sign_up_form'),
       width: 456,
@@ -14,14 +15,8 @@ $(document).ready(function(){
   });
 
 
-  // $('a.general_user_sign_up_btn').on('click', show_sign_up_form);
-  // $('a.general_user_sign_up_btn').avgrund();
 });
 
 
-function show_sign_up_form() {
-  // $('#carousel-example-generic').toggleClass('add_sign-up-buffer')
-  // $('#general_sign_up_form').slideToggle();
-}
 
 
