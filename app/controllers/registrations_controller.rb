@@ -9,8 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
       @user.user_type = 'parent_user'
       @user.program_id = params[:program_id]
       if @user.save
-        web_id = @user.program.websites.first.id
-        sign_in_and_redirect website_path(web_id)
+        sign_in_and_redirect @user
       else
         render :new
       end

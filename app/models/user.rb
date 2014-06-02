@@ -59,6 +59,7 @@ class User < ActiveRecord::Base
   end
 
   def create_dashboard
+    # if self.has_role('parent_user')
     Dashboard.create(user_id: self.id)
   end
 
