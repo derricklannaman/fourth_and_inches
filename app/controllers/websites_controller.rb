@@ -4,8 +4,9 @@ class WebsitesController < ApplicationController
     @website = Website.friendly.find(params[:id])
     @town = @website.town.capitalize
     @name = @website.team.capitalize
+
     @player = Player.new
-    @user = current_user
+    @user = current_user || User.new
 # WIP: fix current_user if not signed in
     # unless !current_user.blank?
     #   @appointments = current_user.teams.active.schedules

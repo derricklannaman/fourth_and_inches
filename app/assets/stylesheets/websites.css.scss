@@ -20,6 +20,12 @@ a.general_user_sign_up_btn {
   z-index: 2;
 }
 
-/*.add_sign-up-buffer {
-  margin-top: -365px;
-}*/
+div.avgrund-popin {
+  height: 400px !important;
+}
+
+.avgrund-active .avgrund-popin {
+  border-top: 10px solid $go-green;
+
+}
+
