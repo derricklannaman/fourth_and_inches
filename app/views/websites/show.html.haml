@@ -8,54 +8,23 @@
   %h3
     User signed in?:
     = user_signed_in?
-    / = @user.email
 
   %h2 Register Player
   %button.btn.btn-primary.btn-lg#registr_btn{"data-target" => "#myModal", "data-toggle" => "modal"}
     Registration Form
 
-  = form_for(@player, html: {class: 'general_sign_up_form'}) do |f|
-    = hidden_field_tag(:program_id, @website.program_id)
+    = render @player
 
-    .inner-player-form
-      %div
-        = f.label :first_name
-        %br/
-        = f.text_field :first_name, autofocus: true
-
-      %div
-        = f.label :last_name
-        %br/
-        = f.text_field :last_name
-
-      %div
-        = f.label :address
-        %br/
-        = f.text_field :address
-
-      %div
-        = f.label :town
-        %br/
-        = f.text_field :town
-
-      %div
-        = f.label :zip
-        %br/
-        = f.text_field :zip
-
-      %div
-        = f.label :date_of_birth, 'Date of Birth'
-        %br/
-        = f.date_select(:date_of_birth, start_year: Date.today.year - 13, end_year: Date.today.year, :order => [:month, :day, :year])
-
-      .clear
-        %div
-          = f.submit class: 'default-submit-button'
-
-
-
-
+  .power-line-separator
   =# render "schedules/calendar_view"
+
+  .show-teams-list
+    - @teams.each do |team|
+      %div
+        = link_to team.title, team_path(team)
+        |
+        = team.division.name
+
 - else
   %h3
     User signed in?:
@@ -63,41 +32,8 @@
 
   %a.general_user_sign_up_btn
     Sign Up
-    = form_for(@user, url: user_registration_path, html: { class: 'general_sign_up_form'}) do |f|
-      = hidden_field_tag(:form_type, "web_sign_up")
-      = hidden_field_tag(:site_id, @website.id)
-      = hidden_field_tag(:program_id, @website.program_id)
 
-      %div
-        = f.label :first_name
-        %br/
-        = f.text_field :first_name, :autofocus => true
-
-      %div
-        = f.label :last_name
-        %br/
-        = f.text_field :last_name
-
-      %div
-        = f.label :email
-        %br/
-        = f.text_field :email
-
-      %div
-        = f.label :password
-        %br/
-        = f.password_field :password
-      %div
-        = f.label :password_confirmation
-        %br/
-        = f.password_field :password_confirmation
-
-      %div
-        = f.submit "Sign up", class: 'default-submit-button'
-
-
-
-
+    = render @user
 
   #carousel_view
     = render 'carousel'

@@ -62,11 +62,11 @@ module ApplicationHelper
   end
 
   def nav_view_by_login_status
-    if user_signed_in?
+    if user_signed_in? && current_user.user_type != 'parent_user'
       render 'layouts/interior_nav_bar'
     elsif !user_signed_in? && (controller_name == 'websites' && action_name == 'show')
       render 'layouts/user_navigation'
-    elsif user_signed_in? && (controller_name == 'websites' && action_name == 'show')
+    elsif user_signed_in? && current_user.user_type == 'parent_user'
       render 'layouts/user_navigation'
     else
       render 'layouts/exterior_nav_bar'

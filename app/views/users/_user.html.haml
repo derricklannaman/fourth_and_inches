@@ -1,0 +1,32 @@
+= form_for(@user, url: user_registration_path, html: { class: 'general_sign_up_form'}) do |f|
+  = hidden_field_tag(:form_type, "web_sign_up")
+  = hidden_field_tag(:site_id, @website.id)
+  = hidden_field_tag(:program_id, @website.program_id)
+
+  %div
+    = f.label :first_name
+    %br/
+    = f.text_field :first_name, :autofocus => true
+
+  %div
+    = f.label :last_name
+    %br/
+    = f.text_field :last_name
+
+  %div
+    = f.label :email
+    %br/
+    = f.text_field :email
+
+  %div
+    = f.label :password
+    %br/
+    = f.password_field :password
+  %div
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation
+
+  %div
+    = f.submit "Sign up", class: 'default-submit-button'
+

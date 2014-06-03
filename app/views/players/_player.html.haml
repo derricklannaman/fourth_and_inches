@@ -1,0 +1,42 @@
+/ User created player form form signed in parent user
+= form_for(@player, html: {class: 'general_sign_up_form'}) do |f|
+  = hidden_field_tag(:program_id, @website.program_id)
+
+  .inner-player-form
+    %div
+      / = f.radio_button :user_type, "director"
+      / = f.label :user_director, "Director"
+
+    %div
+      = f.label :first_name
+      %br/
+      = f.text_field :first_name, autofocus: true
+
+    %div
+      = f.label :last_name
+      %br/
+      = f.text_field :last_name
+
+    %div
+      = f.label :address
+      %br/
+      = f.text_field :address
+
+    %div
+      = f.label :town
+      %br/
+      = f.text_field :town
+
+    %div
+      = f.label :zip
+      %br/
+      = f.text_field :zip
+
+    %div
+      = f.label :date_of_birth, 'Date of Birth'
+      %br/
+      = f.date_select(:date_of_birth, start_year: Date.today.year - 13, end_year: Date.today.year, :order => [:month, :day, :year])
+
+    .clear
+      %div
+        = f.submit class: 'default-submit-button'
