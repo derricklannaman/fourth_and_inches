@@ -8,6 +8,9 @@
   %h3
     User signed in?:
     = user_signed_in?
+  / .ui-widget
+  /   %label{for: "tags"} Tags:
+  /   %input#tags/
 
   %h2 Register Player
   %button.btn.btn-primary.btn-lg#registr_btn{"data-target" => "#myModal", "data-toggle" => "modal"}

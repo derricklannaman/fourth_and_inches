@@ -19,15 +19,25 @@ class PlayersController < ApplicationController
 
   def create
     @player = Player.new(player_params)
-    team = Team.find(params[:team_id])
-    @player.team_id = team.id
-    cover = check_for_team_cover(team)
-    if @player.save
-      calculate_age(@player)
+    unless params[:team_id].blank?
+      team = Team.find_by_id(params[:team_id])
+      @player.team_id = team.id
+      cover = check_for_team_cover(team)
       team.num_of_players.nil? ? team.num_of_players = 1 : team.num_of_players += 1
       team.save
-     team.players.unshift(cover)
-     redirect_to team_manager_path, :notice => "player successfully added"
+      team.players.unshift(cover)
+    end
+    if @player.save
+      calculate_age(@player)
+     #  team.num_of_players.nil? ? team.num_of_players = 1 : team.num_of_players += 1
+     #  team.save
+     # team.players.unshift(cover)
+     if request.referrer.match(/website/)
+      redirect_to :back
+      # head :ok, :content_type => 'text/html'
+     else
+      redirect_to team_manager_path, :notice => "player successfully added"
+     end
     else
       render :new
     end

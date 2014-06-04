@@ -10,6 +10,10 @@ div.inner-player-form {
   padding-top: 15px !important;
 }
 
+div#search-players {
+  height: 225px;
+}
+
 div.show-teams-list {
   border: 1px solid #999;
   padding: 20px;
@@ -19,6 +23,12 @@ div.show-teams-list {
   position: relative;
   z-index: 100;
 }*/
+
+ul#ui-id-1 {
+  z-index: 4000;
+  width: 400px;
+  margin-top: -200px;
+}
 
 a.general_user_sign_up_btn {
   cursor: pointer;

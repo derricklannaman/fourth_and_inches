@@ -24,6 +24,7 @@ FourthAndInches::Application.routes.draw do
   get 'programs/:id/logo' => 'programs#logo', as: 'logo'
 
   get "websites/:id" => 'websites#show', as: 'website'
+  get 'all_players' => 'websites#all_players'
 
   resources :users
   resources :coaches,     only: [:new, :create]

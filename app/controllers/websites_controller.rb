@@ -6,6 +6,7 @@ class WebsitesController < ApplicationController
     @name = @website.team.capitalize
     @teams = current_user.program.teams unless current_user.nil?
     @player = Player.new
+    @players = Player.all
     @user = current_user || User.new
 # WIP: fix current_user if not signed in
     # unless !current_user.blank?
@@ -16,6 +17,19 @@ class WebsitesController < ApplicationController
     #   @team_id = current_user.teams
     # end
 
+  end
+
+  def all_players
+    all_player = []
+    teams = current_user.program
+    ids = teams.map {|team| team.players.map(&:id)}.flatten
+    # teams.each do |team|
+    #     all_players << team.players
+    # end
+    # @all_players = all_players.flatten
+
+    puts ">>>>> #{teams.name}"
+    # @players = Player.all
   end
 
 
