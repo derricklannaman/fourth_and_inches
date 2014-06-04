@@ -23,13 +23,7 @@ class WebsitesController < ApplicationController
     all_player = []
     teams = current_user.program
     ids = teams.map {|team| team.players.map(&:id)}.flatten
-    # teams.each do |team|
-    #     all_players << team.players
-    # end
-    # @all_players = all_players.flatten
 
-    puts ">>>>> #{teams.name}"
-    # @players = Player.all
   end
 
 

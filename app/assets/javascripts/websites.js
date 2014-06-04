@@ -17,7 +17,7 @@ $(document).ready(function(){
   });
 
   $('button#registr_btn').avgrund({
-      onLoad: function (elem) { $('form#new_player').show();},
+      onLoad: function (elem) { $('form#new_player').show(); },
       onBlurContainer: '.app-container',
       template: $('form#new_player'),
       width: 480,

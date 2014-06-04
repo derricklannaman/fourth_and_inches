@@ -30,6 +30,7 @@ FourthAndInches::Application.routes.draw do
   resources :coaches,     only: [:new, :create]
   resources :programs
   resources :websites,    only: :create
+  resources :charges
   resources :divisions
   resources :opponents
   resources :events,      only: [:index]

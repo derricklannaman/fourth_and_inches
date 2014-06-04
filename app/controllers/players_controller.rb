@@ -33,8 +33,7 @@ class PlayersController < ApplicationController
      #  team.save
      # team.players.unshift(cover)
      if request.referrer.match(/website/)
-      redirect_to :back
-      # head :ok, :content_type => 'text/html'
+      redirect_to :back, :notice => "#{@player.first_name} successfully registered"
      else
       redirect_to team_manager_path, :notice => "player successfully added"
      end
