@@ -17,7 +17,11 @@ class ApplicationController < ActionController::Base
   end
 
   def get_website
-    current_user.nil? ? return : @website = current_user.program.websites.first
+    if current_user.nil? || current_user.program.nil?
+     return
+    else
+      @website = current_user.program.websites.first
+    end
   end
 
   def configure_permitted_parameters

@@ -5,11 +5,11 @@
   .inner-player-form
     %p= "Is this the first year with #{@town}? "
     #player_registered
-      = f.radio_button :is_registered, true
-      = f.label :user_response, "Yes"
+      = f.radio_button :is_registered, "Yes"
+      = f.label :is_registered, "Yes"
       |
-      = f.radio_button :is_registered, false
-      = f.label :user_response, "No"
+      = f.radio_button :is_registered, "No"
+      = f.label :is_registered, "No"
     #new-player
       %div
         = f.label :first_name
