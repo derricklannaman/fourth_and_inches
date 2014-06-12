@@ -10,7 +10,6 @@
           = "Your team name will go here"
           %span
 
-        = render 'layouts/user_access_controls'
   - else
     .navbar-header
       %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
@@ -19,6 +18,4 @@
           = display_team_logo(:mini)
         %h1
           = display_team_title
-
-        = render 'layouts/user_access_controls'
 
