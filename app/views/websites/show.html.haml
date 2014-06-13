@@ -28,7 +28,7 @@
     - @teams.each do |team|
       %h3
         View ~>
-        = link_to team.title, team_path(team)
+        = link_to team.title, team_dashboard_path(team)
         |
         = team.division.name
 
