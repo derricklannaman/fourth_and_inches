@@ -49,6 +49,31 @@ div.avgrund-popin {
 
 .avgrund-active .avgrund-popin {
   border-top: 10px solid $go-green;
-
 }
+
+/* TEAM DASHBOARD */
+
+.control-panel {
+  width: 300px;
+  min-height: 500px;
+  float: left;
+  background-color: #FFF;
+  margin-left: -200px;
+  @include light_box_shadow;
+}
+
+.message_panel_header, .account_panel_header {
+  height: 40px;
+  background-color: #999;
+  color: #FFF;
+  text-align: center;
+  text-transform: uppercase;
+  padding-top: 8px;
+  font-size: 1.3em;
+}
+
+.message_panel {
+  height: 200px;
+}
+
 
