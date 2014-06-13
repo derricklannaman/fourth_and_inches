@@ -8,25 +8,34 @@
   %h3
     User signed in?:
     = user_signed_in?
+    %br
+    = name
+    %br
+    = current_user.id
+    %br
+    = current_user.user_type
+
+
   / .ui-widget
   /   %label{for: "tags"} Tags:
   /   %input#tags/
-
-  %h2 Register Player
-  %button.btn.btn-primary.btn-lg#registr_btn{"data-target" => "#myModal", "data-toggle" => "modal"}
-    Registration Form
-
-    = render @player
 
   .power-line-separator
   =# render "schedules/calendar_view"
 
   .show-teams-list
+    %h2 Select Team
     - @teams.each do |team|
-      %div
+      %h3
+        View ~>
         = link_to team.title, team_path(team)
         |
         = team.division.name
+
+    %h4 Register Player
+    %button.btn.btn-primary.btn-lg#registr_btn{"data-target" => "#myModal", "data-toggle" => "modal"}
+      Registration Form
+    = render @player
 
 - else
   %h3

@@ -69,6 +69,10 @@ class TeamsController < ApplicationController
     render :json => {team: team}
   end
 
+  def team_dashboard
+
+  end
+
   def team_manager
     if current_user.teams.present?
       @players = current_user.teams.active.players

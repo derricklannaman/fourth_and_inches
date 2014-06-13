@@ -12,6 +12,11 @@ module ApplicationHelper
     end
   end
 
+
+  def name
+    "#{current_user.first_name} #{current_user.last_name}"
+  end
+
   # /////// DISPLAY IMAGES
 
   def display_team_logo(size)
