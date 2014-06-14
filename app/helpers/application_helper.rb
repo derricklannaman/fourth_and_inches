@@ -36,7 +36,8 @@ module ApplicationHelper
     end
   end
 
-  def display_player_image
+  def display_player_image(player)
+    @player ||= @player = player
     if @player.avatar_updated_at.nil?
       image_tag('helmet.png', size: '250x250', class: 'player-image')
     else

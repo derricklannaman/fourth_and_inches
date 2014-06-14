@@ -70,7 +70,8 @@ class TeamsController < ApplicationController
   end
 
   def team_dashboard
-    binding.pry
+    find_team
+    @players = @team.players
   end
 
   def team_manager

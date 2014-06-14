@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $('div.inner-player-form > #search-players').hide();
   $('#player_registered').change(changePlayerRegistrationForm);
-  $('.general_sign_up_form, #new_player').hide();
+  $('.general_sign_up_form, #website_channeled_player').hide();
   $('#carousel-example-generic').carousel({
     pause: true,
     interval: false
@@ -17,9 +17,9 @@ $(document).ready(function(){
   });
 
   $('button#registr_btn').avgrund({
-      onLoad: function (elem) { $('form#new_player').show(); },
+      onLoad: function (elem) { $('form#website_channeled_player').show(); },
       onBlurContainer: '.app-container',
-      template: $('form#new_player'),
+      template: $('form#website_channeled_player'),
       width: 480,
       height: 400,
   });

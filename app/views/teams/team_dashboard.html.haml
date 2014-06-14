@@ -11,5 +11,24 @@
       Account Status
 
 
+.player-view_master
+- @players.each do |player|
+  .player-card-mini
+    .stars-top
+      - 4.times do
+        %span
+          %i.fa.fa-star
+    .inner-card
+      = display_mini_player_image(player)
+    .card_info-mini
 
+      .player_name_mini
+        .player-banner-stitches-top-mini
+          = player.first_name
+          = player.last_name
+        .player-banner-stitches-bottom-mini
 
+    .stars-bottom-mini
+      - 4.times do
+        %span
+          %i.fa.fa-star

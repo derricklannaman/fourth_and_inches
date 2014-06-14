@@ -1,6 +1,7 @@
 .form-pointer-default
 = form_for(@player, html: {class: 'default-form-template'}) do |f|
-  = hidden_field_tag(:team_id, @active_team.id)
+  - unless current_user.user_type == 'director'
+    = hidden_field_tag(:team_id, @active_team.id)
   .inner-player-form
     .info-section
       %div
