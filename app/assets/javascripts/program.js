@@ -2,9 +2,12 @@ $(document).ready(function(){
   $('.not-yet-implemented').on('click', notYetImplemented);
   $('div#add-division').on('click', runStepsForm);
   $('div.spinner').hide();
-  $('#logo-place-holder').hover(function(){
-    $('#logo-place-holder').toggleClass('active')
+
+  // Add 3D-ism
+  $('#logo-place-holder, .calendar').hover(function(){
+    $('#logo-place-holder, .calendar').toggleClass('active')
   })
+
   if (document.location.pathname == '/programs/new' ||
       document.location.pathname == '/divisions/new' ) {
       runStepsForm();
