@@ -65,6 +65,10 @@ module ApplicationHelper
     #{current_user.program.team_name.capitalize} "
   end
 
+  def team_name(team)
+    @team.title
+  end
+
   def team_player_belongs_to(player)
     if Team.exists?(player.team_id)
       Team.find(player.team_id).title

@@ -21,13 +21,11 @@
   /   %input#tags/
 
   .power-line-separator
-  =# render "schedules/calendar_view"
-
   .show-teams-list
     %h2 Select Team
     - @teams.each do |team|
       %h3
-        View ~>
+        View:
         = link_to team.title, team_dashboard_path(team)
         |
         = team.division.name

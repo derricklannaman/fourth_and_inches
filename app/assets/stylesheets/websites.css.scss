@@ -72,8 +72,24 @@ div.avgrund-popin {
   font-size: 1.3em;
 }
 
+
+
 .message_panel {
   height: 200px;
+}
+
+.account_panel {
+  .view-payments {
+    float: left;
+    width: 95px;
+    height: 265px;
+  }
+  .current-status {
+    float: left;
+    border-left: 1px solid #DDD;
+    width: 195px;
+    height: 265px;
+  }
 }
 
 .player-view_master {
