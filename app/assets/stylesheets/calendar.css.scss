@@ -1,9 +1,12 @@
+@import 'color_chart';
+@import 'mixins';
+
 
 .calendar {
   border-collapse: collapse;
   width: 100%;
-  margin-bottom:  140px;
-
+  margin-bottom:  40px;
+  @include light_box_shadow;
   td, th {
     font-family: "Lucida Grande", arial, helvetica, sans-serif;
     font-size: 10px;

@@ -1,6 +1,6 @@
 %h1 Team DashBoard
 
-.control-panel
+%section.control-panel
   .message_panel
     .message_panel_header
       Messages
@@ -11,7 +11,7 @@
       Account Status
 
 
-.player-view_master
+%section.player-view_master
   - @players.each do |player|
     .player-card-mini
       .stars-top
@@ -32,3 +32,18 @@
         - 4.times do
           %span
             %i.fa.fa-star
+
+%section.team_calendar_view
+  = render "schedules/calendar_view"
+
+
+
+
+
+
+
+
+
+
+
+

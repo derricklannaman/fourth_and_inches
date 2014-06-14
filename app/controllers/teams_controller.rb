@@ -72,6 +72,10 @@ class TeamsController < ApplicationController
   def team_dashboard
     find_team
     @players = @team.players
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+    coach = User.find_by_id(@team.head_coach)
+    @appointments = coach.teams.active.schedules
+    @appointments_by_date = @appointments.group_by(&:date)
   end
 
   def team_manager
