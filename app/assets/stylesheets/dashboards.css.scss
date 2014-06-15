@@ -45,7 +45,7 @@ div.outer-rink {
   border-bottom: 2px solid rgba(255, 255, 255, 0.8);
   padding: 22px;
   box-shadow: inset 0px -2px 11px 0px $steel-light-30;
-  background-color: $steel-light-on-dark-60;
+  /*background-color: $steel-light-on-dark-60;*/
 }
 
 section#top_third {
@@ -81,6 +81,9 @@ div.link-text {
   font-size: 20px;
 }
 
+.ring-light-on {
+  background-color: #FFF;
+}
 
 /*FIND: director view */
 /* CREDIT: http://tympanus.net/codrops/2013/05/30/simple-icon-hover-effects/*/

@@ -18,6 +18,7 @@
     #form-box
       %h3 Form Box
       #fee-form
+        / do next AJAXIFY
         = form_for(@program) do |f|
           = f.label :fee
           = f.select(:fee, options_for_select( @price_range) )
