@@ -23,8 +23,6 @@ class WebsitesController < ApplicationController
     all_player = []
     teams = current_user.program
     ids = teams.map {|team| team.players.map(&:id)}.flatten
-
   end
-
 
 end

@@ -1,5 +1,7 @@
 $(document).ready(function(){
   $('div.inner-player-form > #search-players').hide();
+  $('div.view-payment-details').hide();
+  $('#view-payment-btn').on('click', showAccountDetails);
   $('#player_registered').change(changePlayerRegistrationForm);
   $('.general_sign_up_form, #website_channeled_player').hide();
   $('#carousel-example-generic').carousel({
@@ -54,6 +56,10 @@ $(document).ready(function(){
     });
 
 });
+
+function showAccountDetails() {
+  $('div.view-payment-details').slideToggle(100);
+}
 
 
 function changePlayerRegistrationForm() {

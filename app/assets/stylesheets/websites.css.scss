@@ -72,24 +72,34 @@ div.avgrund-popin {
   font-size: 1.3em;
 }
 
-
-
 .message_panel {
   height: 200px;
 }
 
 .account_panel {
-  .view-payments {
+  .view-payments-controls {
     float: left;
-    width: 95px;
+    width: 105px;
     height: 265px;
+    padding: 5px;
   }
   .current-status {
     float: left;
     border-left: 1px solid #DDD;
-    width: 195px;
+    width: 185px;
     height: 265px;
+    padding: 5px;
+    font-size: 1.2em;
   }
+}
+
+.season-header {
+  text-align: center;
+  background-color: $go-green;
+  color: white;
+  font-size: 1.3em;
+  padding: 3px;
+  letter-spacing: 7px;
 }
 
 .player-view_master {

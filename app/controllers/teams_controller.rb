@@ -76,6 +76,14 @@ class TeamsController < ApplicationController
     coach = User.find_by_id(@team.head_coach)
     @appointments = coach.teams.active.schedules
     @appointments_by_date = @appointments.group_by(&:date)
+
+  # TEMP storage of account stuff until model created
+    @balance = 220
+
+    @payments = {date: 3.days.ago, amount: 75}
+
+
+
   end
 
   def team_manager

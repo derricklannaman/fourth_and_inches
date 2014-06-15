@@ -9,8 +9,18 @@
   .account_panel
     .account_panel_header
       Account Status
-    .view-payments
+    .season-header
+      = "#{Date.today.year}"
+    .view-payments-controls
+      #view-payment-btn{class: "btn btn-info btn-xs"} view payments
+
     .current-status
+      Balance:
+      = number_to_currency( @balance )
+      .view-payment-details
+        = @payments[:date].strftime( '%D' )
+        %span ......
+        = number_to_currency( @payments[:amount] )
 
 
 %section.player-view_master
@@ -34,7 +44,7 @@
         - 4.times do
           %span
             %i.fa.fa-star
-
+%h3 Schedules
 %section.team_calendar_view
   = render "schedules/calendar_view"
 
