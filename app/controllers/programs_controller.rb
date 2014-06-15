@@ -1,6 +1,7 @@
 class ProgramsController < ApplicationController
 
   def index
+    @price_range = (150..300).step(25)
   end
 
   def new
@@ -43,6 +44,7 @@ class ProgramsController < ApplicationController
 
   def edit
     @program = Program.find(params[:id])
+
   end
 
   def show
@@ -69,7 +71,7 @@ class ProgramsController < ApplicationController
 
     def program_params
       params.require(:program).permit(:town_name, :team_name, :league_name,
-                                      :logo_image)
+                                      :logo_image, :fee)
     end
 
 end

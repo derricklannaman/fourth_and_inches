@@ -7,11 +7,17 @@
       %span= full_team_name
     %br
 
-    = link_to "Edit Team Info", edit_program_path(@program.id), class: 'btn btn-warning'
-    = link_to "Add Team Logo", logo_path(@program.id), class: 'btn btn-warning'
+    = link_to "Edit Program Info", edit_program_path(@program.id), class: 'btn btn-success btn-jg btn-block bigger-text'
+    = link_to "Add Team Logo", logo_path(@program.id), class: 'btn btn-primary btn-jg btn-block bigger-text'
+    .program-fee-button{class: 'btn btn-success btn-jg btn-block bigger-text'} Set Program Fee
+    .reset-season{class: 'btn btn-danger btn-jg btn-block bigger-text'} Reset & Start New Season
 
   %section.program-section
-
+    #fee-form
+      = form_for(@program) do |f|
+        = f.label :fee
+        = f.select(:fee, options_for_select(@price_range) )
+        = f.submit 'Set Price'
 
   %section.program-section
     %h3 Board members:

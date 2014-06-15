@@ -13,8 +13,13 @@ section.program-section {
   @include default_panel;
   margin: 5px;
   width: 420px;
-  height: 245px;
   padding: 20px;
+}
+
+div#fee-form {
+  border: 1px solid #DDD;
+  height: 200px;
+  padding: 10px;
 }
 
 div.logo-border {
