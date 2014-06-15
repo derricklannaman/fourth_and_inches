@@ -15,13 +15,12 @@
       #view-payment-btn{class: "btn btn-info btn-xs"} view payments
 
     .current-status
-      Balance:
-      = number_to_currency( @balance )
+
+      %p= "Balance: #{number_to_currency( @balance )}"
       .view-payment-details
         = @payments[:date].strftime( '%D' )
         %span ......
         = number_to_currency( @payments[:amount] )
-
 
 %section.player-view_master
   - @players.each do |player|
@@ -44,8 +43,9 @@
         - 4.times do
           %span
             %i.fa.fa-star
-%h3 Schedules
+
 %section.team_calendar_view
+  %h3 Schedule
   = render "schedules/calendar_view"
 
 

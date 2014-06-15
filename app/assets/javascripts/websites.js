@@ -58,7 +58,8 @@ $(document).ready(function(){
 });
 
 function showAccountDetails() {
-  $('div.view-payment-details').slideToggle(100);
+  // $('div.view-payment-details').slideToggle(100);
+  $('div.view-payment-details').toggle();
 }
 
 
