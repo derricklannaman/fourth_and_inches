@@ -47,6 +47,8 @@ class User < ActiveRecord::Base
   has_many :teams
   has_many :players
   has_many :players, :through => :teams
+  has_one :account
+
 
   # validates :username,
   #   :uniqueness => {

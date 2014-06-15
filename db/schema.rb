@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140603172559) do
+ActiveRecord::Schema.define(version: 20140615201716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,17 @@ ActiveRecord::Schema.define(version: 20140603172559) do
 
   add_index "access_codes", ["program_id"], name: "index_access_codes_on_program_id", using: :btree
   add_index "access_codes", ["user_id"], name: "index_access_codes_on_user_id", using: :btree
+
+  create_table "accounts", force: true do |t|
+    t.decimal  "balance",    default: 0.0
+    t.integer  "user_id"
+    t.integer  "player_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "accounts", ["player_id"], name: "index_accounts_on_player_id", using: :btree
+  add_index "accounts", ["user_id"], name: "index_accounts_on_user_id", using: :btree
 
   create_table "dashboards", force: true do |t|
     t.string   "name"
@@ -144,12 +155,12 @@ ActiveRecord::Schema.define(version: 20140603172559) do
   add_index "teams", ["user_id"], name: "index_teams_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -166,6 +177,7 @@ ActiveRecord::Schema.define(version: 20140603172559) do
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
     t.string   "image"
+    t.boolean  "hasActiveAccount",       default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
