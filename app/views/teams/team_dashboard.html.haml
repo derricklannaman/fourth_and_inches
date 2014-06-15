@@ -22,6 +22,7 @@
         %span ......
         = number_to_currency( @payments[:amount] )
 
+-# if current_user.hasActiveAccount?
 %section.player-view_master
   - @players.each do |player|
     .player-card-mini
@@ -48,6 +49,11 @@
   %h3 Schedule
   = render "schedules/calendar_view"
 
+/ - else
+/   %section.minimal-access
+/     %h1
+/       Full Access is granted once a payment
+/       has been made on the account.
 
 
 
