@@ -42,12 +42,13 @@ class User < ActiveRecord::Base
 
   has_one :dashboard, dependent: :destroy
 
-  belongs_to :program
-  has_one :access_code, dependent: :destroy
-  has_many :teams
-  has_many :players
-  has_many :players, :through => :teams
-  has_one :account
+  belongs_to  :program
+  has_one     :access_code, dependent: :destroy
+  has_many    :teams
+  has_many    :players
+  has_many    :players, :through => :teams
+  has_one     :account
+  has_many    :transactions
 
 
   # validates :username,
