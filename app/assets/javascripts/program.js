@@ -1,8 +1,8 @@
 $(document).ready(function(){
   $('.not-yet-implemented').on('click', notYetImplemented);
   $('div#add-division').on('click', runStepsForm);
-  $('div.spinner').hide();
-
+  $('div.spinner').add('#fee-form').hide();
+  $('#program-fee-button').on('click', showFeeForm)
   // Add 3D-ism
   $('#logo-place-holder, .calendar').hover(function(){
     $('#logo-place-holder, .calendar').toggleClass('active')
@@ -14,6 +14,10 @@ $(document).ready(function(){
   }
 
 });
+
+function showFeeForm() {
+  $('#fee-form').toggle();
+}
 
 function change_alertify_buttons() {
   setTimeout(function(){
