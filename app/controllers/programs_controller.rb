@@ -66,6 +66,10 @@ class ProgramsController < ApplicationController
     @program = Program.find(params[:id])
   end
 
+  def set_fee
+    binding.pry
+  end
+
 
   private
 

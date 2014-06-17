@@ -18,11 +18,11 @@
     #form-box
       %h3 Form Box
       #fee-form
-        / do next AJAXIFY
-        = form_for(@program) do |f|
+        Program Fee
+        = form_for(@program, html: {id: 'program-fee-form'}) do |f|
           = f.label :fee
           = f.select(:fee, options_for_select( @price_range) )
-          = f.submit 'Set Price'
+          %a#submit-program-fee Set Price
 
   %section.program-section
     %h3 Board members:

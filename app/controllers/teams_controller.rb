@@ -78,11 +78,9 @@ class TeamsController < ApplicationController
     @appointments_by_date = @appointments.group_by(&:date)
 
   # TEMP storage of account stuff until model created
-    @balance = 220
-
     @payments = {date: 3.days.ago, amount: 75}
 
-
+    @fee = current_user.program.fee
 
   end
 

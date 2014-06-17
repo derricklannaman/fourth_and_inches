@@ -3,17 +3,38 @@ $(document).ready(function(){
   $('div#add-division').on('click', runStepsForm);
   $('div.spinner').add('#fee-form').hide();
   $('#program-fee-button').on('click', showFeeForm)
+  $('a#submit-program-fee').on('click',updateProgramFee)
   // Add 3D-ism
   $('#logo-place-holder, .calendar').hover(function(){
     $('#logo-place-holder, .calendar').toggleClass('active')
   })
-
+  // ========
   if (document.location.pathname == '/programs/new' ||
       document.location.pathname == '/divisions/new' ) {
       runStepsForm();
   }
 
 });
+
+function updateProgramFee() {
+  var form = $('#program-fee-form');
+      id = form.attr('action').split('/')[2];
+      feeForm = $('#program_fee');
+      fee = feeForm.find('option:selected')[0].value;
+
+  $.ajax({
+    type: 'Post',
+    url: '/programs/set_fee',
+    data: {id: id, fee: fee },
+    success: function(result) {
+      console.log('success');
+    },
+    error: function(e) {
+      console.log(e);
+    }
+  });
+
+}
 
 function showFeeForm() {
   $('#fee-form').toggle();

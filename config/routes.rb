@@ -23,6 +23,7 @@ FourthAndInches::Application.routes.draw do
   get 'team_dashboard/:id' => 'teams#team_dashboard', as: 'team_dashboard'
 
   post 'opponents/:id/list_destroy' => 'opponents#list_destroy',  as: 'list_destroy'
+  post 'programs/set_fee' => 'programs#set_fee'
 
   get 'programs/:id/logo' => 'programs#logo', as: 'logo'
 
