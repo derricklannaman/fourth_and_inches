@@ -79,9 +79,10 @@ class TeamsController < ApplicationController
 
   # TEMP storage of account stuff until model created
     @payments = {date: 3.days.ago, amount: 75}
+    fee = current_user.program.fee
+    @fee = calculate_stripe_fee(fee) / 100
 
-    @fee = current_user.program.fee
-
+    @stripe_formatted_fee = current_user.program.fee
   end
 
   def team_manager

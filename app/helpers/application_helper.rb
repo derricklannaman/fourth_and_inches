@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def formatted_fee
+    return current_user.program.fee / 100
+  end
+
   def display_todays_date
     Time.now.strftime('%B %d, %Y')
   end

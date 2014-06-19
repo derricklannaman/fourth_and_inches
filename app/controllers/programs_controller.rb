@@ -2,6 +2,7 @@ class ProgramsController < ApplicationController
 
   def index
     @price_range = (150..300).step(25)
+    @fee = @program.fee
   end
 
   def new
@@ -68,10 +69,12 @@ class ProgramsController < ApplicationController
 
   def set_fee
     program = Program.find(params[:id])
-    program.fee = fee = params[:fee]
+    fee = params[:fee]
+    calculate_stripe_fee(fee) # need $$ converted into cents for Stripe
+    program.fee = @price_in_cents
     program.save
     new_fee = {
-      fee: program.fee
+      fee: program.fee / 100
     }
     render :json => new_fee
   end

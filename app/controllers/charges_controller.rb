@@ -3,9 +3,15 @@ class ChargesController < ApplicationController
   def new
   end
 
+  def index
+
+  end
+
   def create
+    fee = current_user.program.fee
+
     # Amount in cents
-    @amount = 500
+    calculate_stripe_fee(fee)
 
     customer = Stripe::Customer.create(
       :email => 'example@stripe.com',
@@ -14,7 +20,7 @@ class ChargesController < ApplicationController
 
     charge = Stripe::Charge.create(
       :customer    => customer.id,
-      :amount      => @amount,
+      :amount      => @price_in_cents,
       :description => 'Rails Stripe customer',
       :currency    => 'usd'
     )
@@ -23,6 +29,5 @@ class ChargesController < ApplicationController
     flash[:error] = e.message
     redirect_to charges_path
   end
-
 
 end

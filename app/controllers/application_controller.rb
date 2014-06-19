@@ -8,6 +8,11 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def calculate_stripe_fee(fee)
+    decimal_price = BigDecimal(fee)
+    @price_in_cents = ((decimal_price.fix * 100) + decimal_price.frac).to_i
+  end
+
   def get_appointments
     @appointments = current_user.teams.active.schedules unless current_user.nil?
   end
