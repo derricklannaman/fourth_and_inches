@@ -30,7 +30,7 @@
 //= require jquery.stapel.js
 //= require stepsForm.js
 //= require classie.js
-//= require underscore
+//= require underscore.js
 //= require gmaps/google
 
 

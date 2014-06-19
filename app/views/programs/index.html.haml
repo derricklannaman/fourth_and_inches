@@ -18,7 +18,10 @@
     #form-box
       %h3 Form Box
       #fee-form
-        Program Fee
+        %h4#current-fee
+          = "Program Fee is currently"
+          %span
+            = number_to_currency( @program.fee )
         = form_for(@program, html: {id: 'program-fee-form'}) do |f|
           = f.label :fee
           = f.select(:fee, options_for_select( @price_range) )

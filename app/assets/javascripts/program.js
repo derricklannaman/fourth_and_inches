@@ -27,10 +27,12 @@ function updateProgramFee() {
     url: '/programs/set_fee',
     data: {id: id, fee: fee },
     success: function(result) {
-      console.log('success');
+      var newFee = result.fee
+      $('#current-fee > span').text('$'+ newFee + '0' )
     },
     error: function(e) {
       console.log(e);
+      whoopsErrorMessage();
     }
   });
 

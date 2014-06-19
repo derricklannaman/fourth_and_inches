@@ -67,7 +67,13 @@ class ProgramsController < ApplicationController
   end
 
   def set_fee
-    binding.pry
+    program = Program.find(params[:id])
+    program.fee = fee = params[:fee]
+    program.save
+    new_fee = {
+      fee: program.fee
+    }
+    render :json => new_fee
   end
 
 

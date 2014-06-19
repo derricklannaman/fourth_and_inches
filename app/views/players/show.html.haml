@@ -8,7 +8,7 @@
   .inner-card
     - if @player.avatar_updated_at.nil?
       Please upload a photo
-    = display_player_image
+    = display_player_image(@player)
   .card_info
 
     .player_name
