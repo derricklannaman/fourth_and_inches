@@ -2,4 +2,4 @@
   %article
     %label.amount
       %span Amount: $5.00
-  %script.stripe-button{"data-image" => "/rails.png" "data-amount" => "500", "data-description" => "A month's subscription", "data-key" => Rails.configuration.stripe[:publishable_key], src: "https://checkout.stripe.com/checkout.js"}
+  %script.stripe-button{"data-amount" => "500", "data-description" => "A month's subscription", "data-key" => Rails.configuration.stripe[:publishable_key], src: "https://checkout.stripe.com/checkout.js"}

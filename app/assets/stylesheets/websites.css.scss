@@ -58,7 +58,8 @@ div.avgrund-popin {
   @include light_box_shadow;
 }
 
-.message_panel_header, .account_panel_header {
+.message_panel_header, .make-payment-header,
+.account_panel_header {
   height: 40px;
   background-color: #999;
   color: #FFF;
@@ -66,6 +67,10 @@ div.avgrund-popin {
   text-transform: uppercase;
   padding-top: 8px;
   font-size: 1.3em;
+}
+
+.make-payment-header {
+  margin-top: 120px;
 }
 
 .message_panel {
@@ -76,16 +81,22 @@ div.avgrund-popin {
   .view-payments-controls {
     float: left;
     width: 105px;
-    height: 265px;
+    min-height: 50px;
     padding: 5px;
   }
   .current-status {
     float: left;
     border-left: 1px solid #DDD;
     width: 185px;
-    height: 265px;
+    min-height: 50px;
     padding: 5px;
     font-size: 1.2em;
+  }
+  .payment-panel {
+    float: left;
+    width: 300px;
+    min-height: 50px;
+    padding: 5px;
   }
 }
 

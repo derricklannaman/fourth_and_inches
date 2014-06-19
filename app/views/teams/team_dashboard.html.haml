@@ -22,6 +22,20 @@
         %span ......
         = number_to_currency( @payments[:amount] )
 
+    .make-payment-header Make Payment
+    .payment-panel
+
+
+      = form_tag charges_path do
+        %article
+          %label.amount
+            %span
+              Amount:
+              = number_to_currency( @fee )
+        %script.stripe-button{"data-amount" => "500", "data-description" => "A month's subscription", "data-key" => Rails.configuration.stripe[:publishable_key], src: "https://checkout.stripe.com/checkout.js"}
+
+
+
 -# if current_user.hasActiveAccount?
 %section.player-view_master
   - @players.each do |player|
