@@ -16,7 +16,8 @@
 
     .current-status
 
-      %p= "Balance: #{number_to_currency( formatted_fee )}"
+      %p
+        = calculate_account_balance
       .view-payment-details
         = @payments[:date].strftime( '%D' )
         %span ......
@@ -31,7 +32,7 @@
           %label.amount
             %span
               Amount:
-              = number_to_currency( formatted_fee )
+              = calculate_account_balance
         %script.stripe-button{"data-amount" => "#{ @fee }", "data-description" => "A month's subscription", "data-key" => Rails.configuration.stripe[:publishable_key], src: "https://checkout.stripe.com/checkout.js"}
 
 

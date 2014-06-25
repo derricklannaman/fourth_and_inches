@@ -4,6 +4,10 @@ module ApplicationHelper
     return current_user.program.fee / 100
   end
 
+  def calculate_account_balance
+    "Balance: #{number_to_currency( formatted_fee * current_user.players.count )}"
+  end
+
   def display_todays_date
     Time.now.strftime('%B %d, %Y')
   end
