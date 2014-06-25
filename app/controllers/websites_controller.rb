@@ -5,7 +5,6 @@ class WebsitesController < ApplicationController
     @town = @website.town.capitalize
     @name = @website.team.capitalize
     @teams = current_user.program.teams unless current_user.nil?
-    @player = Player.new
     @players = Player.all
     @user = current_user || User.new
   end
