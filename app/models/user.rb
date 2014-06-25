@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :authentication_keys => [:email]
 
-  after_create :add_user_role, :create_dashboard
+  after_create :add_user_role, :create_dashboard, :create_account
 
   has_one :dashboard, dependent: :destroy
 
@@ -63,6 +63,11 @@ class User < ActiveRecord::Base
 
   def create_dashboard
     Dashboard.create(user_id: self.id)
+  end
+
+  def create_account
+    fee = self.program.fee
+    Account.create(user_id: self.id, balance: fee)
   end
 
   def self.find_first_by_auth_conditions(warden_conditions)

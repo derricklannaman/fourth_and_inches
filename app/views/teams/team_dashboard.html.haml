@@ -36,38 +36,38 @@
 
 
 
--# if current_user.hasActiveAccount?
-%section.player-view_master
-  - @players.each do |player|
-    .player-card-mini
-      .stars-top
-        - 4.times do
-          %span
-            %i.fa.fa-star
-      .inner-card
-        = display_mini_player_image(player)
-      .card_info-mini
+- if current_user.hasActiveAccount?
+  %section.player-view_master
+    - @players.each do |player|
+      .player-card-mini
+        .stars-top
+          - 4.times do
+            %span
+              %i.fa.fa-star
+        .inner-card
+          = display_mini_player_image(player)
+        .card_info-mini
 
-        .player_name_mini
-          .player-banner-stitches-top-mini
-            = player.first_name
-            = player.last_name
-          .player-banner-stitches-bottom-mini
+          .player_name_mini
+            .player-banner-stitches-top-mini
+              = player.first_name
+              = player.last_name
+            .player-banner-stitches-bottom-mini
 
-      .stars-bottom-mini
-        - 4.times do
-          %span
-            %i.fa.fa-star
+        .stars-bottom-mini
+          - 4.times do
+            %span
+              %i.fa.fa-star
 
-%section.team_calendar_view
-  %h3 Schedule
-  = render "schedules/calendar_view"
+  %section.team_calendar_view
+    %h3 Schedule
+    = render "schedules/calendar_view"
 
-/ - else
-/   %section.minimal-access
-/     %h1
-/       Full Access is granted once a payment
-/       has been made on the account.
+- else
+  %section.minimal-access
+    %h1
+      Full Access is granted once a payment
+      has been made on the account.
 
 
 
