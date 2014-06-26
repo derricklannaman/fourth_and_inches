@@ -1,11 +1,12 @@
 module ApplicationHelper
 
-  def formatted_fee
-    return current_user.program.fee / 100
-  end
+  # def formatted_fee
+  #   return current_user.program.fee / 100
+  # end
 
   def calculate_account_balance
-    "Balance: #{number_to_currency( formatted_fee * current_user.get_parents_players.count )}"
+    "Balance: #{number_to_currency( current_user.formatted_fee *
+                                    current_user.get_parents_players.count )}"
   end
 
   def display_todays_date

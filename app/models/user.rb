@@ -63,6 +63,10 @@ class User < ActiveRecord::Base
     Player.all.where('parent_id = :parent', :parent => self.id)
   end
 
+  def formatted_fee
+    program.fee / 100
+  end
+
   def add_user_role
     add_role(self.user_type)
   end
