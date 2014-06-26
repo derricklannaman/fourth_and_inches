@@ -68,15 +68,14 @@ class PlayersController < ApplicationController
       team.players.unshift(cover)
     end
 
-    def register_player(player)
+    def link_player_and_parent(player)
       @player.parent_id = params[:parent_id].to_i
-      @player.is_registered = true
       @player.save
     end
 
     def send_to_webpage_or_dashboard(player)
      if request.referrer.match(/team_dashboard/)
-      register_player(player)
+      link_player_and_parent(player)
       redirect_to :back, :notice => "#{@player.first_name} successfully registered"
      else
       redirect_to team_manager_path, :notice => "player successfully added"

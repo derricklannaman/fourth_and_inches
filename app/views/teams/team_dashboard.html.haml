@@ -33,6 +33,11 @@
             %span
               Amount:
               = calculate_account_balance
+              |
+              = @transactions.each do |trans|
+                %li
+                  = number_to_currency(trans.payment / 100)
+
         %script.stripe-button{"data-amount" => "#{ @fee }", "data-description" => "A month's subscription", "data-key" => Rails.configuration.stripe[:publishable_key], src: "https://checkout.stripe.com/checkout.js"}
 
 
