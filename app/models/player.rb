@@ -21,11 +21,11 @@
 #
 
 class Player < ActiveRecord::Base
-  has_many :users
-  has_many :users, :through => :teams
+  # has_many :users
+  # has_many :users, :through => :teams
+  belongs_to :user
   belongs_to :team
   has_one :account
-
 
   has_attached_file :avatar, :styles => { :medium => "300x300>",
    :thumb => "100x100>" }, :bucket => 'fourthandinchesmedia',

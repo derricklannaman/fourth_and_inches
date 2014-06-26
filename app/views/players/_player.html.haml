@@ -1,7 +1,7 @@
 / User created player form form signed in parent user
 = form_for(@player, html: {class: 'general_sign_up_form', id: 'website_channeled_player'}) do |f|
   = hidden_field_tag(:program_id, @team.program.websites.first.id)
-
+  = hidden_field_tag(:parent_id, current_user.id)
   .inner-player-form
     %p= "Is this the first year with #{@town}? "
     #player_registered

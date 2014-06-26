@@ -1,7 +1,6 @@
 class PlayersController < ApplicationController
 
   before_action :find_player, only: [:edit, :update, :show, :destroy]
-  # before_action : :send_to_webpage_or_dashboard
   after_action :capitalize_name, only: [:create]
   respond_to :html, :js
 
@@ -22,12 +21,6 @@ class PlayersController < ApplicationController
     @player = Player.new(player_params)
     unless params[:team_id].blank?
       assign_player_to_team(@player)
-      # team = Team.find_by_id(params[:team_id])
-      # @player.team_id = team.id
-      # cover = check_for_team_cover(team)
-      # team.num_of_players.nil? ? team.num_of_players = 1 : team.num_of_players += 1
-      # team.save
-      # team.players.unshift(cover)
     end
     if @player.save
       calculate_age(@player)
@@ -57,17 +50,6 @@ class PlayersController < ApplicationController
   end
 
   def destroy
-
-    # respond_to do |format|
-    #   format.html { redirect_to @player }
-    #   # format.js {}
-    #   # format.json  { render json: @player}
-    # end
-
-
-    # .destroy
-
-    # render json: @player
   end
 
 
@@ -86,8 +68,15 @@ class PlayersController < ApplicationController
       team.players.unshift(cover)
     end
 
+    def register_player(player)
+      @player.parent_id = params[:parent_id].to_i
+      @player.is_registered = true
+      @player.save
+    end
+
     def send_to_webpage_or_dashboard(player)
-     if request.referrer.match(/website/)
+     if request.referrer.match(/team_dashboard/)
+      register_player(player)
       redirect_to :back, :notice => "#{@player.first_name} successfully registered"
      else
       redirect_to team_manager_path, :notice => "player successfully added"

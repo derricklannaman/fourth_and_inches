@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def calculate_account_balance
-    "Balance: #{number_to_currency( formatted_fee * current_user.players.count )}"
+    "Balance: #{number_to_currency( formatted_fee * current_user.get_parents_players.count )}"
   end
 
   def display_todays_date

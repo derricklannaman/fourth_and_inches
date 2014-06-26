@@ -46,9 +46,11 @@ class User < ActiveRecord::Base
   has_one     :access_code, dependent: :destroy
   has_many    :teams
   has_many    :players
-  has_many    :players, :through => :teams
+  # has_many    :players, :through => :teams
   has_one     :account
   has_many    :transactions
+
+
 
 
   # validates :username,
@@ -56,6 +58,10 @@ class User < ActiveRecord::Base
   #     :case_sensitive => false
   #   },
   #   :format => { ... } # etc.
+
+  def get_parents_players
+    Player.all.where('parent_id = :parent', :parent => self.id)
+  end
 
   def add_user_role
     add_role(self.user_type)
