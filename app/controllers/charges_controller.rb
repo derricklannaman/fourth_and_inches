@@ -8,10 +8,14 @@ class ChargesController < ApplicationController
   end
 
   def create
-    fee = current_user.formatted_fee * current_user.get_parents_players.count
+    # old_bal = current_user.account.balance
+    old_bal = current_user.account_balance
+    # fee = current_user.formatted_fee * current_user.get_parents_players.count
 
     # Amount in cents
-    calculate_stripe_fee(fee)
+
+    # calculate_stripe_fee(fee)
+    calculate_stripe_fee(old_bal)
 
     customer = Stripe::Customer.create(
       :email => 'example@stripe.com',
@@ -25,11 +29,18 @@ class ChargesController < ApplicationController
       :currency    => 'usd'
     )
     # Creates the account transaction
-    Transaction.create( payment: charge[:amount], user_id: current_user.id,
+    transaction = Transaction.create( payment: charge[:amount], user_id: current_user.id,
                         account_id: current_user.account.id )
+
+    amt = transaction.payment / 100
+    new_bal = old_bal  - amt
+
+    current_user.account.balance = new_bal
+    current_user.account.save
 
     # Then update users as registered
     current_user.hasActiveAccount = true
+    current_user.save
 
     players = current_user.get_parents_players
     players.each do |player|

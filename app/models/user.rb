@@ -63,6 +63,10 @@ class User < ActiveRecord::Base
     Player.all.where('parent_id = :parent', :parent => self.id)
   end
 
+  def account_balance
+    self.account.balance / 100
+  end
+
   def formatted_fee
     program.fee / 100
   end

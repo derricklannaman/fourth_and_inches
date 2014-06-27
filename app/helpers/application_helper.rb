@@ -1,19 +1,13 @@
 module ApplicationHelper
 
-  # def formatted_fee
-  #   return current_user.program.fee / 100
-  # end
-
   def calculate_account_balance
+    "Balance: #{number_to_currency( current_user.account_balance )}"
+  end
+
+  def calculate_fee
     player_count = current_user.get_parents_players.count
     current_fee = current_user.formatted_fee
-    if player_count < 1
-      "Balance: #{number_to_currency( current_fee * player_count )}"
-    elsif player_count >= 1
-      "Balance: #{number_to_currency( current_user.account.balance / 100 )}"
-    end
-
-    # "Balance: #{number_to_currency( current_fee * player_count )}"
+    return current_fee * player_count
   end
 
   def display_todays_date
