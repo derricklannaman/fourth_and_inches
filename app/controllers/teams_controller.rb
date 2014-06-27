@@ -81,7 +81,7 @@ class TeamsController < ApplicationController
     @payments = {date: 3.days.ago, amount: 75}
     fee = current_user.formatted_fee * current_user.get_parents_players.count
     @fee = calculate_stripe_fee(fee)
-    @transactions = current_user.account.transactions
+    @transactions = current_user.account.transactions.first.payment / 100
     @stripe_formatted_fee = current_user.program.fee
   end
 

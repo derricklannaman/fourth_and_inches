@@ -5,6 +5,8 @@
     .message_panel_header
       Messages
 
+    = current_user.get_parents_players.count
+
 
   .account_panel
     .account_panel_header
@@ -33,10 +35,6 @@
             %span
               Amount:
               = calculate_account_balance
-              |
-              = @transactions.each do |trans|
-                %li
-                  = number_to_currency(trans.payment / 100)
 
         %script.stripe-button{"data-amount" => "#{ @fee }", "data-description" => "A month's subscription", "data-key" => Rails.configuration.stripe[:publishable_key], src: "https://checkout.stripe.com/checkout.js"}
 
