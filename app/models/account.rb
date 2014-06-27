@@ -9,7 +9,8 @@ class Account < ActiveRecord::Base
     acct = self
     bal = acct.balance / 100
     paymt = acct.transactions.first.payment
-    return @current_balance = paymt / 100
+    acct.balance = paymt / 100
+    acct.save
   end
 
 end
