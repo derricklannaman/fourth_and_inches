@@ -23,26 +23,28 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
-
-
-
 group :development do
   gem 'annotate'
   gem 'awesome_print'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'haml-rails'
-  gem 'pry-rails'
   gem 'quiet_assets'
   gem 'thin'
 end
 
 group :test, :development do
-  gem "rspec-rails"
+  gem 'factory_girl_rails'
+  gem 'pry-rails'
+  gem 'pry-rescue'
+  gem 'rspec-rails'
 end
 
 group :test do
   gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'selenium-webdriver'
 end
 
 group :production do
