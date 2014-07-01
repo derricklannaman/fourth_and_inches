@@ -102,6 +102,19 @@ module ApplicationHelper
     end
   end
 
+  def show_banner_on_website_view_only(controller_name, action_name, town, name)
+    if (controller_name == "websites" && action_name == "show")
+      jumbo_web_banner(town, name)
+    end
+  end
+
+  def jumbo_web_banner(town, name)
+    result = "<div class='website-banner'>"
+    result += "<h1 class='massive-banner'> #{@town} #{@name} #{Date.today.year} </h1>"
+    result += "</div>"
+    return result.html_safe
+  end
+
   def coach_side_navigation(controller_name, action_name)
     if user_signed_in?
       if    (controller_name == 'dashboard' && action_name == 'show')

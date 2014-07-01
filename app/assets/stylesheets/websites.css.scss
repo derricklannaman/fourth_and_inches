@@ -6,6 +6,26 @@ div.sign_up_buffer {
   margin-top: 365px;
 }
 
+div.website-banner {
+  width: 100%;
+  padding: 20px;
+  background-color: $go-green;
+}
+
+h1.massive-banner {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 5em;
+  text-align: center;
+  color: $go-green-30;
+  letter-spacing: 5px;
+}
+
+.page-header {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
 div.inner-player-form {
   padding-top: 15px !important;
 }
