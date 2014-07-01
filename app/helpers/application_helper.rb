@@ -22,7 +22,7 @@ module ApplicationHelper
     end
   end
 
-  def show_sign_out_if_signed_in
+  def show_sign_out_link_if_signed_in
     if current_user.nil?
       return
     else

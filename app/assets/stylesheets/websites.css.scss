@@ -20,6 +20,13 @@ h1.massive-banner {
   letter-spacing: 5px;
 }
 
+div.website-welcome {
+  text-align: center;
+  font-size: 36px;
+  padding: 5px;
+  color: $steel-light-30;
+}
+
 .page-header {
   padding: 0px;
   margin: 0px;
@@ -38,6 +45,10 @@ div.show-teams-list {
   border: 1px solid #999;
   padding: 20px;
   margin-top: 20px;
+}
+
+div.navbar-header h1 {
+  text-align: center;
 }
 
 ul#ui-id-1 {
