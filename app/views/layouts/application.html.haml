@@ -19,8 +19,11 @@
       #app-content.container
         = coach_side_navigation(controller_name, action_name)
         #main
-          = yield
-        =# render 'layouts/footer_nav_panel'
+        .home-index
+          .home-index-marquee
+
+        = yield
+      =# render 'layouts/footer_nav_panel'
 
 
   - if user_signed_in?

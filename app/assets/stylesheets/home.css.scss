@@ -1,4 +1,5 @@
 @import 'mixins';
+@import 'color_chart';
 
 .home-index-marquee {
   background: url('Football-helmuts.jpg') no-repeat;
@@ -8,11 +9,19 @@
   background-size: cover !important;
   position: relative;
   width: 100%;
+  min-height: 600px;
   text-align: center;
+  margin-bottom: -100px;
   @include light_box_shadow;
   #app-content {
     border: none !important;
   }
+}
+
+#headline {
+  position: relative;
+  text-align: center;
+  margin-top: -600px;
   h1 {
     color: #FFF;
     font-size: 65px;
@@ -23,7 +32,29 @@
   }
 }
 
-/*.benefit_box {
-  @include default_panel;
-  height: 200px;
-}*/
+section#benefits-summary {
+  float: left;
+  width: 100%;
+  margin-top: 450px;
+}
+
+section.benefit {
+  float: left;
+  width: 100%
+}
+
+div#benefit-container {
+  padding-left: 70px;
+}
+
+div.benefit_box {
+  width: 300px;
+  height: 250px;
+  background-color: $steel-light-40;
+  float: left;
+  margin: 10px;
+}
+
+
+
+
