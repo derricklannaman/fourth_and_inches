@@ -3,46 +3,30 @@
 
 - if user_signed_in?
   %h3
-    User signed in?:
-    = user_signed_in?
+    = "Hello, #{name} "
     %br
-    = name
-    %br
-    = current_user.id
-    %br
-    = current_user.user_type
-
-
-  / .ui-widget
-  /   %label{for: "tags"} Tags:
-  /   %input#tags/
+    = user_signin_status
 
   .power-line-separator
   .show-teams-list
     %h2 Select Team
     - @teams.each do |team|
-      %h3
-        View:
-        = link_to team.title, team_dashboard_path(team)
-        |
-        = team.division.name
+      = link_to "#{team.title}", team_dashboard_path(team), class: 'team-bucket'
 
-    / %h4 Register Player
-    / %button.btn.btn-primary.btn-lg#registr_btn{"data-target" => "#myModal", "data-toggle" => "modal"}
-    /   Registration Form
-    / = render @player
 
-- else
+- else #if not signed in...
   %h3
     = user_signin_status
 
   %a.general_user_sign_up_btn
-    Sign Up:
-    %br
-    Parents
+    .sign-up-text
+      Sign Up:
+      %br
+      Parents
 
     = render @user
 
+  / TODO: fix carousel
   #carousel_view
     = render 'carousel'
 

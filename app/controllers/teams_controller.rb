@@ -83,6 +83,11 @@ class TeamsController < ApplicationController
     @fee = calculate_stripe_fee(fee)
     @transactions = current_user.account.transactions.order('created_at DESC')
     @stripe_formatted_fee = current_user.program.fee
+
+
+
+
+    # @website = Website.friendly.find(@team.id)
   end
 
   def team_manager

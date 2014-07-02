@@ -2,9 +2,9 @@ module ApplicationHelper
 
   def user_signin_status
     if user_signed_in?
-      "You are signed in"
+      "current status: you are signed in"
     else
-      "You are not signed in..."
+      "current status: you are not signed in..."
     end
   end
 
@@ -111,7 +111,8 @@ module ApplicationHelper
   end
 
   def show_banner_on_website_view_only(controller_name, action_name, town, name)
-    if (controller_name == "websites" && action_name == "show")
+    if (controller_name == "websites" && action_name == "show" ||
+        controller_name == "teams" && action_name == "team_dashboard" )
       jumbo_web_banner(town, name)
     end
   end

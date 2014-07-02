@@ -2,6 +2,7 @@ class WebsitesController < ApplicationController
 
   def show
     @website = Website.friendly.find(params[:id])
+    # TODO: DRY
     @town = @website.town.capitalize
     @name = @website.team.capitalize
     @teams = current_user.program.teams unless current_user.nil?

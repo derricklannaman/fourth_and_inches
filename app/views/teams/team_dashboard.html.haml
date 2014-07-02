@@ -1,6 +1,6 @@
 %h1= "#{team_name(@team)} dashboard"
 
-%section.control-panel
+%section.parent-account-panel
   .message_panel
     .message_panel_header
       Messages
@@ -69,14 +69,25 @@
 
 - else
   %section.minimal-access
-    %h1
-      Full Access is granted once a payment
-      has been made on the account.
+    .header
+      Limited Access
+    %p Full Access is granted once a payment has been made on the account
 
-    %h4 Register Player
-    %button.btn.btn-primary.btn-lg#registr_btn{"data-target" => "#myModal", "data-toggle" => "modal"}
-      Registration Form
+    .registration-controls Register Players:
+    %button#registr_btn{"data-target" => "#myModal", "data-toggle" => "modal"}
+      .button-header
+        New Player Registration
     = render @player
+
+    %h1.or-separator OR
+
+    %button#registr_btn{"data-target" => "#myModal", "data-toggle" => "modal"}
+      .button-header
+        Register Prev Player
+    = render @player
+
+
+
 
 
 
