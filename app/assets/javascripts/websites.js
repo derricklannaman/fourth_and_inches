@@ -18,12 +18,12 @@ $(document).ready(function(){
       height: 336,
   });
 
-  $('button.registr_btn').avgrund({
+  $('button.new-registr').avgrund({
       onLoad: function (elem) { $('form#website_channeled_player').show(); },
       onBlurContainer: '.app-container',
       template: $('form#website_channeled_player'),
       width: 480,
-      height: 400,
+      height: 420,
   });
   var availableTags = [
         "ActionScript",

@@ -131,5 +131,26 @@
   @include form_shadow;
 }
 
+@mixin default_button_panel {
+  cursor: pointer;
+  border: 5px solid $steel-light-40;
+  float: left;
+  margin: 15px;
+  margin-left: 40px;
+  width: 250px;
+  height: 223px;
+  color: $steel-light-40;
+  border-radius: 10px;
+  div.button-header {
+    font-size: 40px;
+    color: #FFF;
+    background-color: rgba(0,0,0, 0.5);
+  }
+  &:hover {
+    border: 5px solid $go-green;
+  }
+
+}
+
 
 

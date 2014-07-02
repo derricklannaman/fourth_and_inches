@@ -3,13 +3,13 @@
   = hidden_field_tag(:program_id, @team.program.websites.first.id)
   = hidden_field_tag(:parent_id, current_user.id)
   .inner-player-form
-    %p= "Is this the first year with #{@town}? "
-    #player_registered
-      = f.radio_button :is_registered, "Yes"
-      = f.label :is_registered, "Yes"
-      |
-      = f.radio_button :is_registered, "No"
-      = f.label :is_registered, "No"
+    / %p= "Is this the first year with #{@town}? "
+    / #player_registered
+    /   = f.radio_button :is_registered, "Yes"
+    /   = f.label :is_registered, "Yes"
+    /   |
+    /   = f.radio_button :is_registered, "No"
+    /   = f.label :is_registered, "No"
     #new-player
       %div
         = f.label :first_name

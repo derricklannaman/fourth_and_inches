@@ -88,49 +88,17 @@ div.avgrund-popin {
 }
 
 button.new-registr {
-  cursor: pointer;
-  border: 5px solid $steel-light-40;
-  float: left;
-  margin: 15px;
-  margin-left: 40px;
-  width: 250px;
-  height: 223px;
   background-image: image-url('youth-football-heisman.png');
   background-repeat: no-repeat;
   background-size: 100%;
-  color: $steel-light-40;
-  border-radius: 10px;
-  div.button-header {
-    font-size: 40px;
-    color: #FFF;
-    background-color: rgba(0,0,0, 0.5);
-  }
-  &:hover {
-    border: 5px solid $go-green;
-  }
+  @include default_button_panel;
 }
 
 button.veteran-registr {
-  cursor: pointer;
-  border: 5px solid $steel-light-40;
-  float: left;
-  margin: 15px;
-  margin-left: 40px;
-  width: 250px;
-  height: 223px;
   background-image: image-url('youth-football-trenches.png');
   background-repeat: no-repeat;
   background-size: 135%;
-  color: $steel-light-40;
-  border-radius: 10px;
-  div.button-header {
-    font-size: 40px;
-    color: #FFF;
-    background-color: rgba(0,0,0, 0.5);
-  }
-  &:hover {
-    border: 5px solid $go-green;
-  }
+  @include default_button_panel;
 }
 
 
