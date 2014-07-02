@@ -1,5 +1,13 @@
 module ApplicationHelper
 
+  def user_signin_status
+    if user_signed_in?
+      "You are signed in"
+    else
+      "You are not signed in..."
+    end
+  end
+
   def calculate_account_balance
     "Balance: #{number_to_currency( current_user.account_balance )}"
   end

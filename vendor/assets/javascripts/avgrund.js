@@ -21,7 +21,7 @@
   $.fn.avgrund = function (options) {
     var defaults = {
       width: 456, // max = 640
-      height: 336, // max = 350
+      height: 350, // max = 350
       showClose: true,
       showCloseText: 'cancel',
       closeByEscape: true,
