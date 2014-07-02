@@ -73,18 +73,28 @@
       Limited Access
     %p Full Access is granted once a payment has been made on the account
 
-    .registration-controls Register Players:
-    %button#registr_btn{"data-target" => "#myModal", "data-toggle" => "modal"}
-      .button-header
-        New Player Registration
-    = render @player
+    .registration-controls
+      .panel-name Register Players:
 
-    %h1.or-separator OR
+      .registration-action
+        %strong
+          .rookie Rookie ( completely new )
 
-    %button#registr_btn{"data-target" => "#myModal", "data-toggle" => "modal"}
-      .button-header
-        Register Prev Player
-    = render @player
+        %button.new-registr{"data-target" => "#myModal", "data-toggle" => "modal"}
+          .button-header
+            New Player Registration
+        = render @player
+
+      %h1.or-separator OR
+
+      .registration-action
+        %strong
+          .veteran Veteran ( played before )
+
+        %button.veteran-registr{"data-target" => "#myModal", "data-toggle" => "modal"}
+          .button-header
+            Register Prev Player
+        = render @player
 
 
 

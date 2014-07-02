@@ -87,11 +87,12 @@ div.avgrund-popin {
   height: 360px !important;
 }
 
-button#registr_btn {
+button.new-registr {
   cursor: pointer;
   border: 5px solid $steel-light-40;
   float: left;
   margin: 15px;
+  margin-left: 40px;
   width: 250px;
   height: 223px;
   background-image: image-url('youth-football-heisman.png');
@@ -109,12 +110,54 @@ button#registr_btn {
   }
 }
 
-h1.or-separator {
+button.veteran-registr {
+  cursor: pointer;
+  border: 5px solid $steel-light-40;
   float: left;
-  padding-top: 77px;
+  margin: 15px;
+  margin-left: 40px;
+  width: 250px;
+  height: 223px;
+  background-image: image-url('youth-football-heisman.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  color: $steel-light-40;
+  border-radius: 10px;
+  div.button-header {
+    font-size: 40px;
+    color: #FFF;
+    background-color: rgba(0,0,0, 0.5);
+  }
+  &:hover {
+    border: 5px solid $go-green;
+  }
 }
 
 
+h1.or-separator {
+  float: left;
+  margin-left: 16px;
+  padding-top: 77px;
+}
+
+div.registration-controls {
+  font-size: 30px;
+  .panel-name {
+    margin-bottom: 10px;
+  }
+}
+
+div.registration-action {
+  width: 300px;
+  float: left;
+}
+
+div.rookie, div.veteran {
+  position: relative;
+  width: 235px;
+  left: 45px;
+  font-size: 18px;
+}
 
 .avgrund-active .avgrund-popin {
   border-top: 10px solid $go-green;
@@ -145,7 +188,7 @@ h1.or-separator {
   margin-left: 20px;
   text-align: center;
   padding-bottom: 30px;
-
+  color: $steel-light-30;
   background-color: $steel-light-65;
   .header {
     width: 100%;
