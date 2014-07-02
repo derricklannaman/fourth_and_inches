@@ -49,10 +49,9 @@ div#benefit-container {
 
 div.benefit_box {
   width: 300px;
-  height: 250px;
-  background-color: $steel-light-40;
   float: left;
   margin: 10px;
+  overflow: hidden;
 }
 
 
