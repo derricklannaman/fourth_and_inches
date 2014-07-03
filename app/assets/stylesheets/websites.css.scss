@@ -58,9 +58,9 @@ ul#ui-id-1 {
 }
 
 a.general_user_sign_up_btn {
-  /* TODO: not sure of look! @include translucent_border;*/
+  @include translucent_border;
+  border: 5px solid #B2BBC6;
   cursor: pointer;
-  border: 5px solid #FFF;
   display: inline-block;
   margin: 15px;
   width: 350px;
@@ -70,7 +70,6 @@ a.general_user_sign_up_btn {
   text-align: center;
   padding: 10px;
   font-size: 35px;
-  @include translucent_border;
 }
 
 div.sign-up-text {
@@ -179,7 +178,7 @@ div.rookie, div.veteran {
 .message_panel_header, .make-payment-header,
 .account_panel_header {
   height: 40px;
-  background-color: #999;
+  background-color: $steel-light-40;
   color: #FFF;
   text-align: center;
   text-transform: uppercase;
@@ -246,6 +245,10 @@ section.team_calendar_view {
   padding: 20px 20px 0px 20px;
   background-color: #fff;
   @include light_box_shadow;
+}
+
+div.avgrund-popin.web-registered-player {
+  height: 420px !important;
 }
 
 

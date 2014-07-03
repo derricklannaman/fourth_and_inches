@@ -11,7 +11,7 @@
   .show-teams-list
     %h2 Select Team
     - @teams.each do |team|
-      = link_to "#{team.title}", team_dashboard_path(team), class: 'team-bucket'
+      = link_to display_team_logo(:medium), team_dashboard_path(team), class: 'team-bucket'
 
 
 - else #if not signed in...
@@ -23,6 +23,12 @@
       Sign Up:
       %br
       Parents
+
+    = render @user
+
+  %a.general_user_sign_up_btn
+    .sign-up-text
+      Sign In:
 
     = render @user
 

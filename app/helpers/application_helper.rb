@@ -9,7 +9,11 @@ module ApplicationHelper
   end
 
   def calculate_account_balance
-    "Balance: #{number_to_currency( current_user.account_balance )}"
+    if current_user.get_parents_players.blank?
+      "Balance: #{number_to_currency(0)}"
+    else
+      "Balance: #{number_to_currency( current_user.account_balance )}"
+    end
   end
 
   def calculate_fee
@@ -46,7 +50,7 @@ module ApplicationHelper
 
   def display_team_logo(size)
     if current_user.program.logo_image_content_type.nil? && current_user.user_type === 'director'
-      link_to '<div id="logo-place-holder" >add logo</div>'.html_safe, logo_path(current_user.program.id)
+      link_to '<div id="logo-place-holder"> No Logo Uploaded </div>'.html_safe, logo_path(current_user.program.id)
     elsif current_user.program.logo_image_content_type.nil? && current_user.user_type === 'head_coach'
       return
     else

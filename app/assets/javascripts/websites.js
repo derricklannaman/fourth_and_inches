@@ -19,11 +19,12 @@ $(document).ready(function(){
   });
 
   $('button.new-registr').avgrund({
-      onLoad: function (elem) { $('form#website_channeled_player').show(); },
+      onLoad: function (elem) { $('form#website_channeled_player').show();},
       onBlurContainer: '.app-container',
       template: $('form#website_channeled_player'),
       width: 480,
       height: 420,
+      holderClass: 'web-registered-player',
   });
   var availableTags = [
         "ActionScript",

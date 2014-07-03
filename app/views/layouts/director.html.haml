@@ -13,8 +13,8 @@
     :javascript
       Ajaxify.init( { active: false, scroll_to_top: false, flash_types: ['notice'] } );
 
-    .app_nav_bar
-      = nav_view_by_login_status
+    / .app_nav_bar
+    /   = nav_view_by_login_status
 
     .app-container-director
       #app-content-director.container
@@ -22,10 +22,10 @@
         #main.director-view
           = yield
         / .line-separation
-        = render 'layouts/footer_nav_panel'
+  /       = render 'layouts/footer_nav_panel'
 
-  - if user_signed_in?
-    %script{src: "assets/classie.js"}
-    %script{src: "assets/borderMenu.js"}
+  / - if user_signed_in?
+  /   %script{src: "assets/classie.js"}
+  /   %script{src: "assets/borderMenu.js"}
 
 

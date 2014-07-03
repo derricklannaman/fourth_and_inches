@@ -4,6 +4,10 @@
   .message_panel
     .message_panel_header
       Messages
+    .messages
+      - if current_user.sign_in_count < 3
+        %p Welcome to your message board
+
 
   .account_panel
     .account_panel_header
@@ -12,7 +16,6 @@
       = "#{Date.today.year}"
     .view-payments-controls
       #view-payment-btn{class: "btn btn-info btn-xs"} view payments
-
 
     .current-status
       %p
@@ -28,7 +31,6 @@
 
   .make-payment-header Make Payment
   .payment-panel
-
 
     = form_tag charges_path do
       %article

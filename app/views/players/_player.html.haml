@@ -40,10 +40,8 @@
         = f.label :date_of_birth, 'Date of Birth'
         %br/
         = f.date_select(:date_of_birth, start_year: Date.today.year - 13, end_year: Date.today.year, :order => [:month, :day, :year])
-    #search-players
-      .ui-widget
-        %label{for: "tags"} Tags:
-        %input#tags/
-    .clear
       %div
         = f.submit class: 'default-submit-button'
+
+
+
