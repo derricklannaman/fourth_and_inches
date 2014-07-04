@@ -3,7 +3,7 @@ class RegistrationsController < Devise::RegistrationsController
   # skip_before_filter :require_no_authentication
 
   def create
-    if params.fetch(:form_type) == 'web_sign_up' && params[:user][:user_type].blank?
+    if params[:form_type] == 'web_sign_up' && params[:user][:user_type].blank?
       site_id = params.fetch(:site_id)
       @user = User.new(user_params)
       @user.user_type = 'parent_user'

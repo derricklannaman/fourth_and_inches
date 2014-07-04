@@ -80,8 +80,12 @@ class User < ActiveRecord::Base
   end
 
   def create_account
-    fee = self.program.fee
-    Account.create(user_id: self.id, balance: fee)
+    if user_type == 'parent_user'
+      fee = self.program.fee
+      Account.create(user_id: self.id, balance: fee)
+    else
+      return
+    end
   end
 
   def self.find_first_by_auth_conditions(warden_conditions)
