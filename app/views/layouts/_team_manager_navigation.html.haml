@@ -7,10 +7,8 @@
       %li
         = link_to_unless_current "dashboard", dashboard_path
       %li
-        / link_to unnecessary...allows for slideToggle
         %a{ id: 'team-mgr-button'} team manager
       %li
-        / ...allows for slideToggle
         %a{ id: 'tm-player-button'} Players
       %li.player-action-sublist
         = link_to 'add new player', new_player_path, class: 'new-player-side-link'

@@ -18,13 +18,8 @@
 	}
 
 	function init() {
-		// FIND: fix null bug when not using side menu on page
-		// if (document.getElementById( 'bt-menu' ) == null) {
-		// 	return
-		// }
-		// else {
 			var menu = document.getElementById( 'bt-menu' ),
-		// }
+
 			trigger = menu.querySelector( 'a.bt-menu-trigger' ),
 			// triggerPlay only for demo 6
 			triggerPlay = document.querySelector( 'a.bt-menu-trigger-out' ),
