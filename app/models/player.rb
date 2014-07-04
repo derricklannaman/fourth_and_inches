@@ -8,7 +8,6 @@
 #  address             :string(255)
 #  town                :string(255)
 #  zip                 :string(255)
-#  dob                 :integer
 #  team_id             :integer
 #  parent_id           :integer
 #  age                 :integer
@@ -18,11 +17,15 @@
 #  avatar_content_type :string(255)
 #  avatar_file_size    :integer
 #  avatar_updated_at   :datetime
+#  date_of_birth       :datetime
+#  is_registered       :boolean          default(FALSE)
+#  program_id          :integer
 #
 
 class Player < ActiveRecord::Base
   # has_many :users
   # has_many :users, :through => :teams
+  belongs_to :program
   belongs_to :user
   belongs_to :team
   has_one :account

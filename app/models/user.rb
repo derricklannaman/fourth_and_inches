@@ -25,6 +25,7 @@
 #  oauth_token            :string(255)
 #  oauth_expires_at       :datetime
 #  image                  :string(255)
+#  hasActiveAccount       :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base

@@ -13,6 +13,7 @@
 #  logo_image_content_type :string(255)
 #  logo_image_file_size    :integer
 #  logo_image_updated_at   :datetime
+#  fee                     :decimal(30, 2)   default(0.0)
 #
 
 class Program < ActiveRecord::Base
@@ -20,6 +21,7 @@ class Program < ActiveRecord::Base
   include Rails.application.routes.url_helpers
 
   has_many :users, dependent: :destroy
+  has_many :players, dependent: :destroy
   has_many :access_codes, dependent: :destroy
   has_many :teams, dependent: :destroy
   has_many :divisions, dependent: :destroy
