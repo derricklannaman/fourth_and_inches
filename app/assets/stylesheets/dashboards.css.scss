@@ -5,11 +5,12 @@
 @import 'mixins';
 
 .app-container-director {
-  height: 100%;
+  /*height: 100%;*/
 }
 
 #director-dashboard-ready {
-  width: 1200px;
+  /*width: 1200px;*/
+  width: 900px;
   margin: 0px auto;
   position: relative;
   display: block;
@@ -30,7 +31,7 @@
 
 .director-view {
   padding-left: 0px !important;
-  margin-top: -35px;
+  /*margin-top: -35px;*/
 }
 
 div.outer-rink {
@@ -96,8 +97,10 @@ div.link-text {
 
 .action-tile {
   float: left;
-  width: 290px;
-  height: 345px;
+/*  width: 290px;
+  height: 345px;*/
+  width: 190px;
+  height: 200px;
   margin: 0 5px;
   background-color: $go-green;
   border: 2px solid $go-green-plus20;
@@ -105,9 +108,9 @@ div.link-text {
   display: block;
   cursor: pointer;
   text-transform: uppercase;
-  padding-top: 120px;
+  padding-top: 30px;
   text-align: center;
-  font-size: 33px;
+  font-size: 20px;
   margin-bottom: 10px;
   color: rgba(255, 255, 255, 0.5);
   &:hover {
@@ -173,9 +176,9 @@ div.link-text {
 }
 
 .hi-icon-effect-8 .action-tile:hover:after {
-  -webkit-animation: sonarEffect .7s ease-out 75ms;
-  -moz-animation: sonarEffect .7s ease-out 75ms;
-  animation: sonarEffect .7s ease-out 75ms
+  -webkit-animation: sonarEffect .6s ease-out 75ms;
+  -moz-animation: sonarEffect .6s ease-out 75ms;
+  animation: sonarEffect .6s ease-out 75ms
 }
 
 @-webkit-keyframes sonarEffect {
