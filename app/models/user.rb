@@ -51,9 +51,6 @@ class User < ActiveRecord::Base
   has_one     :account
   has_many    :transactions
 
-
-
-
   # validates :username,
   #   :uniqueness => {
   #     :case_sensitive => false
@@ -62,6 +59,10 @@ class User < ActiveRecord::Base
 
   def get_parents_players
     Player.all.where('parent_id = :parent', :parent => self.id)
+  end
+
+  def get_programs_players
+    Player.all.where('program_id = :program', program: self.program.id).order('last_name ASC')
   end
 
   def account_balance

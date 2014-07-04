@@ -371,13 +371,17 @@ nav a:focus {
   }
 }
 
-#new-player-side-link,
+.new-player-side-link,
 #new-team-side-link,
 #edit-team-side-link {
   color:  $steel;
   &:hover {
     color: #FFF;
   }
+}
+
+.new-player-side-link {
+  color: #FFF !important;
 }
 
 .bottom-hilight {

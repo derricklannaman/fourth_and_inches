@@ -11,20 +11,21 @@
     %th Address
     %th Age
     %th Team
-  - @all_players.each do |player|
-    %tr
-      %td
-        = display_mini_player_image(player)
-      %td
-        = player.first_name
-      %td
-        = link_to player.last_name, player_path(player)
-      %td
-        = "#{player.address}, #{player.town}, #{player.zip}"
-      %td
-        = "#{player.age}"
-      %td
-        = team_player_belongs_to(player)
+  - unless @all_players.blank?
+    - @all_players.each do |player|
+      %tr
+        %td
+          = display_mini_player_image(player)
+        %td
+          = player.first_name
+        %td
+          = link_to player.last_name, player_path(player)
+        %td
+          = "#{player.address}, #{player.town}, #{player.zip}"
+        %td
+          = "#{player.age}"
+        %td
+          = team_player_belongs_to(player)
 
 
 

@@ -7,17 +7,18 @@
       %li
         = link_to_unless_current "dashboard", dashboard_path
       %li
-        /...allow for slideToggle
         %a{ id: 'add-team-button'} teams
       %li.team-action-sublist
         = link_to 'add new team', new_team_path, id: 'new-team-side-link'
-      %li
-        /...allow for slideToggle
-        %a{ id: 'player-button'} Players
-      %li.player-action-sublist
-        = link_to 'add new player', new_player_path, id: 'new-player-side-link'
-      %li.player-action-sublist
-        = link_to 'view all players', players_path, id: 'new-player-side-link'
+
+      - unless current_user.teams.blank?
+        %li
+          %a{ id: 'player-button'} Players
+        %li.player-action-sublist
+          = link_to 'add new player', new_player_path, class: 'new-player-side-link'
+        %li.player-action-sublist
+          = link_to 'view all players', players_path, class: 'new-player-side-link'
+
       %li
         = link_to "staff", users_path
       %li

@@ -7,8 +7,12 @@ class PlayersController < ApplicationController
   def index
     @players = current_user.teams.active.players \
                           unless current_user.user_type == 'director'
-    all_players = Player.order('last_name ASC')
-    @all_players = all_players.delete_if { |p| p.first_name == 'cover' }
+    all_players = current_user.get_programs_players
+    if all_players.empty?
+      return
+    else
+      @all_players = all_players.delete_if { |p| p.first_name == 'cover' }
+    end
     find_active_team
   end
 
