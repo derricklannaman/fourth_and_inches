@@ -54,6 +54,40 @@ div.benefit_box {
   overflow: hidden;
 }
 
+/*FAQ Section*/
+
+#faq_page {
+  width: 500px;
+  margin: auto
+}
+
+dl {
+
+}
+
+dt {
+  font-family: 'Raleway', sans-serif;
+  cursor: pointer;
+  font-size: 2em;
+  color: #FFF;
+  border-top: 1px solid $steel-light-40;
+  border-bottom: 1px solid $steel-light-65;
+  background-color: $steel-light-25;
+  text-align: center;
+  padding: 8px 0;
+}
+
+dd {
+
+}
+
+dt:first-child {border-top: none; }
+dt:nth-last-child(2) { border-bottom: none; }
+
+.hide_dd { display: none }
+
+
+
 
 
 
