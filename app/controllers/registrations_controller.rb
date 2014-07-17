@@ -4,87 +4,32 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     if params[:form_type] == 'web_sign_up' && params[:user][:user_type].blank?
-      website_registration
-    end
-    if params[:user][:user_type].present?
-      # binding.pry
-      director_registration
+      website_originated
 
+      # site_id = params.fetch(:site_id)
       # @user = User.new(user_params)
-      # user_type = params[:user][:user_type]
-      # user_name = params[:user][:first_name] + '_' + params[:user][:last_name]
-      # @user.user_type = user_type
-      # @user.username = user_name
-      #   if @user.save
-      #     sign_in_and_redirect resource
-      #   else
-      #     render :new, notice: "Please pick an user type"
-      #   end
-    elsif params[:access].present?
-      invite_registration
-
-    #   @user = User.new(user_params)
-    #   parts = params[:access].split('-')
-    #   code_num = parts[0]                 # Find access code
-    #   id = parts[2]                       # Find program id
-    #   code = AccessCode.where(access_code: code_num)[0]
-    #   if parts[1] == "1819055"
-    #     @user.user_type = "staff"
-    #   elsif parts[1] == '7403214027'
-    #     @user.user_type = "head_coach"
-    #   end
-    #   @user.program_id = id
-    #   @user.username = user_name
-    #   if @user.save
-    #     code.user_id = @user.id # Set access code to new user if saved
-    #     code.save
-    #     # TODO: post a confirmation that a coach signed up to directors' activity feed
-    #     sign_in_and_redirect resource
-    #   else
-    #     puts ">>>>>>#{@user.errors.full_messages}<<<<"
-    #     flash[:error] = @user.errors.full_messages
-    #     render :new
-    #   end
-    # end
-
-  end
-
-
-  protected
-
-    def after_sign_up_path_for(resource)
-      dashboard_path
-    end
-
-
-  private
-
-    def website_registration
-      site_id = params.fetch(:site_id)
-      @user = User.new(user_params)
-      @user.user_type = 'parent_user'
-      @user.program_id = params[:program_id]
+      # @user.user_type = 'parent_user'
+      # @user.program_id = params[:program_id]
       if @user.save
         sign_in_and_redirect @user
       else
         render :new
       end
     end
-
-    def director_registration
+    # binding.pry
+    if params[:user][:user_type].present?
       @user = User.new(user_params)
       user_type = params[:user][:user_type]
       user_name = params[:user][:first_name] + '_' + params[:user][:last_name]
       @user.user_type = user_type
       @user.username = user_name
+      binding.pry
         if @user.save
           sign_in_and_redirect resource
         else
           render :new, notice: "Please pick an user type"
         end
-    end
-
-    def invite_registration
+    elsif params[:access].present?
       @user = User.new(user_params)
       parts = params[:access].split('-')
       code_num = parts[0]                 # Find access code
@@ -108,8 +53,25 @@ class RegistrationsController < Devise::RegistrationsController
         render :new
       end
     end
+  end
 
+
+  protected
+
+    def after_sign_up_path_for(resource)
+      dashboard_path
     end
+
+    def website_originated
+      site_id = params.fetch(:site_id)
+      @user = User.new(user_params)
+      @user.user_type = 'parent_user'
+      @user.program_id = params[:program_id]
+      binding.pry
+    end
+
+
+  private
 
     def user_params
       params.require(:user).permit( :first_name, :last_name, :password,
