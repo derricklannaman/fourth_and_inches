@@ -58,7 +58,9 @@ div.benefit_box {
 
 #faq_page {
   width: 500px;
-  margin: auto
+  margin: auto;
+  text-align: center;
+
 }
 
 dl {
@@ -78,7 +80,7 @@ dt {
 }
 
 dd {
-
+ padding: 1em 0;
 }
 
 dt:first-child {border-top: none; }
