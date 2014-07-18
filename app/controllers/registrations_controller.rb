@@ -5,25 +5,17 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     if params[:form_type] == 'web_sign_up' && params[:user][:user_type].blank?
       website_originated
-
-      # site_id = params.fetch(:site_id)
-      # @user = User.new(user_params)
-      # @user.user_type = 'parent_user'
-      # @user.program_id = params[:program_id]
       if @user.save
         sign_in_and_redirect @user
       else
         render :new
       end
-    end
-    # binding.pry
-    if params[:user][:user_type].present?
+    elsif params[:user][:user_type].present? && params[:user][:user_type] == 'director'
       @user = User.new(user_params)
       user_type = params[:user][:user_type]
       user_name = params[:user][:first_name] + '_' + params[:user][:last_name]
       @user.user_type = user_type
       @user.username = user_name
-      binding.pry
         if @user.save
           sign_in_and_redirect resource
         else
@@ -32,7 +24,7 @@ class RegistrationsController < Devise::RegistrationsController
     elsif params[:access].present?
       @user = User.new(user_params)
       parts = params[:access].split('-')
-      code_num = parts[0]                 # Find access code
+      code_num = parts[0]                 # Find access code decifer
       id = parts[2]                       # Find program id
       code = AccessCode.where(access_code: code_num)[0]
       if parts[1] == "1819055"

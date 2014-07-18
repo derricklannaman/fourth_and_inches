@@ -10,8 +10,9 @@
         = link_to "team manager", team_manager_path, id: 'team-mgr-button'
       %li.team-action-sublist
         = link_to 'add new team', new_team_path, id: 'new-team-side-link'
-      %li.team-action-sublist
-        = link_to 'Edit', edit_team_path(@active_team), id: 'edit-team-side-link'
+      - unless @active_team.blank?
+        %li.team-action-sublist
+          = link_to 'Edit', edit_team_path(@active_team), id: 'edit-team-side-link'
       %li
         %a{ id: 'player-button'} Players
       %li.player-action-sublist
