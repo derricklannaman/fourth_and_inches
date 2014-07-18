@@ -4,18 +4,14 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     if params[:form_type] == 'web_sign_up' && params[:user][:user_type].blank?
-      website_originated
+      process_website_registration
       if @user.save
         sign_in_and_redirect @user
       else
         render :new
       end
     elsif params[:user][:user_type].present? && params[:user][:user_type] == 'director'
-      @user = User.new(user_params)
-      user_type = params[:user][:user_type]
-      user_name = params[:user][:first_name] + '_' + params[:user][:last_name]
-      @user.user_type = user_type
-      @user.username = user_name
+      process_director_registration
         if @user.save
           sign_in_and_redirect resource
         else
@@ -54,12 +50,19 @@ class RegistrationsController < Devise::RegistrationsController
       dashboard_path
     end
 
-    def website_originated
+    def process_website_registration
       site_id = params.fetch(:site_id)
       @user = User.new(user_params)
       @user.user_type = 'parent_user'
       @user.program_id = params[:program_id]
-      binding.pry
+    end
+
+    def process_director_registration
+      @user = User.new(user_params)
+      user_type = params[:user][:user_type]
+      user_name = params[:user][:first_name] + '_' + params[:user][:last_name]
+      @user.user_type = user_type
+      @user.username = user_name
     end
 
 
