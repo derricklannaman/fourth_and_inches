@@ -18,21 +18,10 @@ class RegistrationsController < Devise::RegistrationsController
           render :new, notice: "Please pick an user type"
         end
     elsif params[:access].present?
-      @user = User.new(user_params)
-      parts = params[:access].split('-')
-      code_num = parts[0]                 # Find access code decifer
-      id = parts[2]                       # Find program id
-      code = AccessCode.where(access_code: code_num)[0]
-      if parts[1] == "1819055"
-        @user.user_type = "staff"
-      elsif parts[1] == '7403214027'
-        @user.user_type = "head_coach"
-      end
-      @user.program_id = id
-      @user.username = user_name
+      process_access_code_registration
       if @user.save
-        code.user_id = @user.id # Set access code to new user if saved
-        code.save
+        @code.user_id = @user.id # Set access code to new user if saved
+        @code.save
         # TODO: post a confirmation that a coach signed up to directors' activity feed
         sign_in_and_redirect resource
       else
@@ -62,6 +51,24 @@ class RegistrationsController < Devise::RegistrationsController
       user_type = params[:user][:user_type]
       user_name = params[:user][:first_name] + '_' + params[:user][:last_name]
       @user.user_type = user_type
+      @user.username = user_name
+    end
+
+    def process_access_code_registration
+     @user = User.new(user_params)
+     user_name = params[:user][:first_name] + '_' + params[:user][:last_name]
+
+      parts = params[:access].split('-')
+      code_num = parts[0]                 # Find access code decifer
+      id = parts[2]                       # Find program id
+      @code = AccessCode.where(access_code: code_num)[0]
+      # decifer_access_codes
+      if parts[1] == "1819055"
+        @user.user_type = "staff"
+      elsif parts[1] == '7403214027'
+        @user.user_type = "head_coach"
+      end
+      @user.program_id = id
       @user.username = user_name
     end
 
