@@ -15,7 +15,7 @@
 
   - elsif key == "1819055"    #then they received an invite to join as gen. staff
     = hidden_field_tag(:access, params[:key])
-    %h1  New Staff Sign Up
+    %h1 Staff Sign Up
     = render partial: 'registrations/form', locals: {f: f}
 
 
