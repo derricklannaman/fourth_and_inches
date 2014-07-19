@@ -5,9 +5,9 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     if form_from_web_registration? && user_type_is_blank?
       process_website_registration
+
       if @user.save
-        sign_in_and_redirect @user
-        # sign_in_and_redirect resource
+        sign_in_and_redirect resource
       else
         render :new
       end
@@ -16,18 +16,16 @@ class RegistrationsController < Devise::RegistrationsController
         if @user.save
           sign_in_and_redirect resource
         else
-          render :new, notice: "Please pick an user type"
+          render :new
         end
     elsif access_code_present?
       process_access_code_registration
+
       if @user.save
-        # set_access_codes
-        @code.user_id = @user.id # Set access code to new user if saved
-        @code.save
-        # TODO: post a confirmation that a coach signed up to directors' activity feed
+
+        #
         sign_in_and_redirect resource
       else
-        puts ">>>>>>#{@user.errors.full_messages}<<<<"
         flash[:error] = @user.errors.full_messages
         render :new
       end
@@ -66,9 +64,9 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     def decifer_access_codes(parts)
-      if parts[1] == "1819055"
+      if @parts[1] == "1819055"
         @user.user_type = "staff"
-      elsif parts[1] == '7403214027'
+      elsif @parts[1] == '7403214027'
         @user.user_type = "head_coach"
       end
     end
@@ -81,7 +79,7 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     def set_user_full_name
-      user_name = params[:user][:first_name] + '_' + params[:user][:last_name]
+      @user_name = params[:user][:first_name] + '_' + params[:user][:last_name]
     end
 
     def process_director_registration
@@ -92,16 +90,33 @@ class RegistrationsController < Devise::RegistrationsController
       @user.username = user_name
     end
 
+    def set_access_code_for_new_user
+      @code.user_id = @user.id
+      @code.save
+    end
+
+    def find_access_code_in_link
+      @parts = params[:access].split('-')
+      code_num = @parts[0]
+      @id = @parts[2]
+      @code = AccessCode.where(access_code: code_num)[0]
+    end
+
     def process_access_code_registration
       create_new_user
       set_user_full_name
-      parts = params[:access].split('-')
-      code_num = parts[0]                 # Find access code
-      id = parts[2]                       # Find program id
-      @code = AccessCode.where(access_code: code_num)[0]
-      decifer_access_codes(parts)
-      @user.program_id = id
-      @user.username = user_name
+
+      find_access_code_in_link
+      # parts = params[:access].split('-')
+      # code_num = parts[0]                 # Find access code
+      # @id = parts[2]                       # Find program id
+      # @code = AccessCode.where(access_code: code_num)[0]
+
+
+      decifer_access_codes(@parts)
+      set_access_code_for_new_user
+      @user.program_id = @id
+      @user.username = @user_name
     end
 
 
