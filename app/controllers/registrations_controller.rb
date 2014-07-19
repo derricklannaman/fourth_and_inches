@@ -5,30 +5,13 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     if form_from_web_registration? && user_type_is_blank?
       process_website_registration
-
-      if @user.save
-        sign_in_and_redirect resource
-      else
-        render :new
-      end
+      save_user_or_show_new(resource)
     elsif user_type_is_present? && user_type_is_director?
       process_director_registration
-        if @user.save
-          sign_in_and_redirect resource
-        else
-          render :new
-        end
+      save_user_or_show_new(resource)
     elsif access_code_present?
       process_access_code_registration
-
-      if @user.save
-
-        #
-        sign_in_and_redirect resource
-      else
-        flash[:error] = @user.errors.full_messages
-        render :new
-      end
+      save_user_or_show_new(resource)
     end
   end
 
@@ -37,6 +20,14 @@ class RegistrationsController < Devise::RegistrationsController
 
     def after_sign_up_path_for(resource)
       dashboard_path
+    end
+
+    def save_user_or_show_new(resource)
+      if @user.save
+        sign_in_and_redirect resource
+      else
+        render :new
+      end
     end
 
     def form_from_web_registration?
@@ -87,7 +78,7 @@ class RegistrationsController < Devise::RegistrationsController
       user_type = params[:user][:user_type]
       set_user_full_name
       @user.user_type = user_type
-      @user.username = user_name
+      @user.username = @user_name
     end
 
     def set_access_code_for_new_user
@@ -105,14 +96,7 @@ class RegistrationsController < Devise::RegistrationsController
     def process_access_code_registration
       create_new_user
       set_user_full_name
-
       find_access_code_in_link
-      # parts = params[:access].split('-')
-      # code_num = parts[0]                 # Find access code
-      # @id = parts[2]                       # Find program id
-      # @code = AccessCode.where(access_code: code_num)[0]
-
-
       decifer_access_codes(@parts)
       set_access_code_for_new_user
       @user.program_id = @id
