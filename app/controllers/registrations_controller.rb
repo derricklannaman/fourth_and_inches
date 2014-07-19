@@ -1,7 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
 
-  include UserRegistrationHelpers
-  # skip_before_filter :require_no_authentication
+  include UserRegistration
 
   def create
     if form_from_web_registration? && user_type_is_blank?

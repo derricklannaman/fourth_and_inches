@@ -1,4 +1,4 @@
-module UserRegistrationHelpers
+module UserRegistration
 
   def save_user_or_show_new(resource)
     if @user.save
