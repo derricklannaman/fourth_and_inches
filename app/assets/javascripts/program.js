@@ -6,7 +6,6 @@ $(document).ready(function(){
   $('#program-fee-button').on('click', showFeeForm)
   $('a#submit-program-fee').on('click',updateProgramFee)
   $('#add-logo-button').on('click', showLogoForm);
-
   change_logo_button_text();
 
   // Add 3D-ism
@@ -22,8 +21,8 @@ $(document).ready(function(){
 });
 
 function change_logo_button_text() {
-  if ( $('.logo-border').has('img') ) {
-    $('#add-logo-button').text('Update Team Logo');
+  if ( $('.logo-border:first-child').text().trim(' ') == 'Please upload a logo' ) {
+    $('#add-logo-button').text('Add Team Logo');
   }
 }
 
