@@ -1,9 +1,12 @@
 $(document).ready(function(){
+  $('form#logo-form').hide();
   $('.not-yet-implemented').on('click', notYetImplemented);
   $('div#add-division').on('click', runStepsForm);
   $('div.spinner').add('#fee-form').hide();
   $('#program-fee-button').on('click', showFeeForm)
   $('a#submit-program-fee').on('click',updateProgramFee)
+  $('#add-logo-button').on('click', showLogoForm);
+
   // Add 3D-ism
   $('#logo-place-holder, .calendar').hover(function(){
     $('#logo-place-holder, .calendar').toggleClass('active')
@@ -15,6 +18,11 @@ $(document).ready(function(){
   }
 
 });
+
+
+function showLogoForm() {
+  $('form#logo-form').slideToggle(200);
+}
 
 function updateProgramFee() {
   var form = $('#program-fee-form');
