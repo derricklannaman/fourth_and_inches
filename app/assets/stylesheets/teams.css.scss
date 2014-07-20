@@ -99,7 +99,7 @@ div.first-time-intructions {
   @include default_panel;
   @include translucent_border;
   border: 20px solid rgba(73, 85, 95, 0.1);
-  width: 950px;
+  width: 885px;
 }
 
 #all-teams > div.stat-bar,
@@ -129,7 +129,6 @@ div.first-time-intructions {
 }
 
 div#team-counter {
-  /*@include box_inset;*/
   position: relative;
   top: -40px;
   left: 400px;

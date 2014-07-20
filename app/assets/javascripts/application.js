@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 // turbolinks
-
+// underscore.js -- Why did I need underscore???
 
 
 //= require jquery
@@ -30,7 +30,7 @@
 //= require jquery.stapel.js
 //= require stepsForm.js
 //= require classie.js
-//= require underscore.js
+
 //= require gmaps/google
 
 
