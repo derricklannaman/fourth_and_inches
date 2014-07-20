@@ -17,8 +17,19 @@ section.program-section {
 }
 
 div.program-section-wrapper {
-  border: 1px solid #DDD;
+  border: 1px solid $steel-light-55;
   padding: 10px;
+}
+
+h3.section-header {
+  background: $steel-light-40;
+  width: 709px;
+  padding: 20px 0px;
+  text-align: center;
+  color: $steel-light-on-dark-60;
+  font-size: 2.3em;
+  margin-left: -10px;
+  margin-top: -10px;
 }
 
 a#submit-program-fee {
@@ -34,6 +45,13 @@ form#logo-form {
 
 div.logo-border {
   padding: 10px 35px;
+}
+
+.power-button {
+  width: 500px;
+  padding: 15px;
+  font-size: 1.8em !important;
+  margin-left: 15%;
 }
 
 /*JIT form inputs*/

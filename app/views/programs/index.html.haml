@@ -2,27 +2,26 @@
 
 %section#program-contents
   %section.program-section
-    %h3
-      Program Control Panel:
-      %span= full_team_name
-    %br
+    .program-section-wrapper
+      %h3.section-header
+        Program Control Panel
+      %br
 
-    = link_to "Edit Program Info", edit_program_path(@program.id), class: 'btn btn-success btn-jg btn-block bigger-text'
+      = link_to "Edit Program Info", edit_program_path(@program.id), class: 'btn btn-success btn-jg btn-block bigger-text power-button'
 
-    #add-logo-button{class: 'btn btn-primary btn-jg btn-block bigger-text'}
-      Update Team Logo
-    #program-fee-button{class: 'btn btn-success btn-jg btn-block bigger-text'} Set Program Fee
+      #add-logo-button{class: 'btn btn-primary btn-jg btn-block bigger-text power-button'}
+        Update Team Logo
+      #program-fee-button{class: 'btn btn-success btn-jg btn-block bigger-text power-button'} Set Program Fee
 
-    #reset-season{class: 'btn btn-danger btn-jg btn-block bigger-text'} Reset & Start New Season
+      #reset-season{class: 'btn btn-danger btn-jg btn-block bigger-text power-button'} Reset & Start New Season
 
   %section.program-section
     .program-section-wrapper
-      %h3 Program Fee Box
+      %h3#current-fee
+        = "Program Fee is currently"
+        %span
+          = number_to_currency( @fee )
       #fee-form
-        %h4#current-fee
-          = "Program Fee is currently"
-          %span
-            = number_to_currency( @fee )
         = form_for(@program, html: {id: 'program-fee-form'}) do |f|
           = f.label :fee
           = f.select(:fee, options_for_select( @price_range) )
@@ -30,7 +29,7 @@
 
   %section.program-section
     .program-section-wrapper
-      %h3 Logo Box
+      %h3.logo-notification Update Logo
       = form_for( @program, html: {:class => 'default-form-template', id: 'logo-form', :multipart => true} ) do |f|
         %div
           .logo-border

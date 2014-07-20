@@ -25,8 +25,6 @@ FourthAndInches::Application.routes.draw do
   post 'opponents/:id/list_destroy' => 'opponents#list_destroy',  as: 'list_destroy'
   post 'programs/set_fee' => 'programs#set_fee'
 
-  get 'programs/:id/logo' => 'programs#logo', as: 'logo'
-
   get "websites/:id" => 'websites#show', as: 'website'
   get 'all_players' => 'websites#all_players'
 

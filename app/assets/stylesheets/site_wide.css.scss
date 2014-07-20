@@ -59,6 +59,11 @@ div.todays_date {
   float: right;
 }
 
+img.logo-frame {
+  border: 5px solid #FFF;
+  box-shadow: 0px 0px 5px $steel-light-20;
+}
+
 /*FORMS*/
 
 .default-submit-button {

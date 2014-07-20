@@ -41,12 +41,8 @@ class ProgramsController < ApplicationController
     if @program.save
       redirect_to programs_path
     else
-      render :logo
+      redirect_to :index
     end
-  end
-
-  def logo
-    @program = Program.find(params[:id])
   end
 
   def set_fee
