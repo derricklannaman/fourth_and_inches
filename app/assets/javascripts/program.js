@@ -21,7 +21,7 @@ $(document).ready(function(){
 
 
 function showLogoForm() {
-  $('form#logo-form').slideToggle(200);
+  $('form#logo-form').fadeToggle(100);
 }
 
 function updateProgramFee() {
@@ -47,7 +47,7 @@ function updateProgramFee() {
 }
 
 function showFeeForm() {
-  $('#fee-form').toggle();
+  $('#fee-form').fadeToggle(100);
 }
 
 function change_alertify_buttons() {
