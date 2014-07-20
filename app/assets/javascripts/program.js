@@ -7,6 +7,8 @@ $(document).ready(function(){
   $('a#submit-program-fee').on('click',updateProgramFee)
   $('#add-logo-button').on('click', showLogoForm);
 
+  change_logo_button_text();
+
   // Add 3D-ism
   $('#logo-place-holder, .calendar').hover(function(){
     $('#logo-place-holder, .calendar').toggleClass('active')
@@ -18,6 +20,12 @@ $(document).ready(function(){
   }
 
 });
+
+function change_logo_button_text() {
+  if ( $('.logo-border').has('img') ) {
+    $('#add-logo-button').text('Update Team Logo');
+  }
+}
 
 
 function showLogoForm() {
