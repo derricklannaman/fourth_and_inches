@@ -30,6 +30,13 @@
 //= require jquery.stapel.js
 //= require stepsForm.js
 //= require classie.js
+//= require jquery.flexslider.js
+//= require jquery.smooth-scroll.js
+//= require overlay.js
+//= require scripts.js
+//= require waypoints.min.js
+//= require min/scripts-ck.js
+
 
 //= require gmaps/google
 

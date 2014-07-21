@@ -2,7 +2,7 @@
 @import 'color_chart';
 
 .home-index-marquee {
-  background: url('Football-helmuts.jpg') no-repeat;
+/*  background: url('Football-helmuts.jpg') no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -15,8 +15,11 @@
   @include light_box_shadow;
   #app-content {
     border: none !important;
-  }
+  }*/
 }
+
+.hero { background: url('/hero-bg.jpg') no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; padding: 65px 0 300px 0; height: auto; }
+
 
 #headline {
   position: relative;

@@ -22,6 +22,19 @@
  *= require component.css
  *= require icons.css
  *= require font-awesome
+
+*= require animate.css
+*= require bootstrap-theme.css
+*= require bootstrap-theme.css.map
+*= require bootstrap-theme.min.css
+*= require bootstrap.css
+*= require bootstrap.css.map
+*= require bootstrap.min.css
+*= require flexslider.css
+*= require queries.css
+*= require styles.css
+
+
  *= require_self
  *= require_tree .
  */

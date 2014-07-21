@@ -1,11 +1,11 @@
 $(function(){
   fadeFlash();
   $('#home_jumbotron').hide();
-  $('.home-index').hide();
+  // $('.home-index').hide();
   var path = document.location.pathname;
   if (path == '/') {
-    $('.home-index').show();
-    $('#home_jumbotron').delay(500).fadeIn(1000);
+    // $('.home-index').show();
+    // $('#home_jumbotron').delay(500).fadeIn(1000);
   }
   $('.player-action-sublist, .team-action-sublist').hide();
   $('#side-panel-list > li:nth-child(5)').hide() // player button

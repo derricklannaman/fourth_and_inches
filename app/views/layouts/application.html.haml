@@ -2,6 +2,9 @@
 %html
   %head
     %title FourthAndInches
+    %meta{charset:"utf-8"}/
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
@@ -20,8 +23,8 @@
       #app-content.container
         = coach_side_navigation(controller_name, action_name)
         #main
-        .home-index
-          .home-index-marquee
+        / .home-index.home-index
+        /   .home-index-marquee
 
         = yield
       =# render 'layouts/footer_nav_panel'
