@@ -6,8 +6,10 @@
       %h3.section-header
         Program Control Panel
       %br
+      / = link_to "Edit Program Info", edit_program_path(@program.id), class: 'btn btn-success btn-jg btn-block bigger-text power-button'
 
-      = link_to "Edit Program Info", edit_program_path(@program.id), class: 'btn btn-success btn-jg btn-block bigger-text power-button'
+      #edit_program-info{class: 'btn btn-success btn-jg btn-block bigger-text power-button'}
+        Edit Program Info
 
       #add-logo-button{class: 'btn btn-primary btn-jg btn-block bigger-text power-button'}
         Update Team Logo
@@ -48,7 +50,22 @@
           = f.submit "upload Logo"
         %br/
 
+  %section.program-section
+    .program-section-wrapper
+      %h1 Edit Program Info
+      = form_for(@program, html: {class: 'default-form-template', id: 'edit-program-form'}) do |f|
+        %div
+          = f.label :team_name
+          %br/
+          = f.text_field :team_name
 
+        %div
+          = f.label :town_name
+          %br/
+          = f.text_field :town_name
+
+        %div
+          = f.submit class: 'default-submit-button', id: 'edit-form-button'
 
 
 

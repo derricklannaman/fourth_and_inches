@@ -1,11 +1,14 @@
 $(document).ready(function(){
-  $('form#logo-form').hide();
+  $('form#logo-form, form#edit-program-form').hide();
   $('.not-yet-implemented').on('click', notYetImplemented);
   $('div#add-division').on('click', runStepsForm);
   $('div.spinner').add('#fee-form').hide();
-  $('#program-fee-button').on('click', showFeeForm)
-  $('a#submit-program-fee').on('click',updateProgramFee)
+  $('#program-fee-button').on('click', showFeeForm);
+  $('a#submit-program-fee').on('click',updateProgramFee);
   $('#add-logo-button').on('click', showLogoForm);
+  $('#edit_program-info').on('click', showEditForm);
+  $('#edit-form-button').on('click', editProgramInfo);
+
   change_logo_button_text();
 
   // Add 3D-ism
@@ -19,6 +22,26 @@ $(document).ready(function(){
   }
 
 });
+
+function showEditForm() {
+  $('form#edit-program-form').fadeToggle(100);
+}
+
+function editProgramInfo() {
+  var form = $('#edit-program-form'),
+      id = form[0].action.split('/')[4]
+
+  $.ajax({
+    type: 'POST',
+    url: 'program/' + id + '/edit',
+    success: function(result) {
+      console.log('success');
+    },
+    error: function(e) {
+      console.log(e);
+    }
+  });
+}
 
 function change_logo_button_text() {
   if ( $('.logo-border:first-child').text().trim(' ') == 'Please upload a logo' ) {

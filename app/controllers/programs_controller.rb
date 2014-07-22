@@ -39,6 +39,7 @@ class ProgramsController < ApplicationController
     @program = Program.find(params[:id])
     @program.update(program_params)
     if @program.save
+      binding.pry
       redirect_to programs_path
     else
       redirect_to :index
