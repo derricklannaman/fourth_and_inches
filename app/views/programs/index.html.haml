@@ -27,7 +27,9 @@
                 = number_to_currency( @fee )
             = f.label :fee
             = f.select(:fee, options_for_select( @price_range) )
-            %a#submit-program-fee Set Price
+            %div
+              %a#submit-program-fee.default-submit-button
+                Set Price
 
 
         = form_for( @program, html: {:class => 'default-form-template', id: 'logo-form', :multipart => true} ) do |f|
@@ -46,7 +48,7 @@
             %br/
           %div
             %br/
-            = f.submit "upload Logo"
+            = f.submit "upload Logo", id: 'submit-logo-upload', class: 'default-submit-button'
           %br/
 
         = form_for(@program, html: {class: 'default-form-template', id: 'edit-program-form'}) do |f|
