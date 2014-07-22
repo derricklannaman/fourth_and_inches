@@ -19,23 +19,27 @@ section.program-section {
 div.program-section-wrapper {
   float: left;
   border: 1px solid $steel-light-55;
-  padding: 10px;
+  padding: 10px 0 10px 10px;
 }
 
 #program-button-wrapper {
-  border: 1px solid #F00;
+  border: 1px solid $steel-light-55;
   float: left;
+  padding: 10px;
 }
 
 .program-form-action-wrapper {
   float: left;
-  border: 1px solid green;
+  border: 1px solid $steel-light-55;
   padding: 10px;
+  margin: 0 5px;
+  width: 418px;
+  min-height: 282px;
 }
 
 h3.section-header {
   background: $steel-light-40;
-  width: 709px;
+  width: 741px;
   padding: 20px 0px;
   text-align: center;
   color: $steel-light-on-dark-60;

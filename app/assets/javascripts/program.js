@@ -57,7 +57,7 @@ function editProgramInfo() {
 function change_logo_button_text() {
   if ( $('.logo-border:first-child').text().trim(' ') == 'Please upload a logo' ) {
     $('#add-logo-button').text('Add Team Logo');
-    $('.logo-notification').text('Select program logo');
+    $('#logo-button').text('Select program logo');
   }
 }
 

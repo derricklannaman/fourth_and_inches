@@ -6,7 +6,7 @@
       %h3.section-header
         Program Control Panel
       #program-button-wrapper
-        %br
+
         #edit_program-info{class: 'btn btn-success bigger-text power-button'}
           Edit Program Info
         %br
@@ -15,22 +15,23 @@
         %br
         #program-fee-button{class: 'btn btn-success bigger-text power-button'} Set Program Fee
         %br
-        #reset-season{class: 'btn btn-danger bigger-text power-button'} Reset & Start New Season
+        #reset-season{class: 'btn btn-danger bigger-text power-button'}   Reset & Start New Season
 
       .program-form-action-wrapper
-        %h3#current-fee
-          = "Program Fee is currently"
-          %span
-            = number_to_currency( @fee )
         #fee-form
           = form_for(@program, html: {id: 'program-fee-form'}) do |f|
+
+            %h3#current-fee
+              = "Program Fee is currently"
+              %span
+                = number_to_currency( @fee )
             = f.label :fee
             = f.select(:fee, options_for_select( @price_range) )
             %a#submit-program-fee Set Price
 
-      .program-form-action-wrapper
-        %h3.logo-notification Update Logo
+
         = form_for( @program, html: {:class => 'default-form-template', id: 'logo-form', :multipart => true} ) do |f|
+          %h3#logo-button Update Logo
           %div
             .logo-border
               - if @program.logo_image_updated_at.nil?
@@ -48,9 +49,8 @@
             = f.submit "upload Logo"
           %br/
 
-      .program-form-action-wrapper
-        %h3 Edit Program Info
         = form_for(@program, html: {class: 'default-form-template', id: 'edit-program-form'}) do |f|
+          %h3 Edit Program Info
           %div
             = f.label :team_name
             %br/
