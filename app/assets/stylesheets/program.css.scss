@@ -12,12 +12,24 @@
 section.program-section {
   @include default_panel;
   margin: 5px;
-  width: 750px;
+  width: 800px;
   padding: 20px;
 }
 
 div.program-section-wrapper {
+  float: left;
   border: 1px solid $steel-light-55;
+  padding: 10px;
+}
+
+#program-button-wrapper {
+  border: 1px solid #F00;
+  float: left;
+}
+
+.program-form-action-wrapper {
+  float: left;
+  border: 1px solid green;
   padding: 10px;
 }
 
@@ -48,10 +60,9 @@ div.logo-border {
 }
 
 .power-button {
-  width: 500px;
+  width: 270px;
   padding: 15px;
-  font-size: 1.8em !important;
-  margin-left: 15%;
+  margin-top: 5px;
 }
 
 /*JIT form inputs*/

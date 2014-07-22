@@ -36,14 +36,6 @@ class ProgramsController < ApplicationController
   end
 
   # def update
-  #   @program = Program.find(params[:id])
-  #   @program.update(program_params)
-  #   if @program.save
-  #     # render json: @program
-  #     redirect_to programs_path
-  #   else
-  #     redirect_to :index
-  #   end
   # end
 
   def ajax_program_edits

@@ -47,7 +47,6 @@ function editProgramInfo() {
                           .contents()
                           .first()
                             .replaceWith(updated_name)
-      console.log(program);
     },
     error: function(e) {
       console.log(e);
