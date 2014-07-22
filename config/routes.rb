@@ -24,13 +24,14 @@ FourthAndInches::Application.routes.draw do
 
   post 'opponents/:id/list_destroy' => 'opponents#list_destroy',  as: 'list_destroy'
   post 'programs/set_fee' => 'programs#set_fee'
+  post 'programs/:id/ajax_program_edits' => 'programs#ajax_program_edits'
 
   get "websites/:id" => 'websites#show', as: 'website'
   get 'all_players' => 'websites#all_players'
 
   resources :users
   resources :coaches,     only: [:new, :create]
-  resources :programs
+  resources :programs,    except: [:edit]
   resources :websites,    only: :create
   resources :charges
   resources :divisions

@@ -28,14 +28,26 @@ function showEditForm() {
 }
 
 function editProgramInfo() {
-  var form = $('#edit-program-form'),
-      id = form[0].action.split('/')[4]
-
+  var form    = $('#edit-program-form'),
+      id      = form[0].action.split('/')[4],
+      inputs  = form.find('input'),
+      team    = inputs[3].value,
+      town    = inputs[4].value
+  var pack = { id: id, team: team, town: town}
   $.ajax({
     type: 'POST',
-    url: 'program/' + id + '/edit',
-    success: function(result) {
-      console.log('success');
+    url: 'programs/' + id + '/ajax_program_edits',
+    data: { info :pack},
+    success: function(program) {
+      form.fadeToggle(100);
+      var updated_name =  program.town_name + ' '
+                        + program.team_name + ' '
+                        + 'Football';
+      $('.navbar-title').find('h1')
+                          .contents()
+                          .first()
+                            .replaceWith(updated_name)
+      console.log(program);
     },
     error: function(e) {
       console.log(e);
