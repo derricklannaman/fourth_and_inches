@@ -1,41 +1,18 @@
 @import 'mixins';
 @import 'color_chart';
 
-.home-index-marquee {
-  background: url('Football-helmuts.jpg') no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover !important;
-  position: relative;
-  width: 100%;
-  min-height: 600px;
-  text-align: center;
-  margin-bottom: -100px;
-  @include light_box_shadow;
-  #app-content {
-    border: none !important;
-  }
+div#hero-intro {
+  background-color: rgba(255, 255, 255, 0.7)
 }
 
-#headline {
+#hero:first-child {
   position: relative;
-  text-align: center;
-  margin-top: -600px;
-  h1 {
-    color: #FFF;
-    font-size: 65px;
-  }
-  p {
-    color: #FFF;
-    font-size: 25px;
-  }
+  margin-top: 90px;
+  z-index: -1;
 }
 
 section#benefits-summary {
-  float: left;
-  width: 100%;
-  margin-top: 450px;
+
 }
 
 section.benefit {
@@ -45,13 +22,49 @@ section.benefit {
 
 div#benefit-container {
   padding-left: 70px;
+  float: left;
+  position: relative;
+  z-index: -1;
 }
 
-div.benefit_box {
+div.benefit_box,
+div.benefit_description {
   width: 300px;
   float: left;
   margin: 10px;
+  padding: 12px;
   overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.7);
+  .header h3 {
+    background-color: #F00;
+    margin-top: -12px;
+    margin-left: -12px;
+    width: 300px;
+    padding: 10px;
+    color: #FFF;
+    letter-spacing: 1px;
+    font-weight: bold;
+  }
+  p {
+    padding: 10px;
+  }
+}
+
+div.benefit_description .header h3 {
+  background-color: #F00;
+  margin-top: -12px;
+  margin-left: -12px;
+  width: 300px;
+  padding: 10px;
+  color: #FFF;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+div.benefit_description .header img {
+  width: 343px;
+  overflow: hidden;
+  margin: -12px 0px 0px -35px;
 }
 
 /*FAQ Section*/
