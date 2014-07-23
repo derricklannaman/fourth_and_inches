@@ -8,6 +8,11 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
 
+* Error-prone files
+  * bootstrap-theme.css.map
+  * bootstrap.css.map
+
+
  *
  *= require jquery.ui.datepicker
  *= require jquery.timepicker
@@ -25,10 +30,10 @@
 
 *= require animate.css
 *= require bootstrap-theme.css
-*= require bootstrap-theme.css.map
+
 *= require bootstrap-theme.min.css
 *= require bootstrap.css
-*= require bootstrap.css.map
+
 *= require bootstrap.min.css
 *= require flexslider.css
 *= require queries.css
