@@ -20,11 +20,18 @@ $(document).ready(function(){
       document.location.pathname == '/divisions/new' ) {
       runStepsForm();
   }
-
 });
 
 function showEditForm() {
+  removeMessages();
   $('form#edit-program-form').fadeToggle(100);
+}
+
+function removeMessages() {
+  var message = $('#message-hook');
+  if ( message.children().length ) {
+    message.empty();
+  }
 }
 
 function editProgramInfo() {
@@ -46,12 +53,26 @@ function editProgramInfo() {
       $('.navbar-title').find('h1')
                           .contents()
                           .first()
-                            .replaceWith(updated_name)
+                            .replaceWith(updated_name);
+
+      programPanelMessage();
     },
     error: function(e) {
-      console.log(e);
+      whoopsErrorMessage();
     }
   });
+}
+
+function programPanelMessage() {
+  setTimeout(function() {
+    $('#message-hook').prepend(function(){
+      return $('<h4></h4>', {
+        text: "Yay! Your update was successful!",
+        // opacity: 0,
+        class: 'panelMessage'
+      }).fadeIn(200);
+    });
+  }, 300)
 }
 
 function change_logo_button_text() {
@@ -61,8 +82,8 @@ function change_logo_button_text() {
   }
 }
 
-
 function showLogoForm() {
+  removeMessages();
   $('form#logo-form').fadeToggle(100);
 }
 
@@ -77,18 +98,19 @@ function updateProgramFee() {
     url: '/programs/set_fee',
     data: {id: id, fee: fee },
     success: function(result) {
+      form.fadeToggle(100);
       var newFee = result.fee
-      $('#current-fee > span').text('$'+ newFee + '0' )
+      $('#current-fee > span').text('$'+ newFee + '0' );
+      programPanelMessage();
     },
     error: function(e) {
-      console.log(e);
       whoopsErrorMessage();
     }
   });
-
 }
 
 function showFeeForm() {
+  removeMessages();
   $('#fee-form').fadeToggle(100);
 }
 

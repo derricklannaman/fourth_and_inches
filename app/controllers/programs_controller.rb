@@ -35,8 +35,15 @@ class ProgramsController < ApplicationController
     redirect_to(controller: "dashboard", action: "show" )
   end
 
-  # def update
-  # end
+  def update
+    @program = Program.find(params[:id])
+    @program.update(program_params)
+    if @program.save
+      redirect_to programs_path
+    else
+      render :logo
+    end
+  end
 
   def ajax_program_edits
     @program = Program.find(params[:id])
