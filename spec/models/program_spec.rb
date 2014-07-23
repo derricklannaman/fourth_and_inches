@@ -8,7 +8,7 @@ describe 'Program' do
   end
 
   it "is invalid without a townname" do
-    # expect(Program.new(town_name: nil)).to raise_error(NilClass)
+    expect(Program.new(town_name: nil)).to have_validation_error(error=nil)
   end
 
 

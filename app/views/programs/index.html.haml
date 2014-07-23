@@ -6,15 +6,15 @@
       %h3.section-header
         Program Control Panel
       #program-button-wrapper
-
-        #edit_program-info{class: 'btn btn-success bigger-text power-button'}
+        #program-fee-button{class: 'btn btn-success bigger-text power-button'} Set Program Fee
+        %br
+        #edit_program-info{class: 'btn btn-warning bigger-text power-button'}
           Edit Program Info
         %br
         #add-logo-button{class: 'btn btn-primary bigger-text power-button'}
           Update Team Logo
         %br
-        #program-fee-button{class: 'btn btn-success bigger-text power-button'} Set Program Fee
-        %br
+
         #reset-season{class: 'btn btn-danger bigger-text power-button'}   Reset & Start New Season
 
       .program-form-action-wrapper
@@ -67,4 +67,4 @@
             %a#edit-form-button.default-submit-button
               Update Program
 
-
+= @program.id

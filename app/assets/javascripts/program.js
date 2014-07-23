@@ -83,7 +83,7 @@ function change_logo_button_text() {
 }
 
 function showLogoForm() {
-  removeMessages();
+  // removeMessages();
   $('form#logo-form').fadeToggle(100);
 }
 
