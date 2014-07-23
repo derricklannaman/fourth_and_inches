@@ -35,6 +35,19 @@ div.benefit_description {
   padding: 12px;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.7);
+  .header h3 {
+    background-color: #F00;
+    margin-top: -12px;
+    margin-left: -12px;
+    width: 300px;
+    padding: 10px;
+    color: #FFF;
+    letter-spacing: 1px;
+    font-weight: bold;
+  }
+  p {
+    padding: 10px;
+  }
 }
 
 div.benefit_description .header h3 {
@@ -46,6 +59,12 @@ div.benefit_description .header h3 {
   color: #FFF;
   letter-spacing: 1px;
   font-weight: bold;
+}
+
+div.benefit_description .header img {
+  width: 343px;
+  overflow: hidden;
+  margin: -12px 0px 0px -35px;
 }
 
 /*FAQ Section*/
