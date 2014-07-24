@@ -13,20 +13,20 @@
   * bootstrap.css.map
 
 
- *
- *= require jquery.ui.datepicker
- *= require jquery.timepicker
+*
+*= require jquery.ui.datepicker
+*= require jquery.timepicker
 
- *= require normalize.css
- *= require color_chart
- *= require alertify.core.css
- *= require alertify.default.css
- *= require avgrund
- *= require stapel.css
- *= require demo.css
- *= require component.css
- *= require icons.css
- *= require font-awesome
+*= require normalize.css
+*= require color_chart
+*= require alertify.core.css
+*= require alertify.default.css
+*= require avgrund
+*= require stapel.css
+*= require demo.css
+*= require component.css
+*= require icons.css
+*= require font-awesome
 
 *= require animate.css
 *= require bootstrap-theme.css
@@ -40,6 +40,6 @@
 *= require styles.css
 
 
- *= require_self
- *= require_tree .
- */
+*= require_self
+*= require_tree .
+*/
