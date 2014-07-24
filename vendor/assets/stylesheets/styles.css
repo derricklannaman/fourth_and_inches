@@ -224,7 +224,7 @@ Intro
 ========================================================================== */
 .intro { background: #f3f5f8; }
 .intro p { margin: 50px 0 0; }
-h1.arrow { font-size: 23px; text-transform: uppercase; color: #353535; letter-spacing: 1px; background: url('h1-bg.png') no-repeat center bottom; padding-bottom: 30px; font-weight: bold; position: relative; z-index: -1;}
+h1.arrow { font-size: 23px; text-transform: uppercase; color: #353535; letter-spacing: 1px; background-image: image-url('h1-bg.png') no-repeat center bottom; padding-bottom: 30px; font-weight: bold; position: relative; z-index: -1;}
 /* ==========================================================================
 Features
 ========================================================================== */
