@@ -97,9 +97,6 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   text-align: center;
-  /*padding: 5px;*/
-  /*padding-top: 10px;*/
-  /*position: relative;*/
   cursor: pointer;
 }
 
@@ -118,6 +115,7 @@
   z-index: 1;
   @include form_bar_top;
   @include form_shadow;
+  margin: 0 auto;
 }
 
 @mixin mini_forms {

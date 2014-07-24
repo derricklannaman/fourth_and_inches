@@ -1,9 +1,6 @@
 @import 'mixins';
 @import 'color_chart';
 
-.default-form-template {
-  @include default_forms;
-}
 
 /* Form Interior */
 div.input-box-1 {
