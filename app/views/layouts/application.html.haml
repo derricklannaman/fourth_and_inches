@@ -11,20 +11,18 @@
 
   %body{:class => "#{controller_name} #{action_name}"}
     :javascript
-      Ajaxify.init( { active: false, scroll_to_top: false, flash_types: ['notice'] } );
+      Ajaxify.init( { active: false, scroll_to_top: false, flash_types: ['notice', 'error'] } );
 
     .app_nav_bar.white-out
       = nav_view_by_login_status
     = show_banner_on_website_view_only(controller_name, action_name, @town, @name)
 
-    .app-container
+    .app-container.red_border
       = render 'layouts/flash_messaging'
 
       #app-content
         = coach_side_navigation(controller_name, action_name)
-        #main
-        / .home-index.home-index
-        /   .home-index-marquee
+      #main
 
         = yield
       =# render 'layouts/footer_nav_panel'

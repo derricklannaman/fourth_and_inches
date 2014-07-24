@@ -48,6 +48,10 @@ body > div > header {
   margin-top: -70px;
 }
 
+/*.inner-app-padding {
+  padding-left: 160px;
+}*/
+
 .bigger-text {
   font-size: 20px;
 }
@@ -136,7 +140,10 @@ div#notice {
 
 h1, h2, h3, h4, h5 {
   font-family: 'Raleway', sans-serif;
-  color: $steel-light-10;
+  color: $steel-light-20;
+  .arrow {
+    font-size: 36px;
+  }
 }
 
 h3.stat-bar-title {

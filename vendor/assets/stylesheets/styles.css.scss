@@ -190,7 +190,7 @@ h2::after { content: " "; border: solid 2px #3dc9b3; display: block; width: 35px
 /* ==========================================================================
 Navigation
 ========================================================================== */
-nav { background-color: #242830; margin-top: -1px; }
+nav { margin-top: -1px; }
 nav ul { list-style: none; padding: 0; }
 nav ul li { color: rgba(255, 255, 255, 0.6); display: block; border-bottom: 1px dotted rgba(255, 255, 255, 0.2); transition: all 0.5s ease; -moz-transition: all 0.5s ease; -webkit-transition: all 0.5s ease; -o-transition: all 0.5s ease; padding-left: 0; position: relative; }
 nav ul li:last-child { border: none; }
@@ -224,7 +224,7 @@ Intro
 ========================================================================== */
 .intro { background: #f3f5f8; }
 .intro p { margin: 50px 0 0; }
-h1.arrow { font-size: 23px; text-transform: uppercase; color: #353535; letter-spacing: 1px; background-image: image-url('h1-bg.png') no-repeat center bottom; padding-bottom: 30px; font-weight: bold; position: relative; z-index: -1;}
+h1.arrow { text-transform: uppercase; letter-spacing: 1px; background: url('h1-bg.png') no-repeat center bottom; padding-bottom: 30px; font-weight: bold; position: relative; z-index: -1;}
 /* ==========================================================================
 Features
 ========================================================================== */

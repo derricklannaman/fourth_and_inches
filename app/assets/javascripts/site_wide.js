@@ -13,7 +13,12 @@ $(function(){
   $('#team-side-panel-list > li').hover(addBottomHilight, removeBottomHilight);
   $('#player-button').on('click', showPlayerOptions);
   // $(document).on('ajaxify:content_loaded', function() {
-    // var path = document.location.pathname;
+    var path = document.location.pathname;
+    // public_page = ['/', '/about', '/faq', 'contact']
+    // if( path != '/') {
+    //   // $('.app-container').addClass('inner-app-padding');
+    // }
+
     console.log(path)
     $('#bt-menu').removeClass('bt-menu-open').addClass('bt-menu-close');
     showPlayerOptions()
