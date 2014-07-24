@@ -16,9 +16,9 @@ module FourthAndInches
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
     config.paths['app/views'] << "app/views/devise"
-    config.serve_static_assets = true
-    config.action_dispatch.x_sendfile_header = nil
-    # config.assets.paths << Rails.root.join( 'vendor', 'assets' )
+    # config.serve_static_assets = true
+    # config.action_dispatch.x_sendfile_header = nil
+    config.assets.paths << Rails.root.join( 'vendor', 'assets' )
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
