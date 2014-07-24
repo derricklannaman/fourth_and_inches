@@ -4,26 +4,26 @@
       .col-md-12
         %h1.arrow Sign Up
 
-
-
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: {class: 'default-form-template'}) do |f|
   = devise_error_messages!
   - params[:key] ? key = params[:key].split('-')[1] : nil
   - unless key == "7403214027" || key == "1819055"
-    %h1 Sign up
-    %div
-      To establish a new program, click here
-      = f.radio_button :user_type, "director"
-      = f.label :user_director, "Director"
+    %h3.text-center
+      Create a New Program
+      %br
+      %br
+
+      = f.check_box :user_type, value: "director", checked: true
+      = f.label :user_director, "I'm the Program Director"
 
   - if key == "7403214027"  #then they received an invite to join as a coach
     = hidden_field_tag(:access, params[:key])
-    %h1  New Coach Sign Up
+    %h1  New Coach
     = render partial: 'registrations/form', locals: {f: f}
 
   - elsif key == "1819055"    #then they received an invite to join as gen. staff
     = hidden_field_tag(:access, params[:key])
-    %h1 Staff Sign Up
+    %h1 Staff
     = render partial: 'registrations/form', locals: {f: f}
 
 
