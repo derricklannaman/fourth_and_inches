@@ -13,7 +13,8 @@ module UserRegistration
   end
 
   def user_type_is_director?
-    params[:user][:user_type] == 'director'
+    # since director is prechecked, the user_type is '1'
+    params[:user][:user_type] == '1'
   end
 
   def access_code_present?
@@ -53,7 +54,7 @@ module UserRegistration
 
   def process_director_registration
     create_new_user
-    user_type = params[:user][:user_type]
+    user_type = 'director'
     set_user_full_name
     @user.user_type = user_type
     @user.username = @user_name
