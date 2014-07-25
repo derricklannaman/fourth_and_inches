@@ -99,7 +99,8 @@ div.first-time-intructions {
   @include default_panel;
   @include translucent_border;
   border: 20px solid rgba(73, 85, 95, 0.1);
-  width: 885px;
+  /*width: 885px;*/
+
 }
 
 #all-teams > div.stat-bar,
@@ -116,15 +117,15 @@ div.first-time-intructions {
   .plus-minus {
     font-size: 100px;
     float: right;
-    margin-top: -110px;
+    margin-top: -90px;
     height: 0px;
     color: $steel-light-on-dark-60;
     @include letter_shadow;
   }
-  a {
+  a.button-float {
     position: relative;
-    top: -20px;
-    left: 400px;
+    top: -36px;
+    left: 260px;
   }
 }
 
@@ -139,7 +140,7 @@ div#team-counter {
 }
 
 .stat-bar-title {
-  width: 400px;
+  /*width: 400px;*/
   color: $steel-light-on-dark-60;
 }
 
@@ -207,11 +208,11 @@ div.stat-box{
   float: left;
 */}
 
-a.btn.btn-success.button-float {
+/*a.btn.btn-success.button-float {
   position: relative;
   z-index: 100 !important;
 }
-
+*/
 a.delete-division-pod,
 a.delete-opponent-pod {
   cursor: pointer;

@@ -23,6 +23,8 @@ module ApplicationHelper
       'Sign Up'
     when 'sign_in'
       'Sign In'
+    when 'edit'
+      'edit team'
     else
       return
     end
@@ -82,7 +84,7 @@ module ApplicationHelper
     elsif current_user.program.logo_image_content_type.nil? && current_user.user_type === 'head_coach'
       return
     else
-      image_tag @program.logo_image.url(size), class: 'logo-frame'
+      image_tag current_user.program.logo_image.url(size), class: 'logo-frame'
     end
   end
 
