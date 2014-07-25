@@ -1,5 +1,33 @@
 module ApplicationHelper
 
+  def form_instruction_pointer
+    url = request.original_url
+    @page = url.split('/')[-1]
+    html_result = "<section class='text-center'>"
+    html_result += "<div class='container'>"
+    html_result += "<div class='row'>"
+    html_result += "<div class='col-md-12'>"
+    html_result += "<h1 class='arrow'>#{page_name(@page)}</h1>"
+    return html_result.html_safe
+  end
+
+  def page_name(page)
+    case page
+    when 'about'
+      'About Us'
+    when 'faq'
+      'Frequently Asked Questions'
+    when 'contact'
+      'Contact Us'
+    when 'sign_up'
+      'Sign Up'
+    when 'sign_in'
+      'Sign In'
+    else
+      return
+    end
+  end
+
   def user_signin_status
     if user_signed_in?
       "current status: you are signed in"

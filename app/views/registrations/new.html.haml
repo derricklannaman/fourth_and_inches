@@ -1,8 +1,4 @@
-%section.text-center
-  .container
-    .row
-      .col-md-12
-        %h1.arrow Sign Up
+= form_instruction_pointer
 
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: {class: 'default-form-template'}) do |f|
   = devise_error_messages!
