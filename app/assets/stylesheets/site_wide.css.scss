@@ -164,18 +164,18 @@ h3.stat-bar-title {
 }
 
 #app_sign_in {
-  border-bottom: 1px solid red;
-  float: right;
-  width: 120px;
-  /*margin-right: -200px;*/
-  /*margin-top: -45px;*/
-  font-size: 10px;
+  position: fixed;
+  top: 20px;
+  right: 0;
+  width: 140px;
+  font-size: 20px;
+  text-transform: uppercase;
   a {
-    float: left;
-    margin: 0;
     color: $base-text;
     &:hover {
+      text-decoration: none;
       color: $go-green;
+      font-weight: bold;
     }
   }
 }
