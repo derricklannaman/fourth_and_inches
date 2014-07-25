@@ -1,20 +1,25 @@
 = render 'director_navigation/main_side_panel'
 
-/ TEAM DISPLAY PANEL
+%section.text-center
+  .container
+    .row
+      .col-lg-12
 
-%section#all-teams
-  = render partial: 'program_panel'
+        / TEAM DISPLAY PANEL
+
+        %section#all-teams
+          = render partial: 'program_panel'
 
 
-/ DIVISION DISPLAY PANEL
+        / DIVISION DISPLAY PANEL
 
-%section#all-divisions
-  = render partial: 'division_panel'
+        %section#all-divisions
+          = render partial: 'division_panel'
 
-/ OPPONENT DISPLAY PANEL
+        / OPPONENT DISPLAY PANEL
 
-%section#all-opponents
-  = render partial: 'opponent_panel'
+        %section#all-opponents
+          = render partial: 'opponent_panel'
 
 
 

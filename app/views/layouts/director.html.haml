@@ -2,9 +2,11 @@
 %html
   %head
     %title FourthAndInches
-    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    %meta{charset:"utf-8"}/
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
-
     = csrf_meta_tags
 
   %body{:class => "#{controller_name} #{action_name}"}
@@ -18,7 +20,23 @@
       #app-content-director
 
         #main.director-view
-          = yield
+          %section.text-center
+            .container
+              .row
+                .col-lg-12
+            = yield
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

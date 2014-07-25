@@ -1,3 +1,5 @@
+@import 'color_chart';
+
 /*For general notications*/
 @mixin hr_fade_notice {
     background: -moz-linear-gradient(left, rgba(23,177,12,0) 0%, rgba(23,177,12,0) 5%, rgba(23,177,12,0.85) 50%, rgba(23,177,12,0) 90%, rgba(23,177,12,0) 100%); /* FF3.6+ */
@@ -41,6 +43,10 @@
   box-shadow: 0px 0px 9px #CCC;
 }
 
+@mixin dark_box_shadow {
+  box-shadow: 0px 0px 9px #999;
+}
+
 @mixin nav_shadow {
   box-shadow: 0px 0px 7px #999;
 }
@@ -50,11 +56,11 @@
 }
 
 @mixin default_panel {
-  float: left;
+  display: inline-block;
   width: 920px;
   margin: 10px 0px;
   background-color: #FFF;
-  @include light_box_shadow;
+  @include dark_box_shadow;
 }
 
 @mixin box_inset {
@@ -69,7 +75,6 @@
 
 @mixin translucent_border {
   border: 20px solid rgba(73, 85, 95, 0.1); /* $steel */
-  border-radius: 15px;
    -moz-background-clip: border;
    -webkit-background-clip: border;
    background-clip: border-box;

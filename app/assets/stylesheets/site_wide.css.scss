@@ -88,10 +88,6 @@ div.app_nav_bar {
 }
 
 #app-content {
-  /*width: 985px;*/
-  /*margin: 0 auto;*/
-  /*margin-top: -15px;*/
-  /*border: 1px solid red;*/
   padding-top: 70px;
 }
 
@@ -121,21 +117,6 @@ div#notice {
 
 #bottom-branding {
   margin-left: -5px;
-}
-
-#get-help-flag {
-  margin-top: -75px;
-  width: 70px;
-  opacity: 0;
-  z-index: 10000;
-  div.blurb {
-    position: relative;
-    width: 90px;
-    left: -18px;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-  }
 }
 
 h1, h2, h3, h4, h5 {
