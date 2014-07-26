@@ -77,7 +77,6 @@ module ApplicationHelper
   end
 
   # /////// DISPLAY IMAGES
-
   def display_team_logo(size)
     if current_user.program.logo_image_content_type.nil? && current_user.user_type === 'director'
       link_to '<div id="logo-place-holder"> No Logo Uploaded </div>'.html_safe, programs_path

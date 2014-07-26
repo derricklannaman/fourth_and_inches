@@ -1,7 +1,7 @@
 class WebsitesController < ApplicationController
 
   def show
-    @website = Website.friendly.find(params[:id])
+    get_website
     # TODO: DRY
     @town = @website.town.capitalize
     @name = @website.team.capitalize

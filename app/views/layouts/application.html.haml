@@ -26,10 +26,9 @@
       #main
         - if user_signed_in?
           %section.text-center
-            .container
-              .row
-                .col-lg-12
-                  = yield
+            .row
+              .col-lg-12
+                = yield
 
           %script{src: "assets/borderMenu.js"}
         - else

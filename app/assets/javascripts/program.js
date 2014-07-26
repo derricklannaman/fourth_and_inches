@@ -8,7 +8,7 @@ $(document).ready(function(){
   $('#add-logo-button').on('click', showLogoForm);
   $('#edit_program-info').on('click', showEditForm);
   $('#edit-form-button').on('click', editProgramInfo);
-
+  $('#reset-season').on('click', resetSeason);
   change_logo_button_text();
 
   // Add 3D-ism
@@ -21,6 +21,10 @@ $(document).ready(function(){
       runStepsForm();
   }
 });
+
+function resetSeason() {
+  alertify.alert('DANGER! This will RESET THE SEASON! Are You sure?');
+}
 
 function showEditForm() {
   removeMessages();
