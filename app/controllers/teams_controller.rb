@@ -11,7 +11,6 @@ class TeamsController < ApplicationController
     @teams = current_user.program.teams
     @divisions = get_divisions
     @coach =  @teams.where(user_type: 'head_coach')
-    get_website
   end
 
   def new
@@ -81,7 +80,7 @@ class TeamsController < ApplicationController
     @payments = {date: 3.days.ago, amount: 75}
     fee = current_user.formatted_fee * current_user.get_parents_players.count
     @fee = calculate_stripe_fee(fee)
-    @transactions = current_user.account.transactions.order('created_at DESC')
+    @transactions = current_user.account.transactions.order('created_at DESC') unless current_user.account.nil?
     @stripe_formatted_fee = current_user.program.fee
 
 

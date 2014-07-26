@@ -1,7 +1,6 @@
 class WebsitesController < ApplicationController
 
   def show
-    get_website
     # TODO: DRY
     @town = @website.town.capitalize
     @name = @website.team.capitalize

@@ -8,7 +8,6 @@ class DashboardController < ApplicationController
 
   def show
     @user = current_user
-    get_website
   end
 
   private

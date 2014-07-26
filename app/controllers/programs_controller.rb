@@ -3,7 +3,6 @@ class ProgramsController < ApplicationController
   def index
     @price_range = (150..300).step(25)
     @fee = @program.fee / 100
-    get_website
   end
 
   def new
