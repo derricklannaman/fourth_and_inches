@@ -5,10 +5,42 @@ div#hero-intro {
   background-color: rgba(255, 255, 255, 0.7)
 }
 
+.animated.fadeInUp.delay-1s.billboard-signup {
+  padding: 15px 0 30px 0;
+}
+
+a#home-sign-in-button {
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  float: right;
+  background-color: $go-green-15;
+  padding: 5px;
+  width: 120px;
+  text-align: center;
+  font-size: 22px;
+  margin-top: 25px;
+  color: #FFF;
+  &:hover {
+    background-color: $go-green;
+
+  }
+}
+
+a.btn.btn-warning.billboard-signup-button.no_ajaxify {
+  width: 400px;
+  font-size: 2em;
+  font-weight: bold;
+  border: 2px solid $go-green;
+  text-transform: uppercase;
+  box-shadow: 0px 0px 16px;
+  padding: 16px;
+}
+
 #hero:first-child {
-  position: relative;
+/*  position: relative;
   margin-top: 90px;
-  z-index: -1;
+  z-index: -1;*/
 }
 
 section#benefits-summary {

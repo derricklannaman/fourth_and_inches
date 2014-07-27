@@ -1,19 +1,14 @@
 $(function(){
   fadeFlash();
-  $('#home_jumbotron').hide();
-  // $('.home-index').hide();
   var path = document.location.pathname;
-  if (path == '/') {
-    // $('.home-index').show();
-    // $('#home_jumbotron').delay(500).fadeIn(1000);
-  }
+  hideSignInOnPage(path);
   $('.player-action-sublist, .team-action-sublist').hide();
   $('#side-panel-list > li:nth-child(5)').hide() // player button
   $('#add-team-button').on('click', showTeamOptions);
   $('#team-side-panel-list > li').hover(addBottomHilight, removeBottomHilight);
   $('#player-button').on('click', showPlayerOptions);
   // $(document).on('ajaxify:content_loaded', function() {
-    var path = document.location.pathname;
+    // var path = document.location.pathname;
     // public_page = ['/', '/about', '/faq', 'contact']
     // if( path != '/') {
     //   // $('.app-container').addClass('inner-app-padding');
@@ -30,6 +25,12 @@ $(function(){
 
 
 });
+
+function hideSignInOnPage(path) {
+  if(path == "/users/sign_in") {
+    $('#home-sign-in-button').hide();
+  }
+}
 
 function addBottomHilight() {
   var option = $( this );
