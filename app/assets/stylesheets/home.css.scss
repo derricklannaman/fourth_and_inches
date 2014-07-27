@@ -1,7 +1,7 @@
 @import 'mixins';
 @import 'color_chart';
 
-.hero { background-image:asset-url('youth-football-heisman.png') no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; padding: 400px 0 250px 0; height: auto; margin-top: -5px !important;}
+.hero { background: image-url('youth-football-heisman.png') no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; padding: 400px 0 250px 0; height: auto; margin-top: -5px !important;}
 .hero h1 { font-size: 40px; letter-spacing: 12px; margin: 10px; font-weight: bold; }
 .hero h1 span { color: #a1a9b0; display: inline-block; }
 .hero p { letter-spacing: 1px; }

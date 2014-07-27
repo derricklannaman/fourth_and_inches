@@ -34,7 +34,7 @@ html {
 body  {
   font-family: 'Raleway', sans-serif;
   /*background: url('light_noise_diagonal.png');*/
-  background-image:asset-url('light_noise_diagonal.png')
+  background: image-url('light_noise_diagonal.png')
   p{
     color: $base-text;
     color: $steel;
