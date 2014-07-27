@@ -31,10 +31,9 @@ html {
 
 }
 
-body  {
+body {
   font-family: 'Raleway', sans-serif;
-  background-image: url('light_noise_diagonal.png');
-  /*background: image-url('light_noise_diagonal.png') doesnt load img*/
+  background-image: asset-data-url('light_noise_diagonal.png');
   p{
     color: $base-text;
     color: $steel;
