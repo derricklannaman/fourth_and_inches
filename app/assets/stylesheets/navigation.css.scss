@@ -36,7 +36,7 @@ nav a:focus {
 }
 
 #logo-place-holder {
-  background: url('paper4.png');
+  background-image: asset-data-url('paper4.png');
   padding: 10px;
   margin-top: -30px;
   text-align: center;

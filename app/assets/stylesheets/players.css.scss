@@ -117,7 +117,7 @@ div.player-card, div.player-stat-panel {
   padding: 25px;
   text-align: center;
   background-color: #FFF;
-  background: url('paper4.png');
+  background-image: asset-data-url('paper4.png');
   @include form_shadow;
 }
 
@@ -131,7 +131,7 @@ div.player-card-mini {
   padding: 25px;
   text-align: center;
   background-color: #FFF;
-  background: url('paper4.png');
+  background-image: asset-data-url('paper4.png');
   @include form_shadow;
 }
 
