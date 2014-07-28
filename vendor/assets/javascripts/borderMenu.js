@@ -18,6 +18,10 @@
 	}
 
 	function init() {
+
+		if (document.getElementById( 'bt-menu' ) == null) {
+			return
+		}
 			var menu = document.getElementById( 'bt-menu' ),
 
 			trigger = menu.querySelector( 'a.bt-menu-trigger' ),

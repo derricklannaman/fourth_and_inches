@@ -36,6 +36,7 @@
 //= require scripts.js
 //= require waypoints.min.js
 //= require min/scripts-ck.js
+//= require borderMenu
 
 
 //= require gmaps/google
