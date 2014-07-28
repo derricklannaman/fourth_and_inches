@@ -41,7 +41,7 @@
 //= require borderMenu
 
 
-//= require gmaps/google
+// gmaps/google
 
 
 //= require_tree .

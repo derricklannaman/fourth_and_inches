@@ -51,10 +51,34 @@ nav a:focus {
   transform: translateY(-20px) scale(1, 1);
 }
 
+ul#acct-actions {
+  position: fixed;
+  top: 20px;
+  right: 0;
+  margin-right: 13px;
+  margin-top: -18px;
+  .setup-gear {
+    color: $steel-light-40;
+    &:hover {
+      color: $steel-light-20;
+    }
+  }
+}
+
+/*i.fa.fa-gear.setup-gear.fa-5x {
+color: #F00;
+}*/
+
+a#acct-action-symbol {
+  background-color: #FFF;
+  margin-top: 12px;
+  padding: 0;
+}
+
+
 .mini-manager-buttons {
   text-decoration: none !important;
   color: darken( $go-green, 10% );
-
 }
 
 #on-page-nav {
