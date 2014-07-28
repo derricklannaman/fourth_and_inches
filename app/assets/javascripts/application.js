@@ -9,7 +9,6 @@
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
-// turbolinks
 // underscore.js -- Why did I need underscore???
 
 
@@ -26,16 +25,19 @@
 //= require modernizr2.custom.js
 //= require avgrund.js
 //= require alertify.js
+
+
 //= require ajaxify_rails
+// turbolinks
 //= require jquery.stapel.js
 //= require stepsForm.js
 //= require classie.js
-//= require jquery.flexslider.js
-//= require jquery.smooth-scroll.js
-//= require overlay.js
-//= require scripts.js
-//= require waypoints.min.js
-//= require min/scripts-ck.js
+//  flexslider.js
+//  smooth-scroll.js
+//  overlay.js
+//  scripts.js
+//  waypoints.min.js
+//  min/scripts-ck.js
 //= require borderMenu
 
 
