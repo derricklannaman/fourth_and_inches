@@ -3,12 +3,12 @@ $(document).ready(function(){
   $('.not-yet-implemented').on('click', notYetImplemented);
   $('div#add-division').on('click', runStepsForm);
   $('div.spinner').add('#fee-form').hide();
-  $('#program-fee-button').on('click', showFeeForm);
-  $('a#submit-program-fee').on('click',updateProgramFee);
-  $('#add-logo-button').on('click', showLogoForm);
-  $('#edit_program-info').on('click', showEditForm);
-  $('#edit-form-button').on('click', editProgramInfo);
-  $('#reset-season').on('click', resetSeason);
+  $('#program-fee-button').on('click', ProgramPanel.showFeeForm);
+  $('a#submit-program-fee').on('click',ProgramPanel.updateProgramFee);
+  $('#add-logo-button').on('click', ProgramPanel.showLogoForm);
+  $('#edit_program-info').on('click', ProgramPanel.showEditForm);
+  $('#edit-form-button').on('click', ProgramPanel.editProgramInfo);
+  $('#reset-season').on('click', ProgramPanel.resetSeason);
   change_logo_button_text();
 
   // Add 3D-ism
@@ -22,49 +22,79 @@ $(document).ready(function(){
   }
 });
 
-function resetSeason() {
-  alertify.alert('DANGER! This will RESET THE SEASON! Are You sure?');
-}
+var ProgramPanel = (function(){
+  return {
+    showFeeForm: function() {
+      removeMessages();
+      $('#fee-form').fadeToggle(100);
+    },
+    updateProgramFee: function() {
+      var form = $('#program-fee-form');
+          id = form.attr('action').split('/')[2];
+          feeForm = $('#program_fee');
+          fee = feeForm.find('option:selected')[0].value;
 
-function showEditForm() {
-  removeMessages();
-  $('form#edit-program-form').fadeToggle(100);
-}
+      $.ajax({
+        type: 'Post',
+        url: '/programs/set_fee',
+        data: {id: id, fee: fee },
+        success: function(result) {
+          form.fadeToggle(100);
+          var newFee = result.fee
+          $('#current-fee > span').text('$'+ newFee + '0' );
+          programPanelMessage();
+        },
+        error: function(e) {
+          whoopsErrorMessage();
+        }
+      });
+    },
+    showEditForm: function() {
+      removeMessages();
+      $('form#edit-program-form').fadeToggle(100);
+    },
+    editProgramInfo: function() {
+      var form    = $('#edit-program-form'),
+          id      = form[0].action.split('/')[4],
+          inputs  = form.find('input'),
+          team    = inputs[3].value,
+          town    = inputs[4].value
+      var pack = { id: id, team: team, town: town}
+      $.ajax({
+        type: 'POST',
+        url: 'programs/' + id + '/ajax_program_edits',
+        data: { info :pack},
+        success: function(program) {
+          form.fadeToggle(100);
+          var updated_name =  program.town_name + ' '
+                            + program.team_name + ' '
+                            + 'Football';
+          $('.navbar-title').find('h1')
+                              .contents()
+                              .first()
+                                .replaceWith(updated_name);
+          programPanelMessage();
+        },
+        error: function(e) {
+          whoopsErrorMessage();
+        }
+      });
+    },
+    showLogoForm: function() {
+      $('form#logo-form').fadeToggle(100);
+    },
+    resetSeason: function() {
+      alertify.alert('DANGER! This will RESET THE SEASON! Are You sure?');
+    }
+  }
+})();
+
 
 function removeMessages() {
   var message = $('#message-hook');
   if ( message.children().length ) {
     message.empty();
   }
-}
-
-function editProgramInfo() {
-  var form    = $('#edit-program-form'),
-      id      = form[0].action.split('/')[4],
-      inputs  = form.find('input'),
-      team    = inputs[3].value,
-      town    = inputs[4].value
-  var pack = { id: id, team: team, town: town}
-  $.ajax({
-    type: 'POST',
-    url: 'programs/' + id + '/ajax_program_edits',
-    data: { info :pack},
-    success: function(program) {
-      form.fadeToggle(100);
-      var updated_name =  program.town_name + ' '
-                        + program.team_name + ' '
-                        + 'Football';
-      $('.navbar-title').find('h1')
-                          .contents()
-                          .first()
-                            .replaceWith(updated_name);
-
-      programPanelMessage();
-    },
-    error: function(e) {
-      whoopsErrorMessage();
-    }
-  });
 }
 
 function programPanelMessage() {
@@ -84,38 +114,6 @@ function change_logo_button_text() {
     $('#add-logo-button').text('Add Team Logo');
     $('#logo-button').text('Select program logo');
   }
-}
-
-function showLogoForm() {
-  // removeMessages();
-  $('form#logo-form').fadeToggle(100);
-}
-
-function updateProgramFee() {
-  var form = $('#program-fee-form');
-      id = form.attr('action').split('/')[2];
-      feeForm = $('#program_fee');
-      fee = feeForm.find('option:selected')[0].value;
-
-  $.ajax({
-    type: 'Post',
-    url: '/programs/set_fee',
-    data: {id: id, fee: fee },
-    success: function(result) {
-      form.fadeToggle(100);
-      var newFee = result.fee
-      $('#current-fee > span').text('$'+ newFee + '0' );
-      programPanelMessage();
-    },
-    error: function(e) {
-      whoopsErrorMessage();
-    }
-  });
-}
-
-function showFeeForm() {
-  removeMessages();
-  $('#fee-form').fadeToggle(100);
 }
 
 function change_alertify_buttons() {
