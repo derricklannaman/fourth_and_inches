@@ -83,6 +83,19 @@ function deleteTeamPod() {
           updateTeamCount();
           pod.fadeOut(100);
           fadeFlash();
+
+          restoreAddTeamBox();
+
+          // var showBox = $('<div class=show-box>');
+          //     header   = $('<h3><p>To get started, add your first team</p></h3>');
+          //     button = $('<div class=fat-call-to-action>');
+
+          //     link = $('<a href= "/teams/new">Add Team</a>')
+          //                           .css({'font-size': '2.2em'});
+          //     button.append(link);
+          // showBox.append(header,button)
+          // showBox.insertAfter('.team-list-panel')
+
         },
         error: function(e) {
           whoopsErrorMessage();
@@ -93,6 +106,32 @@ function deleteTeamPod() {
       return
     }
   });
+}
+
+function restoreAddTeamBox() {
+  // check the # of undeleted teams
+  var panel = $('.team-list-panel');
+      teams = panel.first().children();
+      remainingTeams = [];
+  for (var i = 0; i < teams.length; i++) {
+    if (teams[i].style.cssText != "display: none;") {
+      remainingTeams.push(teams[i]);
+    }
+  }
+  // when deleted teams reach 0, restore add team box
+  if (remainingTeams.length <= 1) {
+    var showBox = $('<div class=show-box>');
+        header   = $('<h3><p>To get started, add your first team</p></h3>');
+        button = $('<div class=fat-call-to-action>');
+        link = $('<a href= "/teams/new">Add Team</a>')
+                              .css({'font-size': '2.2em'});
+        button.append(link);
+    showBox.append(header,button);
+    showBox.insertAfter('.team-list-panel');
+  }
+  else {
+    return
+  }
 }
 
 function updateTeamCount() {
