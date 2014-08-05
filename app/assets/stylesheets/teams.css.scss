@@ -151,28 +151,29 @@ div.team_pod {
   background-color: #FFF;
   background-size: 125px;
   margin: 8px;
-  padding: 15px;
-  border-radius: 5px;
+  /*padding: 15px;*/
+  /*border-radius: 5px;*/
   cursor: pointer;
-  border: 20px solid #FF0;
+  /*border: 20px solid #FF0;*/
   box-shadow: 0px 0px 9px #999;
 }
 
 div.inner_team_pod {
-  box-shadow: inset 0px 0px 7px #999;
-  width: 179px;
-  padding: 14px;
-  padding-top: 0px;
-  margin: -15px;
+  /*box-shadow: inset 0px 0px 7px #999;*/
+  /*width: 179px;*/
+  /*padding: 14px;*/
+  /*padding-top: 0px;*/
+/*  margin: -15px;
   margin-left: -19px;
   height: 215px;
-}
+*/}
 
 .pod_title {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: $steel-light-30;
+  opacity: 0.9;
   color: #FFF;
-  width: 177px;
-  margin-left: -13px;
+  /*width: 177px;*/
+  /*margin-left: -13px;*/
   padding: 0 10px;
   position: relative;
   z-index: 1;

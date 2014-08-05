@@ -59,7 +59,11 @@
       %h3
         = link_to 'inventory', inventory_index_path, class: 'action-tile'
       %h3
-        = link_to 'website', website_path(@website), class: 'action-tile'
+        - if current_user.program.nil?
+          = link_to 'website', dashboard_path, class: 'action-tile'
+        - else
+          = link_to 'website', website_path(@website), class: 'action-tile'
+
 
 
 

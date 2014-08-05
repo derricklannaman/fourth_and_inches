@@ -2,6 +2,7 @@ class WebsitesController < ApplicationController
 
   def show
     # TODO: DRY
+    @website = get_website
     @town = @website.town.capitalize
     @name = @website.team.capitalize
     @teams = current_user.program.teams unless current_user.nil?
