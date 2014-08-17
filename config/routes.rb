@@ -22,7 +22,7 @@ FourthAndInches::Application.routes.draw do
   get 'team_manager' => 'teams#team_manager',       as: 'team_manager'
   get 'team_dashboard/:id' => 'teams#team_dashboard', as: 'team_dashboard'
 
-  post 'opponents/:id/list_destroy' => 'opponents#list_destroy',  as: 'list_destroy'
+  # post 'opponents/:id/list_destroy' => 'opponents#list_destroy',  as: 'list_destroy'
   post 'programs/set_fee' => 'programs#set_fee'
   post 'programs/:id/ajax_program_edits' => 'programs#ajax_program_edits'
 
@@ -35,7 +35,14 @@ FourthAndInches::Application.routes.draw do
   resources :websites,    only: :create
   resources :charges
   resources :divisions
-  resources :opponents
+  resources :opponents do
+    member do
+      post :list_destroy
+    end
+  end
+
+
+
   resources :events,      only: [:index]
   resources :schedules,   except: :index
   resources :dashboard,   only: :create
