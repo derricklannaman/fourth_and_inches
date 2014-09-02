@@ -28,7 +28,7 @@
 
 
 //= require ajaxify_rails
-// turbolinks
+//  turbolinks
 //= require jquery.stapel.js
 //= require stepsForm.js
 //= require classie.js
