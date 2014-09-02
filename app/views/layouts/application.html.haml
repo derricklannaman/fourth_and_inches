@@ -11,7 +11,7 @@
 
   %body{:class => "#{controller_name} #{action_name}"}
     :javascript
-      Ajaxify.init( { active: true, scroll_to_top: false, flash_types: ['notice', 'error'] } );
+      Ajaxify.init( { active: false, scroll_to_top: false, flash_types: ['notice', 'error'] } );
 
     .app_nav_bar.white-out
       = nav_view_by_login_status

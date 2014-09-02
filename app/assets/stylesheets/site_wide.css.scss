@@ -167,7 +167,8 @@ h3.stat-bar-title {
   color: #FFF;
   font-size: 20px;
   letter-spacing: 2px;
-  z-index: 1;
+  text-transform: uppercase;
+  z-index: 1000;
   .notice {
     @include hr_fade_notice;
   }
