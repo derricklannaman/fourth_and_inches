@@ -11,6 +11,26 @@
 #       Choose the win32 build.
 #       Install PostgreSQL and put its /bin directory on your path.
 #
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+
+development:
+  <<: *default
+  database: fourth_and_inches_development
+
+test:
+  <<: *default
+  database: fourth_and_inches_test
+
+
+
+
+
+
 # Configure Using Gemfile
 # gem 'pg'
 #
@@ -22,13 +42,13 @@
 #   username: fourth_and_inches
 #   password:
 
-development:
-  adapter: postgresql
-  encoding: unicode
-  database: fourth_and_inches_development
-  pool: 5
-  username: postgres
-  password: mateo525
+# development:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: fourth_and_inches_development
+#   pool: 5
+#   username: postgres
+#   password: mateo525
 
 
 
@@ -53,18 +73,25 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  adapter: postgresql
-  encoding: unicode
-  database: fourth_and_inches_test
-  pool: 5
+# test:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: fourth_and_inches_test
+#   pool: 5
+#   username: postgres
+#   password: mateo525
+
+production:
+  <<: *default
+  database: fourth_and_inches_production
+  # url: <%= ENV['DATABASE_URL'] %>
   username: postgres
   password: mateo525
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: fourth_and_inches_production
-  pool: 5
+# production:
+  # adapter: postgresql
+  # encoding: unicode
+  # database: fourth_and_inches_production
+  # pool: 5
   username: postgres
   password: mateo525
