@@ -4,7 +4,7 @@
 @import 'color_chart';
 @import 'mixins';
 
-/*nav a {
+nav a {
   position: relative;
   display: inline-block;
   margin: 15px 25px;
@@ -16,7 +16,7 @@
   font-weight: 400;
   text-shadow: 0 0 1px rgba(255,255,255,0.3);
   font-size: 1.35em;
-}*/
+}
 
 nav a:hover,
 nav a:focus {
