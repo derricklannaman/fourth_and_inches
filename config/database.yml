@@ -16,7 +16,4 @@ test:
 production:
   <<: *default
   database: fourth_and_inches_production
-  username: postgres
-  password: mateo525
-
-  # url: <%= ENV['DATABASE_URL'] %>
+  url: <%= ENV['FOURTH_AND_INCHES_DATABASE_URL'] %>
