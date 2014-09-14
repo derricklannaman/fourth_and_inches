@@ -54,7 +54,7 @@ module UserRegistration
 
   def process_director_registration
     create_new_user
-    user_type = 'director'
+    user_type = "master"
     set_user_full_name
     @user.user_type = user_type
     @user.username = @user_name

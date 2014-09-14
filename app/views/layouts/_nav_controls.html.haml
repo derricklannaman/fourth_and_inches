@@ -7,7 +7,7 @@
       = link_to 'office', office_manager_path, class: 'mini-manager-buttons'
       = link_to 'coaches', coaches_corner_path, class: 'mini-manager-buttons'
 
-- elsif current_user.has_role? 'director'
+- elsif current_user.has_role? "master"
   %section.text-center
     .row
       .col-md-12

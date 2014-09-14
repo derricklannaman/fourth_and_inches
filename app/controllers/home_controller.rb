@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 
   def index
     if user_signed_in?
-      if (current_user.program.blank?) && (current_user.has_role?("director"))
+      if (current_user.program.blank?) && (current_user.has_role?("master"))
         redirect_to(controller: "programs", action: "new")
       elsif current_user.has_role?("parent_user")
         website = current_user.program.websites.first.id

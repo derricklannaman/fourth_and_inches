@@ -6,7 +6,7 @@ class PlayersController < ApplicationController
 
   def index
     @players = current_user.teams.active.players \
-                          unless current_user.user_type == 'director'
+                          unless current_user.user_type == "master"
     all_players = current_user.get_programs_players
     if all_players.empty?
       return
