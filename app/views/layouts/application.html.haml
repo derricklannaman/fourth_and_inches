@@ -13,7 +13,11 @@
     :javascript
       Ajaxify.init( { active: false, scroll_to_top: false, flash_types: ['notice', 'error'] } );
 
+    #branding-bar
+      .brand
+        Huddle24
     .app_nav_bar.white-out
+
       = nav_view_by_login_status
     = show_banner_on_website_view_only(controller_name, action_name, @town, @name)
 

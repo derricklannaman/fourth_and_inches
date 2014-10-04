@@ -35,6 +35,17 @@ nav a:focus {
   margin-top: -25px;
 }
 
+#branding-bar {
+  background-color: #000;
+  height: 50px;
+}
+
+.brand {
+  color: #FFF;
+  padding: 10px 30px;
+  font-size: 1.6em;
+}
+
 #logo-place-holder {
   width: 180px;
   background-image: asset-data-url('paper4.png');
@@ -42,14 +53,14 @@ nav a:focus {
   margin-top: -40px;
   text-align: center;
   cursor: pointer;
-  transition: all 1000ms cubic-bezier(0.190, 0.75, 0.220, 0.75);
+  /*transition: all 1000ms cubic-bezier(0.190, 0.75, 0.220, 0.75);*/
   box-shadow: 0 1px 1px rgba(0,0,0,0.3);
-  transform: translateY(0) scale(0.65, 0.65);
+  /*transform: translateY(0) scale(0.65, 0.65);*/
 }
 
 #logo-place-holder.active {
   box-shadow: 0 11px 18px rgba(0,0,0,0.2);
-  transform: translateY(-20px) scale(1, 1);
+  /*transform: translateY(-20px) scale(1, 1);*/
 }
 
 ul#acct-actions {
@@ -72,7 +83,7 @@ color: #F00;
 
 a#acct-action-symbol {
   background-color: #FFF;
-  margin-top: 12px;
+  margin-top: 50px;
   padding: 0;
 }
 

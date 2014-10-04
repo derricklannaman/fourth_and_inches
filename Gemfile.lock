@@ -297,7 +297,7 @@ DEPENDENCIES
   pry-rails
   pry-rescue
   quiet_assets
-  rails (= 4.1.2)
+  rails
   rails_12factor
   rolify
   rspec-rails (~> 3.0.0)
