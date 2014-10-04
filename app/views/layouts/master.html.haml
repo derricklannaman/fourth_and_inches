@@ -23,10 +23,19 @@
       #app-content-director
 
         #main.director-view
-          %section.text-center
-            .container
+          / %section.text-center
+          /   .container
+          /     .row
+          /       .col-lg-12
+
+          - if user_signed_in?
+            %section.text-center
               .row
                 .col-lg-12
+                  = yield
+            %script{src: "assets/borderMenu.js"}
+
+
             = yield
 
 
