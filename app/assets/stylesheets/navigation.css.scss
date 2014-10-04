@@ -4,6 +4,14 @@
 @import 'color_chart';
 @import 'mixins';
 
+.program-brand-bar {
+  font-size: 2em;
+  margin-left: -200px;
+  width: 160px;
+  float: left;
+  margin-top: -10px;
+}
+
 nav a {
   position: relative;
   display: inline-block;

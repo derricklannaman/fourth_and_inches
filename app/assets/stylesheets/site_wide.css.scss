@@ -77,6 +77,7 @@ html body.denied-403 {
 }
 
 div.app_nav_bar {
+  background-color: #666;
   margin-bottom: 10px;
   /*position: fixed;*/
   width: 100%;
@@ -137,8 +138,8 @@ h3.stat-bar-title {
 }
 
 .white-out {
-  background-color: #FFF;
-  z-index: 2;
+  /*background-color: #FFF;*/
+  /*z-index: 2;*/
 }
 
 #app_sign_in {

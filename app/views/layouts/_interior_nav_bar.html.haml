@@ -1,10 +1,10 @@
-%nav.navbar.navbar-default{role: "navigation"}
+%nav.navbar
   .container-fluid
   - if current_user.program_id.nil?
     .navbar-header
-      %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
       %header.navbar-title
-        .navbar-brand
+        .program-brand-bar
+          %p Dashboard
           / Show no Logo
         %h3
           = "Your team name will go here"
@@ -12,10 +12,10 @@
 
   - else
     .navbar-header
-      %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
       %header.navbar-title
-        .navbar-brand
-          = display_team_logo(:mini)
+        .program-brand-bar
+          %p Dashboard
+          =# display_team_logo(:mini)
         %h1
           = display_team_title
           = show_sign_out_link_if_signed_in
